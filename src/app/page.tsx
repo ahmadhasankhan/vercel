@@ -10,6 +10,10 @@ export default function Home() {
             <Head>
                 <title>Asistensia - Ruby, PHP & DevOps Consulting</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <meta name="description" content="Tailored software development and consulting services including Ruby, Rails, Ruby On Rails PHP, Laravel, DevOps and API integrations." />
+                <meta property="og:title" content="Asistensia - Software Consulting" />
+                <meta property="og:description" content="We build scalable and secure software solutions." />
+                <meta property="og:image" content="/og-image.png" />
                 <link
                     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
                     rel="stylesheet"
