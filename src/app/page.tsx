@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import Head from "next/head";
 import ContactSection from "./components/ContactSection";
-import ServicestSection from "./components/ServicestSection.tsx";
+import ServicestSection from "./components/ServicestSection";
 
 export default function Home() {
     return (
