@@ -53,7 +53,7 @@ export default function Home() {
                             </h1>
 
                             <p className="text-xl md:text-2xl max-w-4xl mx-auto">
-                                Unlock your business potential with specialized consulting in Ruby, Rails On Rails
+                                Unlock your business potential with specialized consulting in Ruby, Ruby On Rails
                                 PHP, and DevOps solutions.
                             </p>
                             <div className="mt-10">

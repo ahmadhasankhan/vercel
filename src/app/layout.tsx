@@ -15,7 +15,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Asistensia - Ruby on Rails Consulting Experts',
   description: 'Tailored software consulting services with Ruby, Laravel, DevOps, and API solutions. Based in Amsterdam, serving global clients.',
-  keywords: ['Ruby', 'Ruby Develop', 'Ruby Engineer','Ruby on Rails Develop', 'Ruby on Rails', 'Laravel', 'DevOps', 'API development', 'Software consulting'],
+  keywords: ['Ruby', 'Ruby Develop', 'Ruby Engineer','Ruby on Rails Develop', 'Ruby on Rails', 'Laravel', 'DevOps',
+    'API development', 'Software consulting'],
   openGraph: {
     title: 'Asistensia - Ruby on Rails Consulting Experts',
     description: 'Tailored software consulting services with Ruby, Laravel, DevOps, and API solutions.',
