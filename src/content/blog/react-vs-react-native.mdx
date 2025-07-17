@@ -1,0 +1,170 @@
+---
+title: "React vs React Native: Lessons From Working on Web and Mobile Versions of the Same Product"
+paragraph: "What changes when you build the same app for web and mobile? A practical take on React vs React Native."
+author:
+  postedby: "Posted By"
+  name: "Humnashin Khan"
+  title: "Full Stack Software Engineer"
+  profileImage: "https://avatars.githubusercontent.com/u/92224334?s=400&u=e1d4952ea0a183f27be0a918643bfcdcb85cc6ab&v=4"
+  coverImage: "https://arhamtechnosoft.com/wp-content/uploads/2024/04/React-BLOG-IMAGES-01-891x505-1.jpg"
+---
+
+## **As a frontend developer**,working on both the web and mobile versions of the same product has taught me more than just syntax differences. It helped me understand how design decisions, performance considerations, and team workflows can vary across platforms.
+
+Both React and React Native are built on the same foundation. But once you start developing for both, you’ll quickly realize they require different mindsets.
+
+In this post, I’ll walk you through the key differences I encountered and the lessons I learned while building and maintaining real-world applications using both React (for web) and React Native (for mobile).
+
+## <br/>
+
+<br />
+<p className="font-bold text-[#0094de] text-center italic">1. UI: Familiar Logic Very Different Components.</p>
+<br/>
+
+At first glance, React and React Native feel almost identical. JSX, components, props, and hooks all work the same. The likeness fades, though, once you hit the UI layer.
+
+### Web (React):
+
+- Uses HTML elements like `<button>`, `<span>`, `<div>`
+- Styling is handled with CSS frameworks like Tailwind, Bootstrap, or CSS-in-JS.
+- Flexbox and Grid systems give precise control over layout.
+
+### Mobile (React Native):
+
+- Uses custom components like `<TouchableOpacity>`, `<Text>`, `<View>`
+- No CSS — styling is done through JavaScript objects with a limited subset of properties.
+- Layout is built entirely with Flexbox.
+
+**Lesson:**  
+While some utility logic can be shared, most UI components are written separately. Responsive layouts, font sizes, and interaction styles need platform-specific considerations.
+
+## <br/>
+
+---
+
+<br />
+
+## <p className="font-bold text-[#0094de] text-center italic">2. Navigation: Routes vs Stacks</p><br/>
+
+Navigation is one of the biggest differences.
+
+### React (Web):
+
+- Libraries like React Router handle nested routes and tabs with ease.
+- Navigation is URL-based and declarative.
+
+### React Native:
+
+- Uses React Navigation, which supports stack, tab, and drawer navigators.
+- Requires manual handling of hardware back buttons, gestures, and transitions.
+- Screen transitions are animated and feel more like native apps.
+
+**Lesson:**  
+Navigation in mobile apps is more complex and stateful. Features like conditional screen rendering, back gestures, and deep linking need extra attention.
+
+## <br/>
+
+---
+
+<br />
+ <p className="font-bold text-[#0094de] text-center italic">3. API Integration: Shared Logic, Different Experiences.</p>
+ <br/>
+Both platforms can use the same API — REST or GraphQL — and share utility functions. However, how the data is consumed and displayed can vary.
+
+- Mobile apps often require more aggressive loading states, skeleton screens, or paginated fetching.
+- Web apps can afford more frequent background refreshes or large table displays.
+
+**Lesson:**  
+Even with shared APIs, you’ll often end up writing different UI logic to make sure performance and user experience feel right for each platform.
+
+## <br/>
+
+---
+
+<br />
+
+## <p className="font-bold text-[#0094de] text-center italic">4. Filters, Search, and Inputs: UX Matters More on Mobile</p><br/>
+
+### **React (Web):**
+
+- Complex filters and multi-selects are easier to manage.
+- You have more screen space and can rely on hover states, dropdowns, and real-time updates.
+
+### **React Native:**
+
+- Touch interactions need to be large and accessible.
+- Dropdowns, sliders, and multi-selects must fit into modals or sheets.
+- Keyboard interactions and screen space are constraints.
+
+**Lesson:**  
+The same feature often needs to be redesigned, not just ported, to work well on mobile.
+
+## <br/>
+
+---
+
+<br />
+
+## <p className="font-bold text-[#0094de] text-center italic">5. Deployment: Simpler for Web, Slower for Mobile</p><br/>
+
+### **React (Web):**
+
+- Continuous deployment is straightforward with tools like Vercel or Netlify.
+- You can fix and push changes quickly.
+
+### **React Native:**
+
+- Requires separate builds for Android and iOS.
+- Each platform has its own tooling, SDK updates, and store submission processes.
+- Debugging involves emulators, devices, and native logs.
+
+**Lesson:**  
+Mobile releases involve more overhead, so testing and planning are crucial. Hotfixes aren't instant like on the web.
+
+## <br/>
+
+---
+
+<br />
+
+### **React (Web):**
+
+- Fast build times
+- Mature browser dev tools
+- Easier debugging
+
+### **React Native:**
+
+- Native dependencies
+- Emulator/device debugging
+- Occasional platform-specific issues
+  <br />
+
+---
+
+<br />
+## <p className="font-bold text-[#0094de] italic">Summary: Know What to Share and What to Split</p>
+<br />
+<img
+  src="https://dev-strapi.sedintechnologies.com/uploads/React_vs_React_native_1_e8c531397f.png"
+  alt="Example image"
+  className="rounded-lg md:max-w-5xl mx-auto"
+/>
+<br />
+
+## <p className="font-bold text-[#0094de] text-center italic">Final Thoughts</p>
+
+If you’re working on both web and mobile versions of a product using React and React Native, the most important thing to remember is this:
+
+> Don’t assume one codebase will fit both platforms. Instead, think in terms of shared logic, and build separate, optimized experiences for web and mobile.
+
+That mindset helped me deliver a consistent feature set across platforms while still respecting the unique needs of web and mobile users.
+
+
+## <br/>
+
+---
+
+## <p className="font-bold text-[#0094de]">Written by Humnashin.</p>
+
+**Humnashin Khan** is a Full Stack Software Engineer with 1+ years of experience, with a strong focus on Frontend development. She builds web and mobile applications using React, React Native, and TypeScript, and occasionally contributes to backend development using Node JS and JavaScript.

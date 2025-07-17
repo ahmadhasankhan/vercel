@@ -3,7 +3,7 @@ export default function ContactSection() {
         <section id="contact" className="py-20 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+                    <h2 className="text-3xl font-bold  text-[#413e66] mb-4">Get In Touch</h2>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                         Ready to discuss your project? Reach out to us today.
                     </p>
@@ -52,7 +52,7 @@ export default function ContactSection() {
                             <div>
                                 <button
                                     type="submit"
-                                    className="w-full bg-primary text-white font-semibold py-2 px-4 rounded-md hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                                    className="w-full bg-[#1bb1dc] text-white font-semibold py-2 px-4 rounded-md  hover:bg-[#1993dc] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                                 >
                                     Send Message
                                 </button>
@@ -63,27 +63,27 @@ export default function ContactSection() {
                     {/* Contact Info Section */}
                     <div className="lg:w-1/2 lg:pl-12">
                         <div className="bg-gray-50 p-8 rounded-lg">
-                            <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
+                            <h3 className="text-xl font-semibold mb-6 text-[#413e66] ">Contact Information</h3>
                             <div className="space-y-4">
                                 <ContactItem
                                     title="Phone"
                                     detail="+31-619-333008"
                                     icon={
-                                        <PhoneIcon className="h-6 w-6 text-primary mt-1 mr-4" />
+                                        <PhoneIcon className="h-6 w-6 text-[#1bb1dc]  mt-1 mr-4" />
                                     }
                                 />
                                 <ContactItem
                                     title="Email"
                                     detail="contact@asistensia.com"
                                     icon={
-                                        <MailIcon className="h-6 w-6 text-primary mt-1 mr-4" />
+                                        <MailIcon className="h-6 w-6 text-[#1bb1dc] mt-1 mr-4" />
                                     }
                                 />
                                 <ContactItem
                                     title="Address"
                                     detail="Amsterdam, Netherlands"
                                     icon={
-                                        <LocationIcon className="h-6 w-6 text-primary mt-1 mr-4" />
+                                        <LocationIcon className="h-6 w-6 text-[#1bb1dc] mt-1 mr-4" />
                                     }
                                 />
                             </div>
