@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const AskQuestion = () => {
+export default function AskQuestion () {
   const faqs = [
     {
       id: 1,
@@ -109,4 +109,3 @@ const AskQuestion = () => {
   )
 }
 
-export default AskQuestion

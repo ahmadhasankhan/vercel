@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Team = () => {
+ export default function Team () {
   return (
     <div className="h-72 w-full bg-[#f5f8fd]">
       <h4 className="text-[#413e66] text-[36px] font-bold text-center pt-8">Team</h4>
@@ -12,4 +12,3 @@ const Team = () => {
   )
 }
 
-export default Team
