@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Layout from "@/app/components/Layout";
 
-interface BlogParams {
+interface PageProps {
   params: {
     slug: string;
   };
@@ -19,8 +19,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BlogPage({ params }: BlogParams) {
-  const { slug } = params;
+export default async function Page({ params }: PageProps) {
+  const slug = params.slug;
   const filePath = path.join(process.cwd(), "src/content/blog", `${slug}.mdx`);
 
   if (!fs.existsSync(filePath)) {
