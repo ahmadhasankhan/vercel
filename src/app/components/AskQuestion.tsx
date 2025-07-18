@@ -56,9 +56,9 @@ export default function AskQuestion () {
     },
   ];
 
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  const toggleFAQ = (index) => {
+  const toggleFAQ = (index : number) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
