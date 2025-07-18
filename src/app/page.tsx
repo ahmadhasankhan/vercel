@@ -46,23 +46,23 @@ export default function Home() {
               <div className="hidden md:flex items-center space-x-8">
                 <a
                   href="#about"
-                  className="text-gray-700 hover:text-primary"
+                  className="text-gray-700 hover:text-[#1bb1dc]"
                 >
                  About Us
                 </a>
-                <a href="#services" className="text-gray-700 hover:text-primary">
+                <a href="#services" className="text-gray-700 hover:text-[#1bb1dc]">
                    Services
                 </a>
-                <a href="#about" className="text-gray-700 hover:text-primary">
+                <a href="#about" className="text-gray-700 hover:text-[#1bb1dc]">
                   Privacy
                 </a>
-                <a href="#about" className="text-gray-700 hover:text-primary">
+                <a href="#about" className="text-gray-700 hover:text-[#1bb1dc]">
                   Terms
                 </a>
-                <a href="/blog" className="text-gray-700 hover:text-primary">
+                <a href="/blog" className="text-gray-700 hover:text-[#1bb1dc]">
                   Blog
                 </a>
-                <a href="#contact" className="text-gray-700 hover:text-primary">
+                <a href="#contact" className="text-gray-700 hover:text-[#1bb1dc]">
                   Contact us
                 </a>
               </div>
@@ -85,7 +85,7 @@ export default function Home() {
               <div className="mt-10">
                 <a
                   href="#contact"
-                  className="mt-10 inline-block bg-white text-primary font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition duration-300"
+                  className="mt-10 inline-block bg-white text-[#1bb1dc] font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition duration-300"
                 >
                   Get Started
                 </a>
