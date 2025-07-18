@@ -6,9 +6,9 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import Layout from "@/app/components/Layout";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -19,7 +19,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function Page({ params }: PageProps) {
+export default async function Page(props: PageProps) {
+  const params = await props.params;
   const slug = params.slug;
   const filePath = path.join(process.cwd(), "src/content/blog", `${slug}.mdx`);
 
