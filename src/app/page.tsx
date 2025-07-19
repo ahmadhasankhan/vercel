@@ -7,6 +7,7 @@ import {
   faLinkedin,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import { faCheckDouble } from "@fortawesome/free-solid-svg-icons";
 import ContactSection from "./components/ContactSection";
 import ServicestSection from "./components/ServicestSection";
 import AskQuestion from "./components/AskQuestion";
@@ -44,14 +45,14 @@ export default function Home() {
                 </a>
               </div>
               <div className="hidden md:flex items-center space-x-8">
+                <a href="#about" className="text-gray-700 hover:text-[#1bb1dc]">
+                  About us
+                </a>
                 <a
-                  href="#about"
+                  href="#services"
                   className="text-gray-700 hover:text-[#1bb1dc]"
                 >
-                 About Us
-                </a>
-                <a href="#services" className="text-gray-700 hover:text-[#1bb1dc]">
-                   Services
+                  Services
                 </a>
                 <a href="#about" className="text-gray-700 hover:text-[#1bb1dc]">
                   Privacy
@@ -62,7 +63,10 @@ export default function Home() {
                 <a href="/blog" className="text-gray-700 hover:text-[#1bb1dc]">
                   Blog
                 </a>
-                <a href="#contact" className="text-gray-700 hover:text-[#1bb1dc]">
+                <a
+                  href="#contact"
+                  className="text-gray-700 hover:text-[#1bb1dc]"
+                >
                   Contact us
                 </a>
               </div>
@@ -93,34 +97,71 @@ export default function Home() {
             </div>
           </div>
         </section>
-      
-       {/* About */}
-        <section id="about" className="py-20 bg-gray-50">
+
+        {/* About */}
+        <section id="about" className="py-12 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 lg:flex items-center">
             <div className="lg:w-1/2 lg:pr-12 mb-10 lg:mb-0">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 About Asistensia
               </h2>
-              <p className="text-gray-600 mb-6">
+              <h3 className="text-[#696592] font-semibold text-xl italic mb-4">
+                The team that lets you build more, while configuring less
+              </h3>
+
+              <p className="text-gray-600">
                 We are a team of passionate software consultants specializing in
-                Ruby on Rails, PHP, Laravel, and DevOps technologies.
+                Ruby on Rails, PHP, Laravel, DevOps, React and React Native
+                technologies.
               </p>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-600 mb-2">
                 Our approach combines technical excellence with deep
                 understanding of business needs.
               </p>
-              <div className="flex space-x-4">
+
+              <h2 className="text-[#444] font-semibold text-[18px] pt-5">
+                Asistensia is based on three pillars:
+              </h2>
+              <ul>
+                <li className="text-[#444] font-normal text-[18px] pt-3 flex items-center">
+                  <FontAwesomeIcon
+                    icon={faCheckDouble}
+                    className="text-[#1bb1dc] h-8 p-2"
+                  />
+                  Streamlined processes.
+                </li>
+                <li className="text-[#444] font-normal text-[18px] pt-3 flex items-center">
+                  <FontAwesomeIcon
+                    icon={faCheckDouble}
+                    className="text-[#1bb1dc] h-8 p-2"
+                  />
+                  Proven technologies.
+                </li>
+                <li className="text-[#444] font-normal text-[18px] pt-3 flex items-center">
+                  <FontAwesomeIcon
+                    icon={faCheckDouble}
+                    className="text-[#1bb1dc] p-2 h-8"
+                  />
+                  Talented people.
+                </li>
+                <p className="text-[#444] font-normal text-[18px] pt-6">
+                  The combination of these things makes us one of the top
+                  software development companies.
+                </p>
+              </ul>
+
+              <div className="flex space-x-4 pt-5">
                 <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <h4 className="font-semibold text-primary">50+</h4>
+                  <h4 className="font-semibold text-[#1bb1dc]">50+</h4>
                   <p className="text-gray-600 text-sm">Projects Completed</p>
                 </div>
                 <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <h4 className="font-semibold text-primary">10+</h4>
+                  <h4 className="font-semibold text-[#1bb1dc]">10+</h4>
                   <p className="text-gray-600 text-sm">Years Experience</p>
                 </div>
               </div>
             </div>
-            <div className="lg:w-1/2">
+            <div className="lg:w-1/2 mb-20">
               <img
                 src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800"
                 alt="Team working"
@@ -130,17 +171,17 @@ export default function Home() {
           </div>
         </section>
 
-         {/* Services */}
+        {/* Services */}
         <ServicestSection />
 
         {/* Contact */}
         <ContactSection />
 
         {/* Team */}
-        <Team/>
+        <Team />
 
-        {/* FAQ */ }
-        <AskQuestion/>
+        {/* FAQ */}
+        <AskQuestion />
 
         {/* Footer */}
         <footer className="bg-[#f5f8fd] text-white py-12 cursor-pointer">
