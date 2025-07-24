@@ -11,7 +11,6 @@ import { faCheckDouble } from "@fortawesome/free-solid-svg-icons";
 import ContactSection from "./components/ContactSection";
 import ServicestSection from "./components/ServicestSection";
 import AskQuestion from "./components/AskQuestion";
-import Team from "./components/Team";
 
 export default function Home() {
   return (
@@ -54,8 +53,11 @@ export default function Home() {
                 >
                   Services
                 </a>
-                <a href="#about" className="text-gray-700 hover:text-[#1bb1dc]">
-                  Privacy
+                <a
+                  href="/privacy"
+                  className="text-gray-700 hover:text-[#1bb1dc]"
+                >
+                  Privacy Policy
                 </a>
                 <a href="#about" className="text-gray-700 hover:text-[#1bb1dc]">
                   Terms
@@ -174,14 +176,11 @@ export default function Home() {
         {/* Services */}
         <ServicestSection />
 
-        {/* Contact */}
-        <ContactSection />
-
-        {/* Team */}
-        <Team />
-
         {/* FAQ */}
         <AskQuestion />
+
+        {/* Contact */}
+        <ContactSection />
 
         {/* Footer */}
         <footer className="bg-[#f5f8fd] text-white py-12 cursor-pointer">
@@ -308,28 +307,40 @@ export default function Home() {
                   </ul>
                 </div>
                 {/* Social media links  */}
+
                 <div>
-                  <h4 className="text-sm font-semibold uppercase tracking-wider m-4 text-[#413e66] cursor-pointer">
-                    Links
+                  <h4 className="text-sm font-semibold uppercase tracking-wider mb-4 text-[#413e66]">
+                    Socials
                   </h4>
-                  <a href="https://x.com/i/flow/login?redirect_after_login=%2FTheAsistensia">
-                    <FontAwesomeIcon
-                      icon={faTwitter}
-                      className="text-[#1bb1dc] h-6 px-3 m-5 rounded-full hover:text-[#1993bc]"
-                    />
-                  </a>
-                  <a href="https://www.facebook.com/asistencia.in/">
-                    <FontAwesomeIcon
-                      icon={faFacebookF}
-                      className="text-[#1bb1dc] h-6 px-3 m-5 rounded-full hover:text-[#1993bc]"
-                    />
-                  </a>
-                  <a href="https://www.linkedin.com/company/asistensia/">
-                    <FontAwesomeIcon
-                      icon={faLinkedin}
-                      className=" text-[#1bb1dc] h-6 px-3 m-5 rounded-full hover:text-[#1993bc]"
-                    />
-                  </a>
+                  <div className="flex space-x-8">
+                    <a
+                      href="https://x.com/i/flow/login?redirect_after_login=%2FTheAsistensia"
+                      aria-label="Twitter"
+                    >
+                      <FontAwesomeIcon
+                        icon={faTwitter}
+                        className="text-[#1bb1dc] h-6 hover:text-[#1993bc]"
+                      />
+                    </a>
+                    <a
+                      href="https://www.facebook.com/asistencia.in/"
+                      aria-label="Facebook"
+                    >
+                      <FontAwesomeIcon
+                        icon={faFacebookF}
+                        className="text-[#1bb1dc] h-6 hover:text-[#1993bc]"
+                      />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/company/asistensia/"
+                      aria-label="LinkedIn"
+                    >
+                      <FontAwesomeIcon
+                        icon={faLinkedin}
+                        className="text-[#1bb1dc] h-6 hover:text-[#1993bc]"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
