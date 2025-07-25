@@ -1,7 +1,7 @@
 import React from "react";
+import Image from "next/image";
 import Layout from "../components/Layout";
 import Link from "next/link";
-
 export default function BlogPage() {
   return (
     <Layout>
@@ -14,9 +14,9 @@ export default function BlogPage() {
         <div className="bg-white rounded-lg pt-5 flex flex-col md:flex-row items-start gap-4 cursor-pointer">
           <div className="w-full">
             <img
-              src="https://arhamtechnosoft.com/wp-content/uploads/2024/04/React-BLOG-IMAGES-01-891x505-1.jpg"
+              src= "/assets/React.jpeg"
               className="rounded-lg w-full h-full object-cover max-h-60 md:max-h-full transition-transform duration-300 hover:scale-105"
-              alt="Blog"
+              alt="react"
             />
           </div>
           <div className="md:w-1/2 w-full flex flex-col justify-between space-y-4 md:ml-10 pt-12 cursor-pointer">
@@ -47,11 +47,11 @@ export default function BlogPage() {
         <br />
         <hr />
         {/* second Topic */}
-        <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start gap-4 cursor-pointer">
+        <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start cursor-pointer">
           <div className="w-full md:w-1/2">
             <img
-              src="https://railsfactory.com/static/221d2129b9f4fa775854e8fb5bc464f5/51f0f/Ruby_on_Rails_the_great_choice_for_startups_5e65fa9e98.webp"
-              className="rounded-lg object-cover max-h-60 md:max-h-80 transition-transform duration-300 hover:scale-105"
+              src= "/assets/Ruby.jpeg"
+              className="rounded-lg object-cover max-h-60 md:max-h-90 transition-transform duration-300 hover:scale-105"
               alt="Blog"
             />
           </div>
@@ -76,11 +76,11 @@ export default function BlogPage() {
         </div>
         {/* Third Topic */}
 
-        <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start gap-4 cursor-pointer">
+        <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start cursor-pointer">
           <div className="w-full md:w-1/2">
             <img
-              src="https://railsfactory.com/static/b35e5bde0cf641e1c01b467e1510c3f7/51f0f/Fast_API_23a297480e.webp"
-              className="rounded-lg object-cover max-h-60 md:max-h-80 transition-transform duration-300 hover:scale-105"
+              src="/assets/API.jpeg"
+              className="rounded-lg object-cover max-h-60 md:max-h-90 transition-transform duration-300 hover:scale-105"
               alt="Blog"
             />
           </div>
