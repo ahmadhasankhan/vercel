@@ -41,8 +41,9 @@ export default async function BlogPage({ params }: BlogParams) {
           {data.paragraph}
         </p>
         <p className="text-center italic text-gray-500 mt-5 p-2">
-          {data.author?.postedby}: {data.author?.name}, {data.author?.title}{" "}
+          {data.author?.postedby}: {data.author?.name}, {data.author?.title}, {data.publishedDate}{" "}
         </p>
+
 
         {data.coverImage && (
           <img
@@ -51,7 +52,7 @@ export default async function BlogPage({ params }: BlogParams) {
             className="w-full my-6 rounded-lg shadow-md mt-10 p-2"
           />
         )}
-        <article className="text-xl md:mt-20 md:px-30 p-5">
+        <article className="text-[18px] md:mt-20 md:px-30 p-5">
           <MDXRemote source={content} />
         </article>
 

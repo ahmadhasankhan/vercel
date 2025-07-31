@@ -34,7 +34,7 @@ export default function BlogPage() {
               />
               <div>
                 <p className="text-gray-800 font-medium">Humnashin Khan</p>
-                <p className="text-sm text-gray-500">July 11, 2025</p>
+                <p className="text-sm text-gray-500">July 25, 2025</p>
               </div>
             </div>
           </div>
@@ -63,13 +63,13 @@ export default function BlogPage() {
             </Link>
             <div className="flex items-center space-x-3">
               <img
-                src="https://avatars.githubusercontent.com/u/3341200?v=4"
+                src="/assets/ahmad.png"
                 alt="Author"
                 className="w-10 h-10 rounded-full"
               />
               <div>
                 <p className="text-gray-800 font-medium">Ahmad Hassan</p>
-                <p className="text-sm text-gray-500">July 15, 2025</p>
+                <p className="text-sm text-gray-500">June 30, 2025</p>
               </div>
             </div>
           </div>
@@ -92,13 +92,13 @@ export default function BlogPage() {
             </Link>
             <div className="flex items-center space-x-3">
               <img
-                src="https://www.profilebakery.com/wp-content/uploads/2023/09/good-lighting.jpg-2.jpg"
+                src="/assets/ahmad.png"
                 alt="Author"
                 className="w-10 h-10 rounded-full"
               />
               <div>
-                <p className="text-gray-800 font-medium">Jashwanth</p>
-                <p className="text-sm text-gray-500">July 16, 2025</p>
+                <p className="text-gray-800 font-medium">Ahmad Hasan</p>
+                <p className="text-sm text-gray-500">July 31, 2025</p>
               </div>
             </div>
           </div>
