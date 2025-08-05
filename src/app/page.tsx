@@ -172,18 +172,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-                            <p className="text-xl md:text-2xl max-w-4xl mx-auto">
-                                Unlock your business potential with specialized consulting in Ruby, Ruby On Rails
-                                PHP, and DevOps solutions.
-                            </p>
-                            <div className="mt-10">
-                                <a href="#contact"  className="mt-10 inline-block bg-white text-primary font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition duration-300">
-                                    Get Started
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
         {/* Services */}
         <ServicestSection />
