@@ -1,0 +1,168 @@
+---
+title: "React vs React Native: Lessons From Working on Web and Mobile Versions of the Same Product"
+paragraph: "Discover how tackling both Web and mobile versions of the same products? A practical take on React vs React Native."
+author:
+  postedby: "Posted By"
+  name: "Humnashin Khan"
+  title: "Full Stack Software Engineer"
+  profileImage: "https://avatars.githubusercontent.com/u/92224334?s=400&u=e1d4952ea0a183f27be0a918643bfcdcb85cc6ab&v=4"
+
+publishedDate: "July 25, 2025"
+coverImage: "/assets/React.jpeg"
+
+---
+
+## **As a frontend developer**,building both the web and mobile versions of the same product taught me far more than just the difference in syntax — it gave me insight into how design choices, performance optimizations, and team dynamics can differ significantly across platforms.
+React and React Native may seem similar at first because they share the same core ideas. But once you start building apps with them, you’ll notice they work quite differently and need different ways of thinking.<br/>
+In this blog, I’ll share the main differences I noticed and what I learned while working on real apps using React for websites and React Native for mobile apps.<br/>
+Today, many companies want their products to be available on both web and mobile. As a developer, understanding the strengths and limitations of React and React Native helps you build better experiences for both platforms.<br/>
+Whether you're a frontend developer exploring mobile development, or a full-stack engineer building cross-platform apps, this blog will help you understand the key differences between React and React Native.<br/><br/>
+In this blog, I'll break down the lessons I learned across 5 key areas: UI, navigation, API handling, user input, and deployment.
+## <br/>
+
+<br />
+<p className="font-bold text-[#0094de] text-center italic">1. User Interface: Similar Logic, But Very Different Building Blocks.</p>
+<br/>
+
+React and React Native share the same core logic and component-based architecture, but they use completely different building blocks to render the user interface.
+### **Web (React):**
+
+- Uses HTML elements like `<button>`, `<span>`, `<div>`
+- Styling is handled with CSS frameworks like Tailwind, Bootstrap, or CSS-in-JS.
+- Flexbox and Grid systems give precise control over layout.
+- Uses libraries like React Router for routing between pages.
+- Optimized for browser-based interaction and responsiveness
+
+### **Mobile (React Native):**
+
+- Uses custom components like `<TouchableOpacity>`, `<Text>`, `<View>`
+- No CSS — styling is done through JavaScript objects with a limited subset of properties.
+- Layout is built entirely with Flexbox.
+- Uses libraries like React Navigation for handling screen transitions and stacks.
+- Designed to leverage native performance and mobile-specific gestures, animations, and touch interactions.
+
+**Lesson:**  
+React and React Native feel familiar if you know one or the other—both rely on reusable components, props, and state. However, React is for the web, using browser technologies, while React Native is for mobile apps, using native UI elements and behaviors. Despite similar logic, the underlying UI components and rendering targets are fundamentally different.
+## <br/>
+
+---
+
+<br />
+
+## <p className="font-bold text-[#0094de] text-center italic">2. Navigation: URLs for Web, Stacks for Mobile</p><br/>
+
+While both React and React Native support navigation between views, the way they handle navigation is fundamentally different—primarily due to the platforms they run on.
+
+### **React (Web):**
+
+- URL-based routing—each view or page is tied to a unique URL (e.g., /about, /profile)
+- Uses libraries like React Router, which map URL paths to components.
+- Relies on browser history and the address bar to manage and reflect navigation state.
+- Typically simple page refreshes or client-side route transitions.
+
+### **React Native:**
+
+- Stack-based navigation—screens are pushed and popped from a navigation stack, like pages in a book.
+- Uses libraries like React Navigation or React Native Navigation, which manage screen transitions, gestures, and stacks.
+- Uses mobile-native navigation behaviors (e.g., gestures, back button, modals, tabs).
+- Requires additional setup to handle deep links and app schema on mobile.
+
+**Lesson:**  
+In React for the web, navigation is built around URLs and browser history, offering intuitive, link-based movement between pages. In contrast, React Native uses stack-based navigation, which mimics how users naturally move through mobile apps—pushing and popping screens as they go. Each system aligns with its platform's native expectations, creating a seamless experience for users whether on web or mobile.
+## <br/>
+
+---
+
+<br />
+ <p className="font-bold text-[#0094de] text-center italic">3. API Integration: Shared Logic, APIs Work the Same But Your UI Won’t.</p>
+ <br/>
+React and React Native can share the same logic for API calls—such as fetching data, handling authentication, or processing responses—but the way that data is displayed and interacted with in the UI is very different.
+## **React (Web):**
+- Uses standard web APIs like fetch or axios—same as in React Native.
+- State management with tools like React Context, Redux, or React Query.
+
+## **React Native (Mobile):**
+- Uses the same HTTP libraries (e.g., fetch, axios), so backend logic can be shared across platforms.
+- Same libraries and patterns can be used (Context, Redux, etc.) for handling remote data.
+
+**Lesson:**  
+Even though the API logic can be reused across both platforms—making it easier to maintain a unified backend connection—the way users see and interact with that data must be tailored to each platform. Web apps rely on traditional browser elements, while mobile apps use native components designed for touch-based experiences. The challenge is not in making the API work—it’s in making the UI feel right on each device.
+## <br/>
+
+---
+
+<br />
+
+## <p className="font-bold text-[#0094de] text-center italic">4. User Input, Search & Filters: What Works on Desktop Fails on Mobile</p><br/>
+
+User input patterns like search bars, filters, dropdowns, and forms may work smoothly on desktop but often need to be redesigned for mobile due to space constraints, touch interaction, and different user behavior.
+
+### **React (Web):**
+
+- Complex filters and multi-selects are easier to manage.
+- You have more screen space and can rely on hover states, dropdowns, and real-time updates.
+
+### **React Native:**
+
+- Touch interactions need to be large and accessible.
+- Dropdowns, sliders, and multi-selects must fit into modals or sheets.
+- Keyboard interactions and screen space are constraints.
+
+**Lesson:**  
+A search or filter system that works well on desktop (React web) often becomes cumbersome or even unusable on mobile (React Native) without redesign. On mobile, UX must account for smaller screens, touch input, and virtual keyboards. Great mobile apps don’t just shrink the desktop UI—they rethink the experience entirely for mobile-first interaction.
+## <br/>
+
+---
+
+<br />
+
+## <p className="font-bold text-[#0094de] text-center italic">5. Web vs. Mobile Deployment: Simpler for Web, Multi-step and Slower for Mobile</p><br/>
+
+Deploying a React web app is generally fast, simple, and flexible, while deploying a React Native mobile app involves multiple steps, stricter platform requirements, and longer approval times.
+### **React (Web):**
+
+- Continuous deployment is straightforward with tools like Vercel or Netlify.
+- You can fix and push changes quickly.
+- Quick and easy to rollback to a previous version.
+
+### **React Native:**
+
+- Requires separate builds for Android and iOS.
+- Each platform has its own tooling, SDK updates, and store submission processes.
+- Debugging involves emulators, devices, and native logs.
+- More complicated—rollbacks may require new store submissions unless OTA updates are enabled.
+
+**Lesson:**  
+Deploying for the web (React) is faster and more forgiving, ideal for rapid iteration and real-time fixes. On the other hand, React Native mobile deployment is more complex and time-consuming due to app store requirements, native builds, and approval delays. Startups aiming for fast feedback loops may prefer web-first unless mobile functionality is essential.
+## <br/>
+
+---
+
+<br />
+
+## <p className="font-bold text-[#0094de] italic">Summary: Know What to Share and What to Split</p>
+<br />
+  <img
+    src= "/assets/react1.png"
+    className="rounded-lg md:max-w-5xl mx-auto"
+    alt="react"
+  />
+<br />
+
+## <p className="font-bold text-[#0094de] text-center italic">Final Thoughts</p>
+
+Building a product for both web and mobile using React and React Native isn't as easy as copying and pasting code between the two. Even though they share some similarities, each platform has its own way of doing things.<br/>
+What works great on the web might not feel right on mobile—and vice versa. You need to think ahead and plan for these differences early in the development process. This means writing clean, flexible code that can be reused when possible, but also customized when needed.<br/>
+It's also important to respect each platform's strengths. Mobile users expect things like gestures, native navigation, and smooth animations. Web users may rely more on keyboard navigation, hover effects, or multi-tab workflows.<br/>
+<br/>
+In short:<br/>
+👉 Think ahead. Stay flexible. And design with the platform in mind.
+That’s the key to building great experiences across web and mobile.
+
+## <br/>
+
+---
+
+## <p className="font-bold text-[#0094de]">Written by Humnashin.</p>
+
+**Humnashin Khan** is a Full Stack Software Engineer with 1+ years of experience, with a strong focus on Frontend development. She builds web and mobile applications using React, React Native, and TypeScript, and occasionally contributes to backend development using Node JS and JavaScript.
