@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Layout from "@/app/components/Layout";
+import Image from "next/image";
 
 interface BlogParams {
   params: Promise<{ slug: string }>; 
@@ -46,10 +47,13 @@ export default async function BlogPage({ params }: BlogParams) {
 
 
         {data.coverImage && (
-          <img
+          <Image
             src={data.coverImage}
             alt={data.title}
+            width={1200}
+            height={600}
             className="w-full my-6 rounded-lg shadow-md mt-10 p-2"
+             priority
           />
         )}
         <article className="text-[18px] md:mt-20 md:px-30 p-5">
@@ -60,9 +64,11 @@ export default async function BlogPage({ params }: BlogParams) {
         {data.author?.name && (
           <div className="mt-5 rounded-lg flex items-center gap-4 md:mx-30 p-5 md:p-0">
             {data.author.profileImage && (
-              <img
+              <Image
                 src={data.author.profileImage}
                 alt={data.author.name}
+                width={64}
+                height={64}
                 className="w-16 h-16 rounded-full object-cover"
               />
             )}

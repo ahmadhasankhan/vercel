@@ -13,8 +13,10 @@ export default function BlogPage() {
         </p>
         <div className="bg-white rounded-lg pt-5 flex flex-col md:flex-row items-start gap-4 cursor-pointer">
           <div className="w-full">
-            <img
+            <Image
               src= "/assets/React.jpeg"
+              width={600}
+              height={400}
               className="rounded-lg w-full h-full object-cover max-h-60 md:max-h-full transition-transform duration-300 hover:scale-105"
               alt="react"
             />
@@ -27,9 +29,11 @@ export default function BlogPage() {
               </h3>
             </Link>
             <div className="flex items-center space-x-3">
-              <img
-                src="https://avatars.githubusercontent.com/u/92224334?s=400&u=e1d4952ea0a183f27be0a918643bfcdcb85cc6ab&v=4"
+              <Image
+                src="/assets/humnashi.jpeg"
                 alt="Author"
+                width={40}
+                height={40}
                 className="w-10 h-10 rounded-full"
               />
               <div>
@@ -47,10 +51,12 @@ export default function BlogPage() {
         <br />
         <hr />
         {/* second Topic */}
-        <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start cursor-pointer">
+        <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start gap-10 cursor-pointer">
           <div className="w-full md:w-1/2">
-            <img
+            <Image
               src= "/assets/Ruby.jpeg"
+              width={600}
+              height={400}
               className="rounded-lg object-cover max-h-60 md:max-h-90 transition-transform duration-300 hover:scale-105"
               alt="Blog"
             />
@@ -62,9 +68,11 @@ export default function BlogPage() {
               </h3>
             </Link>
             <div className="flex items-center space-x-3">
-              <img
+              <Image
                 src="/assets/ahmad.png"
                 alt="Author"
+                width={40}
+                height={40}
                 className="w-10 h-10 rounded-full"
               />
               <div>
@@ -76,10 +84,12 @@ export default function BlogPage() {
         </div>
         {/* Third Topic */}
 
-        <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start cursor-pointer">
+        <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start gap-10 cursor-pointer">
           <div className="w-full md:w-1/2">
-            <img
+            <Image
               src="/assets/API.jpeg"
+              width={600}
+              height={400}
               className="rounded-lg object-cover max-h-60 md:max-h-90 transition-transform duration-300 hover:scale-105"
               alt="Blog"
             />
@@ -91,9 +101,11 @@ export default function BlogPage() {
               </h3>
             </Link>
             <div className="flex items-center space-x-3">
-              <img
+              <Image
                 src="/assets/ahmad.png"
                 alt="Author"
+                width={40}
+                height={40}
                 className="w-10 h-10 rounded-full"
               />
               <div>
@@ -105,10 +117,12 @@ export default function BlogPage() {
         </div>
          {/* Fourth Topic */}
 
-         <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start cursor-pointer">
+         <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start gap-10 cursor-pointer">
           <div className="w-full md:w-1/2">
-            <img
+            <Image
               src= "/assets/next.png"
+              width={600}
+              height={400}
               className="rounded-lg object-cover max-h-60 md:max-h-90 transition-transform duration-300 hover:scale-105"
               alt="Blog"
             />
@@ -120,9 +134,11 @@ export default function BlogPage() {
               </h3>
             </Link>
             <div className="flex items-center space-x-3">
-              <img
-                src="https://avatars.githubusercontent.com/u/92224334?s=400&u=e1d4952ea0a183f27be0a918643bfcdcb85cc6ab&v=4"
+              <Image
+                src="/assets/humnashi.jpeg"
                 alt="Author"
+                width={40}
+                height={40}
                 className="w-10 h-10 rounded-full"
               />
               <div>

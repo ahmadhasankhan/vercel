@@ -6,7 +6,9 @@ const withMDXConfig = withMDX({
 
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'mdx'],
-  // Any other config
+  images: {
+    domains: ["images.unsplash.com"],
+  },
 };
 
 export default withMDXConfig(nextConfig);

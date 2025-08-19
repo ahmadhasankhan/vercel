@@ -59,9 +59,6 @@ export default function Home() {
                 >
                   Privacy Policy
                 </a>
-                <a href="#about" className="text-gray-700 hover:text-[#1bb1dc]">
-                  Terms
-                </a>
                 <a href="/blog" className="text-gray-700 hover:text-[#1bb1dc]">
                   Blog
                 </a>
@@ -164,10 +161,13 @@ export default function Home() {
               </div>
             </div>
             <div className="lg:w-1/2 mb-20">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800"
                 alt="Team working"
+                 width={800}
+                 height={500} 
                 className="rounded-lg shadow-lg w-full"
+                priority
               />
             </div>
           </div>
