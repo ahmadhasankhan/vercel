@@ -59,6 +59,12 @@ export default function Home() {
                 >
                   Privacy Policy
                 </a>
+                <a
+                  href="/terms"
+                  className="text-gray-700 hover:text-[#1bb1dc]"
+                >
+                  Terms
+                </a>
                 <a href="/blog" className="text-gray-700 hover:text-[#1bb1dc]">
                   Blog
                 </a>
@@ -290,7 +296,7 @@ export default function Home() {
                   <ul className="space-y-2">
                     <li>
                       <a
-                        href="#"
+                        href="/privacy"
                         className="text-[#535074] hover:text-[#1bb1dc]"
                       >
                         Privacy
@@ -298,7 +304,7 @@ export default function Home() {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/terms"
                         className="text-[#535074] hover:text-[#1bb1dc]"
                       >
                         Terms

@@ -46,7 +46,7 @@ export default function Layout({ children }: { children: React.ReactNode }) : Re
                <a href="/privacy" className="text-gray-700 hover:text-[#1bb1dc]">
                 Privacy Policy
               </a>
-               <a href="/#services" className="text-gray-700 hover:text-[#1bb1dc]">
+               <a href="/terms" className="text-gray-700 hover:text-[#1bb1dc]">
                 Terms
               </a>
               <a href="/blog" className="text-gray-700 hover:text-[#1bb1dc]">
