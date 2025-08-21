@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://asistensia.com"),
-  title: { default: "Asistensia", template: "%s | Asistensia" },
+  title: { default: "Asistensia - Ruby on Rails Consulting Experts", template: "%s | Asistensia" },
   description: 'Tailored software consulting services with Ruby, Laravel, DevOps, and API solutions. Based in Amsterdam, serving global clients.',
   keywords: ['Ruby', 'Ruby Develop', 'Ruby Engineer','Ruby on Rails Develop', 'Ruby on Rails', 'Laravel', 'DevOps',
     'API development', 'Software consulting'],
