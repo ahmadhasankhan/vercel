@@ -38,11 +38,11 @@ export default function Home() {
         <nav className="bg-white shadow-sm sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between h-16">
-              <div className="flex items-center">
+              <h1 className="flex items-center">
                 <a href="/" className="text-xl font-bold text-primary">
                   Asistensia
                 </a>
-              </div>
+              </h1>
               <div className="hidden md:flex items-center space-x-8">
                 <a href="#about" className="text-gray-700 hover:text-[#1bb1dc]">
                   About us
@@ -84,13 +84,12 @@ export default function Home() {
                 Expert Software Consulting Services
               </h1>
 
-              <p className="text-xl md:text-2xl max-w-4xl mx-auto">
+              <h1 className="text-xl md:text-2xl max-w-4xl mx-auto">
                 Unlock your business potential with specialized consulting in
-                Ruby, Rails On Rails PHP, and DevOps solutions.
-              </p>
+                Ruby, Ruby on Rails, PHP, and DevOps solutions.
+              </h1>
               <div className="mt-10">
-                <a
-                  href="#contact"
+                <a href="#contact"
                   className="mt-10 inline-block bg-white text-[#1bb1dc] font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition duration-300"
                 >
                   Get Started

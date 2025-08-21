@@ -49,7 +49,7 @@ const services = [
   },
   {
     title: "WordPress",
-    description: "Custom wordpress website, optimiztion and SEO friendly.",
+    description: "Custom wordpress website, optimization and SEO friendly.",
     icon: (
       <FontAwesomeIcon icon={faWordpress} className="h-8 w-8 text-[#21759b]" />
     ),
@@ -157,7 +157,7 @@ export default function ServicesSection() {
               className="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition duration-500 transform"
             >
               <div className="">{service.icon}</div>
-              <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+              <h1 className="text-xl font-semibold mb-3">{service.title}</h1>
               <p className="text-gray-600">{service.description}</p>
             </div>
           ))}

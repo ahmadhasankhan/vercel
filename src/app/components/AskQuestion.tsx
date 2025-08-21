@@ -63,7 +63,7 @@ export default function AskQuestion () {
   };
 
   return (
-    <div className="w-full md:h-[140vh] pb-10 md:pb-0">
+    <div className="w-full md:h-[100vh] pb-10 md:pb-0">
       <h4 className="text-[#413e66] text-[36px] font-bold text-center md:pt-8 pt-2">Frequently Asked Questions</h4>
        <p className="text-[#535074] text-center text-xl pt-3 p-2 md:p-0">Team with a strong tech experience who always gets your work done.</p>
        
@@ -103,7 +103,6 @@ export default function AskQuestion () {
           </div>
         ))}
       </div>
-
 
     </div>
   )
