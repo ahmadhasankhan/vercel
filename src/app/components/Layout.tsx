@@ -94,7 +94,7 @@ export default function Layout({ children }: { children: React.ReactNode }) : Re
                           <img
                               src="/assets/brand/asistensia_logo.webp"
                               alt="Asistensia"
-                              className="w-10 h-10 rounded-full"
+                              className="w-30 h-30"
                           />
                         </h3>
                         <p className="text-[#535074] max-w-xs">
