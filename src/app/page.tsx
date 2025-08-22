@@ -187,7 +187,11 @@ export default function Home() {
             <div className="md:flex md:justify-between">
               <div className="mb-8 md:mb-0">
                 <h3 className="text-3xl font-normal mb-4 text-[#413e66] tracking-custom uppercase">
-                  Asistensia
+                  <img
+                      src="/assets/brand/asistensia_logo.png"
+                      alt="Asistensia"
+                      className="w-30 h-30"
+                  />
                 </h3>
                 <p className="text-[#535074] max-w-xs">
                   Expert software consulting services for Ruby, PHP, and DevOps

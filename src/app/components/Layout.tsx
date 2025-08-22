@@ -10,6 +10,27 @@ import {
 
 
 export default function Layout({ children }: { children: React.ReactNode }) : React.JSX.Element {
+  const orgJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Asistensia",
+    "url": "https://asistensia.com",
+    "logo": "https://asistensia.com/assets/brand/logo.png",
+    "image": "https://asistensia.com/assets/brand/logo.png",
+    "telephone": "+31619333008",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "[Street and number]",
+      "addressLocality": "Amsterdam",
+      "postalCode": "[POSTCODE]",
+      "addressCountry": "NL"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/[handle]",
+      "https://github.com/[handle]"
+    ]
+  };
+
   return (
     <>
       <Head>
@@ -25,6 +46,8 @@ export default function Layout({ children }: { children: React.ReactNode }) : Re
           content="We build scalable and secure software solutions."
         />
         <meta property="og:image" content="/og-image.png" />
+        <script type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}/>
       </Head>
 
       {/* Navbar */}
@@ -68,7 +91,11 @@ export default function Layout({ children }: { children: React.ReactNode }) : Re
                     <div className="md:flex md:justify-between">
                       <div className="mb-8 md:mb-0">
                         <h3 className="text-3xl font-normal mb-4 text-[#413e66] tracking-custom uppercase">
-                          Asistensia
+                          <img
+                              src="/assets/brand/asistensia_logo.webp"
+                              alt="Asistensia"
+                              className="w-10 h-10 rounded-full"
+                          />
                         </h3>
                         <p className="text-[#535074] max-w-xs">
                           Expert software consulting services for Ruby, PHP, and DevOps
@@ -80,7 +107,7 @@ export default function Layout({ children }: { children: React.ReactNode }) : Re
                           everyday tasks. We have an expert team of Full-Stack
                           <br /> Engineers with 24/7 Cloud Support.
                         </p>
-        
+
                         <h4 className="font-bold text-[#413e66] uppercase pt-8">
                           Our Newsletter
                         </h4>
@@ -179,7 +206,7 @@ export default function Layout({ children }: { children: React.ReactNode }) : Re
                           </ul>
                         </div>
                         {/* Social media links  */}
-        
+
                         <div>
                           <h4 className="text-sm font-semibold uppercase tracking-wider mb-4 text-[#413e66]">
                             Socials
