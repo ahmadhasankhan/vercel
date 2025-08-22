@@ -1,0 +1,68 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Rails consulting overview</title>
+  <desc id="desc">Diagram summarizing upgrades, performance, DevOps/SRE, and process with connections and metric callouts.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1220"></stop>
+      <stop offset="1" stop-color="#0e1a2b"></stop>
+    </linearGradient>
+    <style>
+      .card { fill:#111a2d; stroke:#1f2d46; stroke-width:1.5; }
+      .title { font:700 22px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill:#e6f4ff; }
+      .body  { font:500 16px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill:#b9d9ea; }
+      .pill  { fill:#0f2236; stroke:#244a69; stroke-width:1; }
+      .pillText { font:600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill:#b9d9ea; }
+      .metric { font:700 18px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill:#9ad8f6; }
+      .line { stroke:#0094de; stroke-width:2.5; stroke-linecap:round; opacity:.85 }
+      .dot { fill:#0094de; }
+      .badge { fill:#072131; stroke:#0c3249; stroke-width:1; }
+      .badgeText { font:700 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill:#8fd3ff; letter-spacing:.3px; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="900" fill="url(#bg)"></rect>
+
+  <!-- Header -->
+  <text x="80" y="90" class="title" style="font-size:34px">Rails Overview: Upgrade • Performance • DevOps • Process</text>
+  <rect x="80" y="108" rx="10" ry="10" width="320" height="34" class="badge"></rect>
+  <text x="95" y="131" class="badgeText">Asistensia — Ruby on Rails Consulting</text>
+
+  <!-- Connectors backbone -->
+  <path class="line" d="M800,200 C900,200 920,220 1000,260"></path>
+  <path class="line" d="M800,200 C700,200 680,220 600,260"></path>
+  <path class="line" d="M800,200 C900,200 920,520 1000,560"></path>
+  <path class="line" d="M800,200 C700,200 680,520 600,560"></path>
+  <circle cx="800" cy="200" r="5" class="dot"></circle>
+
+  <!-- Cards -->
+  <!-- Upgrades -->
+  <rect x="520" y="240" rx="18" ry="18" width="360" height="200" class="card"></rect>
+  <text x="550" y="275" class="title">Upgrades &amp; Migrations</text>
+  <text x="550" y="310" class="body">• Rails 5/6/7 → <tspan class="metric">Rails 8</tspan> + Ruby 3.3</text>
+  <text x="550" y="338" class="body">• Dual-boot, flags, safe rollbacks</text>
+  <text x="550" y="366" class="body">• Gem audit &amp; security patches</text>
+  <rect x="550" y="382" rx="8" ry="8" width="160" height="28" class="pill"></rect>
+  <text x="565" y="401" class="pillText">/rails-upgrade</text>
+
+  <!-- Performance -->
+  <rect x="980" y="240" rx="18" ry="18" width="360" height="200" class="card"></rect>
+  <text x="1010" y="275" class="title">Performance &amp; Scale</text>
+  <text x="1010" y="310" class="body">• DB tuning, caching, background jobs</text>
+  <text x="1010" y="338" class="body">• Target <tspan class="metric">LCP ≤ 2.5s</tspan>, <tspan class="metric">INP ≤ 200ms</tspan></text>
+  <text x="1010" y="366" class="body">• Image/asset, JS budget, CDN</text>
+  <rect x="1010" y="382" rx="8" ry="8" width="210" height="28" class="pill"></rect>
+  <text x="1025" y="401" class="pillText">/rails-performance-audit</text>
+
+  <!-- DevOps/SRE -->
+  <rect x="520" y="540" rx="18" ry="18" width="360" height="200" class="card"></rect>
+  <text x="550" y="575" class="title">DevOps &amp; SRE</text>
+  <text x="550" y="610" class="body">• CI/CD (GH Actions), IaC, rollbacks</text>
+  <text x="550" y="638" class="body">• 10–20 min pipelines, test sharding</text>
+  <text x="550" y="666" class="body">• Logs/metrics/traces, SLOs</text>
+  <rect x="550" y="682" rx="8" ry="8" width="178" height="28" class="pill"></rect>
+  <text x="565" y="701" class="pillText">/devops-consulting</text>
+
+  <!-- Process -->
+  <rect x="980" y="540" rx="18" ry="18" width="360" height="200" class="card"></rect>
+  </svg>

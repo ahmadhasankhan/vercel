@@ -131,6 +131,25 @@ export default function BlogPage() {
               </div>
             </div>
           </div>
+
+           <div className="md:w-1/2 w-full flex flex-col justify-between space-y-4 pt-12 cursor-pointer">
+             <Link href="/blog/ruby-on-rails-consulting">
+               <h3 className="text-3xl font-semibold text-gray-600 hover:text-primary">
+                 Ruby on Rails Consulting in Netherlands: Upgrades, Performance & DevOps
+               </h3>
+             </Link>
+             <div className="flex items-center space-x-3">
+               <img
+                   src="https://avatars.githubusercontent.com/u/92224334?s=400&u=e1d4952ea0a183f27be0a918643bfcdcb85cc6ab&v=4"
+                   alt="Author"
+                   className="w-10 h-10 rounded-full"
+               />
+               <div>
+                 <p className="text-gray-800 font-medium">Asistensia Team</p>
+                 <p className="text-sm text-gray-500">August 22, 2025</p>
+               </div>
+             </div>
+           </div>
         </div>
       </section>
     </Layout>

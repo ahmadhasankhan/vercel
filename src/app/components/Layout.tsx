@@ -107,26 +107,18 @@ export default function Layout({ children }: { children: React.ReactNode }) : Re
                           </h4>
                           <ul className="space-y-2">
                             <li>
-                              <a
-                                href="#"
-                                className="text-[#535074] hover:text-[#1bb1dc]"
-                              >
+                              <a href="/blog/ruby-on-rails-consulting" className="text-[#535074] hover:text-[#1bb1dc]">
                                 Ruby on Rails
                               </a>
                             </li>
                             <li>
                               <a
-                                href="#"
-                                className="text-[#535074] hover:text-[#1bb1dc]"
-                              >
+                                href="#" className="text-[#535074] hover:text-[#1bb1dc]">
                                 PHP & Laravel
                               </a>
                             </li>
                             <li>
-                              <a
-                                href="#"
-                                className="text-[#535074] hover:text-[#1bb1dc]"
-                              >
+                              <a href="/blog/ruby-on-rails-consulting" className="text-[#535074] hover:text-[#1bb1dc]">
                                 DevOps
                               </a>
                             </li>
@@ -203,7 +195,7 @@ export default function Layout({ children }: { children: React.ReactNode }) : Re
                               />
                             </a>
                             <a
-                              href="https://www.facebook.com/asistencia.in/"
+                              href="https://www.facebook.com/asistensiacom/"
                               aria-label="Facebook"
                             >
                               <FontAwesomeIcon

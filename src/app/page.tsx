@@ -227,9 +227,7 @@ export default function Home() {
                   <ul className="space-y-2">
                     <li>
                       <a
-                        href="#"
-                        className="text-[#535074] hover:text-[#1bb1dc]"
-                      >
+                        href="/blog/ruby-on-rails-consulting" className="text-[#535074] hover:text-[#1bb1dc]">
                         Ruby on Rails
                       </a>
                     </li>

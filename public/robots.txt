@@ -1,1 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /preview/
+
+
+# Sitemap location(s)
 Sitemap: https://asistensia.com/sitemap.xml

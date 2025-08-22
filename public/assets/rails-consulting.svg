@@ -1,0 +1,135 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Ruby on Rails consulting hero illustration</title>
+  <desc id="desc">Abstract rails and delivery pipeline lines flowing rightward, with nodes and a left gradient scrim for headline readability.</desc>
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b1220"></stop>
+      <stop offset="100%" stop-color="#0e1a2b"></stop>
+    </linearGradient>
+
+    <!-- Left scrim for text legibility (safe text zone ≈ left 45%) -->
+    <linearGradient id="scrim" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0b1220" stop-opacity="0.72"></stop>
+      <stop offset="0.45" stop-color="#0b1220" stop-opacity="0.55"></stop>
+      <stop offset="0.75" stop-color="#0b1220" stop-opacity="0.18"></stop>
+      <stop offset="1" stop-color="#0b1220" stop-opacity="0"></stop>
+    </linearGradient>
+
+    <!-- Glow for nodes -->
+    <radialGradient id="nodeGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#0094de" stop-opacity="0.9"></stop>
+      <stop offset="1" stop-color="#0094de" stop-opacity="0"></stop>
+    </radialGradient>
+
+    <!-- Subtle grid dot -->
+    <radialGradient id="dot" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#b5c6d6" stop-opacity="0.18"></stop>
+      <stop offset="1" stop-color="#b5c6d6" stop-opacity="0"></stop>
+    </radialGradient>
+
+    <!-- Reusable rail stroke style -->
+    <style>
+      .rail{ fill:none; stroke:#0094de; stroke-linecap:round; }
+      .railThin{ stroke-width:1.5; opacity:.40 }
+      .railMed{ stroke-width:2.5; opacity:.65 }
+      .railThick{ stroke-width:4; opacity:.85 }
+      .node{ fill:#9ad8f6; }
+      .label{ font: 600 14px ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill:#b9d9ea; opacity:.6; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="900" fill="url(#bg)"></rect>
+
+  <!-- Very light grid dots (performance-safe: coarse placement) -->
+  <g opacity=".25">
+    <!-- draw dots every 160px horizontally × 120px vertically -->
+    <g>
+      <!-- 10 cols × 8 rows -->
+      <!-- we keep the number of nodes low to keep the file small -->
+      <!-- row 1 -->
+      <circle cx="160" cy="120" r="2" fill="url(#dot)"></circle>
+      <circle cx="320" cy="120" r="2" fill="url(#dot)"></circle>
+      <circle cx="480" cy="120" r="2" fill="url(#dot)"></circle>
+      <circle cx="640" cy="120" r="2" fill="url(#dot)"></circle>
+      <circle cx="800" cy="120" r="2" fill="url(#dot)"></circle>
+      <circle cx="960" cy="120" r="2" fill="url(#dot)"></circle>
+      <circle cx="1120" cy="120" r="2" fill="url(#dot)"></circle>
+      <circle cx="1280" cy="120" r="2" fill="url(#dot)"></circle>
+      <circle cx="1440" cy="120" r="2" fill="url(#dot)"></circle>
+    </g>
+    <!-- row 3 -->
+    <g>
+      <circle cx="160" cy="360" r="2" fill="url(#dot)"></circle>
+      <circle cx="320" cy="360" r="2" fill="url(#dot)"></circle>
+      <circle cx="480" cy="360" r="2" fill="url(#dot)"></circle>
+      <circle cx="640" cy="360" r="2" fill="url(#dot)"></circle>
+      <circle cx="800" cy="360" r="2" fill="url(#dot)"></circle>
+      <circle cx="960" cy="360" r="2" fill="url(#dot)"></circle>
+      <circle cx="1120" cy="360" r="2" fill="url(#dot)"></circle>
+      <circle cx="1280" cy="360" r="2" fill="url(#dot)"></circle>
+      <circle cx="1440" cy="360" r="2" fill="url(#dot)"></circle>
+    </g>
+    <!-- row 5 -->
+    <g>
+      <circle cx="160" cy="600" r="2" fill="url(#dot)"></circle>
+      <circle cx="320" cy="600" r="2" fill="url(#dot)"></circle>
+      <circle cx="480" cy="600" r="2" fill="url(#dot)"></circle>
+      <circle cx="640" cy="600" r="2" fill="url(#dot)"></circle>
+      <circle cx="800" cy="600" r="2" fill="url(#dot)"></circle>
+      <circle cx="960" cy="600" r="2" fill="url(#dot)"></circle>
+      <circle cx="1120" cy="600" r="2" fill="url(#dot)"></circle>
+      <circle cx="1280" cy="600" r="2" fill="url(#dot)"></circle>
+      <circle cx="1440" cy="600" r="2" fill="url(#dot)"></circle>
+    </g>
+    <!-- row 7 -->
+    <g>
+      <circle cx="160" cy="840" r="2" fill="url(#dot)"></circle>
+      <circle cx="320" cy="840" r="2" fill="url(#dot)"></circle>
+      <circle cx="480" cy="840" r="2" fill="url(#dot)"></circle>
+      <circle cx="640" cy="840" r="2" fill="url(#dot)"></circle>
+      <circle cx="800" cy="840" r="2" fill="url(#dot)"></circle>
+      <circle cx="960" cy="840" r="2" fill="url(#dot)"></circle>
+      <circle cx="1120" cy="840" r="2" fill="url(#dot)"></circle>
+      <circle cx="1280" cy="840" r="2" fill="url(#dot)"></circle>
+      <circle cx="1440" cy="840" r="2" fill="url(#dot)"></circle>
+    </g>
+  </g>
+
+  <!-- Rails / pipeline motif -->
+  <g>
+    <!-- main thick curve -->
+    <path class="rail railThick" d="M100,520 C420,420 560,260 820,300 C1080,340 1210,520 1500,520"></path>
+    <!-- secondary curves -->
+    <path class="rail railMed" d="M120,640 C420,560 600,420 880,450 C1120,476 1260,620 1520,620"></path>
+    <path class="rail railThin" d="M80,420 C340,380 560,340 820,360 C1120,382 1300,460 1540,480"></path>
+    <path class="rail railThin" d="M60,300 C300,280 520,260 760,280 C980,298 1200,360 1480,400"></path>
+
+    <!-- nodes (with glow) -->
+    <g>
+      <circle cx="820" cy="300" r="18" fill="url(#nodeGlow)"></circle>
+      <circle cx="820" cy="300" r="6" class="node"></circle>
+      <circle cx="1080" cy="340" r="16" fill="url(#nodeGlow)"></circle>
+      <circle cx="1080" cy="340" r="5" class="node"></circle>
+      <circle cx="1260" cy="520" r="18" fill="url(#nodeGlow)"></circle>
+      <circle cx="1260" cy="520" r="6" class="node"></circle>
+      <circle cx="1380" cy="620" r="16" fill="url(#nodeGlow)"></circle>
+      <circle cx="1380" cy="620" r="5" class="node"></circle>
+    </g>
+
+    <!-- tiny labels (optional; remove if you want it cleaner) -->
+    <g class="label">
+      <text x="790" y="286">perf</text>
+      <text x="1054" y="328">deploy</text>
+      <text x="1232" y="508">db</text>
+      <text x="1354" y="608">caching</text>
+    </g>
+  </g>
+
+  <!-- Left scrim for headline/CTA contrast -->
+  <rect x="0" y="0" width="1000" height="900" fill="url(#scrim)"></rect>
+
+  <!-- (Optional) safe-zone guide – toggle display:none to hide -->
+  <rect x="0" y="0" width="720" height="900" fill="none" stroke="#ffffff" stroke-opacity=".08" stroke-dasharray="8 8"></rect>
+</svg>
