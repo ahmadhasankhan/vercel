@@ -1,5 +1,13 @@
 import React from "react";
 import Layout from "../components/Layout";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "How Asistensia collects, uses, and protects your data.",
+  alternates: { canonical: "https://asistensia.com/privacy" },
+  robots: { index: true, follow: true },
+};
 
 const page = () => {
   return (

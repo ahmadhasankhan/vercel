@@ -1,9 +1,9 @@
+# *
 User-agent: *
 Allow: /
 
-Disallow: /admin/
-Disallow: /preview/
+# Host
+Host: https://asistensia.com
 
-
-# Sitemap location(s)
+# Sitemaps
 Sitemap: https://asistensia.com/sitemap.xml
