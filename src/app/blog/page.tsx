@@ -150,7 +150,7 @@ export default function BlogPage() {
                     <div className="w-full md:w-1/2">
                         <img
                             src="/assets/blog/rails.webp"
-                            className="rounded-lg object-cover max-h-60 md:max-h-90 transition-transform duration-300 hover:scale-105"
+                            className="rounded-lg object-cover max-w-120 md:max-w-140 max-h-60 md:max-h-90 transition-transform duration-300 hover:scale-105"
                             alt="rails-consulting"
                         />
                     </div>
@@ -163,12 +163,40 @@ export default function BlogPage() {
                         <div className="flex items-center space-x-3">
                             <img
                                 src="/assets/brand/asistensia_logo.webp"
-                                alt="Asistensia"
+                                alt="ruby-on-rails-consulting"
                                 className="w-10 h-10 rounded-full"
                             />
                             <div>
                                 <p className="text-gray-800 font-medium">Asistensia Team</p>
                                 <p className="text-sm text-gray-500">August 22, 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start cursor-pointer">
+                    <div className="w-full md:w-1/2">
+                        <img
+                            src="/assets/blog/devops_consulting.webp"
+                            className="rounded-lg object-cover max-w-120 md:max-w-140 max-h-60 md:max-h-90 transition-transform duration-300 hover:scale-105"
+                            alt="rails-consulting"
+                        />
+                    </div>
+                    <div className="md:w-1/2 w-full flex flex-col justify-between space-y-4 pt-12 cursor-pointer">
+                        <Link href="/blog/devops-consulting">
+                            <h3 className="text-3xl font-semibold text-gray-600 hover:text-primary">
+                                DevOps Consulting for High-Velocity Rails Teams
+                            </h3>
+                        </Link>
+                        <div className="flex items-center space-x-3">
+                            <img
+                                src="/assets/blog/devops_consulting.webp"
+                                alt="devops_consulting"
+                                className="w-10 h-10 rounded-full"
+                            />
+                            <div>
+                                <p className="text-gray-800 font-medium">Asistensia Team</p>
+                                <p className="text-sm text-gray-500">Sept 1, 2025</p>
                             </div>
                         </div>
                     </div>

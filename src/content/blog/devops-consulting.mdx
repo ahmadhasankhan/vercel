@@ -1,0 +1,154 @@
+---
+title: DevOps Consulting for High-Velocity Rails Teams
+paragraph: "A pragmatic playbook for CI/CD, SRE, and cloud foundations that speed up delivery without risking uptime."
+author:
+  postedby: "Posted By"
+  name: "Ahmad Hassan"
+  title: "Founder & Principal Consultant"
+  profileImage: "/assets/ahmad.png"
+
+publishedDate: "September 1, 2025"
+coverImage: "/assets/blog/devops_consulting.webp"
+tags:
+  - devops
+  - ci-cd
+  - sre
+  - rails
+  - cloud
+---
+
+<h1 className="font-bold text-2xl text-gray-500">Introduction</h1>
+<br/>
+Shipping fast is easy. Shipping fast <strong>reliably</strong> is where teams stall. This post shows how we set up <strong>DevOps for Rails</strong> teams—focused on outcomes: faster CI, safer deploys, fewer incidents, and clear observability.
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">Outcomes We Optimise For</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li><strong>CI from ~25 → &lt;10 minutes</strong> with proper caching and parallelism</li>
+  <li><strong>Safe deploys</strong> (blue/green or canary) + reliable rollbacks</li>
+  <li><strong>p95 latency &amp; error rate</strong> watched per endpoint and background job</li>
+  <li><strong>Core Web Vitals</strong> gains by moving heavy work off the request cycle</li>
+  <li><strong>Predictable costs</strong> via infra tagging and budgets</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">The Five Pillars We Implement</h2>
+<br/>
+
+<h3 className="font-bold text-xl text-gray-500">1) CI/CD That Doesn’t Slow You Down</h3>
+<br/>
+<ul className="list-disc pl-8">
+  <li>Build <strong>once</strong>; promote the same artifact between envs</li>
+  <li>Split tests by timing data; cache bundler, npm, and Docker layers</li>
+  <li>Ephemeral preview envs for risky PRs</li>
+</ul>
+<br/>
+
+```yaml
+# .github/workflows/ci.yml (excerpt)
+name: CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy: { fail-fast: false, matrix: { ruby: [3.3] } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with: { ruby-version: 3.3, bundler-cache: true }
+      - name: DB
+        uses: harmon758/postgresql-action@v1
+        with: { postgresql version: '15' }
+      - run: bin/rails db:prepare
+      - run: bundle exec rspec --format progress
+```
+<br/>
+
+<h3 className="font-bold text-xl text-gray-500">2) Infrastructure as Code (IaC)</h3>
+<br/>
+<ul className="list-disc pl-8">
+  <li>Terraform modules for VPC, RDS, Redis, ECS/EKS, and GitHub OIDC</li>
+  <li>Parameterized staging/prod; drift checks in CI</li>
+</ul>
+<br/>
+
+```hcl
+# terraform/environments/prod/main.tf (excerpt)
+module "app_rds" {
+  source  = "../modules/rds"
+  name    = "asistensia-prod"
+  engine  = "postgres"
+  size    = "db.t4g.large"
+  backup_retention = 7
+  tags = { env = "prod", cost_center = "app" }
+}
+```
+<br/>
+
+<h3 className="font-bold text-xl text-gray-500">3) Observability Developers Actually Use</h3>
+<br/>
+<ul className="list-disc pl-8">
+  <li><strong>Traces + logs + metrics</strong> (OpenTelemetry where possible)</li>
+  <li>Golden signals per service; SLIs per user-critical flows</li>
+  <li>Error budgets drive release decisions</li>
+</ul>
+<br/>
+
+<h3 className="font-bold text-xl text-gray-500">4) Reliability &amp; On-Call</h3>
+<br/>
+<ul className="list-disc pl-8">
+  <li>SLOs per surface (e.g., 99.9% API, 99.95% checkout)</li>
+  <li>Playbooks &amp; runbooks; incident templates and postmortems</li>
+  <li>Synthetic checks for critical paths</li>
+</ul>
+<br/>
+
+<h3 className="font-bold text-xl text-gray-500">5) Security &amp; Compliance Basics</h3>
+<br/>
+<ul className="list-disc pl-8">
+  <li>Least-privilege IAM; secrets via SSM/Secrets Manager</li>
+  <li>Dependency &amp; container scans in CI</li>
+  <li>Backups, PITR, and disaster recovery drills</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">Rails-Specific Wins</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li><strong>Background jobs</strong> (Sidekiq) for heavy work; idempotent with retries/backoff</li>
+  <li><strong>Cache keys</strong> (not time-based expiry) and Redis memory policy sanity checks</li>
+  <li><strong>Database:</strong> composite/partial indexes, N+1 killers, archiving/partitioning</li>
+  <li><strong>Frontend vitals:</strong> self-host fonts (<code>display: swap</code>), <code>next/image</code>, lazy-load non-hero media</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">Engagement Models</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li><strong>Upgrade &amp; hardening sprint</strong> (2–4 weeks)</li>
+  <li><strong>Team extension</strong> (pairing, PR reviews, pipelines, observability)</li>
+  <li><strong>Maintenance</strong> (SLAs, security updates, cost reviews)</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">Checklist to Get Moving</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li>CI under 10 min with caching/parallelism</li>
+  <li>One-click rollback, canary enabled</li>
+  <li>Traces/logs/metrics with alert thresholds</li>
+  <li>SLOs &amp; error budgets agreed with product</li>
+  <li>IaC for all cloud resources, no “pets” infra</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">Conclusion</h2>
+<br/>
+DevOps excellence isn’t about more tools—it’s about <strong>fewer surprises</strong>, faster feedback, and reliable delivery. If you’re ready to shorten CI times, harden releases, and see clear observability, we can help.
+<br/>
+<br/>
+
+---
+<strong>Written by Ahmad</strong><br/>
+Ahmad Hassan, Senior Ruby on Rails expert with 10+ years of experience. He builds web and mobile applications using React, Next.js, and TypeScript, and contributes to backend development using Python and Ruby on Rails.
