@@ -163,7 +163,7 @@ export default function BlogPage() {
                         <div className="flex items-center space-x-3">
                             <img
                                 src="/assets/brand/asistensia_logo.webp"
-                                alt="ruby-on-rails-consulting"
+                                alt="asistensia logo"
                                 className="w-10 h-10 rounded-full"
                             />
                             <div>
@@ -190,13 +190,70 @@ export default function BlogPage() {
                         </Link>
                         <div className="flex items-center space-x-3">
                             <img
-                                src="/assets/blog/devops_consulting.webp"
-                                alt="devops_consulting"
+                                src="/assets/brand/asistensia_logo.webp"
+                                alt="asistensia logo"
                                 className="w-10 h-10 rounded-full"
                             />
                             <div>
                                 <p className="text-gray-800 font-medium">Asistensia Team</p>
                                 <p className="text-sm text-gray-500">Sept 1, 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start cursor-pointer">
+                    <div className="w-full md:w-1/2">
+                        <img
+                            src="/assets/blog/rails8_upgrade.webp"
+                            className="rounded-lg object-cover max-w-120 md:max-w-140 max-h-60 md:max-h-90 transition-transform duration-300 hover:scale-105"
+                            alt="rails-consulting"
+                        />
+                    </div>
+                    <div className="md:w-1/2 w-full flex flex-col justify-between space-y-4 pt-12 cursor-pointer">
+                        <Link href="/blog/rails-upgrade">
+                            <h3 className="text-3xl font-semibold text-gray-600 hover:text-primary">
+                                Rails 8 Upgrade Guide: Safer Migrations to Ruby 3.3
+                            </h3>
+                        </Link>
+                        <div className="flex items-center space-x-3">
+                            <img
+                                src="/assets/brand/asistensia_logo.webp"
+                                alt="asistensia logo"
+                                className="w-10 h-10 rounded-full"
+                            />
+                            <div>
+                                <p className="text-gray-800 font-medium">Asistensia Team</p>
+                                <p className="text-sm text-gray-500">Sept 2, 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start cursor-pointer">
+                    <div className="w-full md:w-1/2">
+                        <img
+                            src="/assets/blog/rails-performance-audit.webp"
+                            className="rounded-lg object-cover max-w-120 md:max-w-140 max-h-60 md:max-h-90 transition-transform duration-300 hover:scale-105"
+                            alt="rails-performance-audit"
+                        />
+                    </div>
+                    <div className="md:w-1/2 w-full flex flex-col justify-between space-y-4 pt-12 cursor-pointer">
+                        <Link href="/blog/rails-performance-audit">
+                            <h3 className="text-3xl font-semibold text-gray-600 hover:text-primary">
+                                Rails Performance Audit: A 30‑Point Checklist (LCP/INP/CLS)
+                            </h3>
+                        </Link>
+                        <div className="flex items-center space-x-3">
+                            <img
+                                src="/assets/brand/asistensia_logo.webp"
+                                alt="asistensia logo"
+                                className="w-10 h-10 rounded-full"
+                            />
+                            <div>
+                                <p className="text-gray-800 font-medium">Asistensia Team</p>
+                                <p className="text-sm text-gray-500">Sept 2, 2025</p>
                             </div>
                         </div>
                     </div>

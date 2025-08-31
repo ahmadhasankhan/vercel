@@ -1,0 +1,126 @@
+---
+title: "Rails 8 Upgrade Guide: Safer Migrations to Ruby 3.3"
+paragraph: "A pragmatic, step-by-step plan to upgrade to Rails 8 and Ruby 3.3 with minimal downtime—covering gem strategy, tests, dual boot, and rollout."
+author:
+  postedby: "Posted By"
+  name: "Ahmad Hassan"
+  title: "Founder & Principal Consultant"
+  profileImage: "/assets/ahmad.png"
+
+publishedDate: "September 2, 2025"
+coverImage: "/assets/blog/rails8_upgrade.webp"
+tags:
+  - rails
+  - ruby
+  - upgrade
+  - rails8
+---
+
+<h1 className="font-bold text-2xl text-gray-500">Introduction</h1>
+<br/>
+Upgrading Rails shouldn’t feel risky. This guide shows a <strong>small-steps, reversible</strong> approach to get to <strong>Rails 8 + Ruby 3.3</strong> with confidence—no big-bang refactors, minimal downtime.
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">Why Upgrade Now</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li>Security fixes and modern defaults reduce platform risk</li>
+  <li>Ruby 3.3 performance improvements and better memory behaviour</li>
+  <li>Cleaner APIs, easier onboarding, and healthier dependency graph</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">Business Outcomes</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li>Fewer production incidents and clearer deprecation paths</li>
+  <li>Faster CI and deploys; smaller containers</li>
+  <li>Happier devs and faster feature throughput</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">1) Prep Work (1–2 Days)</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li>Freeze prod and tag a baseline; create an <strong>upgrade branch</strong></li>
+  <li>Turn on <strong>deprecation warnings</strong> in CI</li>
+  <li>Audit gems: note blockers and alternatives</li>
+  <li>Add <strong>smoke tests</strong> (auth, checkout, critical flows) if coverage is thin</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">2) Dual‑Boot Strategy (Document the Diff)</h2>
+<br/>
+Treat <code>rails app:update</code> as documentation. Adopt a toggle to run old/new configs side by side until you’re confident.
+<br/><br/>
+
+```ruby
+# Gemfile
+ruby "3.3.0"
+gem "rails", "~> 8.0"
+# Use ENV["RAILS_NEXT"] to switch conditional config while migrating
+```
+<br/>
+
+```bash
+# Keep new defaults under config/, then adopt gradually
+bin/rails app:update  # review diffs; commit in small PRs
+```
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">3) Ruby 3.3 First</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li>Bump Ruby and pin CI to it; address native gem warnings early</li>
+  <li>Update Docker base images; avoid x86/ARM mismatch with <code>BUNDLE_FORCE_RUBY_PLATFORM=true</code> if needed</li>
+  <li>Rebuild images; ensure prod and CI match</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">4) Chip Away at Breakages</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li>Replace removed APIs and flipped defaults; update generators/initializers</li>
+  <li>Remove monkey patches that Rails 8 makes obsolete</li>
+  <li>Update encrypted credentials via <code>bin/rails credentials:edit</code></li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">5) Shipping Without Fear</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li><strong>Feature flags</strong> for risky changes</li>
+  <li><strong>Blue/green</strong> or <strong>canary</strong> deploys for the upgrade</li>
+  <li>Watch p95/p99 latency, error rate, and background job throughput</li>
+  <li>Keep a <code>rollback.md</code> with exact steps to revert</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">6) Post‑Upgrade Wins</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li>Enable boot caching and verify Zeitwerk eager load</li>
+  <li>Align on new defaults (cookies/CSRF, headers, etc.)</li>
+  <li>Retune Sidekiq/queuing concurrency; audit crons</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">Checklist</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li>Ruby 3.3 in CI and production</li>
+  <li>Rails 8 with dual‑boot removed</li>
+  <li>All gems updated or replaced</li>
+  <li>Smoke tests green; error rate steady</li>
+  <li>Backups/rollbacks verified</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">Conclusion</h2>
+<br/>
+Upgrades are a product investment. By shipping in small, safe steps—Ruby first, then Rails—you reduce risk and unlock platform velocity. Need a hand planning or executing a zero‑downtime upgrade? We’re happy to help.
+<br/><br/>
+
+---
+<strong>Written by Ahmad</strong><br/>
+Ahmad Hassan, Senior Ruby on Rails expert with 10+ years of experience. He builds web and mobile applications using React, Next.js, and TypeScript, and contributes to backend development using Python and Ruby on Rails.

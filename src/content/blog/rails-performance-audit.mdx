@@ -1,0 +1,116 @@
+---
+title: "Rails Performance Audit: A 30‑Point Checklist (LCP/INP/CLS)"
+paragraph: "Everything we measure when we tune Rails apps—database, caching, background jobs, and the Core Web Vitals that users actually feel."
+author:
+  postedby: "Posted By"
+  name: "Ahmad Hassan"
+  title: "Founder & Principal Consultant"
+  profileImage: "/assets/ahmad.png"
+
+publishedDate: "September 2, 2025"
+coverImage: "/assets/blog/rails-performance-audit.webp"
+tags:
+  - rails
+  - performance
+  - core-web-vitals
+  - database
+  - caching
+  - sidekiq
+---
+
+<h1 className="font-bold text-2xl text-gray-500">Introduction</h1>
+<br/>
+Performance is product. Here’s our battle‑tested checklist for Rails apps that want <strong>LCP ≤ 2.5s</strong>, <strong>INP ≤ 200ms</strong>, and <strong>CLS ≤ 0.1</strong>—without guesswork.
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">1) Measure First</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li>CrUX &amp; PageSpeed field data for key pages</li>
+  <li>APM traces (New Relic/Datadog): p95 latency per endpoint</li>
+  <li>Error rate and slow queries; sample traces</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">2) Database</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li>Add missing/composite indexes; remove duplicates</li>
+  <li>Kill N+1s (<code>bullet</code>, <code>rack-mini-profiler</code>)</li>
+  <li>Partition/archive hot tables; tune autovacuum</li>
+  <li>Read replicas carefully—watch staleness</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">3) Caching &amp; Assets</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li>Page/fragment caching with cache keys (avoid time‑based expiry)</li>
+  <li>Redis TTLs &amp; memory policy sanity check</li>
+  <li>CDN for static assets; correct <code>Cache-Control</code> &amp; <code>ETag</code></li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">4) Background Work</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li>Move heavy work off request cycle (Sidekiq)</li>
+  <li>Idempotent jobs with retries/backoff</li>
+  <li>Dedicated queues for critical paths</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">5) Frontend Vitals</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li>Inline critical CSS; self‑host fonts with <code>font-display: swap</code></li>
+  <li>Image width/height + lazy loading (except hero); use <code>next/image</code></li>
+  <li>Break up long tasks; avoid hydrating huge bundles</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">6) Release Engineering</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li>CI &lt; 10 min with test splitting &amp; caching</li>
+  <li>Canary deploys + feature flags + error budgets</li>
+  <li>Build once; promote between envs</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">A Minimal NGINX/Cache Header Tweak</h2>
+<br/>
+
+```nginx
+location ~* \.(js|css|png|webp|jpg|svg)$ {
+  add_header Cache-Control "public, max-age=31536000, immutable";
+  try_files $uri =404;
+}
+location / {
+  add_header Cache-Control "no-store";
+}
+```
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">30‑Point Checklist</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li>All hot queries have indexes; N+1s fixed</li>
+  <li>Redis keys scoped; eviction policy appropriate</li>
+  <li>Hero images ≤ 120 KB, WebP/AVIF used</li>
+  <li>Fonts self‑hosted; <code>display: swap</code></li>
+  <li>Core Web Vitals monitored in RUM (p75)</li>
+  <li>Canary deploy path + rollback verified</li>
+  <li>APM traces sampled with error budgets</li>
+  <li>Queues sized for peak; dead letters empty</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">Conclusion</h2>
+<br/>
+Performance isn’t a sprint; it’s a habit. Start with measurement, fix the biggest regressions, and guard the wins in CI/CD and observability.
+<br/><br/>
+
+---
+<strong>Written by Ahmad</strong><br/>
+Ahmad Hassan, Senior Ruby on Rails expert with 10+ years of experience. He builds web and mobile applications using React, Next.js, and TypeScript, and contributes to backend development using Python and Ruby on Rails.
