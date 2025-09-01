@@ -237,7 +237,7 @@ export default function Home() {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/php-laravel-consulting"
                         className="text-[#535074] hover:text-[#1bb1dc]"
                       >
                         PHP & Laravel
@@ -245,7 +245,7 @@ export default function Home() {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/blog/devops-consulting"
                         className="text-[#535074] hover:text-[#1bb1dc]"
                       >
                         DevOps
@@ -324,7 +324,7 @@ export default function Home() {
                       />
                     </a>
                     <a
-                      href="https://www.facebook.com/asistencia.in/"
+                      href="https://www.facebook.com/asistensiacom"
                       aria-label="Facebook"
                     >
                       <FontAwesomeIcon

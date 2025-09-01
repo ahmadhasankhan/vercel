@@ -1,0 +1,110 @@
+---
+title: "PHP and Laravel Consulting for Scalable Products"
+paragraph: "Senior PHP/Laravel engineering for upgrades, performance, CI/CD, and cloud—ship faster without risking uptime."
+author:
+  postedby: "Posted By"
+  name: "Ahmad Hassan"
+  title: "Founder & Principal Consultant"
+  profileImage: "/assets/ahmad.png"
+
+publishedDate: "September 3, 2025"
+coverImage: "/assets/blog/php_laravel_consulting.webp"
+tags:
+  - php
+  - laravel
+  - devops
+  - ci-cd
+  - api
+---
+
+<h1 className="font-bold text-2xl text-gray-500">Introduction</h1>
+<br/>
+Laravel + modern PHP can scale beautifully—with the right foundations. This post shows how we help teams upgrade safely, speed up delivery, and stabilise performance.
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">Outcomes We Target</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li><strong>Faster releases</strong> via cached builds and parallel tests</li>
+  <li><strong>Reliable deploys</strong> (zero-downtime, canary, rollback)</li>
+  <li><strong>p95 latency</strong> down and <strong>error rate</strong> steady</li>
+  <li><strong>Transparent costs</strong> with infra tagging and budgets</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">Core Workstreams</h2>
+<br/>
+
+<h3 className="font-bold text-xl text-gray-500">1) CI/CD for Laravel</h3>
+<br/>
+<ul className="list-disc pl-8">
+  <li>Composer/npm caching; split tests (PHPUnit/Pest)</li>
+  <li>Build once; promote artifact across envs</li>
+  <li>Preview environments for risky PRs</li>
+</ul>
+<br/>
+
+```yaml
+# .github/workflows/laravel-ci.yml (excerpt)
+name: CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8
+        env: { MYSQL_ROOT_PASSWORD: root, MYSQL_DATABASE: app_test }
+        ports: ["3306:3306"]
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -proot"
+          --health-interval=10s --health-timeout=5s --health-retries=5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with: { php-version: '8.3', coverage: none, tools: composer:v2 }
+      - name: Cache Composer
+        uses: actions/cache@v4
+        with: { path: ~/.composer/cache/files, key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }} }
+      - run: composer install --no-interaction --prefer-dist
+      - run: cp .env.ci .env && php artisan key:generate
+      - run: php artisan migrate --force
+      - run: vendor/bin/pest --ci || vendor/bin/phpunit --testdox
+```
+<br/>
+
+<h3 className="font-bold text-xl text-gray-500">2) Performance &amp; Caching</h3>
+<br/>
+<ul className="list-disc pl-8">
+  <li>OPcache tuned; <code>config:cache</code> and <code>route:cache</code> in builds</li>
+  <li>Redis for cache/sessions; Horizon to watch queues</li>
+  <li>HTTP caching with CDN; image/WebP and font hygiene</li>
+</ul>
+<br/>
+
+<h3 className="font-bold text-xl text-gray-500">3) Database &amp; Queues</h3>
+<br/>
+<ul className="list-disc pl-8">
+  <li>Indexes for hot queries; fix N+1s with eager loading</li>
+  <li>Queue isolation for critical work; idempotent jobs with retries/backoff</li>
+  <li>Slow query sampling in APM; read replicas only where safe</li>
+</ul>
+<br/>
+
+<h3 className="font-bold text-xl text-gray-500">4) Reliability &amp; Security</h3>
+<br/>
+<ul className="list-disc pl-8">
+  <li>SLOs, alerts and runbooks; incident templates</li>
+  <li>Least‑privilege IAM; secrets in SSM/Secrets Manager</li>
+  <li>Backups, PITR and DR drills</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">Conclusion</h2>
+<br/>
+Whether you’re modernising a legacy PHP app or scaling a Laravel SaaS, our approach keeps delivery fast and production calm.
+<br/><br/>
+
+---
+<strong>Written by Ahmad</strong><br/>
+Ahmad Hassan, Senior engineer with 10+ years in PHP, Laravel and Rails. He builds web and mobile apps with React/Next and TypeScript, and delivers backend systems in PHP and Ruby.
