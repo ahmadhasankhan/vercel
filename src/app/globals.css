@@ -3,7 +3,7 @@
 :root {
     --primary: #58bca4;
     --secondary: #1e40af;
-    --accent: '#3b82f6',
+    --accent: #3b82f6;
 }
 
 @theme extend {
