@@ -6,10 +6,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
-import Layout from "@/app/components/Layout";
+import Layout from "../../components/Layout";
 
-type ParamsPromise = Promise<{ slug: string }>;
-type Props = { params: ParamsPromise }; // Next can provide params as a Promise; await it.
+type LocaleParams = { locale: string; slug: string };
+type Props = { params: Promise<LocaleParams> };
 
 const POSTS_DIR = path.join(process.cwd(), "src/content/blog");
 const SITE = "https://asistensia.com"; // used to build absolute URLs
@@ -23,15 +23,26 @@ function readPost(slug: string) {
 }
 
 export async function generateStaticParams() {
+  const locales = ["en", "nl", "ar"];
   if (!fs.existsSync(POSTS_DIR)) return [];
   const files = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith(".mdx"));
-  return files.map((filename) => ({ slug: filename.replace(/\.mdx$/, "") }));
+  
+  const params: LocaleParams[] = [];
+  locales.forEach(locale => {
+    files.forEach(filename => {
+      params.push({ 
+        locale, 
+        slug: filename.replace(/\.mdx$/, "") 
+      });
+    });
+  });
+  return params;
 }
 
 const abs = (u?: string) => (u ? (u.startsWith("http") ? u : `${SITE}${u}`) : undefined);
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const post = readPost(slug);
   if (!post) return { robots: { index: false, follow: false } };
 
@@ -45,7 +56,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     author,
   } = post.data as {
     title?: string;
-    paragraph?: string; // description/excerpt
+    paragraph?: string;
     coverImage?: string;
     publishedDate?: string;
     updatedDate?: string;
@@ -53,7 +64,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     author?: { name?: string };
   };
 
-  const url = `${SITE}/blog/${slug}`;
+  const url = `${SITE}/${locale}/blog/${slug}`;
   const ogImage = abs(coverImage) ?? `${SITE}/og-image.png`;
   const metaTitle = title ?? slug;
   const description = paragraph ?? "";
@@ -63,12 +74,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     keywords: tags,
     authors: author?.name ? [{ name: author.name }] : undefined,
-    alternates: { canonical: url }, // ✅ absolute canonical
+    alternates: { canonical: url },
     openGraph: {
       type: "article",
       title: metaTitle,
       description,
-      url, // ✅ absolute
+      url,
       images: [{ url: ogImage }],
       publishedTime: publishedDate,
       modifiedTime: updatedDate ?? publishedDate,
@@ -85,14 +96,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function BlogPage({ params }: Props) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const post = readPost(slug);
   if (!post) notFound();
 
   const { content, data } = post;
 
-  const url = `${SITE}/blog/${slug}`;
-  const imgAbs = abs(data.coverImage) ?? `${SITE}/og-image.png`;
+  const url = `${SITE}/${locale}/blog/${slug}`;
+  const imgAbs = abs(data.coverImage as string) ?? `${SITE}/og-image.png`;
 
   // Article JSON-LD (scales globally; single-language site)
   const articleLd = {

@@ -12,6 +12,8 @@ import ContactSection from "./components/ContactSection";
 import ServicesSection from "./components/ServicesSection";
 import AskQuestion from "./components/AskQuestion";
 import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/routing";
 
 export const metadata: Metadata = {
   title: "Asistensia - Ruby, PHP & DevOps Consulting",
@@ -23,7 +25,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
+export default async function Home() {
+  const t = await getTranslations("HomePage");
+
   return (
     <>
       <main className="">
@@ -32,9 +36,9 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between h-16">
               <div className="flex items-center">
-                <a href="/" className="text-xl font-bold text-primary">
+                <Link href="/" className="text-xl font-bold text-primary">
                   Asistensia
-                </a>
+                </Link>
               </div>
               <div className="hidden md:flex items-center space-x-8">
                 <a href="#about" className="text-gray-700 hover:text-[#1bb1dc]">
@@ -46,18 +50,18 @@ export default function Home() {
                 >
                   Services
                 </a>
-                <a
+                <Link
                   href="/privacy"
                   className="text-gray-700 hover:text-[#1bb1dc]"
                 >
                   Privacy Policy
-                </a>
+                </Link>
                 <a href="#about" className="text-gray-700 hover:text-[#1bb1dc]">
                   Terms
                 </a>
-                <a href="/blog" className="text-gray-700 hover:text-[#1bb1dc]">
+                <Link href="/blog" className="text-gray-700 hover:text-[#1bb1dc]">
                   Blog
-                </a>
+                </Link>
                 <a
                   href="#contact"
                   className="text-gray-700 hover:text-[#1bb1dc]"
@@ -74,18 +78,17 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Expert Software Consulting Services
+                {t('title')}
               </h1>
 
               <h2 className="text-xl md:text-2xl max-w-4xl mx-auto">
-                Unlock your business potential with specialized consulting in
-                Ruby, Ruby on Rails, PHP, and DevOps solutions.
+                {t('subtitle')}
               </h2>
               <div className="mt-10">
                 <a href="#contact"
                   className="mt-10 inline-block bg-white text-[#1bb1dc] font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition duration-300"
                 >
-                  Get Started
+                  {t('cta')}
                 </a>
               </div>
             </div>
@@ -223,26 +226,26 @@ export default function Home() {
                   </h4>
                   <ul className="space-y-2">
                     <li>
-                      <a
+                      <Link
                         href="/blog/ruby-on-rails-consulting" className="text-[#535074] hover:text-[#1bb1dc]">
                         Ruby on Rails
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         href="/blog/php-laravel-consulting"
                         className="text-[#535074] hover:text-[#1bb1dc]"
                       >
                         PHP & Laravel
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         href="/blog/devops-consulting"
                         className="text-[#535074] hover:text-[#1bb1dc]"
                       >
                         DevOps
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -260,12 +263,12 @@ export default function Home() {
                       </a>
                     </li>
                     <li>
-                      <a
+                      <Link
                         href="/blog"
                         className="text-[#535074] hover:text-[#1bb1dc]"
                       >
                         Blog
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <a
@@ -283,12 +286,12 @@ export default function Home() {
                   </h4>
                   <ul className="space-y-2">
                     <li>
-                      <a
-                        href="#"
+                      <Link
+                        href="/privacy"
                         className="text-[#535074] hover:text-[#1bb1dc]"
                       >
                         Privacy
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <a

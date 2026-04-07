@@ -1,20 +1,23 @@
 import React from "react";
 import Image from "next/image";
 import Layout from "../components/Layout";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-    title: "Blog",
-    description:
-        "Articles on Ruby on Rails, DevOps and performance from the Asistensia team.",
-    alternates: { canonical: "https://asistensia.com/blog" },
-    openGraph: {
-        title: "Asistensia Blog",
-        url: "https://asistensia.com/blog",
-        type: "website",
-    },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+    const { locale } = await params;
+    const base = "https://asistensia.com";
+    return {
+        title: "Blog",
+        description: "Articles on Ruby on Rails, DevOps and performance from the Asistensia team.",
+        alternates: { canonical: `${base}/${locale}/blog` },
+        openGraph: {
+            title: "Asistensia Blog",
+            url: `${base}/${locale}/blog`,
+            type: "website",
+        },
+    };
+}
 export default function BlogPage() {
     return (
         <Layout>

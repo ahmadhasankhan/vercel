@@ -1,8 +1,10 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import {NextIntlClientProvider} from 'next-intl';
+import {getMessages} from 'next-intl/server';
+import {notFound} from 'next/navigation';
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -58,28 +60,42 @@ export const metadata: Metadata = {
     },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
                                        children,
+                                       params
                                    }: {
     children: React.ReactNode;
+    params: Promise<{locale: string}>;
 }) {
-    // Site-wide Organization JSON-LD (single-language default, US/UK + GCC served)
+    const {locale} = await params;
+
+    // Validate that the incoming `locale` parameter is valid
+    if (!['en', 'nl', 'ar'].includes(locale)) {
+        notFound();
+    }
+
+    // Providing all messages to the client
+    // side is the easiest way to get started
+    const messages = await getMessages();
+
+    // Site-wide Organization JSON-LD
     const orgJsonLd = {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         name: "Asistensia",
-        url: "https://asistensia.com",
-        inLanguage: "en",
+        url: `https://asistensia.com/${locale}`,
+        inLanguage: locale,
         areaServed: [
             { "@type": "Country", name: "United States" },
             { "@type": "Country", name: "United Kingdom" },
             { "@type": "Country", name: "Saudi Arabia" },
             { "@type": "Country", name: "United Arab Emirates" },
+            { "@type": "Country", name: "Netherlands" }
         ],
     };
 
     return (
-        <html lang="en">
+        <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
         <head>
             <link rel="icon" href="/favicon.ico" />
             <script
@@ -90,7 +106,9 @@ export default function RootLayout({
         <body
             className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased bg-gray-50`}
         >
-        {children}
+        <NextIntlClientProvider messages={messages}>
+            {children}
+        </NextIntlClientProvider>
 
         {/* Google Analytics */}
         <Script

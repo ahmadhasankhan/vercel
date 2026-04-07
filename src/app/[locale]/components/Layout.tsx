@@ -1,6 +1,4 @@
-import React from "react";
-import Head from "next/head";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
@@ -33,22 +31,6 @@ export default function Layout({ children }: { children: React.ReactNode }) : Re
 
   return (
     <>
-      <Head>
-        <title>Asistensia - Ruby, PHP & DevOps Consulting</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-          name="description"
-          content="Tailored software development and consulting services including Ruby, Rails, Ruby On Rails PHP, Laravel, DevOps and API integrations."
-        />
-        <meta property="og:title" content="Asistensia - Software Consulting" />
-        <meta
-          property="og:description"
-          content="We build scalable and secure software solutions."
-        />
-        <meta property="og:image" content="/og-image.png" />
-        <script type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}/>
-      </Head>
 
       {/* Navbar */}
       <nav className="bg-white shadow-sm sticky top-0 z-50">
@@ -60,24 +42,24 @@ export default function Layout({ children }: { children: React.ReactNode }) : Re
               </Link>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <a href="/#about" className="text-gray-700 hover:text-[#1bb1dc]">
+              <Link href="/#about" className="text-gray-700 hover:text-[#1bb1dc]">
                 About us
-              </a>
-              <a href="/#services" className="text-gray-700 hover:text-[#1bb1dc]">
+              </Link>
+              <Link href="/#services" className="text-gray-700 hover:text-[#1bb1dc]">
                 Services
-              </a>
-               <a href="/privacy" className="text-gray-700 hover:text-[#1bb1dc]">
+              </Link>
+               <Link href="/privacy" className="text-gray-700 hover:text-[#1bb1dc]">
                 Privacy Policy
-              </a>
-               <a href="/#services" className="text-gray-700 hover:text-[#1bb1dc]">
+              </Link>
+               <Link href="/#services" className="text-gray-700 hover:text-[#1bb1dc]">
                 Terms
-              </a>
-              <a href="/blog" className="text-gray-700 hover:text-[#1bb1dc]">
+              </Link>
+              <Link href="/blog" className="text-gray-700 hover:text-[#1bb1dc]">
                 Blog
-              </a>
-              <a href="/#contact" className="text-gray-700 hover:text-[#1bb1dc]">
+              </Link>
+              <Link href="/#contact" className="text-gray-700 hover:text-[#1bb1dc]">
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -134,20 +116,20 @@ export default function Layout({ children }: { children: React.ReactNode }) : Re
                           </h4>
                           <ul className="space-y-2">
                             <li>
-                              <a href="/blog/ruby-on-rails-consulting" className="text-[#535074] hover:text-[#1bb1dc]">
+                              <Link href="/blog/ruby-on-rails-consulting" className="text-[#535074] hover:text-[#1bb1dc]">
                                 Ruby on Rails
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a
-                                href="#" className="text-[#535074] hover:text-[#1bb1dc]">
+                              <Link
+                                href="/blog/php-laravel-consulting" className="text-[#535074] hover:text-[#1bb1dc]">
                                 PHP & Laravel
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a href="/blog/ruby-on-rails-consulting" className="text-[#535074] hover:text-[#1bb1dc]">
+                              <Link href="/blog/devops-consulting" className="text-[#535074] hover:text-[#1bb1dc]">
                                 DevOps
-                              </a>
+                              </Link>
                             </li>
                           </ul>
                         </div>
@@ -157,28 +139,28 @@ export default function Layout({ children }: { children: React.ReactNode }) : Re
                           </h4>
                           <ul className="space-y-2">
                             <li>
-                              <a
-                                href="#about"
+                              <Link
+                                href="/#about"
                                 className="text-[#535074] hover:text-[#1bb1dc]"
                               >
                                 About
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a
+                              <Link
                                 href="/blog"
                                 className="text-[#535074] hover:text-[#1bb1dc]"
                               >
                                 Blog
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a
-                                href="#contact"
+                              <Link
+                                href="/#contact"
                                 className="text-[#535074] hover:text-[#1bb1dc]"
                               >
                                 Contact
-                              </a>
+                              </Link>
                             </li>
                           </ul>
                         </div>
@@ -188,20 +170,20 @@ export default function Layout({ children }: { children: React.ReactNode }) : Re
                           </h4>
                           <ul className="space-y-2">
                             <li>
-                              <a
-                                href="#"
+                              <Link
+                                href="/privacy"
                                 className="text-[#535074] hover:text-[#1bb1dc]"
                               >
                                 Privacy
-                              </a>
+                              </Link>
                             </li>
                             <li>
-                              <a
-                                href="#"
+                              <Link
+                                href="/#services"
                                 className="text-[#535074] hover:text-[#1bb1dc]"
                               >
                                 Terms
-                              </a>
+                              </Link>
                             </li>
                           </ul>
                         </div>
