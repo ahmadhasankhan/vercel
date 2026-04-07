@@ -163,7 +163,7 @@ export default function ServicesSection() {
           ))}
         </div>
       </div>
-      <hr/>
+      <hr />
     </section>
   );
 }

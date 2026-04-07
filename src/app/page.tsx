@@ -9,40 +9,33 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faCheckDouble } from "@fortawesome/free-solid-svg-icons";
 import ContactSection from "./components/ContactSection";
-import ServicestSection from "./components/ServicestSection";
+import ServicesSection from "./components/ServicesSection";
 import AskQuestion from "./components/AskQuestion";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Asistensia - Ruby, PHP & DevOps Consulting",
+  description: "Tailored software development and consulting services for Ruby on Rails, PHP/Laravel, and DevOps.",
+  openGraph: {
+    title: "Asistensia - Software Consulting",
+    description: "Expert software consulting for startups and teams.",
+    images: ["/og-image.png"],
+  },
+};
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Asistensia - Ruby, PHP & DevOps Consulting</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-          name="description"
-          content="Tailored software development and consulting services including Ruby, Rails, Ruby On Rails PHP, Laravel, DevOps and API integrations."
-        />
-        <meta property="og:title" content="Asistensia - Software Consulting" />
-        <meta
-          property="og:description"
-          content="We build scalable and secure software solutions."
-        />
-        <meta property="og:image" content="/og-image.png" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
       <main className="">
         {/* Navigation */}
         <nav className="bg-white shadow-sm sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between h-16">
-              <h1 className="flex items-center">
+              <div className="flex items-center">
                 <a href="/" className="text-xl font-bold text-primary">
                   Asistensia
                 </a>
-              </h1>
+              </div>
               <div className="hidden md:flex items-center space-x-8">
                 <a href="#about" className="text-gray-700 hover:text-[#1bb1dc]">
                   About us
@@ -84,10 +77,10 @@ export default function Home() {
                 Expert Software Consulting Services
               </h1>
 
-              <h1 className="text-xl md:text-2xl max-w-4xl mx-auto">
+              <h2 className="text-xl md:text-2xl max-w-4xl mx-auto">
                 Unlock your business potential with specialized consulting in
                 Ruby, Ruby on Rails, PHP, and DevOps solutions.
-              </h1>
+              </h2>
               <div className="mt-10">
                 <a href="#contact"
                   className="mt-10 inline-block bg-white text-[#1bb1dc] font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition duration-300"
@@ -173,7 +166,7 @@ export default function Home() {
         </section>
 
         {/* Services */}
-        <ServicestSection />
+        <ServicesSection />
 
         {/* FAQ */}
         <AskQuestion />
@@ -188,9 +181,9 @@ export default function Home() {
               <div className="mb-8 md:mb-0">
                 <h3 className="text-3xl font-normal mb-4 text-[#413e66] tracking-custom uppercase">
                   <img
-                      src="/assets/brand/asistensia_logo.png"
-                      alt="Asistensia"
-                      className="w-30 h-30"
+                    src="/assets/brand/asistensia_logo.png"
+                    alt="Asistensia"
+                    className="w-30 h-30"
                   />
                 </h3>
                 <p className="text-[#535074] max-w-xs">
@@ -237,7 +230,7 @@ export default function Home() {
                     </li>
                     <li>
                       <a
-                        href="/php-laravel-consulting"
+                        href="/blog/php-laravel-consulting"
                         className="text-[#535074] hover:text-[#1bb1dc]"
                       >
                         PHP & Laravel

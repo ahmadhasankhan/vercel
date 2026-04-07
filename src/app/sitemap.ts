@@ -1,31 +1,31 @@
 import type { MetadataRoute } from "next";
-
-// If your blog posts live in a data source, read them here.
-// For slug-based MDX, replace this array by reading your source at build time.
-// const posts = [
-//     // { slug: "/blog/react-vs-react-native" },
-//     // { slug: "/blog/why-ruby-on-rails-is-best-for-startups" },
-//     // ...
-// ];
+import fs from "fs";
+import path from "path";
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const base = "https://asistensia.com";
+    const postsDir = path.join(process.cwd(), "src/content/blog");
+
+    let blogPages: any[] = [];
+    if (fs.existsSync(postsDir)) {
+        const filenames = fs.readdirSync(postsDir);
+        blogPages = filenames
+            .filter((file) => file.endsWith(".mdx"))
+            .map((file) => {
+                const slug = file.replace(/\.mdx$/, "");
+                return {
+                    url: `${base}/blog/${slug}`,
+                    lastModified: new Date(),
+                    changeFrequency: "monthly" as const,
+                    priority: 0.6,
+                };
+            });
+    }
 
     const staticPages: MetadataRoute.Sitemap = [
-        { url: `${base}/`, changeFrequency: "weekly", priority: 0.9 },
-        { url: `${base}/blog`, changeFrequency: "weekly", priority: 0.7 },
-        { url: `${base}/ruby-on-rails-consulting`, changeFrequency: "monthly", priority: 0.9 },
-        { url: `${base}/rails-upgrade`, changeFrequency: "monthly", priority: 0.8 },
-        { url: `${base}/rails-performance-audit`, changeFrequency: "monthly", priority: 0.8 },
-        { url: `${base}/devops-consulting`, changeFrequency: "monthly", priority: 0.7 },
+        { url: `${base}/`, changeFrequency: "weekly", priority: 1.0 },
+        { url: `${base}/blog`, changeFrequency: "weekly", priority: 0.8 },
     ];
 
-    // const blogPages = posts.map(p => ({
-    //     url: `${base}${p.slug}`,
-    //     changeFrequency: "monthly",
-    //     priority: 0.6,
-    // }));
-
-    //return [...staticPages, ...blogPages];
-    return [...staticPages];
+    return [...staticPages, ...blogPages];
 }
