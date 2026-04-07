@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://asistensia.com
-
-# Sitemaps
-Sitemap: https://asistensia.com/sitemap.xml
