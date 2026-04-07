@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import {notFound} from 'next/navigation';
+
+const inter = Inter({
+    subsets: ["latin"],
+    variable: "--font-inter",
+});
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -104,7 +109,7 @@ export default async function RootLayout({
             />
         </head>
         <body
-            className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased bg-gray-50`}
+            className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} font-sans antialiased bg-gray-50`}
         >
         <NextIntlClientProvider messages={messages}>
             {children}

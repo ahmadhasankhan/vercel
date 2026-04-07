@@ -68,13 +68,15 @@ export default function ContactSection() {
                                 <ContactItem
                                     title="Phone"
                                     detail="+31-619-333008"
+                                    href="tel:+31619333008"
                                     icon={
                                         <PhoneIcon className="h-6 w-6 text-[#1bb1dc]  mt-1 mr-4" />
                                     }
                                 />
                                 <ContactItem
                                     title="Email"
-                                    detail="contact@asistensia.com"
+                                    detail="contact [at] asistensia.com"
+                                    href="mailto:contact@asistensia.com"
                                     icon={
                                         <MailIcon className="h-6 w-6 text-[#1bb1dc] mt-1 mr-4" />
                                     }
@@ -99,17 +101,25 @@ function ContactItem({
                          title,
                          detail,
                          icon,
+                         href,
                      }: {
     title: string;
     detail: string;
     icon: React.ReactNode;
+    href?: string;
 }) {
     return (
         <div className="flex items-start">
             {icon}
             <div>
                 <h4 className="font-medium text-gray-900">{title}</h4>
-                <p className="text-gray-600">{detail}</p>
+                {href ? (
+                    <a href={href} className="text-gray-600 hover:text-[#1bb1dc] transition-colors">
+                        {detail}
+                    </a>
+                ) : (
+                    <p className="text-gray-600">{detail}</p>
+                )}
             </div>
         </div>
     );
