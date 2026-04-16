@@ -7,13 +7,23 @@ import type { Metadata } from "next";
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
     const { locale } = await params;
     const base = "https://asistensia.com";
+    const currentUrl = locale === 'en' ? `${base}/blog` : `${base}/${locale}/blog`;
+
     return {
         title: "Blog",
         description: "Articles on Ruby on Rails, DevOps and performance from the Asistensia team.",
-        alternates: { canonical: `${base}/${locale}/blog` },
+        alternates: { 
+            canonical: currentUrl,
+            languages: {
+                'en': `${base}/blog`,
+                'nl': `${base}/nl/blog`,
+                'ar': `${base}/ar/blog`,
+                'x-default': `${base}/blog`,
+            }
+        },
         openGraph: {
             title: "Asistensia Blog",
-            url: `${base}/${locale}/blog`,
+            url: currentUrl,
             type: "website",
         },
     };

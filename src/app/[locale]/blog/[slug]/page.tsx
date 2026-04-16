@@ -64,7 +64,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     author?: { name?: string };
   };
 
-  const url = `${SITE}/${locale}/blog/${slug}`;
+  const currentUrl = locale === 'en' ? `${SITE}/blog/${slug}` : `${SITE}/${locale}/blog/${slug}`;
   const ogImage = abs(coverImage) ?? `${SITE}/og-image.png`;
   const metaTitle = title ?? slug;
   const description = paragraph ?? "";
@@ -74,12 +74,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     keywords: tags,
     authors: author?.name ? [{ name: author.name }] : undefined,
-    alternates: { canonical: url },
+    alternates: { 
+      canonical: currentUrl,
+      languages: {
+        'en': `${SITE}/blog/${slug}`,
+        'nl': `${SITE}/nl/blog/${slug}`,
+        'ar': `${SITE}/ar/blog/${slug}`,
+        'x-default': `${SITE}/blog/${slug}`,
+      }
+    },
     openGraph: {
       type: "article",
       title: metaTitle,
       description,
-      url,
+      url: currentUrl,
       images: [{ url: ogImage }],
       publishedTime: publishedDate,
       modifiedTime: updatedDate ?? publishedDate,
@@ -102,7 +110,7 @@ export default async function BlogPage({ params }: Props) {
 
   const { content, data } = post;
 
-  const url = `${SITE}/${locale}/blog/${slug}`;
+  const currentUrl = locale === 'en' ? `${SITE}/blog/${slug}` : `${SITE}/${locale}/blog/${slug}`;
   const imgAbs = abs(data.coverImage as string) ?? `${SITE}/og-image.png`;
 
   // Article JSON-LD (scales globally; single-language site)
@@ -112,7 +120,7 @@ export default async function BlogPage({ params }: Props) {
     headline: data.title,
     description: data.paragraph,
     image: [imgAbs],
-    mainEntityOfPage: url,
+    mainEntityOfPage: currentUrl,
     datePublished: data.publishedDate,
     dateModified: data.updatedDate ?? data.publishedDate,
     author: data.author?.name ? { "@type": "Person", name: data.author.name } : undefined,

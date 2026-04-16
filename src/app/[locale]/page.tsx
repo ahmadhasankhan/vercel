@@ -15,15 +15,31 @@ import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
 
-export const metadata: Metadata = {
-  title: "Asistensia - Ruby, PHP & DevOps Consulting",
-  description: "Tailored software development and consulting services for Ruby on Rails, PHP/Laravel, and DevOps.",
-  openGraph: {
-    title: "Asistensia - Software Consulting",
-    description: "Expert software consulting for startups and teams.",
-    images: ["/og-image.png"],
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const SITE = "https://asistensia.com";
+  // For as-needed, English is at root, others at /[locale]
+  const currentUrl = locale === 'en' ? SITE : `${SITE}/${locale}`;
+
+  return {
+    title: "Asistensia - Ruby, PHP & DevOps Consulting",
+    description: "Tailored software development and consulting services for Ruby on Rails, PHP/Laravel, and DevOps.",
+    alternates: {
+      canonical: currentUrl,
+      languages: {
+        'en': SITE,
+        'nl': `${SITE}/nl`,
+        'ar': `${SITE}/ar`,
+        'x-default': SITE,
+      }
+    },
+    openGraph: {
+      title: "Asistensia - Software Consulting",
+      description: "Expert software consulting for startups and teams.",
+      images: ["/og-image.png"],
+    },
+  };
+}
 
 export default async function Home() {
   const t = await getTranslations("HomePage");

@@ -15,8 +15,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
                 .filter((file) => file.endsWith(".mdx"))
                 .map((file) => {
                     const slug = file.replace(/\.mdx$/, "");
+                    const url = locale === 'en' ? `${base}/blog/${slug}` : `${base}/${locale}/blog/${slug}`;
                     blogPages.push({
-                        url: `${base}/${locale}/blog/${slug}`,
+                        url,
                         lastModified: new Date(),
                         changeFrequency: "monthly" as const,
                         priority: 0.6,
@@ -27,8 +28,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     const staticPages: MetadataRoute.Sitemap = [];
     locales.forEach(locale => {
-        staticPages.push({ url: `${base}/${locale}`, changeFrequency: "weekly", priority: 1.0 });
-        staticPages.push({ url: `${base}/${locale}/blog`, changeFrequency: "weekly", priority: 0.8 });
+        const urlHome = locale === 'en' ? base : `${base}/${locale}`;
+        const urlBlog = locale === 'en' ? `${base}/blog` : `${base}/${locale}/blog`;
+        staticPages.push({ url: urlHome, changeFrequency: "weekly", priority: 1.0 });
+        staticPages.push({ url: urlBlog, changeFrequency: "weekly", priority: 0.8 });
     });
 
     return [...staticPages, ...blogPages];

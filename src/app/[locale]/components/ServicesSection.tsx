@@ -157,7 +157,7 @@ export default function ServicesSection() {
               className="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition duration-500 transform"
             >
               <div className="">{service.icon}</div>
-              <h1 className="text-xl font-semibold mb-3">{service.title}</h1>
+              <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
               <p className="text-gray-600">{service.description}</p>
             </div>
           ))}
