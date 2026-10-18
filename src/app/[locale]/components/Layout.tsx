@@ -1,236 +1,200 @@
+import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
   faLinkedin,
-  faTwitter,
+  faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import { BRAND, SITE_NAME, SOCIALS } from "@/lib/site";
 
-
-export default function Layout({ children }: { children: React.ReactNode }) : React.JSX.Element {
-  const orgJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Asistensia",
-    "url": "https://asistensia.com",
-    "logo": "https://asistensia.com/assets/brand/logo.png",
-    "image": "https://asistensia.com/assets/brand/logo.png",
-    "telephone": "+31619333008",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "[Street and number]",
-      "addressLocality": "Amsterdam",
-      "postalCode": "[POSTCODE]",
-      "addressCountry": "NL"
-    },
-    "sameAs": [
-      "https://www.linkedin.com/company/[handle]",
-      "https://github.com/[handle]"
-    ]
-  };
+export default function Layout({ children }: { children: React.ReactNode }): React.JSX.Element {
+  const year = new Date().getFullYear();
 
   return (
     <>
-
       {/* Navbar */}
-      <nav className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <header className="bg-white shadow-sm sticky top-0 z-50">
+        <nav aria-label="Main" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
-              <Link href="/" className="text-xl font-bold text-primary">
-                Asistensia
+              <Link href="/" aria-label={`${SITE_NAME} – home`} className="flex items-center">
+                <Image
+                  src={BRAND.logoSvg}
+                  alt={SITE_NAME}
+                  width={BRAND.logoWidth}
+                  height={BRAND.logoHeight}
+                  priority
+                  className="h-9 w-auto"
+                />
               </Link>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="/#about" className="text-gray-700 hover:text-[#1bb1dc]">
+              <Link href="/#about" className="text-muted hover:text-secondary">
                 About us
               </Link>
-              <Link href="/#services" className="text-gray-700 hover:text-[#1bb1dc]">
+              <Link href="/#services" className="text-muted hover:text-secondary">
                 Services
               </Link>
-               <Link href="/privacy" className="text-gray-700 hover:text-[#1bb1dc]">
+              <Link href="/privacy" className="text-muted hover:text-secondary">
                 Privacy Policy
               </Link>
-               <Link href="/#services" className="text-gray-700 hover:text-[#1bb1dc]">
-                Terms
-              </Link>
-              <Link href="/blog" className="text-gray-700 hover:text-[#1bb1dc]">
+              <Link href="/blog" className="text-muted hover:text-secondary">
                 Blog
               </Link>
-              <Link href="/#contact" className="text-gray-700 hover:text-[#1bb1dc]">
+              <Link href="/#contact" className="text-muted hover:text-secondary">
                 Contact
               </Link>
             </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </header>
 
       <main>{children}</main>
 
       {/* Footer */}
-          <footer className="bg-[#f5f8fd] text-white py-12 cursor-pointer">
-                  <div className="max-w-7xl mx-auto px-4">
-                    <div className="md:flex md:justify-between">
-                      <div className="mb-8 md:mb-0">
-                        <h3 className="text-3xl font-normal mb-4 text-[#413e66] tracking-custom uppercase">
-                          <img
-                              src="/assets/brand/asistensia_logo.webp"
-                              alt="Asistensia"
-                              className="w-30 h-30"
-                          />
-                        </h3>
-                        <p className="text-[#535074] max-w-xs">
-                          Expert software consulting services for Ruby, PHP, and DevOps
-                          solutions.
-                        </p>
-                        <p className="text-[#535074] leading-relaxed pt-5 font-medium">
-                          Extend your tech team by letting us step in and take charge of
-                          <br />
-                          everyday tasks. We have an expert team of Full-Stack
-                          <br /> Engineers with 24/7 Cloud Support.
-                        </p>
+      <footer className="bg-surface text-white py-12">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="md:flex md:justify-between">
+            <div className="mb-8 md:mb-0">
+              <Link href="/" aria-label={`${SITE_NAME} – home`} className="inline-block mb-4">
+                <Image
+                  src={BRAND.logoSvg}
+                  alt={SITE_NAME}
+                  width={BRAND.logoWidth}
+                  height={BRAND.logoHeight}
+                  className="h-12 w-auto"
+                />
+              </Link>
+              <p className="text-muted max-w-xs">
+                Expert software consulting services for Ruby, PHP, and DevOps solutions.
+              </p>
+              <p className="text-muted leading-relaxed pt-5 font-medium">
+                Extend your tech team by letting us step in and take charge of
+                <br />
+                everyday tasks. We have an expert team of Full-Stack
+                <br /> Engineers with 24/7 Cloud Support.
+              </p>
 
-                        <h4 className="font-bold text-[#413e66] uppercase pt-8">
-                          Our Newsletter
-                        </h4>
-                        <p className="text-[#535074] leading-relaxed pt-5 font-medium">
-                          Would you like to receive emails from Asistensia with updates,
-                          <br />
-                          tech news and special offers of Asistensia? You can
-                          unsubscribe
-                          <br /> any time by clicking the unsubscribe link in the email.
-                        </p>
-                        <input
-                          className="mt-10 p-1 w-36 border-1 border-gray-200 focus:outline-none focus:ring-primary focus:border-primary shadow-sm"
-                          type="text"
-                        />
-                        <input
-                          className="text-white bg-[#1bb1dc] px-4 py-1 hover:bg-[#1993bc]"
-                          type="submit"
-                        />
-                      </div>
-                      <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
-                        <div>
-                          <h4 className="text-sm font-semibold uppercase tracking-wider mb-4 text-[#413e66]">
-                            Services
-                          </h4>
-                          <ul className="space-y-2">
-                            <li>
-                              <Link href="/blog/ruby-on-rails-consulting" className="text-[#535074] hover:text-[#1bb1dc]">
-                                Ruby on Rails
-                              </Link>
-                            </li>
-                            <li>
-                              <Link
-                                href="/blog/php-laravel-consulting" className="text-[#535074] hover:text-[#1bb1dc]">
-                                PHP & Laravel
-                              </Link>
-                            </li>
-                            <li>
-                              <Link href="/blog/devops-consulting" className="text-[#535074] hover:text-[#1bb1dc]">
-                                DevOps
-                              </Link>
-                            </li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h4 className="text-sm font-semibold uppercase tracking-wider mb-4 text-[#413e66]">
-                            Company
-                          </h4>
-                          <ul className="space-y-2">
-                            <li>
-                              <Link
-                                href="/#about"
-                                className="text-[#535074] hover:text-[#1bb1dc]"
-                              >
-                                About
-                              </Link>
-                            </li>
-                            <li>
-                              <Link
-                                href="/blog"
-                                className="text-[#535074] hover:text-[#1bb1dc]"
-                              >
-                                Blog
-                              </Link>
-                            </li>
-                            <li>
-                              <Link
-                                href="/#contact"
-                                className="text-[#535074] hover:text-[#1bb1dc]"
-                              >
-                                Contact
-                              </Link>
-                            </li>
-                          </ul>
-                        </div>
-                        <div>
-                          <h4 className="text-sm font-semibold uppercase tracking-wider mb-4 text-[#413e66]">
-                            Legal
-                          </h4>
-                          <ul className="space-y-2">
-                            <li>
-                              <Link
-                                href="/privacy"
-                                className="text-[#535074] hover:text-[#1bb1dc]"
-                              >
-                                Privacy
-                              </Link>
-                            </li>
-                            <li>
-                              <Link
-                                href="/#services"
-                                className="text-[#535074] hover:text-[#1bb1dc]"
-                              >
-                                Terms
-                              </Link>
-                            </li>
-                          </ul>
-                        </div>
-                        {/* Social media links  */}
+              <p className="font-bold text-primary uppercase pt-8">Our Newsletter</p>
+              <p className="text-muted leading-relaxed pt-5 font-medium">
+                Would you like to receive emails from Asistensia with updates,
+                <br />
+                tech news and special offers of Asistensia? You can unsubscribe
+                <br /> any time by clicking the unsubscribe link in the email.
+              </p>
+              <form className="mt-10">
+                <label htmlFor="newsletter-email" className="sr-only">
+                  Email address
+                </label>
+                <input
+                  id="newsletter-email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  placeholder="you@company.com"
+                  className="p-1 w-44 border-1 border-gray-200 text-primary focus:outline-none focus:ring-primary focus:border-primary shadow-sm"
+                />
+                <button
+                  type="submit"
+                  className="text-white bg-primary px-4 py-1 hover:bg-secondary"
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
+            <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-wider mb-4 text-primary">
+                  Services
+                </p>
+                <ul className="space-y-2">
+                  <li>
+                    <Link href="/blog/ruby-on-rails-consulting" className="text-muted hover:text-secondary">
+                      Ruby on Rails Consulting
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/blog/php-laravel-consulting" className="text-muted hover:text-secondary">
+                      PHP &amp; Laravel Consulting
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/blog/devops-consulting" className="text-muted hover:text-secondary">
+                      DevOps Consulting
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/blog/rails-upgrade" className="text-muted hover:text-secondary">
+                      Rails 8 Upgrades
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/blog/rails-performance-audit" className="text-muted hover:text-secondary">
+                      Rails Performance Audit
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-wider mb-4 text-primary">
+                  Company
+                </p>
+                <ul className="space-y-2">
+                  <li>
+                    <Link href="/#about" className="text-muted hover:text-secondary">
+                      About
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/blog" className="text-muted hover:text-secondary">
+                      Blog
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/#contact" className="text-muted hover:text-secondary">
+                      Contact
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-wider mb-4 text-primary">
+                  Legal
+                </p>
+                <ul className="space-y-2">
+                  <li>
+                    <Link href="/privacy" className="text-muted hover:text-secondary">
+                      Privacy Policy
+                    </Link>
+                  </li>
+                </ul>
+              </div>
 
-                        <div>
-                          <h4 className="text-sm font-semibold uppercase tracking-wider mb-4 text-[#413e66]">
-                            Socials
-                          </h4>
-                          <div className="flex space-x-8">
-                            <a
-                              href="https://x.com/i/flow/login?redirect_after_login=%2FTheAsistensia"
-                              aria-label="Twitter"
-                            >
-                              <FontAwesomeIcon
-                                icon={faTwitter}
-                                className="text-[#1bb1dc] h-6 hover:text-[#1993bc]"
-                              />
-                            </a>
-                            <a
-                              href="https://www.facebook.com/asistensiacom/"
-                              aria-label="Facebook"
-                            >
-                              <FontAwesomeIcon
-                                icon={faFacebookF}
-                                className="text-[#1bb1dc] h-6 hover:text-[#1993bc]"
-                              />
-                            </a>
-                            <a
-                              href="https://www.linkedin.com/company/asistensia/"
-                              aria-label="LinkedIn"
-                            >
-                              <FontAwesomeIcon
-                                icon={faLinkedin}
-                                className="text-[#1bb1dc] h-6 hover:text-[#1993bc]"
-                              />
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="mt-12 pt-8 border-t border-gray-800 text-center text-[#413e66] text-sm">
-                      &copy; 2025 Asistensia. All rights reserved.
-                    </div>
-                  </div>
-                </footer>
+              {/* Social media links */}
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-wider mb-4 text-primary">
+                  Socials
+                </p>
+                <div className="flex space-x-8">
+                  <a href={SOCIALS.twitter} aria-label="Asistensia on X (Twitter)" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faXTwitter} className="text-primary h-6 hover:text-secondary" />
+                  </a>
+                  <a href={SOCIALS.facebook} aria-label="Asistensia on Facebook" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faFacebookF} className="text-primary h-6 hover:text-secondary" />
+                  </a>
+                  <a href={SOCIALS.linkedin} aria-label="Asistensia on LinkedIn" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faLinkedin} className="text-primary h-6 hover:text-secondary" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="mt-12 pt-8 border-t border-primary/15 text-center text-primary text-sm">
+            &copy; {year} Asistensia. All rights reserved.
+          </div>
+        </div>
+      </footer>
     </>
   );
 }
-

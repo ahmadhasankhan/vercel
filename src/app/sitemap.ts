@@ -1,38 +1,33 @@
 import type { MetadataRoute } from "next";
-import fs from "fs";
-import path from "path";
+import { getAllPosts } from "@/lib/posts";
+import { LOCALES, localizedUrl } from "@/lib/site";
+
+function entry(
+  path: string,
+  opts: Omit<MetadataRoute.Sitemap[number], "url" | "alternates">
+): MetadataRoute.Sitemap {
+  const languages = Object.fromEntries(LOCALES.map((l) => [l, localizedUrl(l, path)]));
+  return LOCALES.map((locale) => ({
+    url: localizedUrl(locale, path),
+    alternates: { languages },
+    ...opts,
+  }));
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const base = "https://asistensia.com";
-    const locales = ["en", "nl", "ar"];
-    const postsDir = path.join(process.cwd(), "src/content/blog");
+  const posts = getAllPosts();
+  const latest = posts[0]?.updatedISO ?? posts[0]?.publishedISO;
 
-    let blogPages: any[] = [];
-    if (fs.existsSync(postsDir)) {
-        const filenames = fs.readdirSync(postsDir);
-        locales.forEach(locale => {
-            filenames
-                .filter((file) => file.endsWith(".mdx"))
-                .map((file) => {
-                    const slug = file.replace(/\.mdx$/, "");
-                    const url = locale === 'en' ? `${base}/blog/${slug}` : `${base}/${locale}/blog/${slug}`;
-                    blogPages.push({
-                        url,
-                        lastModified: new Date(),
-                        changeFrequency: "monthly" as const,
-                        priority: 0.6,
-                    });
-                });
-        });
-    }
-
-    const staticPages: MetadataRoute.Sitemap = [];
-    locales.forEach(locale => {
-        const urlHome = locale === 'en' ? base : `${base}/${locale}`;
-        const urlBlog = locale === 'en' ? `${base}/blog` : `${base}/${locale}/blog`;
-        staticPages.push({ url: urlHome, changeFrequency: "weekly", priority: 1.0 });
-        staticPages.push({ url: urlBlog, changeFrequency: "weekly", priority: 0.8 });
-    });
-
-    return [...staticPages, ...blogPages];
+  return [
+    ...entry("", { changeFrequency: "weekly", priority: 1.0 }),
+    ...entry("/blog", { changeFrequency: "weekly", priority: 0.8, lastModified: latest }),
+    ...entry("/privacy", { changeFrequency: "yearly", priority: 0.3 }),
+    ...posts.flatMap((p) =>
+      entry(`/blog/${p.slug}`, {
+        changeFrequency: "monthly",
+        priority: 0.6,
+        lastModified: p.updatedISO ?? p.publishedISO,
+      })
+    ),
+  ];
 }

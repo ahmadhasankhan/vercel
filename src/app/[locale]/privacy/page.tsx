@@ -1,22 +1,28 @@
 import React from "react";
 import Layout from "../components/Layout";
 import type { Metadata } from "next";
+import { alternatesFor } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: "How Asistensia collects, uses, and protects your data.",
-  alternates: { canonical: "https://asistensia.com/privacy" },
-  robots: { index: true, follow: true },
-};
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: "Privacy Policy",
+    description: "How Asistensia collects, uses, and protects your data.",
+    alternates: alternatesFor(locale, "/privacy"),
+    robots: { index: true, follow: true },
+  };
+}
 
 const page = () => {
   return (
     <Layout>
-      <div className="max-w-7xl mx-auto px-4 prose-headings:text-gray-800 prose-p:text-gray-600 pt-15 pb-15">
-        <h1 className="text-5xl font-bold italic text-gray-700">
+      <div className="max-w-7xl mx-auto px-4 prose-headings:text-primary prose-p:text-muted pt-15 pb-15">
+        <h1 className="text-5xl font-bold italic text-muted">
           Privacy Policy
         </h1>
-        <p className="text-gray-700 pt-6">
+        <p className="text-muted pt-6">
           <strong>Last updated:</strong> June 28, 2025.{" "}
         </p>
         <p className="pt-5">
@@ -30,10 +36,10 @@ const page = () => {
           accordance with this Privacy Policy. .
         </p>
 
-        <h2 className="text-2xl font-bold text-gray-700 pt-5">
+        <h2 className="text-2xl font-bold text-muted pt-5">
           Interpretation and Definitions
         </h2>
-        <h3 className="text-xl text-gray-700 pt-1 font-semibold">
+        <h3 className="text-xl text-muted pt-1 font-semibold">
           Interpretation
         </h3>
         <p className="pt-3">
@@ -43,7 +49,7 @@ const page = () => {
           singular or in plural.
         </p>
 
-        <h3 className="text-xl text-gray-700 pt-1 font-semibold">
+        <h3 className="text-xl text-muted pt-1 font-semibold">
           Definitions
         </h3>
         <p className="pt-3">For the purposes of this Privacy Policy:</p>
@@ -108,11 +114,11 @@ const page = () => {
           </li>
         </ul>
 
-        <h2 className="text-3xl text-gray-700 pt-6">
+        <h2 className="text-3xl text-muted pt-6">
           Collecting and Using Your Personal Data
         </h2>
         <h3 className="pt-4 text-xl">Types of Data Collected</h3>
-        <h3 className="text-2xl text-gray-700 pt-3">Personal Data</h3>
+        <h3 className="text-2xl text-muted pt-3">Personal Data</h3>
         <p className="pt-5">
           While using Our Service, We may ask You to provide Us with certain
           personally identifiable information that can be used to contact or
@@ -120,7 +126,7 @@ const page = () => {
           not limited to
         </p>
 
-        <h3 className="text-2xl text-gray-700 pt-3">Usage Data</h3>
+        <h3 className="text-2xl text-muted pt-3">Usage Data</h3>
         <p className="pt-6">
           Usage Data is collected automatically when using the Service.
           <br />
@@ -146,7 +152,7 @@ const page = () => {
           <br />
         </p>
 
-        <h3 className="text-xl text-gray-700 pt-6">
+        <h3 className="text-xl text-muted pt-6">
           Tracking Technologies and Cookies
         </h3>
         <p className="pt-6">
@@ -157,7 +163,7 @@ const page = () => {
           include:
         </p>
         <p className="pt-6">
-          <strong className="text-gray-700">Cookies or Browser Cookies.</strong>{" "}
+          <strong className="text-muted">Cookies or Browser Cookies.</strong>{" "}
           A cookie is a small file placed on Your Device. You can instruct Your
           browser to refuse all Cookies or to indicate when a Cookie is being
           sent. However, if You do not accept Cookies, You may not be able to
@@ -166,7 +172,7 @@ const page = () => {
         </p>
 
         <p className="pt-6">
-          <strong className="text-gray-700">Web Beacons.</strong> Certain
+          <strong className="text-muted">Web Beacons.</strong> Certain
           sections of our Service and our emails may contain small electronic
           files known as web beacons (also referred to as clear gifs, pixel
           tags, and single-pixel gifs) that permit the Company, for example, to
@@ -185,7 +191,7 @@ const page = () => {
           We use both Session and Persistent Cookies for the purposes set out
           below:
         </p>
-        <h3 className="text-2xl text-gray-700 pt-6">
+        <h3 className="text-2xl text-muted pt-6">
           Necessary / Essential Cookies
         </h3>
         <p className="pt-6">
@@ -201,7 +207,7 @@ const page = () => {
           asked for cannot be provided, and We only use these Cookies to provide
           You with those services.
         </p>
-        <h3 className="text-2xl text-gray-700 pt-6">
+        <h3 className="text-2xl text-muted pt-6">
           Cookies Policy / Notice Acceptance Cookies
         </h3>
         <p className="pt-6">
@@ -214,7 +220,7 @@ const page = () => {
           Purpose: These Cookies identify if users have accepted the use of
           cookies on the Website.
         </p>
-        <h3 className="text-2xl text-gray-700 pt-6">Functionality Cookies</h3>
+        <h3 className="text-2xl text-muted pt-6">Functionality Cookies</h3>
         <p className="pt-6">
           Type: Persistent Cookies
           <br />
@@ -233,7 +239,7 @@ const page = () => {
           regarding cookies, please visit our Cookies Policy or the Cookies
           section of our Privacy Policy.
         </p>
-        <h2 className="text-2xl text-gray-700 pt-6">
+        <h2 className="text-2xl text-muted pt-6">
           Use of Your Personal Data
         </h2>
         <p className="pt-6">
@@ -326,7 +332,7 @@ const page = () => {
           </li>
         </ul>
 
-        <h2 className="text-2xl text-gray-700 pt-6">
+        <h2 className="text-2xl text-muted pt-6">
           Retention of Your Personal Data
         </h2>
         <p className="pt-6">
@@ -345,7 +351,7 @@ const page = () => {
           to retain this data for longer time periods.
         </p>
 
-        <h2 className="text-2xl text-gray-700 pt-6">
+        <h2 className="text-2xl text-muted pt-6">
           Transfer of Your Personal Data
         </h2>
         <p className="pt-6">
@@ -369,7 +375,7 @@ const page = () => {
           including the security of Your data and other personal information.
         </p>
 
-        <h2 className="text-2xl text-gray-700 pt-6">
+        <h2 className="text-2xl text-muted pt-6">
           Delete Your Personal Data
         </h2>
         <p className="pt-6">
@@ -392,24 +398,24 @@ const page = () => {
           when we have a legal obligation or lawful basis to do so.
         </p>
 
-        <h2 className="text-2xl text-gray-700 pt-6">
+        <h2 className="text-2xl text-muted pt-6">
           Disclosure of Your Personal Data
         </h2>
-        <h2 className="text-2xl text-gray-700 pt-6">Business Transactions</h2>
+        <h2 className="text-2xl text-muted pt-6">Business Transactions</h2>
         <p className="pt-3">
           If the Company is involved in a merger, acquisition or asset sale,
           Your Personal Data may be transferred. We will provide notice before
           Your Personal Data is transferred and becomes subject to a different
           Privacy Policy.
         </p>
-        <h2 className="text-2xl text-gray-700 pt-6">Law enforcement</h2>
+        <h2 className="text-2xl text-muted pt-6">Law enforcement</h2>
         <p className="pt-3">
           {" "}
           Under certain circumstances, the Company may be required to disclose
           Your Personal Data if required to do so by law or in response to valid
           requests by public authorities (e.g. a court or a government agency).
         </p>
-        <h2 className="text-2xl text-gray-700 pt-6">
+        <h2 className="text-2xl text-muted pt-6">
           Other legal requirements
         </h2>
         <p className="pt-3">
@@ -425,7 +431,7 @@ const page = () => {
           <br />
           Protect against legal liability.
         </p>
-        <h2 className="text-2xl text-gray-700 pt-6">
+        <h2 className="text-2xl text-muted pt-6">
           Security of Your Personal Data
         </h2>
         <p className="pt-3">
@@ -435,7 +441,7 @@ const page = () => {
           acceptable means to protect Your Personal Data, We cannot guarantee
           its absolute security.
         </p>
-        <h2 className="text-2xl text-gray-700 pt-6">Children's Privacy</h2>
+        <h2 className="text-2xl text-muted pt-6">Children's Privacy</h2>
         <p className="pt-3">
           Our Service does not address anyone under the age of 13. We do not
           knowingly collect personally identifiable information from anyone
@@ -452,7 +458,7 @@ const page = () => {
           information.
         </p>
 
-        <h2 className="text-2xl text-gray-700 pt-6">Links to Other Websites</h2>
+        <h2 className="text-2xl text-muted pt-6">Links to Other Websites</h2>
         <p className="pt-3">
           Our Service may contain links to other websites that are not operated
           by Us. If You click on a third party link, You will be directed to
@@ -464,7 +470,7 @@ const page = () => {
           privacy policies or practices of any third party sites or services.
         </p>
 
-        <h2 className="text-2xl text-gray-700 pt-10">
+        <h2 className="text-2xl text-muted pt-10">
           Changes to this Privacy Policy
         </h2>
         <p className="pt-3">
@@ -482,7 +488,7 @@ const page = () => {
           posted on this page.
         </p>
 
-        <h2 className="text-2xl text-gray-700 pt-15">Contact Us</h2>
+        <h2 className="text-2xl text-muted pt-15">Contact Us</h2>
         <p className="pt-3">
           If you have any questions, about this Privacy Policy, You can contact
           us at:
@@ -490,7 +496,7 @@ const page = () => {
             href="https://asistensia.com/#contact"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#1bb1dc]"
+            className="text-secondary"
           >
             https://asistensia.com/contact
           </a>

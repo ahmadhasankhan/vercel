@@ -1,306 +1,156 @@
 import React from "react";
 import Image from "next/image";
+import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Layout from "../components/Layout";
 import { Link } from "@/i18n/routing";
-import type { Metadata } from "next";
+import { getAllPosts, type PostMeta } from "@/lib/posts";
+import { BRAND, OG_LOCALE, SITE_NAME, SITE_URL, absUrl, alternatesFor, localizedUrl } from "@/lib/site";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-    const { locale } = await params;
-    const base = "https://asistensia.com";
-    const currentUrl = locale === 'en' ? `${base}/blog` : `${base}/${locale}/blog`;
+type Props = { params: Promise<{ locale: string }> };
 
-    return {
-        title: "Blog",
-        description: "Articles on Ruby on Rails, DevOps and performance from the Asistensia team.",
-        alternates: { 
-            canonical: currentUrl,
-            languages: {
-                'en': `${base}/blog`,
-                'nl': `${base}/nl/blog`,
-                'ar': `${base}/ar/blog`,
-                'x-default': `${base}/blog`,
-            }
-        },
-        openGraph: {
-            title: "Asistensia Blog",
-            url: currentUrl,
-            type: "website",
-        },
-    };
-}
-export default function BlogPage() {
-    return (
-        <Layout>
-            <section className="max-w-7xl mx-auto px-4 py-16">
-                <h1 className="text-5xl font-bold mb-8 text-[#413e66] ">Welcome to Asistensia Blog.</h1>
-                <p className="text-lg text-gray-600 mb-4">
-                    Stay ahead with expert articles, case studies, and updates on Ruby,
-                    PHP, DevOps, and the software development world.
-                </p>
-                <div className="bg-white rounded-lg pt-5 flex flex-col md:flex-row items-start gap-4 cursor-pointer">
-                    <div className="w-full">
-                        <img
-                            src="/assets/React.jpeg"
-                            className="rounded-lg w-full h-full object-cover max-h-60 md:max-h-full transition-transform duration-300 hover:scale-105"
-                            alt="react"
-                        />
-                    </div>
-                    <div
-                        className="md:w-1/2 w-full flex flex-col justify-between space-y-4 md:ml-10 pt-12 cursor-pointer">
-                        <Link href="/blog/react-vs-react-native">
-                            <h3 className="text-3xl font-semibold text-gray-600 hover:text-primary">
-                                React vs React Native: Lessons From Working on Web and Mobile
-                                Versions of the Same Product.
-                            </h3>
-                        </Link>
-                        <div className="flex items-center space-x-3">
-                            <img
-                                src="https://avatars.githubusercontent.com/u/92224334?s=400&u=e1d4952ea0a183f27be0a918643bfcdcb85cc6ab&v=4"
-                                alt="Author"
-                                className="w-10 h-10 rounded-full"
-                            />
-                            <div>
-                                <p className="text-gray-800 font-medium">Humnashin Khan</p>
-                                <p className="text-sm text-gray-500">July 25, 2025</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h3 className="text-gray-800 font-medium text-2xl pt-20">
-                        All topics
-                    </h3>
-                </div>
-                <br/>
-                <hr/>
-                {/* second Topic */}
-                <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start cursor-pointer">
-                    <div className="w-full md:w-1/2">
-                        <img
-                            src="/assets/Ruby.jpeg"
-                            className="rounded-lg object-cover max-h-60 md:max-h-90 transition-transform duration-300 hover:scale-105"
-                            alt="Blog"
-                        />
-                    </div>
-                    <div className="md:w-1/2 w-full flex flex-col justify-between space-y-4 pt-12 cursor-pointer">
-                        <Link href="/blog/why-ruby-on-rails-is-best-for-startups">
-                            <h3 className="text-3xl font-semibold text-gray-600 hover:text-primary">
-                                Why is Ruby on Rails the great choice for startups in 2025?
-                            </h3>
-                        </Link>
-                        <div className="flex items-center space-x-3">
-                            <img
-                                src="/assets/ahmad.png"
-                                alt="Author"
-                                className="w-10 h-10 rounded-full"
-                            />
-                            <div>
-                                <p className="text-gray-800 font-medium">Ahmad Hassan</p>
-                                <p className="text-sm text-gray-500">June 30, 2025</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/* Third Topic */}
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const url = localizedUrl(locale, "/blog");
 
-                <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start cursor-pointer">
-                    <div className="w-full md:w-1/2">
-                        <img
-                            src="/assets/API.jpeg"
-                            className="rounded-lg object-cover max-h-60 md:max-h-90 transition-transform duration-300 hover:scale-105"
-                            alt="Blog"
-                        />
-                    </div>
-                    <div className="md:w-1/2 w-full flex flex-col justify-between space-y-4 pt-12 cursor-pointer">
-                        <Link href="/blog/fastapi-best-python-framework-for-apis">
-                            <h3 className="text-3xl font-semibold text-gray-600 hover:text-primary">
-                                Why FastAPI Is Becoming the Go-To Framework for Modern APIs?
-                            </h3>
-                        </Link>
-                        <div className="flex items-center space-x-3">
-                            <img
-                                src="/assets/ahmad.png"
-                                alt="Author"
-                                className="w-10 h-10 rounded-full"
-                            />
-                            <div>
-                                <p className="text-gray-800 font-medium">Ahmad Hasan</p>
-                                <p className="text-sm text-gray-500">July 31, 2025</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/* Fourth Topic */}
-
-                <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start cursor-pointer">
-                    <div className="w-full md:w-1/2">
-                        <img
-                            src="/assets/next.png"
-                            className="rounded-lg object-cover max-h-60 md:max-h-90 transition-transform duration-300 hover:scale-105"
-                            alt="Blog"
-                        />
-                    </div>
-                    <div className="md:w-1/2 w-full flex flex-col justify-between space-y-4 pt-12 cursor-pointer">
-                        <Link href="/blog/react-vs-next">
-                            <h3 className="text-3xl font-semibold text-gray-600 hover:text-primary">
-                                From React to Next.js: The Evolution of Modern Web Development.
-                            </h3>
-                        </Link>
-                        <div className="flex items-center space-x-3">
-                            <img
-                                src="https://avatars.githubusercontent.com/u/92224334?s=400&u=e1d4952ea0a183f27be0a918643bfcdcb85cc6ab&v=4"
-                                alt="Author"
-                                className="w-10 h-10 rounded-full"
-                            />
-                            <div>
-                                <p className="text-gray-800 font-medium">Humnashin Khan</p>
-                                <p className="text-sm text-gray-500">August 06, 2025</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start cursor-pointer">
-                    <div className="w-full md:w-1/2">
-                        <img
-                            src="/assets/blog/rails.webp"
-                            className="rounded-lg object-cover max-w-120 md:max-w-140 max-h-60 md:max-h-90 transition-transform duration-300 hover:scale-105"
-                            alt="rails-consulting"
-                        />
-                    </div>
-                    <div className="md:w-1/2 w-full flex flex-col justify-between space-y-4 pt-12 cursor-pointer">
-                        <Link href="/blog/ruby-on-rails-consulting">
-                            <h3 className="text-3xl font-semibold text-gray-600 hover:text-primary">
-                                Ruby on Rails Consulting in Netherlands: Upgrades, Performance & DevOps
-                            </h3>
-                        </Link>
-                        <div className="flex items-center space-x-3">
-                            <img
-                                src="/assets/brand/asistensia_logo.webp"
-                                alt="asistensia logo"
-                                className="w-10 h-10 rounded-full"
-                            />
-                            <div>
-                                <p className="text-gray-800 font-medium">Asistensia Team</p>
-                                <p className="text-sm text-gray-500">August 22, 2025</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start cursor-pointer">
-                    <div className="w-full md:w-1/2">
-                        <img
-                            src="/assets/blog/devops_consulting.webp"
-                            className="rounded-lg object-cover max-w-120 md:max-w-140 max-h-60 md:max-h-90 transition-transform duration-300 hover:scale-105"
-                            alt="rails-consulting"
-                        />
-                    </div>
-                    <div className="md:w-1/2 w-full flex flex-col justify-between space-y-4 pt-12 cursor-pointer">
-                        <Link href="/blog/devops-consulting">
-                            <h3 className="text-3xl font-semibold text-gray-600 hover:text-primary">
-                                DevOps Consulting for High-Velocity Rails Teams
-                            </h3>
-                        </Link>
-                        <div className="flex items-center space-x-3">
-                            <img
-                                src="/assets/brand/asistensia_logo.webp"
-                                alt="asistensia logo"
-                                className="w-10 h-10 rounded-full"
-                            />
-                            <div>
-                                <p className="text-gray-800 font-medium">Asistensia Team</p>
-                                <p className="text-sm text-gray-500">Sept 1, 2025</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start cursor-pointer">
-                    <div className="w-full md:w-1/2">
-                        <img
-                            src="/assets/blog/rails8_upgrade.webp"
-                            className="rounded-lg object-cover max-w-120 md:max-w-140 max-h-60 md:max-h-90 transition-transform duration-300 hover:scale-105"
-                            alt="rails-consulting"
-                        />
-                    </div>
-                    <div className="md:w-1/2 w-full flex flex-col justify-between space-y-4 pt-12 cursor-pointer">
-                        <Link href="/blog/rails-upgrade">
-                            <h3 className="text-3xl font-semibold text-gray-600 hover:text-primary">
-                                Rails 8 Upgrade Guide: Safer Migrations to Ruby 3.3
-                            </h3>
-                        </Link>
-                        <div className="flex items-center space-x-3">
-                            <img
-                                src="/assets/brand/asistensia_logo.webp"
-                                alt="asistensia logo"
-                                className="w-10 h-10 rounded-full"
-                            />
-                            <div>
-                                <p className="text-gray-800 font-medium">Asistensia Team</p>
-                                <p className="text-sm text-gray-500">Sept 2, 2025</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start cursor-pointer">
-                    <div className="w-full md:w-1/2">
-                        <img
-                            src="/assets/blog/rails-performance-audit.webp"
-                            className="rounded-lg object-cover max-w-120 md:max-w-140 max-h-60 md:max-h-90 transition-transform duration-300 hover:scale-105"
-                            alt="rails-performance-audit"
-                        />
-                    </div>
-                    <div className="md:w-1/2 w-full flex flex-col justify-between space-y-4 pt-12 cursor-pointer">
-                        <Link href="/blog/rails-performance-audit">
-                            <h3 className="text-3xl font-semibold text-gray-600 hover:text-primary">
-                                Rails Performance Audit: A 30‑Point Checklist (LCP/INP/CLS)
-                            </h3>
-                        </Link>
-                        <div className="flex items-center space-x-3">
-                            <img
-                                src="/assets/brand/asistensia_logo.webp"
-                                alt="asistensia logo"
-                                className="w-10 h-10 rounded-full"
-                            />
-                            <div>
-                                <p className="text-gray-800 font-medium">Asistensia Team</p>
-                                <p className="text-sm text-gray-500">Sept 2, 2025</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start cursor-pointer">
-                    <div className="w-full md:w-1/2">
-                        <img
-                            src="/assets/blog/php_laravel_consulting.webp"
-                            className="rounded-lg object-cover max-w-120 md:max-w-140 max-h-60 md:max-h-90 transition-transform duration-300 hover:scale-105"
-                            alt="rails-performance-audit"
-                        />
-                    </div>
-                    <div className="md:w-1/2 w-full flex flex-col justify-between space-y-4 pt-12 cursor-pointer">
-                        <Link href="/blog/php-laravel-consulting">
-                            <h3 className="text-3xl font-semibold text-gray-600 hover:text-primary">
-                                PHP and Laravel Consulting for Scalable Products
-                            </h3>
-                        </Link>
-                        <div className="flex items-center space-x-3">
-                            <img
-                                src="/assets/brand/asistensia_logo.webp"
-                                alt="asistensia logo"
-                                className="w-10 h-10 rounded-full"
-                            />
-                            <div>
-                                <p className="text-gray-800 font-medium">Asistensia Team</p>
-                                <p className="text-sm text-gray-500">Sept 3, 2025</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </Layout>
-    );
+  return {
+    title: t("blogTitle"),
+    description: t("blogDescription"),
+    alternates: alternatesFor(locale, "/blog"),
+    openGraph: {
+      title: `${t("blogTitle")} | ${SITE_NAME}`,
+      description: t("blogDescription"),
+      url,
+      siteName: SITE_NAME,
+      locale: OG_LOCALE[locale] ?? "en_US",
+      type: "website",
+      images: [{ url: BRAND.ogImage, width: 1200, height: 630, alt: `${SITE_NAME} Blog` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${t("blogTitle")} | ${SITE_NAME}`,
+      description: t("blogDescription"),
+      images: [BRAND.ogImage],
+    },
+  };
 }
 
+function Author({ post }: { post: PostMeta }) {
+  const name = post.author?.name ?? `${SITE_NAME} Team`;
+  const avatar = post.author?.profileImage ?? BRAND.iconPng;
+  return (
+    <div className="flex items-center space-x-3">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={avatar} alt={name} width={40} height={40} loading="lazy" className="w-10 h-10 rounded-full" />
+      <div>
+        <p className="text-primary font-medium">{name}</p>
+        {post.publishedDate && (
+          <time dateTime={post.publishedISO} className="text-sm text-gray-500">
+            {post.publishedDate}
+          </time>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default async function BlogPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const posts = getAllPosts();
+  const [featured, ...rest] = posts;
+  const blogUrl = localizedUrl(locale, "/blog");
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Blog",
+        "@id": `${blogUrl}#blog`,
+        url: blogUrl,
+        name: `${SITE_NAME} Blog`,
+        publisher: { "@id": `${SITE_URL}/#organization` },
+        blogPost: posts.map((p) => ({
+          "@type": "BlogPosting",
+          headline: p.title,
+          url: localizedUrl(locale, `/blog/${p.slug}`),
+          datePublished: p.publishedISO,
+          image: p.coverImage ? absUrl(p.coverImage) : undefined,
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: localizedUrl(locale) },
+          { "@type": "ListItem", position: 2, name: "Blog", item: blogUrl },
+        ],
+      },
+    ],
+  };
+
+  return (
+    <Layout>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <section className="max-w-7xl mx-auto px-4 py-16">
+        <h1 className="text-5xl font-bold mb-8 text-primary">Asistensia Blog</h1>
+        <p className="text-lg text-muted mb-4">
+          Stay ahead with expert articles, case studies, and updates on Ruby,
+          PHP, DevOps, and the software development world.
+        </p>
+
+        {featured && (
+          <article className="bg-white rounded-lg pt-5 flex flex-col md:flex-row items-start gap-4">
+            <Link href={`/blog/${featured.slug}`} className="w-full block overflow-hidden rounded-lg">
+              {featured.coverImage && (
+                <Image
+                  src={featured.coverImage}
+                  alt={featured.title}
+                  width={1200}
+                  height={630}
+                  priority
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="rounded-lg w-full h-full object-cover max-h-60 md:max-h-full transition-transform duration-300 hover:scale-105"
+                />
+              )}
+            </Link>
+            <div className="md:w-1/2 w-full flex flex-col justify-between space-y-4 md:ml-10 pt-12">
+              <h2 className="text-3xl font-semibold text-muted hover:text-primary">
+                <Link href={`/blog/${featured.slug}`}>{featured.title}</Link>
+              </h2>
+              {featured.description && <p className="text-muted">{featured.description}</p>}
+              <Author post={featured} />
+            </div>
+          </article>
+        )}
+
+        <h2 className="text-primary font-medium text-2xl pt-20">All topics</h2>
+        <hr className="mt-6" />
+
+        {rest.map((post) => (
+          <article key={post.slug} className="bg-white rounded-lg pt-20 flex flex-col md:flex-row items-start">
+            <Link href={`/blog/${post.slug}`} className="w-full md:w-1/2 block overflow-hidden rounded-lg">
+              {post.coverImage && (
+                <Image
+                  src={post.coverImage}
+                  alt={post.title}
+                  width={1200}
+                  height={630}
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="rounded-lg object-cover w-full h-auto max-h-60 md:max-h-90 transition-transform duration-300 hover:scale-105"
+                />
+              )}
+            </Link>
+            <div className="md:w-1/2 w-full flex flex-col justify-between space-y-4 pt-12 md:pl-10">
+              <h3 className="text-3xl font-semibold text-muted hover:text-primary">
+                <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+              </h3>
+              {post.description && <p className="text-muted">{post.description}</p>}
+              <Author post={post} />
+            </div>
+          </article>
+        ))}
+      </section>
+    </Layout>
+  );
+}

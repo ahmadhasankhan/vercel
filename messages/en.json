@@ -3,5 +3,11 @@
     "title": "Expert Software Consulting Services",
     "subtitle": "Unlock your business potential with specialized consulting in Ruby, Ruby on Rails, PHP, and DevOps solutions.",
     "cta": "Get Started"
+  },
+  "Metadata": {
+    "title": "Asistensia – Ruby on Rails, PHP/Laravel & DevOps Consulting",
+    "description": "Senior software consultants for Ruby on Rails upgrades, performance audits, PHP/Laravel, DevOps and API development. Based in the Netherlands, serving clients worldwide.",
+    "blogTitle": "Blog – Rails, PHP & DevOps Articles",
+    "blogDescription": "Practical articles on Ruby on Rails, PHP/Laravel, DevOps, performance and modern web development from the Asistensia team."
   }
 }

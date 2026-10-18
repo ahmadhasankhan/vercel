@@ -1,368 +1,166 @@
-import Image from "next/image";
 import React from "react";
-import Head from "next/head";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebookF,
-  faLinkedin,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
 import { faCheckDouble } from "@fortawesome/free-solid-svg-icons";
+import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import Layout from "./components/Layout";
 import ContactSection from "./components/ContactSection";
 import ServicesSection from "./components/ServicesSection";
 import AskQuestion from "./components/AskQuestion";
-import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/routing";
+import { faqs } from "./data/faqs";
+import { BRAND, OG_LOCALE, SITE_NAME, alternatesFor, localizedUrl } from "@/lib/site";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const SITE = "https://asistensia.com";
-  // For as-needed, English is at root, others at /[locale]
-  const currentUrl = locale === 'en' ? SITE : `${SITE}/${locale}`;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
 
   return {
-    title: "Asistensia - Ruby, PHP & DevOps Consulting",
-    description: "Tailored software development and consulting services for Ruby on Rails, PHP/Laravel, and DevOps.",
-    alternates: {
-      canonical: currentUrl,
-      languages: {
-        'en': SITE,
-        'nl': `${SITE}/nl`,
-        'ar': `${SITE}/ar`,
-        'x-default': SITE,
-      }
-    },
+    // absolute: avoid the "%s | Asistensia" template duplicating the brand name
+    title: { absolute: t("title") },
+    description: t("description"),
+    alternates: alternatesFor(locale),
     openGraph: {
-      title: "Asistensia - Software Consulting",
-      description: "Expert software consulting for startups and teams.",
-      images: ["/og-image.png"],
+      title: t("title"),
+      description: t("description"),
+      url: localizedUrl(locale),
+      siteName: SITE_NAME,
+      locale: OG_LOCALE[locale] ?? "en_US",
+      type: "website",
+      images: [{ url: BRAND.ogImage, width: 1200, height: 630, alt: SITE_NAME }],
     },
   };
 }
 
-export default async function Home() {
-  const t = await getTranslations("HomePage");
+export default async function Home({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "HomePage" });
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
 
   return (
-    <>
-      <main className="">
-        {/* Navigation */}
-        <nav className="bg-white shadow-sm sticky top-0 z-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between h-16">
-              <div className="flex items-center">
-                <Link href="/" className="text-xl font-bold text-primary">
-                  Asistensia
-                </Link>
-              </div>
-              <div className="hidden md:flex items-center space-x-8">
-                <a href="#about" className="text-gray-700 hover:text-[#1bb1dc]">
-                  About us
-                </a>
-                <a
-                  href="#services"
-                  className="text-gray-700 hover:text-[#1bb1dc]"
-                >
-                  Services
-                </a>
-                <Link
-                  href="/privacy"
-                  className="text-gray-700 hover:text-[#1bb1dc]"
-                >
-                  Privacy Policy
-                </Link>
-                <a href="#about" className="text-gray-700 hover:text-[#1bb1dc]">
-                  Terms
-                </a>
-                <Link href="/blog" className="text-gray-700 hover:text-[#1bb1dc]">
-                  Blog
-                </Link>
-                <a
-                  href="#contact"
-                  className="text-gray-700 hover:text-[#1bb1dc]"
-                >
-                  Contact us
-                </a>
-              </div>
+    <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      {/* Hero */}
+      <section className="bg-gradient-to-r from-primary to-secondary text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              {t('title')}
+            </h1>
+
+            <p className="text-xl md:text-2xl max-w-4xl mx-auto">
+              {t('subtitle')}
+            </p>
+            <div className="mt-10">
+              <a href="#contact"
+                className="mt-10 inline-block bg-white text-primary font-semibold px-8 py-3 rounded-lg hover:bg-surface-strong transition duration-300"
+              >
+                {t('cta')}
+              </a>
             </div>
           </div>
-        </nav>
+        </div>
+      </section>
 
-        {/* Hero */}
-        <section className="bg-gradient-to-r from-primary to-secondary text-white py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                {t('title')}
-              </h1>
+      {/* About */}
+      <section id="about" className="py-12 bg-surface">
+        <div className="max-w-7xl mx-auto px-4 lg:flex items-center">
+          <div className="lg:w-1/2 lg:pr-12 mb-10 lg:mb-0">
+            <h2 className="text-3xl font-bold text-primary mb-4">
+              About Asistensia
+            </h2>
+            <p className="text-muted font-semibold text-xl italic mb-4">
+              The team that lets you build more, while configuring less
+            </p>
 
-              <h2 className="text-xl md:text-2xl max-w-4xl mx-auto">
-                {t('subtitle')}
-              </h2>
-              <div className="mt-10">
-                <a href="#contact"
-                  className="mt-10 inline-block bg-white text-[#1bb1dc] font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition duration-300"
-                >
-                  {t('cta')}
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+            <p className="text-muted">
+              We are a team of passionate software consultants specializing in
+              Ruby on Rails, PHP, Laravel, DevOps, React and React Native
+              technologies.
+            </p>
+            <p className="text-muted mb-2">
+              Our approach combines technical excellence with deep
+              understanding of business needs.
+            </p>
 
-        {/* About */}
-        <section id="about" className="py-12 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 lg:flex items-center">
-            <div className="lg:w-1/2 lg:pr-12 mb-10 lg:mb-0">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                About Asistensia
-              </h2>
-              <h3 className="text-[#696592] font-semibold text-xl italic mb-4">
-                The team that lets you build more, while configuring less
-              </h3>
-
-              <p className="text-gray-600">
-                We are a team of passionate software consultants specializing in
-                Ruby on Rails, PHP, Laravel, DevOps, React and React Native
-                technologies.
-              </p>
-              <p className="text-gray-600 mb-2">
-                Our approach combines technical excellence with deep
-                understanding of business needs.
-              </p>
-
-              <h2 className="text-[#444] font-semibold text-[18px] pt-5">
-                Asistensia is based on three pillars:
-              </h2>
-              <ul>
-                <li className="text-[#444] font-normal text-[18px] pt-3 flex items-center">
-                  <FontAwesomeIcon
-                    icon={faCheckDouble}
-                    className="text-[#1bb1dc] h-8 p-2"
-                  />
-                  Streamlined processes.
-                </li>
-                <li className="text-[#444] font-normal text-[18px] pt-3 flex items-center">
-                  <FontAwesomeIcon
-                    icon={faCheckDouble}
-                    className="text-[#1bb1dc] h-8 p-2"
-                  />
-                  Proven technologies.
-                </li>
-                <li className="text-[#444] font-normal text-[18px] pt-3 flex items-center">
-                  <FontAwesomeIcon
-                    icon={faCheckDouble}
-                    className="text-[#1bb1dc] p-2 h-8"
-                  />
-                  Talented people.
-                </li>
-                <p className="text-[#444] font-normal text-[18px] pt-6">
-                  The combination of these things makes us one of the top
-                  software development companies.
-                </p>
-              </ul>
-
-              <div className="flex space-x-4 pt-5">
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <h4 className="font-semibold text-[#1bb1dc]">50+</h4>
-                  <p className="text-gray-600 text-sm">Projects Completed</p>
-                </div>
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <h4 className="font-semibold text-[#1bb1dc]">10+</h4>
-                  <p className="text-gray-600 text-sm">Years Experience</p>
-                </div>
-              </div>
-            </div>
-            <div className="lg:w-1/2 mb-20">
-              <img
-                src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800"
-                alt="Team working"
-                className="rounded-lg shadow-lg w-full"
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* Services */}
-        <ServicesSection />
-
-        {/* FAQ */}
-        <AskQuestion />
-
-        {/* Contact */}
-        <ContactSection />
-
-        {/* Footer */}
-        <footer className="bg-[#f5f8fd] text-white py-12 cursor-pointer">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="md:flex md:justify-between">
-              <div className="mb-8 md:mb-0">
-                <h3 className="text-3xl font-normal mb-4 text-[#413e66] tracking-custom uppercase">
-                  <img
-                    src="/assets/brand/asistensia_logo.png"
-                    alt="Asistensia"
-                    className="w-30 h-30"
-                  />
-                </h3>
-                <p className="text-[#535074] max-w-xs">
-                  Expert software consulting services for Ruby, PHP, and DevOps
-                  solutions.
-                </p>
-                <p className="text-[#535074] leading-relaxed pt-5 font-medium">
-                  Extend your tech team by letting us step in and take charge of
-                  <br />
-                  everyday tasks. We have an expert team of Full-Stack
-                  <br /> Engineers with 24/7 Cloud Support.
-                </p>
-
-                <h4 className="font-bold text-[#413e66] uppercase pt-8">
-                  Our Newsletter
-                </h4>
-                <p className="text-[#535074] leading-relaxed pt-5 font-medium">
-                  Would you like to receive emails from Asistensia with updates,
-                  <br />
-                  tech news and special offers of Asistensia? You can
-                  unsubscribe
-                  <br /> any time by clicking the unsubscribe link in the email.
-                </p>
-                <input
-                  className="mt-10 p-1 w-36 border-1 border-gray-200 focus:outline-none focus:ring-primary focus:border-primary shadow-sm"
-                  type="text"
+            <p className="text-primary/90 font-semibold text-[18px] pt-5">
+              Asistensia is based on three pillars:
+            </p>
+            <ul>
+              <li className="text-primary/90 font-normal text-[18px] pt-3 flex items-center">
+                <FontAwesomeIcon
+                  icon={faCheckDouble}
+                  className="text-secondary h-8 p-2"
                 />
-                <input
-                  className="text-white bg-[#1bb1dc] px-4 py-1 hover:bg-[#1993bc]"
-                  type="submit"
+                Streamlined processes.
+              </li>
+              <li className="text-primary/90 font-normal text-[18px] pt-3 flex items-center">
+                <FontAwesomeIcon
+                  icon={faCheckDouble}
+                  className="text-secondary h-8 p-2"
                 />
-              </div>
-              <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
-                <div>
-                  <h4 className="text-sm font-semibold uppercase tracking-wider mb-4 text-[#413e66]">
-                    Services
-                  </h4>
-                  <ul className="space-y-2">
-                    <li>
-                      <Link
-                        href="/blog/ruby-on-rails-consulting" className="text-[#535074] hover:text-[#1bb1dc]">
-                        Ruby on Rails
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/blog/php-laravel-consulting"
-                        className="text-[#535074] hover:text-[#1bb1dc]"
-                      >
-                        PHP & Laravel
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/blog/devops-consulting"
-                        className="text-[#535074] hover:text-[#1bb1dc]"
-                      >
-                        DevOps
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-sm font-semibold uppercase tracking-wider mb-4 text-[#413e66]">
-                    Company
-                  </h4>
-                  <ul className="space-y-2">
-                    <li>
-                      <a
-                        href="#about"
-                        className="text-[#535074] hover:text-[#1bb1dc]"
-                      >
-                        About
-                      </a>
-                    </li>
-                    <li>
-                      <Link
-                        href="/blog"
-                        className="text-[#535074] hover:text-[#1bb1dc]"
-                      >
-                        Blog
-                      </Link>
-                    </li>
-                    <li>
-                      <a
-                        href="#contact"
-                        className="text-[#535074] hover:text-[#1bb1dc]"
-                      >
-                        Contact
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-sm font-semibold uppercase tracking-wider mb-4 text-[#413e66]">
-                    Legal
-                  </h4>
-                  <ul className="space-y-2">
-                    <li>
-                      <Link
-                        href="/privacy"
-                        className="text-[#535074] hover:text-[#1bb1dc]"
-                      >
-                        Privacy
-                      </Link>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="text-[#535074] hover:text-[#1bb1dc]"
-                      >
-                        Terms
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                {/* Social media links  */}
+                Proven technologies.
+              </li>
+              <li className="text-primary/90 font-normal text-[18px] pt-3 flex items-center">
+                <FontAwesomeIcon
+                  icon={faCheckDouble}
+                  className="text-secondary p-2 h-8"
+                />
+                Talented people.
+              </li>
+            </ul>
+            <p className="text-primary/90 font-normal text-[18px] pt-6">
+              The combination of these things makes us one of the top
+              software development companies.
+            </p>
 
-                <div>
-                  <h4 className="text-sm font-semibold uppercase tracking-wider mb-4 text-[#413e66]">
-                    Socials
-                  </h4>
-                  <div className="flex space-x-8">
-                    <a
-                      href="https://x.com/i/flow/login?redirect_after_login=%2FTheAsistensia"
-                      aria-label="Twitter"
-                    >
-                      <FontAwesomeIcon
-                        icon={faTwitter}
-                        className="text-[#1bb1dc] h-6 hover:text-[#1993bc]"
-                      />
-                    </a>
-                    <a
-                      href="https://www.facebook.com/asistensiacom"
-                      aria-label="Facebook"
-                    >
-                      <FontAwesomeIcon
-                        icon={faFacebookF}
-                        className="text-[#1bb1dc] h-6 hover:text-[#1993bc]"
-                      />
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/company/asistensia/"
-                      aria-label="LinkedIn"
-                    >
-                      <FontAwesomeIcon
-                        icon={faLinkedin}
-                        className="text-[#1bb1dc] h-6 hover:text-[#1993bc]"
-                      />
-                    </a>
-                  </div>
-                </div>
+            <div className="flex space-x-4 pt-5">
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <p className="font-semibold text-secondary">50+</p>
+                <p className="text-muted text-sm">Projects Completed</p>
               </div>
-            </div>
-            <div className="mt-12 pt-8 border-t border-gray-800 text-center text-[#413e66] text-sm">
-              &copy; 2025 Asistensia. All rights reserved.
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <p className="font-semibold text-secondary">10+</p>
+                <p className="text-muted text-sm">Years Experience</p>
+              </div>
             </div>
           </div>
-        </footer>
-      </main>
-    </>
+          <div className="lg:w-1/2 mb-20">
+            <img
+              src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop"
+              alt="Asistensia software consultants collaborating on a Ruby on Rails project"
+              width={800}
+              height={533}
+              loading="lazy"
+              decoding="async"
+              className="rounded-lg shadow-lg w-full h-auto"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <ServicesSection />
+
+      {/* FAQ */}
+      <AskQuestion />
+
+      {/* Contact */}
+      <ContactSection />
+    </Layout>
   );
 }

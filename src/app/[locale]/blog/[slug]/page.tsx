@@ -1,176 +1,176 @@
-// src/app/blog/[slug]/page.tsx — improved for SEO & correctness
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
+import { setRequestLocale } from "next-intl/server";
 import Layout from "../../components/Layout";
+import { Link } from "@/i18n/routing";
+import { getPostSlugs, readPost } from "@/lib/posts";
+import {
+  BRAND,
+  LOCALES,
+  OG_LOCALE,
+  SITE_NAME,
+  SITE_URL,
+  absUrl,
+  alternatesFor,
+  localizedUrl,
+} from "@/lib/site";
 
 type LocaleParams = { locale: string; slug: string };
 type Props = { params: Promise<LocaleParams> };
 
-const POSTS_DIR = path.join(process.cwd(), "src/content/blog");
-const SITE = "https://asistensia.com"; // used to build absolute URLs
+export const dynamicParams = false;
 
-function readPost(slug: string) {
-  const filePath = path.join(POSTS_DIR, `${slug}.mdx`);
-  if (!fs.existsSync(filePath)) return null;
-  const raw = fs.readFileSync(filePath, "utf-8");
-  const { content, data } = matter(raw);
-  return { content, data, slug } as const;
+export async function generateStaticParams(): Promise<LocaleParams[]> {
+  const slugs = getPostSlugs();
+  return LOCALES.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));
 }
-
-export async function generateStaticParams() {
-  const locales = ["en", "nl", "ar"];
-  if (!fs.existsSync(POSTS_DIR)) return [];
-  const files = fs.readdirSync(POSTS_DIR).filter((f) => f.endsWith(".mdx"));
-  
-  const params: LocaleParams[] = [];
-  locales.forEach(locale => {
-    files.forEach(filename => {
-      params.push({ 
-        locale, 
-        slug: filename.replace(/\.mdx$/, "") 
-      });
-    });
-  });
-  return params;
-}
-
-const abs = (u?: string) => (u ? (u.startsWith("http") ? u : `${SITE}${u}`) : undefined);
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const post = readPost(slug);
   if (!post) return { robots: { index: false, follow: false } };
+  const { meta } = post;
 
-  const {
-    title,
-    paragraph,
-    coverImage,
-    publishedDate,
-    updatedDate,
-    tags,
-    author,
-  } = post.data as {
-    title?: string;
-    paragraph?: string;
-    coverImage?: string;
-    publishedDate?: string;
-    updatedDate?: string;
-    tags?: string[];
-    author?: { name?: string };
-  };
-
-  const currentUrl = locale === 'en' ? `${SITE}/blog/${slug}` : `${SITE}/${locale}/blog/${slug}`;
-  const ogImage = abs(coverImage) ?? `${SITE}/og-image.png`;
-  const metaTitle = title ?? slug;
-  const description = paragraph ?? "";
+  const url = localizedUrl(locale, `/blog/${slug}`);
+  const ogImage = meta.coverImage ? absUrl(meta.coverImage) : absUrl(BRAND.ogImage);
 
   return {
-    title: `${metaTitle} | Asistensia Blog`,
-    description,
-    keywords: tags,
-    authors: author?.name ? [{ name: author.name }] : undefined,
-    alternates: { 
-      canonical: currentUrl,
-      languages: {
-        'en': `${SITE}/blog/${slug}`,
-        'nl': `${SITE}/nl/blog/${slug}`,
-        'ar': `${SITE}/ar/blog/${slug}`,
-        'x-default': `${SITE}/blog/${slug}`,
-      }
-    },
+    // Layout template appends "| Asistensia" — don't add a second brand suffix here
+    title: meta.title,
+    description: meta.description,
+    keywords: meta.tags,
+    authors: meta.author?.name ? [{ name: meta.author.name }] : undefined,
+    alternates: alternatesFor(locale, `/blog/${slug}`),
     openGraph: {
       type: "article",
-      title: metaTitle,
-      description,
-      url: currentUrl,
-      images: [{ url: ogImage }],
-      publishedTime: publishedDate,
-      modifiedTime: updatedDate ?? publishedDate,
-      authors: author?.name ? [author.name] : undefined,
-      tags,
+      title: meta.title,
+      description: meta.description,
+      url,
+      siteName: SITE_NAME,
+      locale: OG_LOCALE[locale] ?? "en_US",
+      images: [{ url: ogImage, alt: meta.title }],
+      publishedTime: meta.publishedISO,
+      modifiedTime: meta.updatedISO,
+      authors: meta.author?.name ? [meta.author.name] : undefined,
+      tags: meta.tags,
     },
     twitter: {
       card: "summary_large_image",
-      title: metaTitle,
-      description,
+      title: meta.title,
+      description: meta.description,
       images: [ogImage],
     },
   };
 }
 
-export default async function BlogPage({ params }: Props) {
+/** MDX files sometimes contain literal <h1> tags; the page already has an <h1> (the title). */
+const demoteH1 = (src: string) =>
+  src.replace(/<h1(\s|>)/g, "<h2$1").replace(/<\/h1>/g, "</h2>").replace(/^# /gm, "## ");
+
+export default async function BlogPostPage({ params }: Props) {
   const { locale, slug } = await params;
+  setRequestLocale(locale);
   const post = readPost(slug);
   if (!post) notFound();
 
-  const { content, data } = post;
+  const { content, meta } = post;
+  const url = localizedUrl(locale, `/blog/${slug}`);
+  const imgAbs = meta.coverImage ? absUrl(meta.coverImage) : absUrl(BRAND.ogImage);
+  const isTeam = !meta.author?.name || /team/i.test(meta.author.name);
 
-  const currentUrl = locale === 'en' ? `${SITE}/blog/${slug}` : `${SITE}/${locale}/blog/${slug}`;
-  const imgAbs = abs(data.coverImage as string) ?? `${SITE}/og-image.png`;
-
-  // Article JSON-LD (scales globally; single-language site)
-  const articleLd = {
+  const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: data.title,
-    description: data.paragraph,
-    image: [imgAbs],
-    mainEntityOfPage: currentUrl,
-    datePublished: data.publishedDate,
-    dateModified: data.updatedDate ?? data.publishedDate,
-    author: data.author?.name ? { "@type": "Person", name: data.author.name } : undefined,
-    publisher: {
-      "@type": "Organization",
-      name: "Asistensia",
-      logo: { "@type": "ImageObject", url: `${SITE}/assets/brand/logo.png` },
-    },
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": `${url}#article`,
+        headline: meta.title,
+        description: meta.description,
+        image: [imgAbs],
+        url,
+        mainEntityOfPage: { "@type": "WebPage", "@id": url },
+        inLanguage: locale,
+        datePublished: meta.publishedISO,
+        dateModified: meta.updatedISO,
+        keywords: meta.tags.length ? meta.tags.join(", ") : undefined,
+        author: isTeam
+          ? { "@id": `${SITE_URL}/#organization` }
+          : {
+              "@type": "Person",
+              name: meta.author!.name,
+              jobTitle: meta.author?.title,
+              image: meta.author?.profileImage ? absUrl(meta.author.profileImage) : undefined,
+            },
+        publisher: {
+          "@type": "Organization",
+          "@id": `${SITE_URL}/#organization`,
+          name: SITE_NAME,
+          logo: { "@type": "ImageObject", url: absUrl(BRAND.logoPng), width: 1000, height: 313 },
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: localizedUrl(locale) },
+          { "@type": "ListItem", position: 2, name: "Blog", item: localizedUrl(locale, "/blog") },
+          { "@type": "ListItem", position: 3, name: meta.title, item: url },
+        ],
+      },
+    ],
   };
 
   return (
-      <Layout>
-        <div className="prose lg:prose-xl mx-auto md:px-30 py-8">
-          <h1 className="md:px-20 md:text-5xl text-3xl semibold text-center md:pt-10 ">{data.title}</h1>
-          {data.paragraph && (
-              <p className="text-xl text-center mt-5 text-primary px-10">{data.paragraph}</p>
-          )}
-          {(data.author?.name || data.publishedDate) && (
-              <p className="text-center italic text-gray-500 mt-5 p-2">
-                {data.author?.postedby ? `${data.author.postedby}: ` : ""}
-                {data.author?.name}
-                {data.author?.title ? `, ${data.author.title}` : ""}
-                {data.publishedDate ? `, ${data.publishedDate}` : ""}
-              </p>
-          )}
+    <Layout>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <article className="prose lg:prose-xl mx-auto md:px-30 py-8">
+        <nav aria-label="Breadcrumb" className="text-sm text-gray-500 px-5 md:px-20">
+          <ol className="flex flex-wrap gap-2">
+            <li><Link href="/" className="hover:text-primary">Home</Link> /</li>
+            <li><Link href="/blog" className="hover:text-primary">Blog</Link> /</li>
+            <li aria-current="page" className="text-muted truncate max-w-[60vw]">{meta.title}</li>
+          </ol>
+        </nav>
 
-          {data.coverImage && (
-              <div className="w-full my-6 rounded-lg shadow-md mt-10 p-2">
-                {/* Use next/image to avoid CLS; default to 1200x630 if unknown */}
-                <Image
-                    src={data.coverImage}
-                    alt={data.title}
-                    width={1200}
-                    height={630}
-                    className="w-full h-auto rounded-lg"
-                    priority
-                />
-              </div>
+        <header>
+          <h1 className="md:px-20 md:text-5xl text-3xl semibold text-center md:pt-10">{meta.title}</h1>
+          {meta.description && (
+            <p className="text-xl text-center mt-5 text-primary px-10">{meta.description}</p>
           )}
+          {(meta.author?.name || meta.publishedDate) && (
+            <p className="text-center italic text-gray-500 mt-5 p-2">
+              {meta.author?.postedby ? `${meta.author.postedby}: ` : ""}
+              {meta.author?.name}
+              {meta.author?.title ? `, ${meta.author.title}` : ""}
+              {meta.publishedDate && (
+                <>
+                  {", "}
+                  <time dateTime={meta.publishedISO}>{meta.publishedDate}</time>
+                </>
+              )}
+            </p>
+          )}
+        </header>
 
-          <article className="text-[18px] md:mt-20 md:px-30 p-5">
-            <MDXRemote source={content} />
-          </article>
+        {meta.coverImage && (
+          <div className="w-full my-6 rounded-lg shadow-md mt-10 p-2">
+            <Image
+              src={meta.coverImage}
+              alt={meta.title}
+              width={1200}
+              height={630}
+              sizes="(min-width: 1024px) 1024px, 100vw"
+              className="w-full h-auto rounded-lg"
+              priority
+            />
+          </div>
+        )}
 
-          {/* JSON-LD */}
-          <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
-          />
+        <div className="text-[18px] md:mt-20 md:px-30 p-5">
+          <MDXRemote source={demoteH1(content)} />
         </div>
-      </Layout>
+      </article>
+    </Layout>
   );
 }

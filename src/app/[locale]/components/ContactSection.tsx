@@ -3,8 +3,8 @@ export default function ContactSection() {
         <section id="contact" className="py-5 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold  text-[#413e66] mb-4">Get In Touch</h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <h2 className="text-3xl font-bold  text-primary mb-4">Get In Touch</h2>
+                    <p className="text-xl text-muted max-w-3xl mx-auto">
                         Ready to discuss your project? Reach out to us today.
                     </p>
                 </div>
@@ -14,7 +14,7 @@ export default function ContactSection() {
                     <div className="lg:w-1/2 mb-10 lg:mb-0 lg:pr-12">
                         <form action="https://formspree.io/f/xovwgvnv" method="POST" className="space-y-6">
                             <div>
-                                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                                <label htmlFor="name" className="block text-sm font-medium text-muted">
                                     Name
                                 </label>
                                 <input
@@ -26,7 +26,7 @@ export default function ContactSection() {
                                 />
                             </div>
                             <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                                <label htmlFor="email" className="block text-sm font-medium text-muted">
                                     Email
                                 </label>
                                 <input
@@ -38,7 +38,7 @@ export default function ContactSection() {
                                 />
                             </div>
                             <div>
-                                <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                                <label htmlFor="message" className="block text-sm font-medium text-muted">
                                     Message
                                 </label>
                                 <textarea
@@ -52,7 +52,7 @@ export default function ContactSection() {
                             <div>
                                 <button
                                     type="submit"
-                                    className="w-full bg-[#1bb1dc] text-white font-semibold py-2 px-4 rounded-md  hover:bg-[#1993dc] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                                    className="w-full bg-primary text-white font-semibold py-2 px-4 rounded-md  hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                                 >
                                     Send Message
                                 </button>
@@ -62,15 +62,15 @@ export default function ContactSection() {
 
                     {/* Contact Info Section */}
                     <div className="lg:w-1/2 lg:pl-12">
-                        <div className="bg-gray-50 p-8 rounded-lg">
-                            <h3 className="text-xl font-semibold mb-6 text-[#413e66] ">Contact Information</h3>
+                        <div className="bg-surface p-8 rounded-lg">
+                            <h3 className="text-xl font-semibold mb-6 text-primary ">Contact Information</h3>
                             <div className="space-y-4">
                                 <ContactItem
                                     title="Phone"
                                     detail="+31-619-333008"
                                     href="tel:+31619333008"
                                     icon={
-                                        <PhoneIcon className="h-6 w-6 text-[#1bb1dc]  mt-1 mr-4" />
+                                        <PhoneIcon className="h-6 w-6 text-secondary  mt-1 mr-4" />
                                     }
                                 />
                                 <ContactItem
@@ -78,14 +78,14 @@ export default function ContactSection() {
                                     detail="contact [at] asistensia.com"
                                     href="mailto:contact@asistensia.com"
                                     icon={
-                                        <MailIcon className="h-6 w-6 text-[#1bb1dc] mt-1 mr-4" />
+                                        <MailIcon className="h-6 w-6 text-secondary mt-1 mr-4" />
                                     }
                                 />
                                 <ContactItem
                                     title="Address"
                                     detail="Amsterdam, Netherlands"
                                     icon={
-                                        <LocationIcon className="h-6 w-6 text-[#1bb1dc] mt-1 mr-4" />
+                                        <LocationIcon className="h-6 w-6 text-secondary mt-1 mr-4" />
                                     }
                                 />
                             </div>
@@ -112,13 +112,13 @@ function ContactItem({
         <div className="flex items-start">
             {icon}
             <div>
-                <h4 className="font-medium text-gray-900">{title}</h4>
+                <h4 className="font-medium text-primary">{title}</h4>
                 {href ? (
-                    <a href={href} className="text-gray-600 hover:text-[#1bb1dc] transition-colors">
+                    <a href={href} className="text-muted hover:text-secondary transition-colors">
                         {detail}
                     </a>
                 ) : (
-                    <p className="text-gray-600">{detail}</p>
+                    <p className="text-muted">{detail}</p>
                 )}
             </div>
         </div>
