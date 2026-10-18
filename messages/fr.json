@@ -1,13 +1,13 @@
 {
   "HomePage": {
     "title": "Asistensia – Conseil logiciel expert",
-    "subtitle": "Libérez le potentiel de votre entreprise grâce à un conseil spécialisé en Ruby, Ruby on Rails, PHP et DevOps.",
+    "subtitle": "Libérez le potentiel de votre entreprise grâce à un conseil spécialisé en IA, Ruby on Rails, PHP et DevOps.",
     "cta": "Commencer",
     "bookCall": "Réservez un appel gratuit de 30 min"
   },
   "Metadata": {
     "title": "Asistensia – Conseil Ruby on Rails, PHP/Laravel et DevOps",
-    "description": "Consultants seniors : migrations Ruby on Rails, audits de performance, PHP/Laravel, DevOps et API. Basés aux Pays-Bas, au service de clients du monde entier.",
+    "description": "Consultants seniors : solutions IA, migrations Ruby on Rails, PHP/Laravel, DevOps et API. Basés aux Pays-Bas, au service de clients du monde entier.",
     "blogTitle": "Blog – Articles sur Rails, PHP et DevOps",
     "blogDescription": "Articles pratiques sur Ruby on Rails, PHP/Laravel, DevOps, la performance et le développement web moderne, par l'équipe Asistensia."
   },
@@ -21,7 +21,8 @@
     "schedule": "Planifier un rendez-vous",
     "scheduleAria": "Planifier un rendez-vous gratuit de 30 minutes (ouvre Calendly)",
     "homeAria": "Asistensia – accueil",
-    "language": "Langue"
+    "language": "Langue",
+    "ai": "Solutions IA"
   },
   "Footer": {
     "tagline": "Services de conseil logiciel experts en Ruby, PHP et DevOps.",
@@ -229,5 +230,57 @@
     "privacyLink": "Politique de confidentialité",
     "settings": "Paramètres des cookies",
     "dialogLabel": "Préférences en matière de cookies"
+  },
+  "AI": {
+    "eyebrow": "Solutions IA",
+    "title": "Mettez l'IA au service de votre entreprise",
+    "subtitle": "Du premier prototype à la production : nous intégrons l'IA dans vos produits et vos processus — de façon sécurisée, mesurable et en nous appuyant sur vos systèmes existants.",
+    "items": [
+      {
+        "title": "Fonctionnalités IA dans votre application",
+        "description": "Ajoutez recherche, résumés, recommandations et assistants propulsés par des LLM à votre produit Ruby on Rails, Laravel ou Next.js."
+      },
+      {
+        "title": "Agents IA et automatisation",
+        "description": "Des agents qui prennent en charge les tâches répétitives de bout en bout — tri des tickets, traitement des commandes, mise à jour de votre CRM — avec une validation humaine là où c'est essentiel."
+      },
+      {
+        "title": "Assistants de connaissances (RAG)",
+        "description": "Dialoguez avec votre documentation, vos contrats et vos wikis internes. Des réponses fondées sur vos propres données, sources à l'appui."
+      },
+      {
+        "title": "Extraction de documents et de données",
+        "description": "Transformez factures, PDF, e-mails et formulaires en données structurées exploitables par vos systèmes — fini le copier-coller manuel."
+      },
+      {
+        "title": "Infrastructure IA et MLOps",
+        "description": "Déployez, supervisez et faites évoluer vos charges de travail IA sur AWS, GCP ou Azure, avec évaluation, maîtrise des coûts et observabilité intégrées."
+      },
+      {
+        "title": "IA sécurisée et conforme au RGPD",
+        "description": "Hébergement des données dans l'UE, contrôle des accès et politiques de données claires — pour que votre projet IA passe sans encombre les revues sécurité et juridiques."
+      }
+    ],
+    "stepsTitle": "Notre démarche",
+    "steps": [
+      {
+        "title": "Cadrage",
+        "text": "Nous identifions les cas d'usage au meilleur retour sur investissement et les données nécessaires."
+      },
+      {
+        "title": "Prototype",
+        "text": "Une preuve de concept fonctionnelle en quelques semaines, testée sur vos données réelles."
+      },
+      {
+        "title": "Mise en production",
+        "text": "Une intégration prête pour la production, avec supervision, garde-fous et évaluations."
+      },
+      {
+        "title": "Amélioration",
+        "text": "Nous mesurons les résultats, optimisons qualité et coûts, et étendons ce qui fonctionne."
+      }
+    ],
+    "cta": "Parlons de votre projet IA",
+    "ctaNote": "Appel gratuit de 30 minutes — sans engagement."
   }
 }

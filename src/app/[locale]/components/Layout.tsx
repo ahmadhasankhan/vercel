@@ -42,8 +42,8 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
               <Link href="/#services" className="text-muted hover:text-secondary">
                 {t("services")}
               </Link>
-              <Link href="/privacy" className="text-muted hover:text-secondary">
-                {t("privacy")}
+              <Link href="/#ai" className="text-muted hover:text-secondary">
+                {t("ai")}
               </Link>
               <Link href="/blog" className="text-muted hover:text-secondary">
                 {t("blog")}
@@ -84,7 +84,7 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t("scheduleAria")}
-        className="fixed bottom-5 end-5 z-50 inline-flex items-center gap-2 rounded-full bg-primary text-white font-semibold px-5 py-3 shadow-lg shadow-primary/30 ring-1 ring-white/10 hover:bg-secondary transition duration-300"
+        className="fixed bottom-5 end-5 z-50 inline-flex items-center gap-2 rounded-full bg-secondary text-white font-semibold px-5 py-3 shadow-lg shadow-primary/30 ring-2 ring-white hover:bg-primary transition duration-300"
       >
         <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="3" y="5" width="18" height="16" rx="2" />
@@ -138,6 +138,11 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
                   {f("servicesTitle")}
                 </p>
                 <ul className="space-y-2">
+                  <li>
+                    <Link href="/#ai" className="text-muted hover:text-secondary">
+                      {t("ai")}
+                    </Link>
+                  </li>
                   <li>
                     <Link href="/blog/ruby-on-rails-consulting" className="text-muted hover:text-secondary">
                       {f("railsConsulting")}

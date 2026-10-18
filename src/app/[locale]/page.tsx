@@ -6,6 +6,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import Layout from "./components/Layout";
 import ContactSection from "./components/ContactSection";
 import ServicesSection from "./components/ServicesSection";
+import AISection from "./components/AISection";
 import AskQuestion from "./components/AskQuestion";
 import { BOOKING_URL, BRAND, OG_LOCALE, SITE_NAME, alternatesFor, localizedUrl } from "@/lib/site";
 
@@ -160,6 +161,9 @@ export default async function Home({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* AI solutions */}
+      <AISection />
 
       {/* Services */}
       <ServicesSection />

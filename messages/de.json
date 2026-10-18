@@ -1,13 +1,13 @@
 {
   "HomePage": {
     "title": "Asistensia – Software-Beratung von Experten",
-    "subtitle": "Schöpfen Sie das Potenzial Ihres Unternehmens aus – mit spezialisierter Beratung für Ruby, Ruby on Rails, PHP und DevOps.",
+    "subtitle": "Schöpfen Sie das Potenzial Ihres Unternehmens aus – mit spezialisierter Beratung für KI, Ruby on Rails, PHP und DevOps.",
     "cta": "Jetzt starten",
     "bookCall": "Kostenloses 30-Min.-Gespräch buchen"
   },
   "Metadata": {
     "title": "Asistensia – Ruby on Rails, PHP/Laravel & DevOps-Beratung",
-    "description": "Senior-Berater für Ruby-on-Rails-Upgrades, Performance-Audits, PHP/Laravel, DevOps und API-Entwicklung. Sitz in den Niederlanden, Kunden weltweit.",
+    "description": "Senior-Berater für KI-Lösungen, Ruby-on-Rails-Upgrades, PHP/Laravel, DevOps und API-Entwicklung. Sitz in den Niederlanden, Kunden weltweit.",
     "blogTitle": "Blog – Artikel zu Rails, PHP & DevOps",
     "blogDescription": "Praxisnahe Artikel zu Ruby on Rails, PHP/Laravel, DevOps, Performance und moderner Webentwicklung vom Asistensia-Team."
   },
@@ -21,7 +21,8 @@
     "schedule": "Termin vereinbaren",
     "scheduleAria": "Kostenlosen 30-minütigen Termin vereinbaren (öffnet Calendly)",
     "homeAria": "Asistensia – Startseite",
-    "language": "Sprache"
+    "language": "Sprache",
+    "ai": "KI-Lösungen"
   },
   "Footer": {
     "tagline": "Software-Beratung von Experten für Ruby, PHP und DevOps.",
@@ -229,5 +230,57 @@
     "privacyLink": "Datenschutzerklärung",
     "settings": "Cookie-Einstellungen",
     "dialogLabel": "Cookie-Präferenzen"
+  },
+  "AI": {
+    "eyebrow": "KI-Lösungen",
+    "title": "Setzen Sie KI gewinnbringend in Ihrem Unternehmen ein",
+    "subtitle": "Vom ersten Prototyp bis zum Produktivbetrieb: Wir integrieren KI in Ihre Produkte und Prozesse – sicher, messbar und auf Basis Ihrer bestehenden Systeme.",
+    "items": [
+      {
+        "title": "KI-Funktionen in Ihrer Anwendung",
+        "description": "Ergänzen Sie Ihr Ruby-on-Rails-, Laravel- oder Next.js-Produkt um LLM-gestützte Suche, Zusammenfassungen, Empfehlungen und Assistenten."
+      },
+      {
+        "title": "KI-Agenten & Automatisierung",
+        "description": "Agenten, die wiederkehrende Aufgaben durchgängig erledigen – Tickets vorsortieren, Bestellungen bearbeiten, Ihr CRM aktualisieren – mit menschlicher Kontrolle, wo es darauf ankommt."
+      },
+      {
+        "title": "Wissensassistenten (RAG)",
+        "description": "Chatten Sie mit Ihrer Dokumentation, Ihren Verträgen und internen Wikis. Antworten auf Basis Ihrer eigenen Daten – mit Quellenangabe."
+      },
+      {
+        "title": "Dokumenten- & Datenextraktion",
+        "description": "Verwandeln Sie Rechnungen, PDFs, E-Mails und Formulare in strukturierte Daten für Ihre Systeme – Schluss mit manuellem Kopieren und Einfügen."
+      },
+      {
+        "title": "KI-Infrastruktur & MLOps",
+        "description": "Betreiben, überwachen und skalieren Sie KI-Workloads auf AWS, GCP oder Azure – mit integrierter Evaluierung, Kostenkontrolle und Observability."
+      },
+      {
+        "title": "Sichere, DSGVO-konforme KI",
+        "description": "Datenhaltung in der EU, Zugriffskontrollen und klare Datenrichtlinien – damit Ihr KI-Einsatz jede Sicherheits- und Rechtsprüfung besteht."
+      }
+    ],
+    "stepsTitle": "So gehen wir vor",
+    "steps": [
+      {
+        "title": "Analyse",
+        "text": "Wir identifizieren die Anwendungsfälle mit dem höchsten Nutzen und die dafür benötigten Daten."
+      },
+      {
+        "title": "Prototyp",
+        "text": "Ein funktionsfähiger Proof of Concept in wenigen Wochen, getestet mit Ihren echten Daten."
+      },
+      {
+        "title": "Go-live",
+        "text": "Produktionsreife Integration mit Monitoring, Guardrails und Evaluierungen."
+      },
+      {
+        "title": "Optimierung",
+        "text": "Wir messen Ergebnisse, optimieren Qualität und Kosten und bauen aus, was funktioniert."
+      }
+    ],
+    "cta": "Ihre KI-Idee besprechen",
+    "ctaNote": "Kostenloses 30-minütiges Gespräch – unverbindlich."
   }
 }

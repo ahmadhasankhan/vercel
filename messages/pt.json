@@ -1,13 +1,13 @@
 {
   "HomePage": {
     "title": "Asistensia – Consultoria especializada em software",
-    "subtitle": "Liberte o potencial do seu negócio com consultoria especializada em soluções Ruby, Ruby on Rails, PHP e DevOps.",
+    "subtitle": "Liberte o potencial do seu negócio com consultoria especializada em soluções de IA, Ruby on Rails, PHP e DevOps.",
     "cta": "Comece agora",
     "bookCall": "Agende uma chamada gratuita de 30 min"
   },
   "Metadata": {
     "title": "Asistensia – Consultoria em Ruby on Rails, PHP/Laravel e DevOps",
-    "description": "Consultores sênior para upgrades de Ruby on Rails, auditorias de desempenho, PHP/Laravel, DevOps e APIs. Sediados nos Países Baixos, atendemos o mundo todo.",
+    "description": "Consultores sênior em soluções de IA, upgrades de Ruby on Rails, PHP/Laravel, DevOps e APIs. Sediados nos Países Baixos, atendemos o mundo todo.",
     "blogTitle": "Blog – Artigos sobre Rails, PHP e DevOps",
     "blogDescription": "Artigos práticos sobre Ruby on Rails, PHP/Laravel, DevOps, desempenho e desenvolvimento web moderno, escritos pela equipe da Asistensia."
   },
@@ -21,7 +21,8 @@
     "schedule": "Agendar uma reunião",
     "scheduleAria": "Agende uma reunião gratuita de 30 minutos (abre o Calendly)",
     "homeAria": "Asistensia – página inicial",
-    "language": "Idioma"
+    "language": "Idioma",
+    "ai": "Soluções de IA"
   },
   "Footer": {
     "tagline": "Serviços especializados de consultoria em software para soluções Ruby, PHP e DevOps.",
@@ -229,5 +230,57 @@
     "privacyLink": "Política de Privacidade",
     "settings": "Configurações de cookies",
     "dialogLabel": "Preferências de cookies"
+  },
+  "AI": {
+    "eyebrow": "Soluções de IA",
+    "title": "Coloque a IA para trabalhar no seu negócio",
+    "subtitle": "Do primeiro protótipo à produção: integramos IA aos seus produtos e fluxos de trabalho — com segurança, resultados mensuráveis e sobre os sistemas que você já usa.",
+    "items": [
+      {
+        "title": "Recursos de IA no seu app",
+        "description": "Adicione busca, resumos, recomendações e assistentes com LLM ao seu produto em Ruby on Rails, Laravel ou Next.js."
+      },
+      {
+        "title": "Agentes de IA e automação",
+        "description": "Agentes que executam tarefas repetitivas de ponta a ponta — triagem de tickets, processamento de pedidos, atualização do seu CRM — com supervisão humana onde importa."
+      },
+      {
+        "title": "Assistentes de conhecimento (RAG)",
+        "description": "Converse com sua documentação, contratos e wikis internas. Respostas baseadas nos seus próprios dados, com fontes."
+      },
+      {
+        "title": "Extração de documentos e dados",
+        "description": "Transforme faturas, PDFs, e-mails e formulários em dados estruturados que seus sistemas podem usar — chega de copiar e colar manualmente."
+      },
+      {
+        "title": "Infraestrutura de IA e MLOps",
+        "description": "Implante, monitore e escale cargas de trabalho de IA na AWS, GCP ou Azure, com avaliação, controle de custos e observabilidade integrados."
+      },
+      {
+        "title": "IA segura e em conformidade com o RGPD",
+        "description": "Residência de dados na UE, controles de acesso e políticas de dados claras — para que sua adoção de IA passe nas revisões de segurança e jurídicas."
+      }
+    ],
+    "stepsTitle": "Como entregamos",
+    "steps": [
+      {
+        "title": "Descoberta",
+        "text": "Identificamos os casos de uso com maior retorno e os dados de que você precisa."
+      },
+      {
+        "title": "Protótipo",
+        "text": "Uma prova de conceito funcional em semanas, testada com seus dados reais."
+      },
+      {
+        "title": "Lançamento",
+        "text": "Integração pronta para produção, com monitoramento, guardrails e avaliações."
+      },
+      {
+        "title": "Melhoria",
+        "text": "Medimos resultados, ajustamos qualidade e custos e expandimos o que funciona."
+      }
+    ],
+    "cta": "Converse sobre sua ideia de IA",
+    "ctaNote": "Chamada gratuita de 30 minutos, sem compromisso."
   }
 }

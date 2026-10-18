@@ -1,13 +1,13 @@
 {
   "HomePage": {
     "title": "Asistensia – Uzman Yazılım Danışmanlığı",
-    "subtitle": "Ruby, Ruby on Rails, PHP ve DevOps çözümlerinde uzman danışmanlıkla işletmenizin potansiyelini ortaya çıkarın.",
+    "subtitle": "Yapay zekâ, Ruby on Rails, PHP ve DevOps çözümlerinde uzman danışmanlıkla işletmenizin potansiyelini ortaya çıkarın.",
     "cta": "Hemen Başlayın",
     "bookCall": "30 dakikalık ücretsiz görüşme ayarlayın"
   },
   "Metadata": {
     "title": "Asistensia – Ruby on Rails, PHP/Laravel ve DevOps Danışmanlığı",
-    "description": "Ruby on Rails yükseltmeleri, performans denetimleri, PHP/Laravel, DevOps ve API geliştirme için kıdemli danışmanlar. Hollanda merkezli, dünya genelinde hizmet.",
+    "description": "Yapay zekâ çözümleri, Ruby on Rails yükseltmeleri, PHP/Laravel, DevOps ve API geliştirme için kıdemli danışmanlar. Hollanda merkezli, dünya genelinde hizmet.",
     "blogTitle": "Blog – Rails, PHP ve DevOps Yazıları",
     "blogDescription": "Asistensia ekibinden Ruby on Rails, PHP/Laravel, DevOps, performans ve modern web geliştirme üzerine pratik yazılar."
   },
@@ -21,7 +21,8 @@
     "schedule": "Toplantı planlayın",
     "scheduleAria": "30 dakikalık ücretsiz bir toplantı planlayın (Calendly açılır)",
     "homeAria": "Asistensia – ana sayfa",
-    "language": "Dil"
+    "language": "Dil",
+    "ai": "Yapay Zekâ"
   },
   "Footer": {
     "tagline": "Ruby, PHP ve DevOps çözümleri için uzman yazılım danışmanlığı hizmetleri.",
@@ -229,5 +230,57 @@
     "privacyLink": "Gizlilik Politikası",
     "settings": "Çerez ayarları",
     "dialogLabel": "Çerez tercihleri"
+  },
+  "AI": {
+    "eyebrow": "Yapay Zekâ Çözümleri",
+    "title": "Yapay zekâyı işletmenizde çalıştırın",
+    "subtitle": "İlk prototipten canlı ortama: Yapay zekâyı ürünlerinize ve iş akışlarınıza entegre ediyoruz — güvenli, ölçülebilir ve mevcut sistemlerinizin üzerine.",
+    "items": [
+      {
+        "title": "Uygulamanızda yapay zekâ özellikleri",
+        "description": "Ruby on Rails, Laravel veya Next.js ürününüze LLM destekli arama, özetler, öneriler ve asistanlar ekleyin."
+      },
+      {
+        "title": "Yapay zekâ ajanları ve otomasyon",
+        "description": "Tekrarlayan işleri uçtan uca üstlenen ajanlar — talepleri önceliklendirme, siparişleri işleme, CRM'inizi güncelleme — önemli noktalarda insan onayıyla."
+      },
+      {
+        "title": "Bilgi asistanları (RAG)",
+        "description": "Dokümantasyonunuz, sözleşmeleriniz ve şirket içi wiki'lerinizle sohbet edin. Kendi verilerinize dayanan, kaynak gösteren yanıtlar."
+      },
+      {
+        "title": "Belge ve veri çıkarma",
+        "description": "Faturaları, PDF'leri, e-postaları ve formları sistemlerinizin kullanabileceği yapılandırılmış verilere dönüştürün — elle kopyala-yapıştıra son."
+      },
+      {
+        "title": "Yapay zekâ altyapısı ve MLOps",
+        "description": "AWS, GCP veya Azure üzerinde yapay zekâ iş yüklerini dağıtın, izleyin ve ölçeklendirin; değerlendirme, maliyet kontrolü ve gözlemlenebilirlik dahil."
+      },
+      {
+        "title": "Güvenli ve GDPR uyumlu yapay zekâ",
+        "description": "AB'de veri barındırma, erişim kontrolleri ve net veri politikaları — yapay zekâ projeniz güvenlik ve hukuk incelemelerinden sorunsuz geçsin."
+      }
+    ],
+    "stepsTitle": "Nasıl çalışıyoruz",
+    "steps": [
+      {
+        "title": "Keşif",
+        "text": "En yüksek getiriyi sağlayacak kullanım senaryolarını ve ihtiyacınız olan verileri belirliyoruz."
+      },
+      {
+        "title": "Prototip",
+        "text": "Birkaç hafta içinde, gerçek verilerinizle test edilmiş çalışan bir kavram kanıtı."
+      },
+      {
+        "title": "Yayına alma",
+        "text": "İzleme, güvenlik önlemleri ve değerlendirmelerle canlı ortama hazır entegrasyon."
+      },
+      {
+        "title": "İyileştirme",
+        "text": "Sonuçları ölçüyor, kaliteyi ve maliyeti optimize ediyor, işe yarayanı genişletiyoruz."
+      }
+    ],
+    "cta": "Yapay zekâ fikrinizi konuşalım",
+    "ctaNote": "30 dakikalık ücretsiz görüşme — hiçbir yükümlülük yok."
   }
 }

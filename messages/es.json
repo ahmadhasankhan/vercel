@@ -1,13 +1,13 @@
 {
   "HomePage": {
     "title": "Asistensia – Consultoría de software experta",
-    "subtitle": "Impulsa todo el potencial de tu negocio con consultoría especializada en Ruby, Ruby on Rails, PHP y DevOps.",
+    "subtitle": "Impulsa todo el potencial de tu negocio con consultoría especializada en IA, Ruby on Rails, PHP y DevOps.",
     "cta": "Empieza ahora",
     "bookCall": "Reserva una llamada gratuita de 30 min"
   },
   "Metadata": {
     "title": "Asistensia – Consultoría Ruby on Rails, PHP/Laravel y DevOps",
-    "description": "Consultores senior en actualizaciones de Ruby on Rails, auditorías de rendimiento, PHP/Laravel, DevOps y APIs. Desde Países Bajos para todo el mundo.",
+    "description": "Consultores senior en soluciones de IA, actualizaciones de Ruby on Rails, PHP/Laravel, DevOps y APIs. Desde Países Bajos para todo el mundo.",
     "blogTitle": "Blog – Artículos sobre Rails, PHP y DevOps",
     "blogDescription": "Artículos prácticos sobre Ruby on Rails, PHP/Laravel, DevOps, rendimiento y desarrollo web moderno, del equipo de Asistensia."
   },
@@ -21,7 +21,8 @@
     "schedule": "Agendar una reunión",
     "scheduleAria": "Agenda una reunión gratuita de 30 minutos (abre Calendly)",
     "homeAria": "Asistensia – inicio",
-    "language": "Idioma"
+    "language": "Idioma",
+    "ai": "Soluciones IA"
   },
   "Footer": {
     "tagline": "Servicios expertos de consultoría de software en Ruby, PHP y DevOps.",
@@ -229,5 +230,57 @@
     "privacyLink": "Política de privacidad",
     "settings": "Configuración de cookies",
     "dialogLabel": "Preferencias de cookies"
+  },
+  "AI": {
+    "eyebrow": "Soluciones de IA",
+    "title": "Pon la IA a trabajar en tu negocio",
+    "subtitle": "Del primer prototipo a producción: integramos la IA en tus productos y procesos — de forma segura, medible y sobre los sistemas que ya utilizas.",
+    "items": [
+      {
+        "title": "Funciones de IA en tu aplicación",
+        "description": "Añade búsqueda, resúmenes, recomendaciones y asistentes basados en LLM a tu producto en Ruby on Rails, Laravel o Next.js."
+      },
+      {
+        "title": "Agentes de IA y automatización",
+        "description": "Agentes que gestionan el trabajo repetitivo de principio a fin — clasificar tickets, procesar pedidos, actualizar tu CRM — con supervisión humana donde importa."
+      },
+      {
+        "title": "Asistentes de conocimiento (RAG)",
+        "description": "Conversa con tu documentación, contratos y wikis internas. Respuestas basadas en tus propios datos, con fuentes."
+      },
+      {
+        "title": "Extracción de documentos y datos",
+        "description": "Convierte facturas, PDF, correos y formularios en datos estructurados que tus sistemas pueden usar — se acabó copiar y pegar a mano."
+      },
+      {
+        "title": "Infraestructura de IA y MLOps",
+        "description": "Despliega, monitoriza y escala cargas de trabajo de IA en AWS, GCP o Azure, con evaluación, control de costes y observabilidad integrados."
+      },
+      {
+        "title": "IA segura y conforme al RGPD",
+        "description": "Residencia de datos en la UE, controles de acceso y políticas de datos claras — para que tu adopción de IA supere las revisiones de seguridad y legales."
+      }
+    ],
+    "stepsTitle": "Cómo trabajamos",
+    "steps": [
+      {
+        "title": "Descubrir",
+        "text": "Identificamos los casos de uso con mayor retorno y los datos que necesitas."
+      },
+      {
+        "title": "Prototipar",
+        "text": "Una prueba de concepto funcional en semanas, probada con tus datos reales."
+      },
+      {
+        "title": "Lanzar",
+        "text": "Integración lista para producción con monitorización, salvaguardas y evaluaciones."
+      },
+      {
+        "title": "Mejorar",
+        "text": "Medimos resultados, ajustamos calidad y costes, y ampliamos lo que funciona."
+      }
+    ],
+    "cta": "Cuéntanos tu idea de IA",
+    "ctaNote": "Llamada gratuita de 30 minutos, sin compromiso."
   }
 }

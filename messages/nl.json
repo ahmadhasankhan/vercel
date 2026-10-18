@@ -1,13 +1,13 @@
 {
   "HomePage": {
     "title": "Asistensia – Deskundige Software Consulting",
-    "subtitle": "Ontgrendel uw zakelijke potentieel met gespecialiseerde consultancy in Ruby, Ruby on Rails, PHP en DevOps oplossingen.",
+    "subtitle": "Ontgrendel uw zakelijke potentieel met gespecialiseerde consultancy in AI, Ruby on Rails, PHP en DevOps oplossingen.",
     "cta": "Aan de slag",
     "bookCall": "Plan een gratis gesprek van 30 min"
   },
   "Metadata": {
     "title": "Asistensia – Ruby on Rails, PHP/Laravel & DevOps Consultancy",
-    "description": "Senior softwareconsultants voor Ruby on Rails-upgrades, performance-audits, PHP/Laravel, DevOps en API-ontwikkeling. Gevestigd in Nederland, actief voor klanten wereldwijd.",
+    "description": "Senior softwareconsultants voor AI-oplossingen, Ruby on Rails-upgrades, PHP/Laravel, DevOps en API's. Gevestigd in Nederland, actief wereldwijd.",
     "blogTitle": "Blog – Artikelen over Rails, PHP & DevOps",
     "blogDescription": "Praktische artikelen over Ruby on Rails, PHP/Laravel, DevOps, performance en moderne webontwikkeling van het Asistensia-team."
   },
@@ -21,7 +21,8 @@
     "schedule": "Plan een afspraak",
     "scheduleAria": "Plan een gratis gesprek van 30 minuten (opent Calendly)",
     "homeAria": "Asistensia – home",
-    "language": "Taal"
+    "language": "Taal",
+    "ai": "AI-oplossingen"
   },
   "Footer": {
     "tagline": "Deskundige softwareconsultancy voor Ruby-, PHP- en DevOps-oplossingen.",
@@ -229,5 +230,57 @@
     "privacyLink": "Privacybeleid",
     "settings": "Cookie-instellingen",
     "dialogLabel": "Cookievoorkeuren"
+  },
+  "AI": {
+    "eyebrow": "AI-oplossingen",
+    "title": "Zet AI aan het werk in uw bedrijf",
+    "subtitle": "Van eerste prototype tot productie: wij integreren AI in uw producten en processen — veilig, meetbaar en bovenop de systemen die u al gebruikt.",
+    "items": [
+      {
+        "title": "AI-functies in uw applicatie",
+        "description": "Voeg LLM-gestuurde zoekfuncties, samenvattingen, aanbevelingen en assistenten toe aan uw Ruby on Rails-, Laravel- of Next.js-product."
+      },
+      {
+        "title": "AI-agents en automatisering",
+        "description": "Agents die repetitief werk van begin tot eind afhandelen — tickets triëren, orders verwerken, uw CRM bijwerken — met menselijke controle waar het ertoe doet."
+      },
+      {
+        "title": "Kennisassistenten (RAG)",
+        "description": "Chat met uw documentatie, contracten en interne wiki's. Antwoorden gebaseerd op uw eigen data, mét bronvermelding."
+      },
+      {
+        "title": "Document- en data-extractie",
+        "description": "Zet facturen, PDF's, e-mails en formulieren om in gestructureerde data die uw systemen kunnen gebruiken — geen handmatig kopiëren en plakken meer."
+      },
+      {
+        "title": "AI-infrastructuur en MLOps",
+        "description": "Implementeer, monitor en schaal AI-workloads op AWS, GCP of Azure, met ingebouwde evaluatie, kostenbeheersing en observability."
+      },
+      {
+        "title": "Veilige, AVG-conforme AI",
+        "description": "Dataopslag in de EU, toegangscontrole en heldere databeleidsregels — zodat uw AI-toepassing door security- en juridische toetsing komt."
+      }
+    ],
+    "stepsTitle": "Onze aanpak",
+    "steps": [
+      {
+        "title": "Verkennen",
+        "text": "We bepalen de use cases met het hoogste rendement en de data die u nodig hebt."
+      },
+      {
+        "title": "Prototype",
+        "text": "Binnen enkele weken een werkend proof of concept, getest op uw echte data."
+      },
+      {
+        "title": "Livegang",
+        "text": "Productieklare integratie met monitoring, guardrails en evaluaties."
+      },
+      {
+        "title": "Verbeteren",
+        "text": "We meten resultaten, optimaliseren kwaliteit en kosten, en breiden uit wat werkt."
+      }
+    ],
+    "cta": "Bespreek uw AI-idee",
+    "ctaNote": "Gratis gesprek van 30 minuten — geheel vrijblijvend."
   }
 }

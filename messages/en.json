@@ -1,13 +1,13 @@
 {
   "HomePage": {
     "title": "Asistensia – Expert Software Consulting",
-    "subtitle": "Unlock your business potential with specialized consulting in Ruby, Ruby on Rails, PHP, and DevOps solutions.",
+    "subtitle": "Unlock your business potential with specialized consulting in AI, Ruby on Rails, PHP and DevOps solutions.",
     "cta": "Get Started",
     "bookCall": "Book a free 30-min call"
   },
   "Metadata": {
     "title": "Asistensia – Ruby on Rails, PHP/Laravel & DevOps Consulting",
-    "description": "Senior software consultants for Ruby on Rails upgrades, performance audits, PHP/Laravel, DevOps and API development. Based in the Netherlands, serving clients worldwide.",
+    "description": "Senior software consultants for AI solutions, Ruby on Rails upgrades, PHP/Laravel, DevOps and API development. Based in the Netherlands, serving clients worldwide.",
     "blogTitle": "Blog – Rails, PHP & DevOps Articles",
     "blogDescription": "Practical articles on Ruby on Rails, PHP/Laravel, DevOps, performance and modern web development from the Asistensia team."
   },
@@ -21,7 +21,8 @@
     "schedule": "Schedule a meeting",
     "scheduleAria": "Schedule a free 30-minute meeting (opens Calendly)",
     "homeAria": "Asistensia – home",
-    "language": "Language"
+    "language": "Language",
+    "ai": "AI Solutions"
   },
   "Footer": {
     "tagline": "Expert software consulting services for Ruby, PHP, and DevOps solutions.",
@@ -229,5 +230,57 @@
     "privacyLink": "Privacy Policy",
     "settings": "Cookie settings",
     "dialogLabel": "Cookie preferences"
+  },
+  "AI": {
+    "eyebrow": "AI Solutions",
+    "title": "Put AI to work in your business",
+    "subtitle": "From first prototype to production: we integrate AI into your products and workflows — securely, measurably, and on top of the systems you already run.",
+    "items": [
+      {
+        "title": "AI features in your app",
+        "description": "Add LLM-powered search, summaries, recommendations and assistants to your Ruby on Rails, Laravel or Next.js product."
+      },
+      {
+        "title": "AI agents & automation",
+        "description": "Agents that handle repetitive work end to end — triaging tickets, processing orders, updating your CRM — with humans in the loop where it matters."
+      },
+      {
+        "title": "Knowledge assistants (RAG)",
+        "description": "Chat with your documentation, contracts and internal wikis. Answers grounded in your own data, with sources."
+      },
+      {
+        "title": "Document & data extraction",
+        "description": "Turn invoices, PDFs, emails and forms into structured data your systems can use — no more manual copy-paste."
+      },
+      {
+        "title": "AI infrastructure & MLOps",
+        "description": "Deploy, monitor and scale AI workloads on AWS, GCP or Azure, with evaluation, cost control and observability built in."
+      },
+      {
+        "title": "Secure & GDPR-compliant AI",
+        "description": "EU data residency, access controls and clear data policies — so your AI adoption passes security and legal review."
+      }
+    ],
+    "stepsTitle": "How we deliver",
+    "steps": [
+      {
+        "title": "Discover",
+        "text": "We identify the use cases with the highest return and the data you need."
+      },
+      {
+        "title": "Prototype",
+        "text": "A working proof of concept in weeks, tested on your real data."
+      },
+      {
+        "title": "Launch",
+        "text": "Production-ready integration with monitoring, guardrails and evaluations."
+      },
+      {
+        "title": "Improve",
+        "text": "We measure results, tune quality and cost, and expand what works."
+      }
+    ],
+    "cta": "Discuss your AI idea",
+    "ctaNote": "Free 30-minute call — no obligation."
   }
 }

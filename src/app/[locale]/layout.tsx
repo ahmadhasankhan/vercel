@@ -159,7 +159,7 @@ export default async function RootLayout({
           { "@type": "Country", name: "Saudi Arabia" },
           { "@type": "Country", name: "United Arab Emirates" },
         ],
-        knowsAbout: ["Ruby on Rails", "Ruby", "PHP", "Laravel", "DevOps", "CI/CD", "API development", "React", "Next.js"],
+        knowsAbout: ["Artificial Intelligence", "Generative AI", "LLM integration", "AI agents", "Retrieval-augmented generation", "Ruby on Rails", "Ruby", "PHP", "Laravel", "DevOps", "CI/CD", "API development", "React", "Next.js"],
         sameAs: [SOCIALS.twitter, SOCIALS.facebook, SOCIALS.linkedin],
       },
       {
