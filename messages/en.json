@@ -20,7 +20,8 @@
     "bookCall": "Book a call",
     "schedule": "Schedule a meeting",
     "scheduleAria": "Schedule a free 30-minute meeting (opens Calendly)",
-    "homeAria": "Asistensia – home"
+    "homeAria": "Asistensia – home",
+    "language": "Language"
   },
   "Footer": {
     "tagline": "Expert software consulting services for Ruby, PHP, and DevOps solutions.",

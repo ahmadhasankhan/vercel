@@ -1,0 +1,233 @@
+{
+  "HomePage": {
+    "title": "Asistensia – Conseil logiciel expert",
+    "subtitle": "Libérez le potentiel de votre entreprise grâce à un conseil spécialisé en Ruby, Ruby on Rails, PHP et DevOps.",
+    "cta": "Commencer",
+    "bookCall": "Réservez un appel gratuit de 30 min"
+  },
+  "Metadata": {
+    "title": "Asistensia – Conseil Ruby on Rails, PHP/Laravel et DevOps",
+    "description": "Consultants seniors : migrations Ruby on Rails, audits de performance, PHP/Laravel, DevOps et API. Basés aux Pays-Bas, au service de clients du monde entier.",
+    "blogTitle": "Blog – Articles sur Rails, PHP et DevOps",
+    "blogDescription": "Articles pratiques sur Ruby on Rails, PHP/Laravel, DevOps, la performance et le développement web moderne, par l'équipe Asistensia."
+  },
+  "Nav": {
+    "aboutUs": "À propos",
+    "services": "Services",
+    "privacy": "Politique de confidentialité",
+    "blog": "Blog",
+    "contact": "Contact",
+    "bookCall": "Réserver un appel",
+    "schedule": "Planifier un rendez-vous",
+    "scheduleAria": "Planifier un rendez-vous gratuit de 30 minutes (ouvre Calendly)",
+    "homeAria": "Asistensia – accueil",
+    "language": "Langue"
+  },
+  "Footer": {
+    "tagline": "Services de conseil logiciel experts en Ruby, PHP et DevOps.",
+    "extend": "Renforcez votre équipe technique en nous confiant la prise en charge de vos tâches quotidiennes. Notre équipe d'ingénieurs Full-Stack experts assure un support Cloud 24 h/24, 7 j/7.",
+    "newsletterTitle": "Notre newsletter",
+    "newsletterText": "Souhaitez-vous recevoir des e-mails d'Asistensia avec nos actualités, des nouvelles tech et des offres spéciales ? Vous pouvez vous désabonner à tout moment via le lien de désinscription présent dans chaque e-mail.",
+    "emailLabel": "Adresse e-mail",
+    "emailPlaceholder": "vous@entreprise.fr",
+    "subscribe": "S'abonner",
+    "servicesTitle": "Services",
+    "railsConsulting": "Conseil Ruby on Rails",
+    "laravelConsulting": "Conseil PHP et Laravel",
+    "devopsConsulting": "Conseil DevOps",
+    "railsUpgrades": "Migrations vers Rails 8",
+    "railsAudit": "Audit de performance Rails",
+    "companyTitle": "Entreprise",
+    "about": "À propos",
+    "blog": "Blog",
+    "contact": "Contact",
+    "bookFreeCall": "Réserver un appel gratuit",
+    "legalTitle": "Mentions légales",
+    "privacy": "Politique de confidentialité",
+    "socialsTitle": "Réseaux sociaux",
+    "rights": "© {year} Asistensia. Tous droits réservés."
+  },
+  "About": {
+    "title": "À propos d'Asistensia",
+    "tagline": "L'équipe qui vous permet de construire plus et de configurer moins",
+    "p1": "Nous sommes une équipe de consultants logiciels passionnés, spécialisés en Ruby on Rails, PHP, Laravel, DevOps, React et React Native.",
+    "p2": "Notre approche allie excellence technique et compréhension approfondie des enjeux métier.",
+    "pillarsTitle": "Asistensia repose sur trois piliers :",
+    "pillar1": "Des processus optimisés.",
+    "pillar2": "Des technologies éprouvées.",
+    "pillar3": "Des talents.",
+    "closing": "C'est cette combinaison qui fait de nous l'une des meilleures sociétés de développement logiciel.",
+    "projects": "Projets réalisés",
+    "years": "Années d'expérience",
+    "imageAlt": "Consultants logiciels d'Asistensia collaborant sur un projet Ruby on Rails"
+  },
+  "Services": {
+    "title": "Nos services spécialisés",
+    "subtitle": "Des solutions sur mesure pour répondre à vos besoins spécifiques en développement logiciel",
+    "items": [
+      {
+        "title": "Ruby et Ruby on Rails",
+        "description": "Conseil expert pour le développement, l'optimisation et la maintenance d'applications Ruby et du framework Rails."
+      },
+      {
+        "title": "PHP et Laravel",
+        "description": "Solutions PHP sur mesure et expertise du framework Laravel pour des applications web évolutives."
+      },
+      {
+        "title": "Solutions DevOps",
+        "description": "Pipelines CI/CD, automatisation de l'infrastructure, supervision, mise à l'échelle et maîtrise des coûts."
+      },
+      {
+        "title": "Développement d'API",
+        "description": "Conception et mise en œuvre d'API RESTful sécurisées et robustes pour une intégration fluide."
+      },
+      {
+        "title": "WordPress",
+        "description": "Sites WordPress sur mesure, optimisés et pensés pour le SEO."
+      },
+      {
+        "title": "Développement mobile",
+        "description": "Asistensia maîtrise les technologies natives comme multiplateformes."
+      },
+      {
+        "title": "Tests logiciels",
+        "description": "De nombreux types de tests d'assurance qualité pour les applications web et mobiles."
+      },
+      {
+        "title": "AWS DevOps",
+        "description": "Nous utilisons AWS pour provisionner et gérer des milliers de conteneurs pour des startups."
+      },
+      {
+        "title": "Microsoft Azure DevOps",
+        "description": "Vous préférez Microsoft Azure ? Asistensia dispose d'experts Azure Cloud pour répondre à vos besoins."
+      },
+      {
+        "title": "DevOps sur Google Cloud Platform",
+        "description": "Vous souhaitez créer des applications évolutives sur l'infrastructure mondiale et fiable de Google ?"
+      },
+      {
+        "title": "Digital Ocean DevOps",
+        "description": "Vous utilisez Digital Ocean ? Asistensia vous aide à mettre en place et à gérer l'ensemble de votre stack, 24 h/24 et 7 j/7."
+      },
+      {
+        "title": "Kubernetes managé",
+        "description": "Asistensia peut déployer un nouveau cluster Kubernetes ou vous aider à gérer un cluster Kubernetes existant."
+      },
+      {
+        "title": "Infrastructure as code",
+        "description": "Asistensia peut convertir votre infrastructure Cloud en templates Terraform versionnés."
+      },
+      {
+        "title": "CI et CD",
+        "description": "Nous mettons en place et gérons des pipelines d'intégration continue et de livraison continue pour les startups et les éditeurs de logiciels."
+      },
+      {
+        "title": "Automatisation du Cloud",
+        "description": "À l'aide de différents outils et frameworks d'automatisation, nous élaborons un plan pour convertir vos ressources existantes en infrastructure as code."
+      },
+      {
+        "title": "Gestion du Cloud",
+        "description": "Notre équipe prend souvent l'entière responsabilité de la gestion des stacks applicatives de nos clients sur AWS, Azure, GCP ou Digital Ocean."
+      }
+    ]
+  },
+  "Faq": {
+    "title": "Questions fréquentes",
+    "subtitle": "Une équipe à la solide expérience technique, qui mène toujours votre travail à bien.",
+    "expand": "Afficher la réponse",
+    "collapse": "Masquer la réponse",
+    "items": [
+      {
+        "q": "Quelles missions DevOps votre équipe peut-elle réaliser ?",
+        "a": "Nos experts DevOps peuvent automatiser presque tout : mise en place de l'intégration et de la livraison/du déploiement continus (CI/CD), haute disponibilité, basculement et mise à l'échelle automatique, analyse de l'infrastructure pour optimiser les coûts, migrations et conversions de données, et réduction de la latence régionale."
+      },
+      {
+        "q": "Que comprend la supervision (Monitoring) ?",
+        "a": "La configuration des alarmes ; la réception, la vérification et l'escalade des alertes ainsi que l'ouverture de tickets ; la préparation de rapports de fiabilité du site ; l'analyse des pages web ; des vérifications manuelles de l'application sur différents appareils ; et la récupération des logs par scripts, leur analyse et la restitution des résultats."
+      },
+      {
+        "q": "Que comprend la formule Manage ?",
+        "a": "La gestion inclut la supervision, les mises à jour, les sauvegardes, le SSL, le DNS et le dépannage des environnements de développement, de QA, d'UAT et de production. Notre équipe cumule des décennies d'expérience dans la gestion d'applications et d'infrastructures cloud, et monte progressivement en charge à mesure qu'elle découvre votre stack applicative."
+      },
+      {
+        "q": "Comment fonctionnent les formules et les heures ?",
+        "a": "Les heures d'une formule sont prévues pour être utilisées sur un mois. En cas d'urgence, elles peuvent être consommées plus tôt, et l'équipe peut effectuer des heures supplémentaires si nécessaire. Les fonctionnalités Monitoring ou Manage peuvent être retirées d'une formule si vous n'en avez pas besoin. Les formules peuvent être revues à la hausse, à la baisse ou résiliées avec un préavis de 30 jours."
+      },
+      {
+        "q": "Pas de formule, juste une tâche ponctuelle. Pouvez-vous vous en charger ?",
+        "a": "Oui. Nous privilégions les clients qui s'engagent sur la durée, mais nous acceptons aussi les tâches ponctuelles et urgentes. Leur tarif dépend de la complexité et de l'urgence, et le taux horaire est plus élevé que dans nos formules."
+      },
+      {
+        "q": "Pouvez-vous mettre à disposition du personnel à temps plein ?",
+        "a": "Oui. Nous mettons à disposition des ingénieurs, de junior à senior, pour des missions de 3 mois ou plus. Ils travaillent 40 heures par semaine, couvrent une partie des heures dans votre fuseau horaire ou sur site, et bénéficient au besoin du soutien de notre équipe au niveau de l'architecture."
+      },
+      {
+        "q": "Quels sont vos délais de réponse et votre garantie de disponibilité ?",
+        "a": "Notre équipe DevOps répond sous 2 à 4 heures pendant les heures ouvrées et peut, sur accord, traiter des tâches impossibles à réaliser pendant ces heures. Notre équipe 24 h/24, 7 j/7 peut répondre en moins d'une heure, voire en moins de 15 minutes, selon vos exigences. Nous mettons en place PagerDuty, OpsGenie et des outils similaires, et pouvons proposer des garanties de disponibilité contractuelles (SLA) pour la production après quelques mois d'intégration."
+      },
+      {
+        "q": "Asistensia est-elle sécurisée ?",
+        "a": "Nous accompagnons des clients des secteurs financier, de la santé et du e-commerce soumis aux exigences SOC 2, PCI, HIPAA, RGPD et ISO 27001. Nous déployons plusieurs niveaux de sécurité, des postes de travail sécurisés à la journalisation des requêtes sur notre réseau, auditons régulièrement nos processus et ajoutons des outils pour renforcer nos défenses. Nos collaborateurs signent des NDA ainsi que d'autres accords de sécurité et de confidentialité des données."
+      },
+      {
+        "q": "Comment démarrer ?",
+        "a": "Après une consultation gratuite de 30 minutes, Asistensia vous envoie une proposition commerciale. Une fois celle-ci acceptée, nous signons un contrat de service/NDA et constituons une équipe adaptée à votre stack. Nous nous adaptons à votre façon de travailler et communiquons via Slack, Jira, Asana, Microsoft Teams ou par e-mail. Le temps est suivi dans Toggl, des rapports mensuels sont disponibles sur demande et les factures sont émises tous les 30 jours, payables par carte bancaire, ACH ou virement."
+      },
+      {
+        "q": "Dans quels délais pouvez-vous commencer ?",
+        "a": "Nous pouvons démarrer dans les 24 heures suivant la signature du NDA/contrat. Comprendre votre application et votre infrastructure prend du temps : selon la complexité, il faut d'un jour à quelques semaines pour mener à bien différents types de tâches. Une montée en charge progressive donne les meilleurs résultats."
+      }
+    ]
+  },
+  "Contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Prêt à parler de votre projet ? Contactez-nous dès aujourd'hui.",
+    "name": "Nom",
+    "email": "E-mail",
+    "message": "Message",
+    "send": "Envoyer le message",
+    "talkTitle": "Vous préférez en parler ?",
+    "talkText": "Choisissez le créneau qui vous convient pour une consultation gratuite de 30 minutes, sans formulaire ni échanges interminables.",
+    "talkButton": "Réservez un appel gratuit de 30 min",
+    "infoTitle": "Coordonnées",
+    "phone": "Téléphone",
+    "emailLabel": "E-mail",
+    "address": "Adresse",
+    "addressValue": "Amsterdam, Pays-Bas"
+  },
+  "Blog": {
+    "heading": "Blog Asistensia",
+    "intro": "Gardez une longueur d'avance grâce à nos articles d'experts, études de cas et actualités sur Ruby, PHP, DevOps et l'univers du développement logiciel.",
+    "allTopics": "Tous les sujets",
+    "team": "Équipe Asistensia",
+    "home": "Accueil",
+    "blog": "Blog",
+    "breadcrumb": "Fil d'Ariane",
+    "englishOnly": "Cet article est disponible en anglais.",
+    "englishOnlyPage": "Cette page est disponible en anglais."
+  },
+  "NotFound": {
+    "title": "Page introuvable",
+    "text": "Désolé, nous n'avons pas trouvé la page que vous recherchez. Elle a peut-être été déplacée ou supprimée.",
+    "home": "Retour à l'accueil",
+    "blog": "Lire le blog"
+  },
+  "Cookies": {
+    "title": "Nous respectons votre vie privée",
+    "text": "Nous utilisons des cookies strictement nécessaires au fonctionnement de ce site. Avec votre consentement, nous utilisons également des cookies analytiques (Google Analytics) pour comprendre l'utilisation du site, ainsi que des cookies marketing pour mesurer l'efficacité de nos publicités. Vous pouvez modifier votre choix à tout moment via « Paramètres des cookies » en bas de page.",
+    "acceptAll": "Tout accepter",
+    "rejectAll": "Tout refuser",
+    "customize": "Personnaliser",
+    "save": "Enregistrer mes préférences",
+    "necessary": "Strictement nécessaires",
+    "necessaryDesc": "Indispensables au fonctionnement du site, par exemple pour mémoriser votre langue et vos choix en matière de cookies.",
+    "alwaysOn": "Toujours actifs",
+    "analytics": "Analytiques",
+    "analyticsDesc": "Google Analytics nous aide à comprendre comment les visiteurs utilisent le site afin de l'améliorer.",
+    "marketing": "Marketing",
+    "marketingDesc": "Nous aident à mesurer la performance de nos campagnes publicitaires.",
+    "privacyLink": "Politique de confidentialité",
+    "settings": "Paramètres des cookies",
+    "dialogLabel": "Préférences en matière de cookies"
+  }
+}

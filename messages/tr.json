@@ -1,0 +1,233 @@
+{
+  "HomePage": {
+    "title": "Asistensia – Uzman Yazılım Danışmanlığı",
+    "subtitle": "Ruby, Ruby on Rails, PHP ve DevOps çözümlerinde uzman danışmanlıkla işletmenizin potansiyelini ortaya çıkarın.",
+    "cta": "Hemen Başlayın",
+    "bookCall": "30 dakikalık ücretsiz görüşme ayarlayın"
+  },
+  "Metadata": {
+    "title": "Asistensia – Ruby on Rails, PHP/Laravel ve DevOps Danışmanlığı",
+    "description": "Ruby on Rails yükseltmeleri, performans denetimleri, PHP/Laravel, DevOps ve API geliştirme için kıdemli danışmanlar. Hollanda merkezli, dünya genelinde hizmet.",
+    "blogTitle": "Blog – Rails, PHP ve DevOps Yazıları",
+    "blogDescription": "Asistensia ekibinden Ruby on Rails, PHP/Laravel, DevOps, performans ve modern web geliştirme üzerine pratik yazılar."
+  },
+  "Nav": {
+    "aboutUs": "Hakkımızda",
+    "services": "Hizmetler",
+    "privacy": "Gizlilik Politikası",
+    "blog": "Blog",
+    "contact": "İletişim",
+    "bookCall": "Görüşme ayarlayın",
+    "schedule": "Toplantı planlayın",
+    "scheduleAria": "30 dakikalık ücretsiz bir toplantı planlayın (Calendly açılır)",
+    "homeAria": "Asistensia – ana sayfa",
+    "language": "Dil"
+  },
+  "Footer": {
+    "tagline": "Ruby, PHP ve DevOps çözümleri için uzman yazılım danışmanlığı hizmetleri.",
+    "extend": "Günlük işleri bize devrederek teknik ekibinizi büyütün. 7/24 bulut desteği sunan uzman Full-Stack mühendislerden oluşan bir ekibe sahibiz.",
+    "newsletterTitle": "Bültenimiz",
+    "newsletterText": "Asistensia'dan güncellemeler, teknoloji haberleri ve özel teklifler içeren e-postalar almak ister misiniz? E-postadaki abonelikten çık bağlantısına tıklayarak istediğiniz zaman aboneliğinizi iptal edebilirsiniz.",
+    "emailLabel": "E-posta adresi",
+    "emailPlaceholder": "siz@sirketiniz.com",
+    "subscribe": "Abone Ol",
+    "servicesTitle": "Hizmetler",
+    "railsConsulting": "Ruby on Rails Danışmanlığı",
+    "laravelConsulting": "PHP ve Laravel Danışmanlığı",
+    "devopsConsulting": "DevOps Danışmanlığı",
+    "railsUpgrades": "Rails 8 Yükseltmeleri",
+    "railsAudit": "Rails Performans Denetimi",
+    "companyTitle": "Şirket",
+    "about": "Hakkımızda",
+    "blog": "Blog",
+    "contact": "İletişim",
+    "bookFreeCall": "Ücretsiz görüşme ayarlayın",
+    "legalTitle": "Yasal",
+    "privacy": "Gizlilik Politikası",
+    "socialsTitle": "Sosyal Medya",
+    "rights": "© {year} Asistensia. Tüm hakları saklıdır."
+  },
+  "About": {
+    "title": "Asistensia Hakkında",
+    "tagline": "Daha az yapılandırıp daha fazlasını inşa etmenizi sağlayan ekip",
+    "p1": "Ruby on Rails, PHP, Laravel, DevOps, React ve React Native teknolojilerinde uzmanlaşmış, işine tutkuyla bağlı yazılım danışmanlarından oluşan bir ekibiz.",
+    "p2": "Yaklaşımımız, teknik mükemmelliği iş ihtiyaçlarının derinlemesine anlaşılmasıyla birleştirir.",
+    "pillarsTitle": "Asistensia üç temel üzerine kuruludur:",
+    "pillar1": "Verimli süreçler.",
+    "pillar2": "Kanıtlanmış teknolojiler.",
+    "pillar3": "Yetenekli insanlar.",
+    "closing": "Bu unsurların birleşimi bizi önde gelen yazılım geliştirme şirketlerinden biri yapıyor.",
+    "projects": "Tamamlanan Proje",
+    "years": "Yıllık Deneyim",
+    "imageAlt": "Bir Ruby on Rails projesi üzerinde birlikte çalışan Asistensia yazılım danışmanları"
+  },
+  "Services": {
+    "title": "Uzmanlık Hizmetlerimiz",
+    "subtitle": "Yazılım geliştirme ihtiyaçlarınıza özel çözümler",
+    "items": [
+      {
+        "title": "Ruby ve Ruby on Rails",
+        "description": "Ruby uygulamaları ve Rails framework'ü için geliştirme, optimizasyon ve bakım alanlarında uzman danışmanlık."
+      },
+      {
+        "title": "PHP ve Laravel",
+        "description": "Ölçeklenebilir web uygulamaları için özel PHP çözümleri ve Laravel framework uzmanlığı."
+      },
+      {
+        "title": "DevOps Çözümleri",
+        "description": "CI/CD hatları, altyapı otomasyonu, izleme, ölçeklendirme ve maliyet verimliliği."
+      },
+      {
+        "title": "API Geliştirme",
+        "description": "Sorunsuz entegrasyon için güvenli ve sağlam RESTful API'lerin tasarımı ve uygulanması."
+      },
+      {
+        "title": "WordPress",
+        "description": "Optimize edilmiş ve SEO dostu, özel WordPress web siteleri."
+      },
+      {
+        "title": "Mobil Geliştirme",
+        "description": "Asistensia hem native hem de cross-platform teknolojilerde uzmandır."
+      },
+      {
+        "title": "Yazılım Testi",
+        "description": "Web ve mobil uygulamalar için çok çeşitli kalite güvence testleri."
+      },
+      {
+        "title": "AWS DevOps",
+        "description": "Girişimler için binlerce container'ı AWS üzerinde kuruyor ve yönetiyoruz."
+      },
+      {
+        "title": "Microsoft Azure DevOps",
+        "description": "Microsoft Azure'u mu tercih ediyorsunuz? Asistensia, ihtiyaçlarınız için Azure Cloud uzmanlarına sahiptir."
+      },
+      {
+        "title": "Google Cloud Platform için DevOps",
+        "description": "Google'ın küresel ve güvenilir altyapısıyla ölçeklenebilir uygulamalar mı geliştirmek istiyorsunuz?"
+      },
+      {
+        "title": "Digital Ocean DevOps",
+        "description": "Digital Ocean mı kullanıyorsunuz? Asistensia, tüm altyapınızı kurmanıza ve 7/24 yönetmenize yardımcı olur."
+      },
+      {
+        "title": "Yönetilen Kubernetes",
+        "description": "Asistensia sıfırdan yeni bir Kubernetes cluster'ı kurabilir veya mevcut Kubernetes cluster'ınızı yönetmenize yardımcı olabilir."
+      },
+      {
+        "title": "Kod olarak altyapı",
+        "description": "Asistensia, bulut altyapınızı sürüm kontrollü Terraform şablonlarına dönüştürebilir."
+      },
+      {
+        "title": "CI ve CD",
+        "description": "Girişimler ve yazılım geliştirme şirketleri için hem sürekli entegrasyon hem de sürekli teslimat hatlarını kuruyor ve yönetiyoruz."
+      },
+      {
+        "title": "Bulut Otomasyonu",
+        "description": "Farklı otomasyon araçları ve framework'ler kullanarak mevcut kaynakları kod olarak altyapıya dönüştürmek için bir plan hazırlıyoruz."
+      },
+      {
+        "title": "Bulut Yönetimi",
+        "description": "Ekibimiz, AWS, Azure, GCP veya Digital Ocean üzerinde çalışan müşteri uygulamalarının yönetim sorumluluğunu çoğu zaman tamamen üstlenir."
+      }
+    ]
+  },
+  "Faq": {
+    "title": "Sıkça Sorulan Sorular",
+    "subtitle": "İşinizi her zaman tamamlayan, güçlü teknik deneyime sahip bir ekip.",
+    "expand": "Yanıtı genişlet",
+    "collapse": "Yanıtı daralt",
+    "items": [
+      {
+        "q": "Ekibiniz hangi DevOps işlerini yapabilir?",
+        "a": "DevOps uzmanlarımız neredeyse her şeyi otomatikleştirebilir: Sürekli Entegrasyon ve Teslimat/Dağıtım (CI/CD), yüksek erişilebilirlik, yük devretme ve otomatik ölçeklendirme kurulumu; maliyet optimizasyonu için altyapı analizi; veri taşıma ve dönüştürme işlemleri; bölgesel gecikmenin en aza indirilmesi."
+      },
+      {
+        "q": "İzleme hizmetine neler dahildir?",
+        "a": "Alarmların kurulması; uyarıların alınması, doğrulanması, üst kademeye iletilmesi ve destek kaydı açılması; site güvenilirliği raporlarının hazırlanması; web sayfası taramaları; uygulamanın farklı cihazlarda manuel olarak kontrol edilmesi; logların script'lerle toplanması, analiz edilmesi ve bulguların raporlanması."
+      },
+      {
+        "q": "Manage planına neler dahildir?",
+        "a": "Yönetim; geliştirme, QA, UAT ve canlı ortamların izlenmesini, güncellenmesini, yedeklenmesini, SSL, DNS ve sorun giderme işlemlerini kapsar. Ekibimiz, uygulama ve bulut altyapısı yönetiminde onlarca yıllık deneyime sahiptir ve uygulama altyapınızı tanıdıkça yönetim görevlerini kademeli olarak artırır."
+      },
+      {
+        "q": "Planlar ve saatler nasıl işliyor?",
+        "a": "Bir plandaki saatlerin bir ay boyunca kullanılması öngörülür. Acil durumlarda saatler daha erken kullanılabilir ve gerekirse ekip ek saat çalışabilir. İhtiyaç duyulmayan İzleme veya Manage özellikleri plandan çıkarılabilir. Planlar 30 gün önceden bildirimle yükseltilebilir, düşürülebilir veya iptal edilebilir."
+      },
+      {
+        "q": "Plan istemiyoruz, sadece tek seferlik bir iş. Yapar mısınız?",
+        "a": "Evet. Uzun vadeli çalışabileceğimiz müşterileri tercih etsek de tek seferlik ve acil işleri de üstleniyoruz. Bu işlerin ücreti karmaşıklığa ve aciliyete göre belirlenir; saatlik ücret planlarımızdakinden daha yüksektir."
+      },
+      {
+        "q": "Tam zamanlı personel sağlayabilir misiniz?",
+        "a": "Evet. 3 ay ve üzeri projeler için junior'dan senior'a kadar mühendis sağlıyoruz. Haftada 40 saat çalışır, mesainin bir kısmını sizin saat diliminizde ya da yerinde geçirir ve gerektiğinde ekibimizden mimari düzeyde destek alırlar."
+      },
+      {
+        "q": "Yanıt süreniz ve çalışma süresi garantiniz nedir?",
+        "a": "DevOps ekibimiz normal mesai saatlerinde 2 ila 4 saat içinde yanıt verir ve anlaşmaya bağlı olarak mesai dışında yapılması gereken işleri de üstlenebilir. 7/24 ekibimiz, ihtiyaçlarınıza göre bir saat ile 15 dakikanın altı arasında yanıt verebilir. PagerDuty, OpsGenie ve benzeri araçları kuruyor, birkaç aylık onboarding sürecinin ardından canlı ortam için SLA tabanlı çalışma süresi garantisi sunabiliyoruz."
+      },
+      {
+        "q": "Asistensia güvenli mi?",
+        "a": "SOC 2, PCI, HIPAA, GDPR ve ISO 27001 uyumluluğu gerektiren finans, sağlık ve e-ticaret müşterilerine hizmet veriyoruz. Güvenli iş istasyonlarından ofis ağımızdaki istek kayıtlarına kadar çok katmanlı güvenlik uyguluyor, süreçlerimizi düzenli olarak denetliyor ve savunmamızı güçlendirmek için yeni araçlar ekliyoruz. Çalışanlarımız NDA'ların yanı sıra diğer veri güvenliği ve gizlilik sözleşmelerini de imzalar."
+      },
+      {
+        "q": "Nasıl başlarız?",
+        "a": "30 dakikalık ücretsiz bir danışmanlık görüşmesinin ardından Asistensia size bir ticari teklif gönderir. Teklif kabul edildiğinde bir Hizmet Sözleşmesi/NDA imzalar ve altyapınıza uygun bir ekip oluştururuz. İş akışınıza uyum sağlar; Slack, Jira, Asana, Microsoft Teams veya e-posta üzerinden yanıt veririz. Çalışma süreleri Toggl'da kaydedilir, talep üzerine aylık raporlar sunulur ve faturalar her 30 günde bir kesilir; ödeme kredi kartı, ACH veya banka havalesiyle yapılabilir."
+      },
+      {
+        "q": "İşlerimize ne kadar sürede başlayabilirsiniz?",
+        "a": "NDA/Sözleşme imzalandıktan sonra 24 saat içinde başlayabiliriz. Uygulamanızı ve altyapınızı anlamak zaman alır; karmaşıklığa bağlı olarak farklı türdeki görevlerin tamamlanması bir günden birkaç haftaya kadar sürebilir. En iyi sonucu kademeli bir geçiş verir."
+      }
+    ]
+  },
+  "Contact": {
+    "title": "Bize Ulaşın",
+    "subtitle": "Projenizi konuşmaya hazır mısınız? Bugün bize ulaşın.",
+    "name": "Ad Soyad",
+    "email": "E-posta",
+    "message": "Mesaj",
+    "send": "Mesaj Gönder",
+    "talkTitle": "Konuşmayı mı tercih edersiniz?",
+    "talkText": "30 dakikalık ücretsiz danışmanlık için size uygun bir zaman seçin — form doldurmak ya da uzun yazışmalar yok.",
+    "talkButton": "30 dakikalık ücretsiz görüşme ayarlayın",
+    "infoTitle": "İletişim Bilgileri",
+    "phone": "Telefon",
+    "emailLabel": "E-posta",
+    "address": "Adres",
+    "addressValue": "Amsterdam, Hollanda"
+  },
+  "Blog": {
+    "heading": "Asistensia Blog",
+    "intro": "Ruby, PHP, DevOps ve yazılım geliştirme dünyasına dair uzman yazıları, vaka çalışmaları ve güncellemelerle bir adım önde olun.",
+    "allTopics": "Tüm konular",
+    "team": "Asistensia Ekibi",
+    "home": "Ana Sayfa",
+    "blog": "Blog",
+    "breadcrumb": "Gezinme yolu",
+    "englishOnly": "Bu makale İngilizce olarak mevcuttur.",
+    "englishOnlyPage": "Bu sayfa İngilizce olarak mevcuttur."
+  },
+  "NotFound": {
+    "title": "Sayfa Bulunamadı",
+    "text": "Üzgünüz, aradığınız sayfayı bulamadık. Taşınmış veya silinmiş olabilir.",
+    "home": "Ana Sayfaya Dön",
+    "blog": "Blogu Okuyun"
+  },
+  "Cookies": {
+    "title": "Gizliliğinize önem veriyoruz",
+    "text": "Bu sitenin çalışması için kesinlikle gerekli çerezleri kullanıyoruz. Onayınız olması halinde, sitenin nasıl kullanıldığını anlamak için analiz çerezleri (Google Analytics) ve reklamlarımızı ölçmek için pazarlama çerezleri de kullanırız. Tercihinizi istediğiniz zaman alt bilgideki “Çerez ayarları” bölümünden değiştirebilirsiniz.",
+    "acceptAll": "Tümünü kabul et",
+    "rejectAll": "Tümünü reddet",
+    "customize": "Özelleştir",
+    "save": "Tercihleri kaydet",
+    "necessary": "Kesinlikle gerekli",
+    "necessaryDesc": "Sitenin çalışması için gereklidir; örneğin dil ve çerez tercihlerinizi hatırlamak için.",
+    "alwaysOn": "Her zaman açık",
+    "analytics": "Analiz",
+    "analyticsDesc": "Google Analytics, ziyaretçilerin siteyi nasıl kullandığını anlamamıza ve siteyi geliştirmemize yardımcı olur.",
+    "marketing": "Pazarlama",
+    "marketingDesc": "Reklam kampanyalarımızın performansını ölçmemize yardımcı olur.",
+    "privacyLink": "Gizlilik Politikası",
+    "settings": "Çerez ayarları",
+    "dialogLabel": "Çerez tercihleri"
+  }
+}

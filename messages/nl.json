@@ -20,7 +20,8 @@
     "bookCall": "Plan een gesprek",
     "schedule": "Plan een afspraak",
     "scheduleAria": "Plan een gratis gesprek van 30 minuten (opent Calendly)",
-    "homeAria": "Asistensia – home"
+    "homeAria": "Asistensia – home",
+    "language": "Taal"
   },
   "Footer": {
     "tagline": "Deskundige softwareconsultancy voor Ruby-, PHP- en DevOps-oplossingen.",

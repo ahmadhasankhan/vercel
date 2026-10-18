@@ -2,13 +2,20 @@
 export const SITE_URL = "https://asistensia.com";
 export const SITE_NAME = "Asistensia";
 
-export const LOCALES = ["en", "nl", "ar"] as const;
+export const LOCALES = ["en", "nl", "de", "fr", "es", "it", "pt", "tr", "ar", "hi"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "en";
 
 export const OG_LOCALE: Record<string, string> = {
   en: "en_US",
   nl: "nl_NL",
+  de: "de_DE",
+  fr: "fr_FR",
+  es: "es_ES",
+  it: "it_IT",
+  pt: "pt_PT",
+  tr: "tr_TR",
+  hi: "hi_IN",
   ar: "ar_SA",
 };
 

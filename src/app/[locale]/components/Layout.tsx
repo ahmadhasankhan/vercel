@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { useTranslations } from "next-intl";
 import { CookieSettingsButton } from "./CookieConsent";
+import LanguageSwitcher from "./LanguageSwitcher";
 import { BOOKING_URL, BRAND, SITE_NAME, SOCIALS } from "@/lib/site";
 
 export default function Layout({ children }: { children: React.ReactNode }): React.JSX.Element {
@@ -50,6 +51,7 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
               <Link href="/#contact" className="text-muted hover:text-secondary">
                 {t("contact")}
               </Link>
+              <LanguageSwitcher />
               <a
                 href={BOOKING_URL}
                 target="_blank"
@@ -59,14 +61,17 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
                 {t("bookCall")}
               </a>
             </div>
+            <div className="md:hidden flex items-center gap-2">
+              <LanguageSwitcher compact />
             <a
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="md:hidden self-center bg-primary text-white text-sm font-semibold px-3 py-2 rounded-lg hover:bg-secondary"
+              className="self-center bg-primary text-white text-sm font-semibold px-3 py-2 rounded-lg hover:bg-secondary"
             >
               {t("bookCall")}
             </a>
+            </div>
           </div>
         </nav>
       </header>
