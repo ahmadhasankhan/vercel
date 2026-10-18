@@ -7,7 +7,6 @@ import Layout from "./components/Layout";
 import ContactSection from "./components/ContactSection";
 import ServicesSection from "./components/ServicesSection";
 import AskQuestion from "./components/AskQuestion";
-import { faqs } from "./data/faqs";
 import { BOOKING_URL, BRAND, OG_LOCALE, SITE_NAME, alternatesFor, localizedUrl } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -37,14 +36,18 @@ export default async function Home({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "HomePage" });
+  const a = await getTranslations({ locale, namespace: "About" });
+  const tf = await getTranslations({ locale, namespace: "Faq" });
+  const faqs = tf.raw("items") as { q: string; a: string }[];
 
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    inLanguage: locale,
     mainEntity: faqs.map((f) => ({
       "@type": "Question",
-      name: f.question,
-      acceptedAnswer: { "@type": "Answer", text: f.answer },
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   };
 
@@ -72,7 +75,7 @@ export default async function Home({ params }: Props) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-8 py-3 rounded-lg hover:bg-surface-strong transition duration-300"
               >
-                {t('bookCall')} <span aria-hidden="true">&rarr;</span>
+                {t('bookCall')} <span aria-hidden="true" className="rtl:rotate-180 inline-block">&rarr;</span>
               </a>
               <a
                 href="#contact"
@@ -88,26 +91,23 @@ export default async function Home({ params }: Props) {
       {/* About */}
       <section id="about" className="py-12 bg-surface">
         <div className="max-w-7xl mx-auto px-4 lg:flex items-center">
-          <div className="lg:w-1/2 lg:pr-12 mb-10 lg:mb-0">
+          <div className="lg:w-1/2 lg:pe-12 mb-10 lg:mb-0">
             <h2 className="text-3xl font-bold text-primary mb-4">
-              About Asistensia
+              {a("title")}
             </h2>
             <p className="text-muted font-semibold text-xl italic mb-4">
-              The team that lets you build more, while configuring less
+              {a("tagline")}
             </p>
 
             <p className="text-muted">
-              We are a team of passionate software consultants specializing in
-              Ruby on Rails, PHP, Laravel, DevOps, React and React Native
-              technologies.
+              {a("p1")}
             </p>
             <p className="text-muted mb-2">
-              Our approach combines technical excellence with deep
-              understanding of business needs.
+              {a("p2")}
             </p>
 
             <p className="text-primary/90 font-semibold text-[18px] pt-5">
-              Asistensia is based on three pillars:
+              {a("pillarsTitle")}
             </p>
             <ul>
               <li className="text-primary/90 font-normal text-[18px] pt-3 flex items-center">
@@ -115,43 +115,42 @@ export default async function Home({ params }: Props) {
                   icon={faCheckDouble}
                   className="text-secondary h-8 p-2"
                 />
-                Streamlined processes.
+                {a("pillar1")}
               </li>
               <li className="text-primary/90 font-normal text-[18px] pt-3 flex items-center">
                 <FontAwesomeIcon
                   icon={faCheckDouble}
                   className="text-secondary h-8 p-2"
                 />
-                Proven technologies.
+                {a("pillar2")}
               </li>
               <li className="text-primary/90 font-normal text-[18px] pt-3 flex items-center">
                 <FontAwesomeIcon
                   icon={faCheckDouble}
                   className="text-secondary p-2 h-8"
                 />
-                Talented people.
+                {a("pillar3")}
               </li>
             </ul>
             <p className="text-primary/90 font-normal text-[18px] pt-6">
-              The combination of these things makes us one of the top
-              software development companies.
+              {a("closing")}
             </p>
 
-            <div className="flex space-x-4 pt-5">
+            <div className="flex gap-4 pt-5">
               <div className="bg-white p-4 rounded-lg shadow-sm">
                 <p className="font-semibold text-secondary">50+</p>
-                <p className="text-muted text-sm">Projects Completed</p>
+                <p className="text-muted text-sm">{a("projects")}</p>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-sm">
                 <p className="font-semibold text-secondary">10+</p>
-                <p className="text-muted text-sm">Years Experience</p>
+                <p className="text-muted text-sm">{a("years")}</p>
               </div>
             </div>
           </div>
           <div className="lg:w-1/2 mb-20">
             <img
               src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop"
-              alt="Asistensia software consultants collaborating on a Ruby on Rails project"
+              alt={a("imageAlt")}
               width={800}
               height={533}
               loading="lazy"

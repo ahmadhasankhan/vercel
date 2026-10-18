@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Layout from "../../components/Layout";
 import { Link } from "@/i18n/routing";
 import { getPostSlugs, readPost } from "@/lib/posts";
@@ -74,6 +74,7 @@ export default async function BlogPostPage({ params }: Props) {
   setRequestLocale(locale);
   const post = readPost(slug);
   if (!post) notFound();
+  const tb = await getTranslations({ locale, namespace: "Blog" });
 
   const { content, meta } = post;
   const url = localizedUrl(locale, `/blog/${slug}`);
@@ -113,8 +114,8 @@ export default async function BlogPostPage({ params }: Props) {
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: localizedUrl(locale) },
-          { "@type": "ListItem", position: 2, name: "Blog", item: localizedUrl(locale, "/blog") },
+          { "@type": "ListItem", position: 1, name: tb("home"), item: localizedUrl(locale) },
+          { "@type": "ListItem", position: 2, name: tb("blog"), item: localizedUrl(locale, "/blog") },
           { "@type": "ListItem", position: 3, name: meta.title, item: url },
         ],
       },
@@ -125,15 +126,18 @@ export default async function BlogPostPage({ params }: Props) {
     <Layout>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <article className="prose lg:prose-xl mx-auto md:px-30 py-8">
-        <nav aria-label="Breadcrumb" className="text-sm text-gray-500 px-5 md:px-20">
+        <nav aria-label={tb("breadcrumb")} className="text-sm text-gray-500 px-5 md:px-20">
           <ol className="flex flex-wrap gap-2">
-            <li><Link href="/" className="hover:text-primary">Home</Link> /</li>
-            <li><Link href="/blog" className="hover:text-primary">Blog</Link> /</li>
+            <li><Link href="/" className="hover:text-primary">{tb("home")}</Link> /</li>
+            <li><Link href="/blog" className="hover:text-primary">{tb("blog")}</Link> /</li>
             <li aria-current="page" className="text-muted truncate max-w-[60vw]">{meta.title}</li>
           </ol>
         </nav>
 
-        <header>
+        {locale !== "en" && (
+          <p className="mx-5 md:mx-20 mt-4 rounded-lg bg-surface px-4 py-2 text-sm text-muted">{tb("englishOnly")}</p>
+        )}
+        <header lang="en" dir="ltr">
           <h1 className="md:px-20 md:text-5xl text-3xl semibold text-center md:pt-10">{meta.title}</h1>
           {meta.description && (
             <p className="text-xl text-center mt-5 text-primary px-10">{meta.description}</p>
@@ -167,7 +171,7 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         )}
 
-        <div className="text-[18px] md:mt-20 md:px-30 p-5">
+        <div lang="en" dir="ltr" className="text-[18px] md:mt-20 md:px-30 p-5">
           <MDXRemote source={demoteH1(content)} />
         </div>
       </article>

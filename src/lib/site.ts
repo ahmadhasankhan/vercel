@@ -31,6 +31,9 @@ export const SOCIALS = {
   linkedin: "https://www.linkedin.com/company/asistensia/",
 };
 
+/** Google Analytics 4 measurement ID — only loaded after cookie consent. */
+export const GA_ID = "G-8W8PKL59B2";
+
 /** Direct scheduling link (Calendly) for the free 30-minute consultation. */
 export const BOOKING_URL = "https://calendly.com/asistensia/30min";
 

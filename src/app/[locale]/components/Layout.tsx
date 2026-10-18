@@ -6,10 +6,15 @@ import {
   faLinkedin,
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import { useTranslations } from "next-intl";
+import { CookieSettingsButton } from "./CookieConsent";
 import { BOOKING_URL, BRAND, SITE_NAME, SOCIALS } from "@/lib/site";
 
 export default function Layout({ children }: { children: React.ReactNode }): React.JSX.Element {
   const year = new Date().getFullYear();
+  const t = useTranslations("Nav");
+  const f = useTranslations("Footer");
+  const c = useTranslations("Cookies");
 
   return (
     <>
@@ -18,7 +23,7 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
         <nav aria-label="Main" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
-              <Link href="/" aria-label={`${SITE_NAME} – home`} className="flex items-center">
+              <Link href="/" aria-label={t("homeAria")} className="flex items-center">
                 <Image
                   src={BRAND.logoSvg}
                   alt={SITE_NAME}
@@ -29,21 +34,21 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
                 />
               </Link>
             </div>
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center gap-8">
               <Link href="/#about" className="text-muted hover:text-secondary">
-                About us
+                {t("aboutUs")}
               </Link>
               <Link href="/#services" className="text-muted hover:text-secondary">
-                Services
+                {t("services")}
               </Link>
               <Link href="/privacy" className="text-muted hover:text-secondary">
-                Privacy Policy
+                {t("privacy")}
               </Link>
               <Link href="/blog" className="text-muted hover:text-secondary">
-                Blog
+                {t("blog")}
               </Link>
               <Link href="/#contact" className="text-muted hover:text-secondary">
-                Contact
+                {t("contact")}
               </Link>
               <a
                 href={BOOKING_URL}
@@ -51,7 +56,7 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
                 rel="noopener noreferrer"
                 className="bg-primary text-white font-semibold px-4 py-2 rounded-lg hover:bg-secondary transition duration-300"
               >
-                Book a call
+                {t("bookCall")}
               </a>
             </div>
             <a
@@ -60,7 +65,7 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
               rel="noopener noreferrer"
               className="md:hidden self-center bg-primary text-white text-sm font-semibold px-3 py-2 rounded-lg hover:bg-secondary"
             >
-              Book a call
+              {t("bookCall")}
             </a>
           </div>
         </nav>
@@ -73,14 +78,14 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
         href={BOOKING_URL}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Schedule a free 30-minute meeting (opens Calendly)"
+        aria-label={t("scheduleAria")}
         className="fixed bottom-5 end-5 z-50 inline-flex items-center gap-2 rounded-full bg-primary text-white font-semibold px-5 py-3 shadow-lg shadow-primary/30 ring-1 ring-white/10 hover:bg-secondary transition duration-300"
       >
         <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="3" y="5" width="18" height="16" rx="2" />
           <path d="M3 10h18M8 3v4M16 3v4" />
         </svg>
-        <span>Schedule a meeting</span>
+        <span>{t("schedule")}</span>
       </a>
 
       {/* Footer */}
@@ -88,7 +93,7 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
         <div className="max-w-7xl mx-auto px-4">
           <div className="md:flex md:justify-between">
             <div className="mb-8 md:mb-0">
-              <Link href="/" aria-label={`${SITE_NAME} – home`} className="inline-block mb-4">
+              <Link href="/" aria-label={t("homeAria")} className="inline-block mb-4">
                 <Image
                   src={BRAND.logoSvg}
                   alt={SITE_NAME}
@@ -97,112 +102,106 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
                   className="h-12 w-auto"
                 />
               </Link>
-              <p className="text-muted max-w-xs">
-                Expert software consulting services for Ruby, PHP, and DevOps solutions.
-              </p>
-              <p className="text-muted leading-relaxed pt-5 font-medium">
-                Extend your tech team by letting us step in and take charge of
-                <br />
-                everyday tasks. We have an expert team of Full-Stack
-                <br /> Engineers with 24/7 Cloud Support.
-              </p>
+              <p className="text-muted max-w-xs">{f("tagline")}</p>
+              <p className="text-muted leading-relaxed pt-5 font-medium max-w-md">{f("extend")}</p>
 
-              <p className="font-bold text-primary uppercase pt-8">Our Newsletter</p>
-              <p className="text-muted leading-relaxed pt-5 font-medium">
-                Would you like to receive emails from Asistensia with updates,
-                <br />
-                tech news and special offers of Asistensia? You can unsubscribe
-                <br /> any time by clicking the unsubscribe link in the email.
-              </p>
+              <p className="font-bold text-primary uppercase pt-8">{f("newsletterTitle")}</p>
+              <p className="text-muted leading-relaxed pt-5 font-medium max-w-md">{f("newsletterText")}</p>
               <form className="mt-10">
                 <label htmlFor="newsletter-email" className="sr-only">
-                  Email address
+                  {f("emailLabel")}
                 </label>
                 <input
                   id="newsletter-email"
                   name="email"
                   type="email"
                   autoComplete="email"
-                  placeholder="you@company.com"
+                  placeholder={f("emailPlaceholder")}
                   className="p-1 w-44 border-1 border-gray-200 text-primary focus:outline-none focus:ring-primary focus:border-primary shadow-sm"
                 />
                 <button
                   type="submit"
                   className="text-white bg-primary px-4 py-1 hover:bg-secondary"
                 >
-                  Subscribe
+                  {f("subscribe")}
                 </button>
               </form>
             </div>
             <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-wider mb-4 text-primary">
-                  Services
+                  {f("servicesTitle")}
                 </p>
                 <ul className="space-y-2">
                   <li>
                     <Link href="/blog/ruby-on-rails-consulting" className="text-muted hover:text-secondary">
-                      Ruby on Rails Consulting
+                      {f("railsConsulting")}
                     </Link>
                   </li>
                   <li>
                     <Link href="/blog/php-laravel-consulting" className="text-muted hover:text-secondary">
-                      PHP &amp; Laravel Consulting
+                      {f("laravelConsulting")}
                     </Link>
                   </li>
                   <li>
                     <Link href="/blog/devops-consulting" className="text-muted hover:text-secondary">
-                      DevOps Consulting
+                      {f("devopsConsulting")}
                     </Link>
                   </li>
                   <li>
                     <Link href="/blog/rails-upgrade" className="text-muted hover:text-secondary">
-                      Rails 8 Upgrades
+                      {f("railsUpgrades")}
                     </Link>
                   </li>
                   <li>
                     <Link href="/blog/rails-performance-audit" className="text-muted hover:text-secondary">
-                      Rails Performance Audit
+                      {f("railsAudit")}
                     </Link>
                   </li>
                 </ul>
               </div>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-wider mb-4 text-primary">
-                  Company
+                  {f("companyTitle")}
                 </p>
                 <ul className="space-y-2">
                   <li>
                     <Link href="/#about" className="text-muted hover:text-secondary">
-                      About
+                      {f("about")}
                     </Link>
                   </li>
                   <li>
                     <Link href="/blog" className="text-muted hover:text-secondary">
-                      Blog
+                      {f("blog")}
                     </Link>
                   </li>
                   <li>
                     <Link href="/#contact" className="text-muted hover:text-secondary">
-                      Contact
+                      {f("contact")}
                     </Link>
                   </li>
                   <li>
                     <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="text-muted hover:text-secondary">
-                      Book a free call
+                      {f("bookFreeCall")}
                     </a>
                   </li>
                 </ul>
               </div>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-wider mb-4 text-primary">
-                  Legal
+                  {f("legalTitle")}
                 </p>
                 <ul className="space-y-2">
                   <li>
                     <Link href="/privacy" className="text-muted hover:text-secondary">
-                      Privacy Policy
+                      {f("privacy")}
                     </Link>
+                  </li>
+                  <li>
+                    <CookieSettingsButton
+                      label={c("settings")}
+                      className="text-muted hover:text-secondary text-start"
+                    />
                   </li>
                 </ul>
               </div>
@@ -210,9 +209,9 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
               {/* Social media links */}
               <div>
                 <p className="text-sm font-semibold uppercase tracking-wider mb-4 text-primary">
-                  Socials
+                  {f("socialsTitle")}
                 </p>
-                <div className="flex space-x-8">
+                <div className="flex gap-8">
                   <a href={SOCIALS.twitter} aria-label="Asistensia on X (Twitter)" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faXTwitter} className="text-primary h-6 hover:text-secondary" />
                   </a>
@@ -227,7 +226,7 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
             </div>
           </div>
           <div className="mt-12 pt-8 border-t border-primary/15 text-center text-primary text-sm">
-            &copy; {year} Asistensia. All rights reserved.
+            {f("rights", { year })}
           </div>
         </div>
       </footer>

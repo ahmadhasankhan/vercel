@@ -10,5 +10,223 @@
     "description": "Senior softwareconsultants voor Ruby on Rails-upgrades, performance-audits, PHP/Laravel, DevOps en API-ontwikkeling. Gevestigd in Nederland, actief voor klanten wereldwijd.",
     "blogTitle": "Blog – Artikelen over Rails, PHP & DevOps",
     "blogDescription": "Praktische artikelen over Ruby on Rails, PHP/Laravel, DevOps, performance en moderne webontwikkeling van het Asistensia-team."
+  },
+  "Nav": {
+    "aboutUs": "Over ons",
+    "services": "Diensten",
+    "privacy": "Privacybeleid",
+    "blog": "Blog",
+    "contact": "Contact",
+    "bookCall": "Plan een gesprek",
+    "schedule": "Plan een afspraak",
+    "scheduleAria": "Plan een gratis gesprek van 30 minuten (opent Calendly)",
+    "homeAria": "Asistensia – home"
+  },
+  "Footer": {
+    "tagline": "Deskundige softwareconsultancy voor Ruby-, PHP- en DevOps-oplossingen.",
+    "extend": "Breid je techteam uit door ons de dagelijkse taken te laten overnemen. Ons team van ervaren full-stack engineers biedt 24/7 cloudondersteuning.",
+    "newsletterTitle": "Onze nieuwsbrief",
+    "newsletterText": "Wil je e-mails van Asistensia ontvangen met updates, technieuws en speciale aanbiedingen? Je kunt je op elk moment afmelden via de link in de e-mail.",
+    "emailLabel": "E-mailadres",
+    "emailPlaceholder": "jij@bedrijf.nl",
+    "subscribe": "Aanmelden",
+    "servicesTitle": "Diensten",
+    "railsConsulting": "Ruby on Rails-consultancy",
+    "laravelConsulting": "PHP- & Laravel-consultancy",
+    "devopsConsulting": "DevOps-consultancy",
+    "railsUpgrades": "Rails 8-upgrades",
+    "railsAudit": "Rails-performance-audit",
+    "companyTitle": "Bedrijf",
+    "about": "Over ons",
+    "blog": "Blog",
+    "contact": "Contact",
+    "bookFreeCall": "Plan een gratis gesprek",
+    "legalTitle": "Juridisch",
+    "privacy": "Privacybeleid",
+    "socialsTitle": "Social media",
+    "rights": "© {year} Asistensia. Alle rechten voorbehouden."
+  },
+  "About": {
+    "title": "Over Asistensia",
+    "tagline": "Het team waarmee je meer bouwt en minder configureert",
+    "p1": "Wij zijn een team van gepassioneerde softwareconsultants, gespecialiseerd in Ruby on Rails, PHP, Laravel, DevOps, React en React Native.",
+    "p2": "Onze aanpak combineert technische excellentie met een diep begrip van zakelijke behoeften.",
+    "pillarsTitle": "Asistensia rust op drie pijlers:",
+    "pillar1": "Gestroomlijnde processen.",
+    "pillar2": "Bewezen technologieën.",
+    "pillar3": "Getalenteerde mensen.",
+    "closing": "Die combinatie maakt ons tot een van de beste softwareontwikkelaars.",
+    "projects": "Projecten afgerond",
+    "years": "Jaar ervaring",
+    "imageAlt": "Softwareconsultants van Asistensia werken samen aan een Ruby on Rails-project"
+  },
+  "Services": {
+    "title": "Onze gespecialiseerde diensten",
+    "subtitle": "Oplossingen op maat voor jouw unieke softwareontwikkelingsbehoeften",
+    "items": [
+      {
+        "title": "Ruby & Ruby on Rails",
+        "description": "Deskundig advies voor de ontwikkeling, optimalisatie en het onderhoud van Ruby- en Rails-applicaties."
+      },
+      {
+        "title": "PHP & Laravel",
+        "description": "Maatwerk in PHP en Laravel-expertise voor schaalbare webapplicaties."
+      },
+      {
+        "title": "DevOps-oplossingen",
+        "description": "CI/CD-pipelines, infrastructuurautomatisering, monitoring, schaalbaarheid en kostenefficiëntie."
+      },
+      {
+        "title": "API-ontwikkeling",
+        "description": "Ontwerp en bouw van veilige en robuuste RESTful API's voor naadloze integratie."
+      },
+      {
+        "title": "WordPress",
+        "description": "WordPress-websites op maat, geoptimaliseerd en SEO-vriendelijk."
+      },
+      {
+        "title": "Mobiele ontwikkeling",
+        "description": "Asistensia heeft expertise in zowel native als cross-platform technologieën."
+      },
+      {
+        "title": "Softwaretesten",
+        "description": "Diverse soorten kwaliteitstests voor web- en mobiele applicaties."
+      },
+      {
+        "title": "AWS DevOps",
+        "description": "We gebruiken AWS om duizenden containers voor startups in te richten en te beheren."
+      },
+      {
+        "title": "Microsoft Azure DevOps",
+        "description": "Werk je liever met Microsoft Azure? Asistensia heeft Azure Cloud-experts voor jouw behoeften."
+      },
+      {
+        "title": "Google Cloud Platform DevOps",
+        "description": "Schaalbare apps bouwen op de wereldwijde, betrouwbare infrastructuur van Google?"
+      },
+      {
+        "title": "Digital Ocean DevOps",
+        "description": "Gebruik je Digital Ocean? Asistensia richt je volledige stack in en beheert deze 24/7."
+      },
+      {
+        "title": "Managed Kubernetes",
+        "description": "Asistensia zet een nieuw Kubernetes-cluster op of helpt een bestaand cluster te beheren."
+      },
+      {
+        "title": "Infrastructure as code",
+        "description": "Asistensia zet je cloudinfrastructuur om in versiebeheerde Terraform-templates."
+      },
+      {
+        "title": "CI & CD",
+        "description": "We richten pipelines voor continuous integration en continuous delivery in en beheren deze voor startups en softwarebedrijven."
+      },
+      {
+        "title": "Cloudautomatisering",
+        "description": "Met diverse automatiseringstools en frameworks maken we een plan om bestaande resources om te zetten naar infrastructure as code."
+      },
+      {
+        "title": "Cloudbeheer",
+        "description": "Ons team neemt vaak de volledige verantwoordelijkheid voor het beheer van applicaties op AWS, Azure, GCP of Digital Ocean."
+      }
+    ]
+  },
+  "Faq": {
+    "title": "Veelgestelde vragen",
+    "subtitle": "Een team met sterke technische ervaring dat je werk altijd gedaan krijgt.",
+    "expand": "Antwoord tonen",
+    "collapse": "Antwoord verbergen",
+    "items": [
+      {
+        "q": "Welk DevOps-werk kan jullie team doen?",
+        "a": "Onze DevOps-experts kunnen vrijwel alles automatiseren: CI/CD opzetten, high availability, failover en auto-scaling inrichten, infrastructuur analyseren voor kostenoptimalisatie, datamigraties en -conversies uitvoeren en regionale latency minimaliseren."
+      },
+      {
+        "q": "Wat valt onder Monitoring?",
+        "a": "Alarmen instellen; meldingen ontvangen, verifiëren, escaleren en tickets aanmaken; betrouwbaarheidsrapporten opstellen; webpagina-scans; handmatige functionaliteitstests op verschillende apparaten; en logs via scripts ophalen, analyseren en rapporteren."
+      },
+      {
+        "q": "Wat valt onder het Manage-plan?",
+        "a": "Beheer omvat monitoring, upgrades, back-ups, SSL, DNS en troubleshooting van ontwikkel-, QA-, UAT- en productieomgevingen. Ons team heeft tientallen jaren ervaring met het beheren van applicaties en cloudinfrastructuur en neemt beheertaken geleidelijk over naarmate het je stack beter leert kennen."
+      },
+      {
+        "q": "Hoe werken plannen en uren?",
+        "a": "De uren in een plan zijn bedoeld voor gebruik over een maand. Bij spoed of noodgevallen kunnen uren eerder worden gebruikt en kan het team indien nodig extra uren maken. Monitoring of Manage kan uit een plan worden gehaald als dat niet nodig is. Plannen kunnen met 30 dagen opzegtermijn worden geüpgraded, gedowngraded of opgezegd."
+      },
+      {
+        "q": "Geen plan, alleen een eenmalige taak. Doen jullie dat ook?",
+        "a": "Ja. We werken het liefst met klanten voor de langere termijn, maar we nemen ook eenmalige en spoedtaken aan. De kosten hangen af van complexiteit en urgentie, en het uurtarief ligt hoger dan in onze plannen."
+      },
+      {
+        "q": "Kunnen jullie fulltime personeel leveren?",
+        "a": "Ja. We leveren junior tot senior engineers voor opdrachten van 3+ maanden. Zij werken 40 uur per week, overlappen deels met jouw tijdzone of werken op locatie, en hebben indien nodig toegang tot ondersteuning op architectuurniveau."
+      },
+      {
+        "q": "Wat is jullie responstijd en uptime-garantie?",
+        "a": "Ons DevOps-team reageert binnen 2 tot 4 uur tijdens kantooruren en kan in overleg taken buiten kantooruren uitvoeren. Ons 24/7-team reageert, afhankelijk van je wensen, binnen een uur tot binnen 15 minuten. We richten PagerDuty, OpsGenie en vergelijkbare tools in en kunnen na enkele maanden onboarding SLA-gebaseerde uptime-garanties voor productie bieden."
+      },
+      {
+        "q": "Is Asistensia veilig?",
+        "a": "We bedienen klanten in de financiële sector, de zorg en e-commerce die SOC 2-, PCI-, HIPAA-, AVG- en ISO 27001-compliance vereisen. We hanteren meerdere beveiligingslagen, van beveiligde werkplekken tot logging van verzoeken op ons kantoornetwerk, auditen onze processen regelmatig en voegen tools toe om onze verdediging te versterken. Onze medewerkers tekenen een NDA en andere documenten voor gegevensbeveiliging en privacy."
+      },
+      {
+        "q": "Hoe gaan we van start?",
+        "a": "Na een gratis consult van 30 minuten stuurt Asistensia een commercieel voorstel. Na akkoord tekenen we een dienstverleningsovereenkomst/NDA en stellen we een team samen voor jouw stack. We passen ons aan jouw workflow aan en reageren via Slack, Jira, Asana, Microsoft Teams of e-mail. Tijd wordt geregistreerd in Toggl, maandrapporten zijn op verzoek beschikbaar en facturen volgen elke 30 dagen, te betalen per creditcard, ACH of bankoverschrijving."
+      },
+      {
+        "q": "Hoe snel kunnen jullie beginnen?",
+        "a": "We kunnen binnen 24 uur na ondertekening van de NDA/overeenkomst starten. Het leren kennen van je applicatie en infrastructuur kost tijd; afhankelijk van de complexiteit duurt het van een dag tot enkele weken om verschillende soorten taken af te ronden. Een geleidelijke opbouw werkt het best."
+      }
+    ]
+  },
+  "Contact": {
+    "title": "Neem contact op",
+    "subtitle": "Klaar om je project te bespreken? Neem vandaag nog contact met ons op.",
+    "name": "Naam",
+    "email": "E-mail",
+    "message": "Bericht",
+    "send": "Bericht versturen",
+    "talkTitle": "Liever even bellen?",
+    "talkText": "Kies een moment dat jou uitkomt voor een gratis consult van 30 minuten — geen formulieren, geen heen-en-weer.",
+    "talkButton": "Plan een gratis gesprek van 30 min",
+    "infoTitle": "Contactgegevens",
+    "phone": "Telefoon",
+    "emailLabel": "E-mail",
+    "address": "Adres",
+    "addressValue": "Amsterdam, Nederland"
+  },
+  "Blog": {
+    "heading": "Asistensia Blog",
+    "intro": "Blijf voorop met artikelen van experts, casestudy's en updates over Ruby, PHP, DevOps en de wereld van softwareontwikkeling.",
+    "allTopics": "Alle onderwerpen",
+    "team": "Asistensia-team",
+    "home": "Home",
+    "blog": "Blog",
+    "breadcrumb": "Kruimelpad",
+    "englishOnly": "Dit artikel is beschikbaar in het Engels.",
+    "englishOnlyPage": "Deze pagina is beschikbaar in het Engels."
+  },
+  "NotFound": {
+    "title": "Pagina niet gevonden",
+    "text": "Sorry, we konden de pagina die je zoekt niet vinden. Mogelijk is deze verplaatst of verwijderd.",
+    "home": "Naar home",
+    "blog": "Lees de blog"
+  },
+  "Cookies": {
+    "title": "Wij respecteren je privacy",
+    "text": "We gebruiken strikt noodzakelijke cookies om deze website te laten werken. Met jouw toestemming gebruiken we ook analytische cookies (Google Analytics) om te begrijpen hoe de site wordt gebruikt, en marketingcookies om onze advertenties te meten. Je kunt je keuze altijd wijzigen via “Cookie-instellingen” onderaan de pagina.",
+    "acceptAll": "Alles accepteren",
+    "rejectAll": "Alles weigeren",
+    "customize": "Aanpassen",
+    "save": "Voorkeuren opslaan",
+    "necessary": "Strikt noodzakelijk",
+    "necessaryDesc": "Nodig om de site te laten werken, bijvoorbeeld om je taal- en cookiekeuze te onthouden.",
+    "alwaysOn": "Altijd aan",
+    "analytics": "Analytisch",
+    "analyticsDesc": "Google Analytics helpt ons begrijpen hoe bezoekers de site gebruiken, zodat we die kunnen verbeteren.",
+    "marketing": "Marketing",
+    "marketingDesc": "Helpt ons de resultaten van onze advertentiecampagnes te meten.",
+    "privacyLink": "Privacybeleid",
+    "settings": "Cookie-instellingen",
+    "dialogLabel": "Cookievoorkeuren"
   }
 }

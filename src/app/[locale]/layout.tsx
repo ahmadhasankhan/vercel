@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Script from "next/script";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import CookieConsent from "./components/CookieConsent";
 import {
   BRAND,
   CONTACT,
@@ -181,21 +181,11 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
-
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-8W8PKL59B2"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-8W8PKL59B2');
-          `}
-        </Script>
+        <NextIntlClientProvider messages={messages}>
+          {children}
+          {/* GDPR: Google Analytics loads only after the visitor consents */}
+          <CookieConsent />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

@@ -1,23 +1,25 @@
+import { useTranslations } from "next-intl";
 import { BOOKING_URL } from "@/lib/site";
 
 export default function ContactSection() {
+    const t = useTranslations("Contact");
     return (
         <section id="contact" className="py-5 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold  text-primary mb-4">Get In Touch</h2>
+                    <h2 className="text-3xl font-bold  text-primary mb-4">{t("title")}</h2>
                     <p className="text-xl text-muted max-w-3xl mx-auto">
-                        Ready to discuss your project? Reach out to us today.
+                        {t("subtitle")}
                     </p>
                 </div>
 
                 <div className="lg:flex">
                     {/* Form Section */}
-                    <div className="lg:w-1/2 mb-10 lg:mb-0 lg:pr-12">
+                    <div className="lg:w-1/2 mb-10 lg:mb-0 lg:pe-12">
                         <form action="https://formspree.io/f/xovwgvnv" method="POST" className="space-y-6">
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-muted">
-                                    Name
+                                    {t("name")}
                                 </label>
                                 <input
                                     type="text"
@@ -29,7 +31,7 @@ export default function ContactSection() {
                             </div>
                             <div>
                                 <label htmlFor="email" className="block text-sm font-medium text-muted">
-                                    Email
+                                    {t("email")}
                                 </label>
                                 <input
                                     type="email"
@@ -41,7 +43,7 @@ export default function ContactSection() {
                             </div>
                             <div>
                                 <label htmlFor="message" className="block text-sm font-medium text-muted">
-                                    Message
+                                    {t("message")}
                                 </label>
                                 <textarea
                                     id="message"
@@ -56,18 +58,18 @@ export default function ContactSection() {
                                     type="submit"
                                     className="w-full bg-primary text-white font-semibold py-2 px-4 rounded-md  hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                                 >
-                                    Send Message
+                                    {t("send")}
                                 </button>
                             </div>
                         </form>
                     </div>
 
                     {/* Contact Info Section */}
-                    <div className="lg:w-1/2 lg:pl-12 space-y-6">
+                    <div className="lg:w-1/2 lg:ps-12 space-y-6">
                         <div className="bg-primary text-white p-8 rounded-lg">
-                            <h3 className="text-xl font-semibold mb-2">Prefer to talk?</h3>
+                            <h3 className="text-xl font-semibold mb-2">{t("talkTitle")}</h3>
                             <p className="text-white/80 mb-6">
-                                Pick a time that suits you for a free 30-minute consultation — no forms, no back-and-forth.
+                                {t("talkText")}
                             </p>
                             <a
                                 href={BOOKING_URL}
@@ -75,33 +77,33 @@ export default function ContactSection() {
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-6 py-3 rounded-lg hover:bg-surface-strong transition duration-300"
                             >
-                                Book a free 30-min call <span aria-hidden="true">&rarr;</span>
+                                {t("talkButton")} <span aria-hidden="true" className="rtl:rotate-180 inline-block">&rarr;</span>
                             </a>
                         </div>
                         <div className="bg-surface p-8 rounded-lg">
-                            <h3 className="text-xl font-semibold mb-6 text-primary ">Contact Information</h3>
+                            <h3 className="text-xl font-semibold mb-6 text-primary ">{t("infoTitle")}</h3>
                             <div className="space-y-4">
                                 <ContactItem
-                                    title="Phone"
+                                    title={t("phone")}
                                     detail="+31-619-333008"
                                     href="tel:+31619333008"
                                     icon={
-                                        <PhoneIcon className="h-6 w-6 text-secondary  mt-1 mr-4" />
+                                        <PhoneIcon className="h-6 w-6 text-secondary  mt-1 me-4" />
                                     }
                                 />
                                 <ContactItem
-                                    title="Email"
+                                    title={t("emailLabel")}
                                     detail="contact [at] asistensia.com"
                                     href="mailto:contact@asistensia.com"
                                     icon={
-                                        <MailIcon className="h-6 w-6 text-secondary mt-1 mr-4" />
+                                        <MailIcon className="h-6 w-6 text-secondary mt-1 me-4" />
                                     }
                                 />
                                 <ContactItem
-                                    title="Address"
-                                    detail="Amsterdam, Netherlands"
+                                    title={t("address")}
+                                    detail={t("addressValue")}
                                     icon={
-                                        <LocationIcon className="h-6 w-6 text-secondary mt-1 mr-4" />
+                                        <LocationIcon className="h-6 w-6 text-secondary mt-1 me-4" />
                                     }
                                 />
                             </div>
@@ -130,7 +132,7 @@ function ContactItem({
             <div>
                 <h4 className="font-medium text-primary">{title}</h4>
                 {href ? (
-                    <a href={href} className="text-muted hover:text-secondary transition-colors">
+                    <a href={href} dir="ltr" className="text-muted hover:text-secondary transition-colors">
                         {detail}
                     </a>
                 ) : (

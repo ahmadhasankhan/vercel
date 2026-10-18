@@ -2,23 +2,33 @@ import React from "react";
 import Layout from "../components/Layout";
 import type { Metadata } from "next";
 import { alternatesFor } from "@/lib/site";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Nav" });
   return {
-    title: "Privacy Policy",
+    title: t("privacy"),
     description: "How Asistensia collects, uses, and protects your data.",
     alternates: alternatesFor(locale, "/privacy"),
     robots: { index: true, follow: true },
   };
 }
 
-const page = () => {
+const page = async ({ params }: Props) => {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const tb = await getTranslations({ locale, namespace: "Blog" });
   return (
     <Layout>
-      <div className="max-w-7xl mx-auto px-4 prose-headings:text-primary prose-p:text-muted pt-15 pb-15">
+      {locale !== "en" && (
+        <p className="max-w-7xl mx-auto mt-6 px-4">
+          <span className="inline-block rounded-lg bg-surface px-4 py-2 text-sm text-muted">{tb("englishOnlyPage")}</span>
+        </p>
+      )}
+      <div lang="en" dir="ltr" className="max-w-7xl mx-auto px-4 prose-headings:text-primary prose-p:text-muted pt-15 pb-15">
         <h1 className="text-5xl font-bold italic text-muted">
           Privacy Policy
         </h1>

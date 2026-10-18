@@ -36,8 +36,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function Author({ post }: { post: PostMeta }) {
-  const name = post.author?.name ?? `${SITE_NAME} Team`;
+function Author({ post, teamName }: { post: PostMeta; teamName: string }) {
+  const name = post.author?.name ?? teamName;
   const avatar = post.author?.profileImage ?? BRAND.iconPng;
   return (
     <div className="flex items-center space-x-3">
@@ -58,6 +58,7 @@ function Author({ post }: { post: PostMeta }) {
 export default async function BlogPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const tb = await getTranslations({ locale, namespace: "Blog" });
   const posts = getAllPosts();
   const [featured, ...rest] = posts;
   const blogUrl = localizedUrl(locale, "/blog");
@@ -82,8 +83,8 @@ export default async function BlogPage({ params }: Props) {
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: localizedUrl(locale) },
-          { "@type": "ListItem", position: 2, name: "Blog", item: blogUrl },
+          { "@type": "ListItem", position: 1, name: tb("home"), item: localizedUrl(locale) },
+          { "@type": "ListItem", position: 2, name: tb("blog"), item: blogUrl },
         ],
       },
     ],
@@ -93,10 +94,9 @@ export default async function BlogPage({ params }: Props) {
     <Layout>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="max-w-7xl mx-auto px-4 py-16">
-        <h1 className="text-5xl font-bold mb-8 text-primary">Asistensia Blog</h1>
+        <h1 className="text-5xl font-bold mb-8 text-primary">{tb("heading")}</h1>
         <p className="text-lg text-muted mb-4">
-          Stay ahead with expert articles, case studies, and updates on Ruby,
-          PHP, DevOps, and the software development world.
+          {tb("intro")}
         </p>
 
         {featured && (
@@ -114,17 +114,17 @@ export default async function BlogPage({ params }: Props) {
                 />
               )}
             </Link>
-            <div className="md:w-1/2 w-full flex flex-col justify-between space-y-4 md:ml-10 pt-12">
+            <div className="md:w-1/2 w-full flex flex-col justify-between space-y-4 md:ms-10 pt-12">
               <h2 className="text-3xl font-semibold text-muted hover:text-primary">
-                <Link href={`/blog/${featured.slug}`}>{featured.title}</Link>
+                <Link href={`/blog/${featured.slug}`} lang="en" dir="ltr">{featured.title}</Link>
               </h2>
-              {featured.description && <p className="text-muted">{featured.description}</p>}
-              <Author post={featured} />
+              {featured.description && <p lang="en" dir="auto" className="text-muted">{featured.description}</p>}
+              <Author post={featured} teamName={tb("team")} />
             </div>
           </article>
         )}
 
-        <h2 className="text-primary font-medium text-2xl pt-20">All topics</h2>
+        <h2 className="text-primary font-medium text-2xl pt-20">{tb("allTopics")}</h2>
         <hr className="mt-6" />
 
         {rest.map((post) => (
@@ -141,12 +141,12 @@ export default async function BlogPage({ params }: Props) {
                 />
               )}
             </Link>
-            <div className="md:w-1/2 w-full flex flex-col justify-between space-y-4 pt-12 md:pl-10">
+            <div className="md:w-1/2 w-full flex flex-col justify-between space-y-4 pt-12 md:ps-10">
               <h3 className="text-3xl font-semibold text-muted hover:text-primary">
-                <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                <Link href={`/blog/${post.slug}`} lang="en" dir="ltr">{post.title}</Link>
               </h3>
-              {post.description && <p className="text-muted">{post.description}</p>}
-              <Author post={post} />
+              {post.description && <p lang="en" dir="auto" className="text-muted">{post.description}</p>}
+              <Author post={post} teamName={tb("team")} />
             </div>
           </article>
         ))}
