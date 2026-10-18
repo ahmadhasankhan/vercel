@@ -31,6 +31,9 @@ export const SOCIALS = {
   linkedin: "https://www.linkedin.com/company/asistensia/",
 };
 
+/** Direct scheduling link (Calendly) for the free 30-minute consultation. */
+export const BOOKING_URL = "https://calendly.com/asistensia/30min";
+
 export const CONTACT = {
   telephone: "+31619333008",
   email: "contact@asistensia.com",

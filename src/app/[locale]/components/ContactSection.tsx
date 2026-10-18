@@ -1,3 +1,5 @@
+import { BOOKING_URL } from "@/lib/site";
+
 export default function ContactSection() {
     return (
         <section id="contact" className="py-5 bg-white">
@@ -61,7 +63,21 @@ export default function ContactSection() {
                     </div>
 
                     {/* Contact Info Section */}
-                    <div className="lg:w-1/2 lg:pl-12">
+                    <div className="lg:w-1/2 lg:pl-12 space-y-6">
+                        <div className="bg-primary text-white p-8 rounded-lg">
+                            <h3 className="text-xl font-semibold mb-2">Prefer to talk?</h3>
+                            <p className="text-white/80 mb-6">
+                                Pick a time that suits you for a free 30-minute consultation — no forms, no back-and-forth.
+                            </p>
+                            <a
+                                href={BOOKING_URL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-6 py-3 rounded-lg hover:bg-surface-strong transition duration-300"
+                            >
+                                Book a free 30-min call <span aria-hidden="true">&rarr;</span>
+                            </a>
+                        </div>
                         <div className="bg-surface p-8 rounded-lg">
                             <h3 className="text-xl font-semibold mb-6 text-primary ">Contact Information</h3>
                             <div className="space-y-4">

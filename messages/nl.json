@@ -1,8 +1,9 @@
 {
   "HomePage": {
-    "title": "Deskundige Software Consulting Diensten",
+    "title": "Asistensia – Deskundige Software Consulting",
     "subtitle": "Ontgrendel uw zakelijke potentieel met gespecialiseerde consultancy in Ruby, Ruby on Rails, PHP en DevOps oplossingen.",
-    "cta": "Aan de slag"
+    "cta": "Aan de slag",
+    "bookCall": "Plan een gratis gesprek van 30 min"
   },
   "Metadata": {
     "title": "Asistensia – Ruby on Rails, PHP/Laravel & DevOps Consultancy",

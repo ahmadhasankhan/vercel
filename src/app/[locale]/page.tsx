@@ -8,7 +8,7 @@ import ContactSection from "./components/ContactSection";
 import ServicesSection from "./components/ServicesSection";
 import AskQuestion from "./components/AskQuestion";
 import { faqs } from "./data/faqs";
-import { BRAND, OG_LOCALE, SITE_NAME, alternatesFor, localizedUrl } from "@/lib/site";
+import { BOOKING_URL, BRAND, OG_LOCALE, SITE_NAME, alternatesFor, localizedUrl } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -65,9 +65,18 @@ export default async function Home({ params }: Props) {
             <p className="text-xl md:text-2xl max-w-4xl mx-auto">
               {t('subtitle')}
             </p>
-            <div className="mt-10">
-              <a href="#contact"
-                className="mt-10 inline-block bg-white text-primary font-semibold px-8 py-3 rounded-lg hover:bg-surface-strong transition duration-300"
+            <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-8 py-3 rounded-lg hover:bg-surface-strong transition duration-300"
+              >
+                {t('bookCall')} <span aria-hidden="true">&rarr;</span>
+              </a>
+              <a
+                href="#contact"
+                className="inline-block border border-white/60 text-white font-semibold px-8 py-3 rounded-lg hover:bg-white/10 transition duration-300"
               >
                 {t('cta')}
               </a>

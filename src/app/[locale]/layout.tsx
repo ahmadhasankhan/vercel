@@ -128,6 +128,11 @@ export default async function RootLayout({
         "@type": ["Organization", "ProfessionalService"],
         "@id": `${SITE_URL}/#organization`,
         name: SITE_NAME,
+        // Distinct brand spelling — helps Google treat "Asistensia" as an entity, not a typo of "asistencia"
+        alternateName: ["Asistensia Consulting", "Asistensia Software Consulting", "asistensia.com"],
+        slogan: "The team that lets you build more, while configuring less",
+        description:
+          "Asistensia is a software consulting company for Ruby on Rails, PHP/Laravel and DevOps, based in Amsterdam.",
         url: SITE_URL,
         logo: {
           "@type": "ImageObject",
@@ -162,6 +167,7 @@ export default async function RootLayout({
         "@id": `${SITE_URL}/#website`,
         url: SITE_URL,
         name: SITE_NAME,
+        alternateName: ["Asistensia Consulting", "asistensia.com"],
         inLanguage: locale,
         publisher: { "@id": `${SITE_URL}/#organization` },
       },

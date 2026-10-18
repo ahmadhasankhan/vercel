@@ -1,8 +1,9 @@
 {
   "HomePage": {
-    "title": "Expert Software Consulting Services",
+    "title": "Asistensia – Expert Software Consulting",
     "subtitle": "Unlock your business potential with specialized consulting in Ruby, Ruby on Rails, PHP, and DevOps solutions.",
-    "cta": "Get Started"
+    "cta": "Get Started",
+    "bookCall": "Book a free 30-min call"
   },
   "Metadata": {
     "title": "Asistensia – Ruby on Rails, PHP/Laravel & DevOps Consulting",
