@@ -1,0 +1,192 @@
+---
+title: "What's New in Ruby 4.0: Ruby Box, ZJIT, Ractor::Port and More"
+paragraph: "A practical tour of Ruby 4.0—Ruby Box isolation, the new ZJIT compiler, Ractor::Port, syntax tweaks, core class updates, and the compatibility changes to check before you upgrade."
+author:
+  postedby: "Posted By"
+  name: "Ahmad Hassan"
+  title: "Founder & Principal Consultant"
+  profileImage: "/assets/ahmad.png"
+
+publishedDate: "November 21, 2026"
+coverImage: "/assets/blog/rails.webp"
+tags:
+  - ruby
+  - ruby4
+  - upgrade
+  - performance
+---
+
+<h1 className="font-bold text-2xl text-gray-500">Introduction</h1>
+<br/>
+Ruby turned 30 in December 2025, and the core team marked it with <strong>Ruby 4.0</strong>, released on Christmas Day as usual. The big version number is partly a celebration—there is no wave of breaking syntax—but there is plenty under the hood: <strong>Ruby Box</strong>, a new JIT called <strong>ZJIT</strong>, a reworked <strong>Ractor</strong> API, and a long list of quality-of-life improvements. Here is what matters for teams running Ruby and Rails in production.
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">Why It Matters</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li>Faster object creation and a leaner GC with no code changes</li>
+  <li>New building blocks for isolation and parallelism (Ruby Box, Ractor::Port)</li>
+  <li>Cleaner core APIs: <code>Set</code> and <code>Pathname</code> are now built in</li>
+  <li>A handful of removals you should catch in CI before production does</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">1) Ruby Box (Experimental)</h2>
+<br/>
+Ruby Box isolates definitions from each other. Monkey patches, global and class variable changes, class and module definitions, and loaded libraries (Ruby or native) stay inside their own box. It is enabled with an environment variable and exposed as <code>Ruby::Box</code>.
+<br/><br/>
+
+```bash
+RUBY_BOX=1 ruby app.rb
+```
+<br/>
+
+Where it could help:
+<br/><br/>
+<ul className="list-disc pl-8">
+  <li>Running tests in isolation so monkey patches do not leak between them</li>
+  <li>Running two versions of an app side by side in one process (blue/green style)</li>
+  <li>Comparing responses before and after a dependency upgrade</li>
+</ul>
+<br/>
+It is experimental—great to explore, not something to depend on yet.
+<br/><br/>
+
+<h2 className="font-bold text-2xl text-gray-500">2) ZJIT: The Next-Generation JIT</h2>
+<br/>
+ZJIT is a new method-based JIT compiler from the team behind YJIT. In 4.0 it is already faster than the interpreter but <strong>not yet as fast as YJIT</strong>, and the core team does not recommend it for production. The goal is for it to overtake YJIT and become production-ready in Ruby 4.1.
+<br/><br/>
+
+```bash
+ruby --zjit app.rb          # enable at startup
+# or from Ruby code:
+# RubyVM::ZJIT.enable
+```
+<br/>
+
+Building Ruby with ZJIT support requires Rust 1.85.0 or newer. For production today, <strong>stick with YJIT</strong>—which also gained <code>mem_size:</code> and <code>call_threshold:</code> options on <code>RubyVM::YJIT.enable</code>.
+<br/><br/>
+
+<h2 className="font-bold text-2xl text-gray-500">3) Ractor Gets Ractor::Port</h2>
+<br/>
+Ractors (Ruby's parallel actors) got a redesigned messaging model built on <code>Ractor::Port</code>:
+<br/><br/>
+
+```ruby
+port1 = Ractor::Port.new
+port2 = Ractor::Port.new
+
+Ractor.new port1, port2 do |port1, port2|
+  port1 << 1
+  port2 << 11
+  port1 << 2
+  port2 << 12
+end
+
+2.times { p port1.receive } #=> 1, 2
+2.times { p port2.receive } #=> 11, 12
+```
+<br/>
+
+<ul className="list-disc pl-8">
+  <li><strong>Added:</strong> <code>Ractor#join</code>, <code>Ractor#value</code> (like Thread), and <code>Ractor.shareable_proc</code> / <code>Ractor.shareable_lambda</code></li>
+  <li><strong>Removed:</strong> <code>Ractor.yield</code>, <code>Ractor#take</code>, <code>Ractor#close_incoming</code>, <code>Ractor#close_outgoing</code></li>
+  <li>Lots of internal work on lock contention, plus deadlock and race fixes</li>
+</ul>
+<br/>
+The core team aims to drop the "experimental" label soon. If you experimented with the old API, expect to rewrite that code.
+<br/><br/>
+
+<h2 className="font-bold text-2xl text-gray-500">4) Small Syntax Changes</h2>
+<br/>
+Lines can now <strong>start</strong> with a logical operator (<code>&&</code>, <code>||</code>, <code>and</code>, <code>or</code>) and continue the previous line—just like leading-dot method chains:
+<br/><br/>
+
+```ruby
+if user.active?
+   && user.verified?
+   && !user.banned?
+  grant_access
+end
+```
+<br/>
+
+And <code>*nil</code> no longer calls <code>nil.to_a</code>, matching how <code>**nil</code> already behaves—optional splats are now cheap and clean:
+<br/><br/>
+
+```ruby
+tags = ["news", *optional_tags, "ruby"]  # optional_tags can be nil
+```
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">5) Core Class Highlights</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li><strong>Set is core:</strong> no more <code>require "set"</code>; <code>inspect</code> now prints <code>Set[1, 2, 3]</code></li>
+  <li><strong>Pathname is core:</strong> promoted from a default gem</li>
+  <li><strong>Array#rfind:</strong> a faster alternative to <code>reverse_each.find</code></li>
+  <li><strong>Kernel#inspect:</strong> define a private <code>instance_variables_to_inspect</code> to hide noisy (or sensitive) ivars</li>
+  <li><strong>Enumerator.produce</strong> accepts a <code>size:</code> keyword</li>
+  <li><strong>String#strip</strong> and friends accept character selectors; Unicode/Emoji updated to 17.0</li>
+  <li><strong>Math.log1p</strong> and <strong>Math.expm1</strong> added</li>
+  <li><strong>Socket.tcp</strong> / <strong>TCPSocket.new</strong> accept <code>open_timeout:</code></li>
+  <li><strong>ErrorHighlight</strong> shows both the call site and the method definition for <code>ArgumentError</code></li>
+</ul>
+<br/>
+
+```ruby
+class Connection
+  def initialize(host, user, password)
+    @host, @user, @password = host, user, password
+  end
+
+  private def instance_variables_to_inspect = [:@host, :@user]
+end
+
+Connection.new("db.local", "app", "s3cret").inspect
+# => #<Connection:0x... @host="db.local", @user="app">
+```
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">6) Performance Wins (Free)</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li><code>Class#new</code> is faster, especially with keyword arguments—great news for object-heavy Rails apps</li>
+  <li>GC heaps grow independently per size pool, reducing memory use; faster sweeping for large objects</li>
+  <li>Faster instance variable access on Strings, Arrays and other "generic ivar" objects</li>
+  <li>Faster <code>object_id</code> and <code>hash</code> on classes and modules</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">7) Compatibility: What Can Break</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li><strong>Gems moved to bundled:</strong> <code>ostruct</code>, <code>pstore</code>, <code>benchmark</code>, <code>logger</code>, <code>rdoc</code>, <code>irb</code>, <code>reline</code>, <code>readline</code>, <code>fiddle</code>, <code>win32ole</code>—add them to your Gemfile if you use them under Bundler</li>
+  <li><strong>CGI</strong> removed from default gems (except <code>cgi/escape</code>); <strong>SortedSet</strong> now needs the <code>sorted_set</code> gem</li>
+  <li><strong>Net::HTTP</strong> no longer adds <code>Content-Type: application/x-www-form-urlencoded</code> automatically—set it explicitly where needed</li>
+  <li><code>Kernel#open</code> / <code>IO</code> no longer spawn processes from a leading <code>|</code></li>
+  <li><code>ObjectSpace._id2ref</code> deprecated; <code>--rjit</code> removed</li>
+  <li>RubyGems and Bundler are now version 4</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">Upgrade Checklist</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li>Run the test suite on Ruby 4.0 in CI with deprecation warnings on</li>
+  <li>Add newly bundled gems (logger, ostruct, benchmark…) to the Gemfile</li>
+  <li>Grep for <code>SortedSet</code>, <code>require "cgi"</code>, <code>Ractor.yield</code>, and <code>open("|...")</code></li>
+  <li>Check outbound <code>Net::HTTP</code> POSTs for an explicit <code>Content-Type</code></li>
+  <li>Update Docker base images and Bundler 4 lockfiles</li>
+  <li>Keep YJIT on in production; try ZJIT in staging out of curiosity</li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">Conclusion</h2>
+<br/>
+Ruby 4.0 is less about new syntax and more about laying foundations for the next decade: isolation with Ruby Box, a new JIT with ZJIT, and a Ractor API that is finally settling down. For most apps, the upgrade is a matter of tidying the Gemfile and picking up free performance. Planning a move to Ruby 4.0 or Rails 8? See our <a href="/blog/rails-upgrade" className="text-secondary underline">Rails 8 upgrade guide</a>—or get in touch and we will help you ship it safely.
+<br/><br/>
+
+---
+<strong>Written by Ahmad</strong><br/>
+Ahmad Hassan, Senior Ruby on Rails expert with 10+ years of experience. He builds web and mobile applications using React, Next.js, and TypeScript, and contributes to backend development using Python and Ruby on Rails.
