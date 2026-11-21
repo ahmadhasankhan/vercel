@@ -37,3 +37,109 @@ body {
   background: var(--secondary);
   color: #fff;
 }
+
+
+/* ---------------------------------------------------------------
+ * Blog code blocks (Shiki via rehype-pretty-code + CodeBlock.tsx)
+ * ------------------------------------------------------------- */
+.post-body figure[data-rehype-pretty-code-figure] {
+  margin: 1.75rem 0;
+}
+
+.code-block {
+  border-radius: 0.875rem;
+  overflow: hidden;
+  background: #121D33; /* brand navy, darker */
+  box-shadow: 0 12px 30px -12px rgba(27, 42, 74, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.code-block__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.9rem;
+  background: #1B2A4A;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 0.75rem;
+  color: #A9BBDD;
+}
+.code-block__dots { display: inline-flex; gap: 6px; }
+.code-block__dots i { width: 10px; height: 10px; border-radius: 9999px; background: #FF6159; }
+.code-block__dots i:nth-child(2) { background: #FFBD2E; }
+.code-block__dots i:nth-child(3) { background: #28C941; }
+.code-block__lang { font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+
+.code-block__copy {
+  margin-inline-start: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.4rem;
+  color: #C9D4EA;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: background 0.2s, color 0.2s;
+}
+.code-block__copy:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
+.code-block__copy svg { width: 14px; height: 14px; }
+
+.code-block pre {
+  margin: 0;
+  overflow-x: auto;
+  padding: 1rem 0;
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: #ADBAC7;
+  tab-size: 2;
+}
+.code-block pre > code { display: grid; min-width: max-content; }
+.code-block [data-line] { padding: 0 1.25rem; border-inline-start: 3px solid transparent; }
+
+/* ```ruby {2-4}  → highlighted lines */
+.code-block [data-highlighted-line] {
+  background: rgba(48, 89, 166, 0.28);
+  border-inline-start-color: #5B85D6;
+}
+/* ```ruby /word/ → highlighted words */
+.code-block [data-highlighted-chars] {
+  background: rgba(91, 133, 214, 0.3);
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.2rem;
+}
+
+/* ```ruby showLineNumbers → line numbers */
+.code-block code[data-line-numbers] { counter-reset: line; }
+.code-block code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1.75rem;
+  margin-inline-end: 1rem;
+  text-align: right;
+  color: #545D68;
+}
+
+/* ```ruby title="app/models/user.rb" → file name above the block */
+.post-body [data-rehype-pretty-code-title] {
+  display: inline-block;
+  margin-bottom: -0.25rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background: #1B2A4A;
+  color: #DCE4F3;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.8rem;
+}
+
+/* Inline `code` in article text */
+.post-body :not(pre) > code {
+  padding: 0.15em 0.4em;
+  border-radius: 0.375rem;
+  background: var(--surface-strong);
+  color: var(--primary);
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.875em;
+}
+.post-body :not(pre) > code[data-language] span { color: inherit !important; }

@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import rehypePrettyCode, { type Options as PrettyCodeOptions } from "rehype-pretty-code";
 import Layout from "../../components/Layout";
+import CodeBlock from "../../components/CodeBlock";
 import { Link } from "@/i18n/routing";
 import { getPostSlugs, readPost } from "@/lib/posts";
 import {
@@ -65,9 +67,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+/** Syntax highlighting with Shiki, rendered at build time (no client JS). */
+const prettyCode: PrettyCodeOptions = {
+  theme: "github-dark-dimmed",
+  keepBackground: false, // we use the brand navy background from globals.css
+  defaultLang: { block: "plaintext", inline: "plaintext" },
+};
+
 /** MDX files sometimes contain literal <h1> tags; the page already has an <h1> (the title). */
 const demoteH1 = (src: string) =>
-  src.replace(/<h1(\s|>)/g, "<h2$1").replace(/<\/h1>/g, "</h2>").replace(/^# /gm, "## ");
+  src
+    // split on fenced code blocks so `# comments` inside code are never touched
+    .split(/(^```[\s\S]*?^```)/m)
+    .map((part) =>
+      part.startsWith("```")
+        ? part
+        : part.replace(/<h1(\s|>)/g, "<h2$1").replace(/<\/h1>/g, "</h2>").replace(/^# /gm, "## ")
+    )
+    .join("");
 
 export default async function BlogPostPage({ params }: Props) {
   const { locale, slug } = await params;
@@ -171,8 +188,12 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         )}
 
-        <div lang="en" dir="ltr" className="text-[18px] md:mt-20 md:px-30 p-5">
-          <MDXRemote source={demoteH1(content)} />
+        <div lang="en" dir="ltr" className="post-body text-[18px] md:mt-20 md:px-30 p-5">
+          <MDXRemote
+            source={demoteH1(content)}
+            components={{ pre: CodeBlock }}
+            options={{ mdxOptions: { rehypePlugins: [[rehypePrettyCode, prettyCode]] } }}
+          />
         </div>
       </article>
     </Layout>
