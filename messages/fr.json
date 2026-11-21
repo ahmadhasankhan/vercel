@@ -282,5 +282,14 @@
     ],
     "cta": "Parlons de votre projet IA",
     "ctaNote": "Appel gratuit de 30 minutes — sans engagement."
+  },
+  "PostCta": {
+    "eyebrow": "Consultation gratuite",
+    "title": "Besoin d'aide pour votre projet {topic} ?",
+    "titleGeneric": "Besoin d'aide pour votre projet ?",
+    "text": "Échangez avec un ingénieur senior qui a déjà relevé ce défi. En 30 minutes, nous analysons votre situation et définissons des prochaines étapes concrètes — sans discours commercial.",
+    "button": "Réserver un appel gratuit de 30 min",
+    "email": "Ou écrivez-nous",
+    "note": "Gratuit · Sans engagement"
   }
 }

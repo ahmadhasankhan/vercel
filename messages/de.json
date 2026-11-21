@@ -282,5 +282,14 @@
     ],
     "cta": "Ihre KI-Idee besprechen",
     "ctaNote": "Kostenloses 30-minütiges Gespräch – unverbindlich."
+  },
+  "PostCta": {
+    "eyebrow": "Kostenlose Beratung",
+    "title": "Brauchen Sie Hilfe bei Ihrem {topic}-Projekt?",
+    "titleGeneric": "Brauchen Sie Hilfe bei Ihrem Projekt?",
+    "text": "Sprechen Sie mit einem Senior Engineer, der genau das schon gemacht hat. In 30 Minuten analysieren wir Ihre Situation und skizzieren konkrete nächste Schritte – ohne Verkaufsgespräch.",
+    "button": "Kostenloses 30-Min.-Gespräch buchen",
+    "email": "Oder schreiben Sie uns",
+    "note": "Kostenlos · Unverbindlich"
   }
 }

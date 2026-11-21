@@ -282,5 +282,14 @@
     ],
     "cta": "Bespreek uw AI-idee",
     "ctaNote": "Gratis gesprek van 30 minuten — geheel vrijblijvend."
+  },
+  "PostCta": {
+    "eyebrow": "Gratis consult",
+    "title": "Hulp nodig bij je {topic}-project?",
+    "titleGeneric": "Hulp nodig bij je project?",
+    "text": "Praat met een senior engineer die dit eerder heeft gedaan. In 30 minuten bekijken we je situatie en schetsen we concrete vervolgstappen — zonder verkooppraatje.",
+    "button": "Plan een gratis gesprek van 30 min",
+    "email": "Of mail ons",
+    "note": "Gratis · Vrijblijvend"
   }
 }

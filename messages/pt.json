@@ -282,5 +282,14 @@
     ],
     "cta": "Converse sobre sua ideia de IA",
     "ctaNote": "Chamada gratuita de 30 minutos, sem compromisso."
+  },
+  "PostCta": {
+    "eyebrow": "Consultoria gratuita",
+    "title": "Precisa de ajuda com o seu projeto de {topic}?",
+    "titleGeneric": "Precisa de ajuda com o seu projeto?",
+    "text": "Converse com um engenheiro experiente que já resolveu isso antes. Em 30 minutos analisamos a sua situação e definimos os próximos passos concretos — sem conversa de vendas.",
+    "button": "Agende uma chamada gratuita de 30 min",
+    "email": "Ou envie-nos um e-mail",
+    "note": "Gratuito · Sem compromisso"
   }
 }

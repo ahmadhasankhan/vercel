@@ -6,6 +6,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import rehypePrettyCode, { type Options as PrettyCodeOptions } from "rehype-pretty-code";
 import Layout from "../../components/Layout";
 import CodeBlock from "../../components/CodeBlock";
+import PostCta, { topicFromTags } from "../../components/PostCta";
 import { Link } from "@/i18n/routing";
 import { getPostSlugs, readPost } from "@/lib/posts";
 import {
@@ -195,6 +196,9 @@ export default async function BlogPostPage({ params }: Props) {
             options={{ mdxOptions: { rehypePlugins: [[rehypePrettyCode, prettyCode]] } }}
           />
         </div>
+
+        {/* Lead capture: shown in the reader's language at the end of every post */}
+        <PostCta topic={topicFromTags(meta.tags)} />
       </article>
     </Layout>
   );

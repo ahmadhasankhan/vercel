@@ -282,5 +282,14 @@
     ],
     "cta": "Discuss your AI idea",
     "ctaNote": "Free 30-minute call — no obligation."
+  },
+  "PostCta": {
+    "eyebrow": "Free consultation",
+    "title": "Need help with your {topic} project?",
+    "titleGeneric": "Need help with your project?",
+    "text": "Talk to a senior engineer who has done this before. In 30 minutes we'll look at your situation and outline concrete next steps — no sales pitch.",
+    "button": "Book a free 30-min call",
+    "email": "Or email us",
+    "note": "Free · No obligation"
   }
 }

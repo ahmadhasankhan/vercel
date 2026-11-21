@@ -1,6 +1,6 @@
 ---
-title: "What's New in Ruby 4.0: Ruby Box, ZJIT, Ractor::Port and More"
-paragraph: "A practical tour of Ruby 4.0—Ruby Box isolation, the new ZJIT compiler, Ractor::Port, syntax tweaks, core class updates, and the compatibility changes to check before you upgrade."
+title: "What's New in Ruby 4.0: Features & Upgrade Guide"
+paragraph: "Ruby 4.0 explained: Ruby Box, the ZJIT compiler, Ractor::Port, new syntax, core class updates and breaking changes—plus an upgrade checklist from Asistensia."
 author:
   postedby: "Posted By"
   name: "Ahmad Hassan"
@@ -8,20 +8,37 @@ author:
   profileImage: "/assets/ahmad.png"
 
 publishedDate: "November 21, 2026"
+updatedDate: "November 21, 2026"
 coverImage: "/assets/blog/ruby4.webp"
 tags:
   - ruby
-  - ruby4
-  - upgrade
-  - performance
+  - Ruby 4.0
+  - Ruby 4.0 features
+  - Ruby upgrade
+  - ZJIT
+  - Ruby Box
+  - Ractor
+  - Ruby on Rails consulting
+  - Asistensia
 ---
 
 <h1 className="font-bold text-2xl text-gray-500">Introduction</h1>
 <br/>
-Ruby turned 30 in December 2025, and the core team marked it with <strong>Ruby 4.0</strong>, released on Christmas Day as usual. The big version number is partly a celebration—there is no wave of breaking syntax—but there is plenty under the hood: <strong>Ruby Box</strong>, a new JIT called <strong>ZJIT</strong>, a reworked <strong>Ractor</strong> API, and a long list of quality-of-life improvements. Here is what matters for teams running Ruby and Rails in production.
+Ruby turned 30 in December 2025, and the core team marked it with <strong>Ruby 4.0</strong>, released on Christmas Day as usual. The big version number is partly a celebration—there is no wave of breaking syntax—but there is plenty under the hood: <strong>Ruby Box</strong>, a new JIT called <strong>ZJIT</strong>, a reworked <strong>Ractor</strong> API, and a long list of quality-of-life improvements. In this guide, the <a href="/" className="text-secondary underline">Asistensia</a> team—Ruby on Rails consultants who upgrade production apps for a living—explains what is new in Ruby 4.0, what can break, and how to upgrade safely.
 <br/>
 
-<h2 className="font-bold text-2xl text-gray-500">Why It Matters</h2>
+<h2 className="font-bold text-2xl text-gray-500">Ruby 4.0 at a Glance</h2>
+<br/>
+<ul className="list-disc pl-8">
+  <li><strong>Released:</strong> December 25, 2025 (Ruby's 30th anniversary)</li>
+  <li><strong>Headline features:</strong> Ruby Box, ZJIT, Ractor::Port</li>
+  <li><strong>Built into core:</strong> Set and Pathname</li>
+  <li><strong>Bundled tooling:</strong> RubyGems and Bundler 4</li>
+  <li><strong>Official notes:</strong> <a href="https://www.ruby-lang.org/en/news/2025/12/25/ruby-4-0-0-released/" className="text-secondary underline" rel="noopener" target="_blank">Ruby 4.0.0 release announcement</a></li>
+</ul>
+<br/>
+
+<h2 className="font-bold text-2xl text-gray-500">Why Ruby 4.0 Matters</h2>
 <br/>
 <ul className="list-disc pl-8">
   <li>Faster object creation and a leaner GC with no code changes</li>
@@ -31,7 +48,7 @@ Ruby turned 30 in December 2025, and the core team marked it with <strong>Ruby 4
 </ul>
 <br/>
 
-<h2 className="font-bold text-2xl text-gray-500">1) Ruby Box (Experimental)</h2>
+<h2 className="font-bold text-2xl text-gray-500">1) Ruby Box: Isolated Definitions (Experimental)</h2>
 <br/>
 Ruby Box isolates definitions from each other. Monkey patches, global and class variable changes, class and module definitions, and loaded libraries (Ruby or native) stay inside their own box. It is enabled with an environment variable and exposed as <code>Ruby::Box</code>.
 <br/><br/>
@@ -52,7 +69,7 @@ Where it could help:
 It is experimental—great to explore, not something to depend on yet.
 <br/><br/>
 
-<h2 className="font-bold text-2xl text-gray-500">2) ZJIT: The Next-Generation JIT</h2>
+<h2 className="font-bold text-2xl text-gray-500">2) ZJIT: Ruby's Next-Generation JIT Compiler</h2>
 <br/>
 ZJIT is a new method-based JIT compiler from the team behind YJIT. In 4.0 it is already faster than the interpreter but <strong>not yet as fast as YJIT</strong>, and the core team does not recommend it for production. The goal is for it to overtake YJIT and become production-ready in Ruby 4.1.
 <br/><br/>
@@ -67,7 +84,7 @@ ruby --zjit app.rb          # enable at startup
 Building Ruby with ZJIT support requires Rust 1.85.0 or newer. For production today, <strong>stick with YJIT</strong>—which also gained <code>mem_size:</code> and <code>call_threshold:</code> options on <code>RubyVM::YJIT.enable</code>.
 <br/><br/>
 
-<h2 className="font-bold text-2xl text-gray-500">3) Ractor Gets Ractor::Port</h2>
+<h2 className="font-bold text-2xl text-gray-500">3) Ractor::Port: Easier Parallel Ruby</h2>
 <br/>
 Ractors (Ruby's parallel actors) got a redesigned messaging model built on <code>Ractor::Port</code>:
 <br/><br/>
@@ -97,7 +114,7 @@ end
 The core team aims to drop the "experimental" label soon. If you experimented with the old API, expect to rewrite that code.
 <br/><br/>
 
-<h2 className="font-bold text-2xl text-gray-500">4) Small Syntax Changes</h2>
+<h2 className="font-bold text-2xl text-gray-500">4) New Syntax in Ruby 4.0</h2>
 <br/>
 Lines can now <strong>start</strong> with a logical operator (<code>&&</code>, <code>||</code>, <code>and</code>, <code>or</code>) and continue the previous line—just like leading-dot method chains:
 <br/><br/>
@@ -119,7 +136,7 @@ tags = ["news", *optional_tags, "ruby"]  # optional_tags can be nil
 ```
 <br/>
 
-<h2 className="font-bold text-2xl text-gray-500">5) Core Class Highlights</h2>
+<h2 className="font-bold text-2xl text-gray-500">5) Core Class Updates: Set, Pathname, Array#rfind</h2>
 <br/>
 <ul className="list-disc pl-8">
   <li><strong>Set is core:</strong> no more <code>require "set"</code>; <code>inspect</code> now prints <code>Set[1, 2, 3]</code></li>
@@ -148,7 +165,7 @@ Connection.new("db.local", "app", "s3cret").inspect
 ```
 <br/>
 
-<h2 className="font-bold text-2xl text-gray-500">6) Performance Wins (Free)</h2>
+<h2 className="font-bold text-2xl text-gray-500">6) Ruby 4.0 Performance Improvements</h2>
 <br/>
 <ul className="list-disc pl-8">
   <li><code>Class#new</code> is faster, especially with keyword arguments—great news for object-heavy Rails apps</li>
@@ -158,7 +175,7 @@ Connection.new("db.local", "app", "s3cret").inspect
 </ul>
 <br/>
 
-<h2 className="font-bold text-2xl text-gray-500">7) Compatibility: What Can Break</h2>
+<h2 className="font-bold text-2xl text-gray-500">7) Breaking Changes: What Can Break When Upgrading</h2>
 <br/>
 <ul className="list-disc pl-8">
   <li><strong>Gems moved to bundled:</strong> <code>ostruct</code>, <code>pstore</code>, <code>benchmark</code>, <code>logger</code>, <code>rdoc</code>, <code>irb</code>, <code>reline</code>, <code>readline</code>, <code>fiddle</code>, <code>win32ole</code>—add them to your Gemfile if you use them under Bundler</li>
@@ -170,7 +187,7 @@ Connection.new("db.local", "app", "s3cret").inspect
 </ul>
 <br/>
 
-<h2 className="font-bold text-2xl text-gray-500">Upgrade Checklist</h2>
+<h2 className="font-bold text-2xl text-gray-500">Ruby 4.0 Upgrade Checklist</h2>
 <br/>
 <ul className="list-disc pl-8">
   <li>Run the test suite on Ruby 4.0 in CI with deprecation warnings on</li>
@@ -182,11 +199,43 @@ Connection.new("db.local", "app", "s3cret").inspect
 </ul>
 <br/>
 
+<h2 className="font-bold text-2xl text-gray-500">How Asistensia Helps You Upgrade to Ruby 4.0</h2>
+<br/>
+<strong>Asistensia</strong> is a software consulting company specialising in Ruby on Rails, PHP/Laravel and DevOps. We take Ruby and Rails apps to the latest versions in small, reversible steps—without feature freezes or downtime.
+<br/><br/>
+<ul className="list-disc pl-8">
+  <li><strong>Upgrade audit:</strong> gem compatibility, deprecations and a risk-ranked plan</li>
+  <li><strong>Hands-on upgrades:</strong> Ruby 3.x → 4.0 and Rails 7 → 8, with CI and Docker images updated</li>
+  <li><strong>Performance tuning:</strong> YJIT, GC and memory settings tuned for your workload (see our <a href="/blog/rails-performance-audit" className="text-secondary underline">Rails performance audit</a>)</li>
+  <li><strong>Ongoing support:</strong> <a href="/blog/ruby-on-rails-consulting" className="text-secondary underline">Ruby on Rails consulting</a> and <a href="/blog/devops-consulting" className="text-secondary underline">DevOps consulting</a> for teams that need senior help</li>
+</ul>
+<br/>
+<a href="https://calendly.com/asistensia/30min" className="text-secondary underline" rel="noopener" target="_blank">Book a free 30-minute consultation</a> with Asistensia, or email <a href="mailto:contact@asistensia.com" className="text-secondary underline">contact@asistensia.com</a>.
+<br/><br/>
+
+<h2 className="font-bold text-2xl text-gray-500">Ruby 4.0 FAQ</h2>
+<br/>
+<h3 className="font-bold text-xl text-gray-500">When was Ruby 4.0 released?</h3>
+Ruby 4.0.0 was released on December 25, 2025, shortly after Ruby's 30th anniversary. Patch releases (4.0.x) follow roughly every two months.
+<br/><br/>
+<h3 className="font-bold text-xl text-gray-500">Is Ruby 4.0 backward compatible with Ruby 3.4?</h3>
+Mostly, yes. Most apps only need Gemfile updates for gems that moved out of the default set (such as logger, ostruct and benchmark). Code using the old Ractor API, SortedSet, CGI or pipe-based <code>Kernel#open</code> needs changes.
+<br/><br/>
+<h3 className="font-bold text-xl text-gray-500">Should I use ZJIT or YJIT in production?</h3>
+Use YJIT. ZJIT is experimental in Ruby 4.0 and not yet as fast as YJIT; the core team aims to make it production-ready in Ruby 4.1.
+<br/><br/>
+<h3 className="font-bold text-xl text-gray-500">Does Rails 8 work with Ruby 4.0?</h3>
+Yes—use the latest Rails 8.1 patch release, which includes fixes for Ruby 4.0 warnings, and check that your other gems support Ruby 4.0. Upgrade Ruby first, then Rails, as described in our <a href="/blog/rails-upgrade" className="text-secondary underline">Rails 8 upgrade guide</a>.
+<br/><br/>
+<h3 className="font-bold text-xl text-gray-500">Can Asistensia upgrade my app to Ruby 4.0?</h3>
+Yes. Asistensia offers Ruby and Rails upgrade audits and hands-on upgrades for teams worldwide. <a href="/#contact" className="text-secondary underline">Get in touch</a> to plan yours.
+<br/><br/>
+
 <h2 className="font-bold text-2xl text-gray-500">Conclusion</h2>
 <br/>
-Ruby 4.0 is less about new syntax and more about laying foundations for the next decade: isolation with Ruby Box, a new JIT with ZJIT, and a Ractor API that is finally settling down. For most apps, the upgrade is a matter of tidying the Gemfile and picking up free performance. Planning a move to Ruby 4.0 or Rails 8? See our <a href="/blog/rails-upgrade" className="text-secondary underline">Rails 8 upgrade guide</a>—or get in touch and we will help you ship it safely.
+Ruby 4.0 is less about new syntax and more about laying foundations for the next decade: isolation with Ruby Box, a new JIT with ZJIT, and a Ractor API that is finally settling down. For most apps, the upgrade is a matter of tidying the Gemfile and picking up free performance. Planning a move to Ruby 4.0 or Rails 8? See our <a href="/blog/rails-upgrade" className="text-secondary underline">Rails 8 upgrade guide</a>—or <a href="/#contact" className="text-secondary underline">contact Asistensia</a> and we will help you ship it safely.
 <br/><br/>
 
 ---
 <strong>Written by Ahmad</strong><br/>
-Ahmad Hassan, Senior Ruby on Rails expert with 10+ years of experience. He builds web and mobile applications using React, Next.js, and TypeScript, and contributes to backend development using Python and Ruby on Rails.
+Ahmad Hassan, founder of <a href="/" className="text-secondary underline">Asistensia</a> and Senior Ruby on Rails expert with 10+ years of experience. He builds web and mobile applications using React, Next.js, and TypeScript, and contributes to backend development using Python and Ruby on Rails.

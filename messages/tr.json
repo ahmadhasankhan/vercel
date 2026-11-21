@@ -282,5 +282,14 @@
     ],
     "cta": "Yapay zekâ fikrinizi konuşalım",
     "ctaNote": "30 dakikalık ücretsiz görüşme — hiçbir yükümlülük yok."
+  },
+  "PostCta": {
+    "eyebrow": "Ücretsiz danışmanlık",
+    "title": "{topic} projeniz için yardıma mı ihtiyacınız var?",
+    "titleGeneric": "Projeniz için yardıma mı ihtiyacınız var?",
+    "text": "Bu işi daha önce yapmış kıdemli bir mühendisle konuşun. 30 dakikada durumunuzu inceleyip somut sonraki adımları belirliyoruz — satış konuşması yok.",
+    "button": "Ücretsiz 30 dakikalık görüşme ayarlayın",
+    "email": "Veya bize e-posta gönderin",
+    "note": "Ücretsiz · Yükümlülük yok"
   }
 }
