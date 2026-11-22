@@ -397,6 +397,8 @@
     "successTitle": "Grazie, la tua candidatura è stata inviata!",
     "successText": "La esamineremo e ti risponderemo via email entro pochi giorni lavorativi.",
     "error": "Si è verificato un errore. Riprova oppure scrivici a {email}.",
-    "fileTooLarge": "Il file è troppo grande. Carica un PDF inferiore a 10 MB."
+    "fileTooLarge": "Il file è troppo grande. Carica un PDF inferiore a 10 MB.",
+    "cvLink": "Link al tuo CV",
+    "cvLinkHint": "Google Drive, Dropbox o OneDrive: imposta la condivisione su «chiunque abbia il link può visualizzare»."
   }
 }

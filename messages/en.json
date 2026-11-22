@@ -397,6 +397,8 @@
     "successTitle": "Thank you — your application has been sent!",
     "successText": "We'll review it and get back to you by email within a few working days.",
     "error": "Something went wrong. Please try again or email us at {email}.",
-    "fileTooLarge": "The file is too large. Please upload a PDF under 10 MB."
+    "fileTooLarge": "The file is too large. Please upload a PDF under 10 MB.",
+    "cvLink": "Link to your CV / résumé",
+    "cvLinkHint": "Google Drive, Dropbox or OneDrive — please set sharing to “anyone with the link can view”."
   }
 }

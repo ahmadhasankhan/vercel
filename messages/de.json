@@ -397,6 +397,8 @@
     "successTitle": "Vielen Dank – Ihre Bewerbung wurde gesendet!",
     "successText": "Wir prüfen sie und melden uns innerhalb weniger Werktage per E-Mail bei Ihnen.",
     "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns an {email}.",
-    "fileTooLarge": "Die Datei ist zu groß. Bitte laden Sie eine PDF-Datei unter 10 MB hoch."
+    "fileTooLarge": "Die Datei ist zu groß. Bitte laden Sie eine PDF-Datei unter 10 MB hoch.",
+    "cvLink": "Link zu Ihrem Lebenslauf",
+    "cvLinkHint": "Google Drive, Dropbox oder OneDrive – bitte Freigabe auf „Jeder mit dem Link kann ansehen“ stellen."
   }
 }

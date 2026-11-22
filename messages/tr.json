@@ -397,6 +397,8 @@
     "successTitle": "Teşekkürler — başvurunuz gönderildi!",
     "successText": "Başvurunuzu inceleyip birkaç iş günü içinde size e-postayla dönüş yapacağız.",
     "error": "Bir sorun oluştu. Lütfen tekrar deneyin veya bize {email} adresinden yazın.",
-    "fileTooLarge": "Dosya çok büyük. Lütfen 10 MB'tan küçük bir PDF yükleyin."
+    "fileTooLarge": "Dosya çok büyük. Lütfen 10 MB'tan küçük bir PDF yükleyin.",
+    "cvLink": "Özgeçmişinizin bağlantısı",
+    "cvLinkHint": "Google Drive, Dropbox veya OneDrive — paylaşımı “bağlantıya sahip herkes görüntüleyebilir” olarak ayarlayın."
   }
 }

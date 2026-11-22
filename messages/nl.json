@@ -397,6 +397,8 @@
     "successTitle": "Bedankt — je sollicitatie is verstuurd!",
     "successText": "We bekijken hem en laten binnen een paar werkdagen per e-mail van ons horen.",
     "error": "Er is iets misgegaan. Probeer het opnieuw of mail ons via {email}.",
-    "fileTooLarge": "Het bestand is te groot. Upload een PDF van maximaal 10 MB."
+    "fileTooLarge": "Het bestand is te groot. Upload een PDF van maximaal 10 MB.",
+    "cvLink": "Link naar je cv",
+    "cvLinkHint": "Google Drive, Dropbox of OneDrive — zet delen op “iedereen met de link kan bekijken”."
   }
 }

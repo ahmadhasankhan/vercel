@@ -82,3 +82,10 @@ export const CONSENT_KEY = "asistensia_consent";
  * Tip: create a separate Formspree form for applications and paste its ID here.
  */
 export const CAREERS_FORM_ENDPOINT = "https://formspree.io/f/xovwgvnv";
+
+/**
+ * CV as a file upload (true) or as a link to Google Drive/Dropbox/OneDrive (false).
+ * Formspree only accepts files on paid plans with uploads enabled for the form —
+ * otherwise it answers "File Uploads Not Permitted". Flip to true after upgrading.
+ */
+export const CAREERS_ALLOW_UPLOAD = false;

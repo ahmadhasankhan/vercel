@@ -397,6 +397,8 @@
     "successTitle": "¡Gracias! Tu solicitud se ha enviado.",
     "successText": "La revisaremos y te responderemos por correo electrónico en unos pocos días hábiles.",
     "error": "Algo ha salido mal. Inténtalo de nuevo o escríbenos a {email}.",
-    "fileTooLarge": "El archivo es demasiado grande. Sube un PDF de menos de 10 MB."
+    "fileTooLarge": "El archivo es demasiado grande. Sube un PDF de menos de 10 MB.",
+    "cvLink": "Enlace a tu CV",
+    "cvLinkHint": "Google Drive, Dropbox o OneDrive: configura el acceso como «cualquier persona con el enlace puede ver»."
   }
 }

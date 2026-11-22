@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { CAREERS_FORM_ENDPOINT, CONTACT } from "@/lib/site";
+import { CAREERS_ALLOW_UPLOAD, CAREERS_FORM_ENDPOINT, CONTACT } from "@/lib/site";
 
 /* Values sent to Formspree stay in English so every application email reads the same. */
 const FIELD_VALUES = ["Ruby on Rails / Backend", "Frontend (React / Next.js)", "DevOps & Cloud", "AI / Machine Learning", "Other"];
@@ -72,7 +72,7 @@ export default function CareerForm() {
       onSubmit={onSubmit}
       action={CAREERS_FORM_ENDPOINT}
       method="POST"
-      encType="multipart/form-data"
+      encType={CAREERS_ALLOW_UPLOAD ? "multipart/form-data" : undefined}
       className="grid gap-5 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-primary/10 sm:grid-cols-2 sm:p-8"
     >
       <input type="hidden" name="_subject" value="New internship application – asistensia.com" />
@@ -137,6 +137,8 @@ export default function CareerForm() {
         <input id="c-links" name="links" type="url" placeholder="https://" dir="ltr" className={input} />
       </div>
 
+      {CAREERS_ALLOW_UPLOAD ? (
+        <>
       <div className="sm:col-span-2">
         <label htmlFor="c-cv" className={label}>{t("cv")} *</label>
         <input
@@ -150,6 +152,16 @@ export default function CareerForm() {
         />
         {fileError && <p className="mt-1 text-sm text-red-600">{fileError}</p>}
       </div>
+        </>
+      ) : (
+        <>
+      <div className="sm:col-span-2">
+        <label htmlFor="c-cv-link" className={label}>{t("cvLink")} *</label>
+        <input id="c-cv-link" name="cv_link" type="url" required placeholder="https://" dir="ltr" className={input} />
+        <p className="mt-1 text-xs text-muted">{t("cvLinkHint")}</p>
+      </div>
+        </>
+      )}
 
       <div className="sm:col-span-2">
         <label htmlFor="c-motivation" className={label}>{t("motivation")} *</label>
