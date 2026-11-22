@@ -6,6 +6,7 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import CookieConsent from "./components/CookieConsent";
+import GoogleTagManager from "./components/GoogleTagManager";
 import {
   BRAND,
   CONTACT,
@@ -177,13 +178,15 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body className={`${inter.variable} ${geistMono.variable} font-sans antialiased bg-surface`}>
+        {/* Google Tag Manager + Consent Mode v2 (loads on first visit; cookies only after consent in EEA) */}
+        <GoogleTagManager />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
         <NextIntlClientProvider messages={messages}>
           {children}
-          {/* GDPR: Google Analytics loads only after the visitor consents */}
+          {/* GDPR cookie banner — sends Consent Mode updates to GTM */}
           <CookieConsent />
         </NextIntlClientProvider>
       </body>

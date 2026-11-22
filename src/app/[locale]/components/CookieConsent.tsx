@@ -1,19 +1,19 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import Script from "next/script";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { GA_ID } from "@/lib/site";
+import { CONSENT_KEY } from "@/lib/site";
 
 /**
  * GDPR cookie consent.
- * - Nothing non-essential runs until the visitor opts in (Google Analytics is not even loaded).
- * - Google Consent Mode v2 signals are kept in sync for Analytics / Ads.
+ * - Google Tag Manager loads on every visit (see GoogleTagManager.tsx) with Consent Mode v2:
+ *   in the EEA/UK/CH everything defaults to "denied" — no analytics/ads cookies until consent,
+ *   GA4 only receives anonymous cookieless pings. This banner sends the "update" signal.
  * - Choice is stored for 12 months; reopen anytime via <CookieSettingsButton />.
  */
 
-export const CONSENT_KEY = "asistensia_consent";
+
 const CONSENT_VERSION = 1;
 const MAX_AGE_DAYS = 365;
 export const OPEN_EVENT = "asistensia:open-cookie-settings";
@@ -106,21 +106,8 @@ export default function CookieConsent() {
     setDetails(false);
   }, []);
 
-  const loadGa = !!consent?.analytics;
-
   return (
     <>
-      {loadGa && (
-        <>
-          <Script id="ga-consent" strategy="afterInteractive">
-            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('consent','default',${JSON.stringify(consentSignals(consent!))});
-gtag('js',new Date());gtag('config','${GA_ID}',{anonymize_ip:true});`}
-          </Script>
-          <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
-        </>
-      )}
-
       {ready && open && (
         <div
           role="dialog"

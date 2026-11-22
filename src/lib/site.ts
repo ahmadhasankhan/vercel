@@ -38,7 +38,13 @@ export const SOCIALS = {
   linkedin: "https://www.linkedin.com/company/asistensia/",
 };
 
-/** Google Analytics 4 measurement ID — only loaded after cookie consent. */
+/**
+ * Google Tag Manager container — loaded on every visit with Google Consent Mode v2.
+ * Configure Google Analytics 4 (G-8W8PKL59B2) *inside* GTM as a "Google tag".
+ */
+export const GTM_ID = "GTM-KZ8LP4J2";
+
+/** GA4 measurement ID (configured inside GTM — not loaded separately, to avoid double counting). */
 export const GA_ID = "G-8W8PKL59B2";
 
 /** Direct scheduling link (Calendly) for the free 30-minute consultation. */
@@ -67,3 +73,6 @@ export function alternatesFor(locale: string, path = "") {
   languages["x-default"] = localizedUrl(DEFAULT_LOCALE, path);
   return { canonical: localizedUrl(locale, path), languages };
 }
+
+/** localStorage key holding the visitor's cookie choice (shared by banner + GTM loader). */
+export const CONSENT_KEY = "asistensia_consent";
