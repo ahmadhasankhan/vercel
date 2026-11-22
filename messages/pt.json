@@ -399,6 +399,63 @@
     "error": "Algo deu errado. Tente novamente ou envie um e-mail para {email}.",
     "fileTooLarge": "O arquivo é muito grande. Envie um PDF com menos de 10 MB.",
     "cvLink": "Link para o seu currículo",
-    "cvLinkHint": "Google Drive, Dropbox ou OneDrive — defina a partilha como «qualquer pessoa com o link pode ver»."
+    "cvLinkHint": "Google Drive, Dropbox ou OneDrive — defina a partilha como «qualquer pessoa com o link pode ver».",
+    "formatsTitle": "Escolha o seu formato de aprendizado",
+    "formatsSubtitle": "Três formas de aprender. Escolha o nível de acompanhamento ideal para os seus objetivos e o seu orçamento.",
+    "formats": [
+      {
+        "title": "Estudo online autônomo",
+        "tag": "Mais flexível",
+        "text": "Aprenda no seu ritmo com módulos online estruturados para a sua trilha.",
+        "features": [
+          "Módulos online no seu ritmo",
+          "Quizzes e exercícios de programação",
+          "Um caminho de aprendizado claro por trilha",
+          "Certificado de conclusão"
+        ]
+      },
+      {
+        "title": "Pacote com projetos",
+        "tag": "Melhor custo-benefício",
+        "text": "Módulos no seu ritmo e projetos práticos, revisados pelos nossos engenheiros.",
+        "features": [
+          "Tudo do estudo online autônomo",
+          "Projetos reais com um briefing claro",
+          "Revisões de código das suas entregas",
+          "Um repositório de projetos pronto para o portfólio"
+        ]
+      },
+      {
+        "title": "Com mentor",
+        "tag": "Mais acompanhamento",
+        "text": "Trabalhe 1:1 com um engenheiro sênior em projetos reais.",
+        "features": [
+          "Tudo do pacote com projetos",
+          "O seu mentor sênior pessoal",
+          "Sessões 1:1 e feedback regulares",
+          "Carta de referência com base no seu desempenho"
+        ]
+      }
+    ],
+    "selectFormat": "Candidate-se a este formato",
+    "format": "Formato de programa preferido",
+    "fieldOptions": [
+      "Ruby on Rails / Backend",
+      "Frontend (React / Next.js)",
+      "DevOps e Cloud",
+      "IA / Machine Learning",
+      "PHP / Laravel",
+      "Go (Golang)",
+      "Python (Django / FastAPI)",
+      "Node.js / TypeScript (backend)",
+      "Java / Spring Boot",
+      "Bancos de dados (PostgreSQL, MySQL, MongoDB)",
+      "Engenharia e análise de dados",
+      "Apps móveis (React Native / Flutter)",
+      "QA e automação de testes",
+      "Cibersegurança",
+      "Design UI/UX",
+      "Outra"
+    ]
   }
 }

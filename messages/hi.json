@@ -399,6 +399,63 @@
     "error": "कुछ गड़बड़ हो गई। कृपया फिर से कोशिश करें या हमें {email} पर ईमेल करें।",
     "fileTooLarge": "फ़ाइल बहुत बड़ी है। कृपया 10 MB से छोटी PDF अपलोड करें।",
     "cvLink": "अपने CV / रिज़्यूमे का लिंक",
-    "cvLinkHint": "Google Drive, Dropbox या OneDrive — शेयरिंग को “लिंक वाला कोई भी व्यक्ति देख सकता है” पर सेट करें।"
+    "cvLinkHint": "Google Drive, Dropbox या OneDrive — शेयरिंग को “लिंक वाला कोई भी व्यक्ति देख सकता है” पर सेट करें।",
+    "formatsTitle": "अपना लर्निंग फ़ॉर्मेट चुनें",
+    "formatsSubtitle": "सीखने के तीन तरीके। अपने लक्ष्यों और बजट के हिसाब से मार्गदर्शन का स्तर चुनें।",
+    "formats": [
+      {
+        "title": "ऑनलाइन सेल्फ़-स्टडी",
+        "tag": "सबसे फ़्लेक्सिबल",
+        "text": "अपने ट्रैक के लिए structured online modules के साथ अपनी रफ़्तार से सीखें।",
+        "features": [
+          "अपनी रफ़्तार से online modules",
+          "Quizzes और coding exercises",
+          "हर ट्रैक के लिए साफ़ learning path",
+          "कोर्स पूरा करने का सर्टिफ़िकेट"
+        ]
+      },
+      {
+        "title": "प्रोजेक्ट बंडल",
+        "tag": "सबसे किफ़ायती",
+        "text": "अपनी रफ़्तार वाले modules के साथ hands-on प्रोजेक्ट्स, जिन्हें हमारे इंजीनियर review करते हैं।",
+        "features": [
+          "ऑनलाइन सेल्फ़-स्टडी की हर चीज़",
+          "साफ़ brief के साथ रियल प्रोजेक्ट्स",
+          "आपके submissions पर code reviews",
+          "पोर्टफ़ोलियो के लिए तैयार प्रोजेक्ट repository"
+        ]
+      },
+      {
+        "title": "मेंटर के साथ",
+        "tag": "सबसे ज़्यादा मार्गदर्शन",
+        "text": "रियल प्रोजेक्ट्स पर एक सीनियर इंजीनियर के साथ 1:1 काम करें।",
+        "features": [
+          "प्रोजेक्ट बंडल की हर चीज़",
+          "आपका पर्सनल सीनियर मेंटर",
+          "नियमित 1:1 सेशन और फ़ीडबैक",
+          "आपके प्रदर्शन के आधार पर रेफ़रेंस लेटर"
+        ]
+      }
+    ],
+    "selectFormat": "इस फ़ॉर्मेट के लिए अप्लाई करें",
+    "format": "पसंदीदा प्रोग्राम फ़ॉर्मेट",
+    "fieldOptions": [
+      "Ruby on Rails / Backend",
+      "Frontend (React / Next.js)",
+      "DevOps और Cloud",
+      "AI / Machine Learning",
+      "PHP / Laravel",
+      "Go (Golang)",
+      "Python (Django / FastAPI)",
+      "Node.js / TypeScript (बैकएंड)",
+      "Java / Spring Boot",
+      "डेटाबेस (PostgreSQL, MySQL, MongoDB)",
+      "डेटा इंजीनियरिंग और एनालिटिक्स",
+      "मोबाइल ऐप्स (React Native / Flutter)",
+      "QA और टेस्ट ऑटोमेशन",
+      "साइबर सिक्योरिटी",
+      "UI/UX डिज़ाइन",
+      "अन्य"
+    ]
   }
 }

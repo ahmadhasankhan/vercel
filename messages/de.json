@@ -399,6 +399,63 @@
     "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns an {email}.",
     "fileTooLarge": "Die Datei ist zu groß. Bitte laden Sie eine PDF-Datei unter 10 MB hoch.",
     "cvLink": "Link zu Ihrem Lebenslauf",
-    "cvLinkHint": "Google Drive, Dropbox oder OneDrive – bitte Freigabe auf „Jeder mit dem Link kann ansehen“ stellen."
+    "cvLinkHint": "Google Drive, Dropbox oder OneDrive – bitte Freigabe auf „Jeder mit dem Link kann ansehen“ stellen.",
+    "formatsTitle": "Wählen Sie Ihr Lernformat",
+    "formatsSubtitle": "Drei Wege zum Ziel. Wählen Sie die Betreuungsintensität, die zu Ihren Zielen und Ihrem Budget passt.",
+    "formats": [
+      {
+        "title": "Online-Selbststudium",
+        "tag": "Am flexibelsten",
+        "text": "Lernen Sie in Ihrem eigenen Tempo mit strukturierten Online-Modulen für Ihren Schwerpunkt.",
+        "features": [
+          "Online-Module im eigenen Tempo",
+          "Quizze und Programmierübungen",
+          "Ein klarer Lernpfad je Schwerpunkt",
+          "Teilnahmezertifikat"
+        ]
+      },
+      {
+        "title": "Projektpaket",
+        "tag": "Bestes Preis-Leistungs-Verhältnis",
+        "text": "Module im eigenen Tempo plus praxisnahe Projekte, geprüft von unseren Engineers.",
+        "features": [
+          "Alles aus dem Online-Selbststudium",
+          "Praxisprojekte mit klarem Briefing",
+          "Code-Reviews Ihrer Einreichungen",
+          "Ein portfoliotaugliches Projekt-Repository"
+        ]
+      },
+      {
+        "title": "Mit Mentor",
+        "tag": "Intensivste Betreuung",
+        "text": "Arbeiten Sie 1:1 mit einem Senior Engineer an echten Projekten.",
+        "features": [
+          "Alles aus dem Projektpaket",
+          "Ihr persönlicher Senior-Mentor",
+          "Regelmäßige 1:1-Sessions und Feedback",
+          "Empfehlungsschreiben auf Basis Ihrer Leistung"
+        ]
+      }
+    ],
+    "selectFormat": "Für dieses Format bewerben",
+    "format": "Bevorzugtes Programmformat",
+    "fieldOptions": [
+      "Ruby on Rails / Backend",
+      "Frontend (React / Next.js)",
+      "DevOps & Cloud",
+      "KI / Machine Learning",
+      "PHP / Laravel",
+      "Go (Golang)",
+      "Python (Django / FastAPI)",
+      "Node.js / TypeScript (Backend)",
+      "Java / Spring Boot",
+      "Datenbanken (PostgreSQL, MySQL, MongoDB)",
+      "Data Engineering & Analytics",
+      "Mobile Apps (React Native / Flutter)",
+      "QA & Testautomatisierung",
+      "Cybersicherheit",
+      "UI/UX-Design",
+      "Sonstiges"
+    ]
   }
 }

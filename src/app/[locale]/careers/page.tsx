@@ -9,6 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Layout from "../components/Layout";
 import CareerForm from "./CareerForm";
+import FormatPicker from "./FormatPicker";
 import { BRAND, OG_LOCALE, SITE_NAME, alternatesFor, localizedUrl } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -88,8 +89,17 @@ export default async function CareersPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Learning formats */}
+      <section id="formats" className="bg-surface py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-primary">{t("formatsTitle")}</h2>
+          <p className="mt-2 max-w-2xl text-muted">{t("formatsSubtitle")}</p>
+          <FormatPicker />
+        </div>
+      </section>
+
       {/* How it works */}
-      <section className="bg-surface py-16">
+      <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-primary">{t("stepsTitle")}</h2>
           <ol className="mt-8 grid gap-6 md:grid-cols-3">
@@ -101,12 +111,12 @@ export default async function CareersPage({ params }: Props) {
               </li>
             ))}
           </ol>
-          <p className="mt-8 rounded-xl border-s-4 border-secondary bg-white px-5 py-4 text-muted">{t("programNote")}</p>
+          <p className="mt-8 rounded-xl border-s-4 border-secondary bg-surface px-5 py-4 text-muted">{t("programNote")}</p>
         </div>
       </section>
 
       {/* Application form */}
-      <section id="apply" className="scroll-mt-20 bg-white py-16">
+      <section id="apply" className="scroll-mt-20 bg-surface py-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-primary">{t("formTitle")}</h2>
           <p className="mt-2 text-muted">{t("formSubtitle")}</p>

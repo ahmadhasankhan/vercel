@@ -399,6 +399,63 @@
     "error": "Bir sorun oluştu. Lütfen tekrar deneyin veya bize {email} adresinden yazın.",
     "fileTooLarge": "Dosya çok büyük. Lütfen 10 MB'tan küçük bir PDF yükleyin.",
     "cvLink": "Özgeçmişinizin bağlantısı",
-    "cvLinkHint": "Google Drive, Dropbox veya OneDrive — paylaşımı “bağlantıya sahip herkes görüntüleyebilir” olarak ayarlayın."
+    "cvLinkHint": "Google Drive, Dropbox veya OneDrive — paylaşımı “bağlantıya sahip herkes görüntüleyebilir” olarak ayarlayın.",
+    "formatsTitle": "Öğrenme formatınızı seçin",
+    "formatsSubtitle": "Üç farklı öğrenme yolu. Hedeflerinize ve bütçenize uygun rehberlik düzeyini seçin.",
+    "formats": [
+      {
+        "title": "Online bireysel öğrenim",
+        "tag": "En esnek",
+        "text": "Alanınıza özel yapılandırılmış online modüllerle kendi hızınızda öğrenin.",
+        "features": [
+          "Kendi hızınızda online modüller",
+          "Testler ve kodlama alıştırmaları",
+          "Her alan için net bir öğrenme yolu",
+          "Tamamlama sertifikası"
+        ]
+      },
+      {
+        "title": "Proje paketi",
+        "tag": "En avantajlı",
+        "text": "Kendi hızınızda modüllerin yanı sıra mühendislerimizin incelediği uygulamalı projeler.",
+        "features": [
+          "Online bireysel öğrenimdeki her şey",
+          "Net bir brief ile gerçek projeler",
+          "Teslimlerinize kod incelemesi",
+          "Portfolyonuza hazır bir proje deposu"
+        ]
+      },
+      {
+        "title": "Mentor eşliğinde",
+        "tag": "En fazla rehberlik",
+        "text": "Gerçek projelerde kıdemli bir mühendisle 1:1 çalışın.",
+        "features": [
+          "Proje paketindeki her şey",
+          "Size özel kıdemli bir mentor",
+          "Düzenli 1:1 görüşmeler ve geri bildirim",
+          "Performansınıza dayalı referans mektubu"
+        ]
+      }
+    ],
+    "selectFormat": "Bu format için başvurun",
+    "format": "Tercih edilen program formatı",
+    "fieldOptions": [
+      "Ruby on Rails / Backend",
+      "Frontend (React / Next.js)",
+      "DevOps ve Bulut",
+      "Yapay Zekâ / Makine Öğrenimi",
+      "PHP / Laravel",
+      "Go (Golang)",
+      "Python (Django / FastAPI)",
+      "Node.js / TypeScript (backend)",
+      "Java / Spring Boot",
+      "Veritabanları (PostgreSQL, MySQL, MongoDB)",
+      "Veri mühendisliği ve analitik",
+      "Mobil uygulamalar (React Native / Flutter)",
+      "QA ve test otomasyonu",
+      "Siber güvenlik",
+      "UI/UX tasarımı",
+      "Diğer"
+    ]
   }
 }

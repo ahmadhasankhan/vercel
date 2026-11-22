@@ -399,6 +399,63 @@
     "error": "Er is iets misgegaan. Probeer het opnieuw of mail ons via {email}.",
     "fileTooLarge": "Het bestand is te groot. Upload een PDF van maximaal 10 MB.",
     "cvLink": "Link naar je cv",
-    "cvLinkHint": "Google Drive, Dropbox of OneDrive — zet delen op “iedereen met de link kan bekijken”."
+    "cvLinkHint": "Google Drive, Dropbox of OneDrive — zet delen op “iedereen met de link kan bekijken”.",
+    "formatsTitle": "Kies je leervorm",
+    "formatsSubtitle": "Drie manieren om te leren. Kies de mate van begeleiding die past bij je doelen en budget.",
+    "formats": [
+      {
+        "title": "Online zelfstudie",
+        "tag": "Meest flexibel",
+        "text": "Leer in je eigen tempo met gestructureerde online modules voor je richting.",
+        "features": [
+          "Online modules in je eigen tempo",
+          "Quizzen en programmeeropdrachten",
+          "Een duidelijk leerpad per richting",
+          "Certificaat van deelname"
+        ]
+      },
+      {
+        "title": "Projectpakket",
+        "tag": "Beste prijs-kwaliteit",
+        "text": "Modules in je eigen tempo plus praktijkprojecten, beoordeeld door onze engineers.",
+        "features": [
+          "Alles uit online zelfstudie",
+          "Praktijkprojecten met een duidelijke opdracht",
+          "Code reviews op je inzendingen",
+          "Een projectrepository voor je portfolio"
+        ]
+      },
+      {
+        "title": "Met mentor",
+        "tag": "Meeste begeleiding",
+        "text": "Werk 1:1 met een senior engineer aan echte projecten.",
+        "features": [
+          "Alles uit het projectpakket",
+          "Je eigen senior mentor",
+          "Regelmatige 1:1-sessies en feedback",
+          "Referentiebrief op basis van je prestaties"
+        ]
+      }
+    ],
+    "selectFormat": "Solliciteer voor deze vorm",
+    "format": "Gewenste programmavorm",
+    "fieldOptions": [
+      "Ruby on Rails / Backend",
+      "Frontend (React / Next.js)",
+      "DevOps & Cloud",
+      "AI / Machine Learning",
+      "PHP / Laravel",
+      "Go (Golang)",
+      "Python (Django / FastAPI)",
+      "Node.js / TypeScript (backend)",
+      "Java / Spring Boot",
+      "Databases (PostgreSQL, MySQL, MongoDB)",
+      "Data engineering & analytics",
+      "Mobiele apps (React Native / Flutter)",
+      "QA & testautomatisering",
+      "Cybersecurity",
+      "UI/UX-design",
+      "Anders"
+    ]
   }
 }

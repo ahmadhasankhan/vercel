@@ -399,6 +399,63 @@
     "error": "Something went wrong. Please try again or email us at {email}.",
     "fileTooLarge": "The file is too large. Please upload a PDF under 10 MB.",
     "cvLink": "Link to your CV / résumé",
-    "cvLinkHint": "Google Drive, Dropbox or OneDrive — please set sharing to “anyone with the link can view”."
+    "cvLinkHint": "Google Drive, Dropbox or OneDrive — please set sharing to “anyone with the link can view”.",
+    "formatsTitle": "Choose your learning format",
+    "formatsSubtitle": "Three ways to learn. Pick the level of guidance that fits your goals and budget.",
+    "formats": [
+      {
+        "title": "Online self-study",
+        "tag": "Most flexible",
+        "text": "Learn at your own pace with structured online modules for your track.",
+        "features": [
+          "Self-paced online modules",
+          "Quizzes and coding exercises",
+          "A clear learning path per track",
+          "Certificate of completion"
+        ]
+      },
+      {
+        "title": "Project-based bundle",
+        "tag": "Best value",
+        "text": "Self-paced modules plus hands-on projects, reviewed by our engineers.",
+        "features": [
+          "Everything in online self-study",
+          "Real-world projects with a clear brief",
+          "Code reviews on your submissions",
+          "A portfolio-ready project repository"
+        ]
+      },
+      {
+        "title": "Mentor-based",
+        "tag": "Most guidance",
+        "text": "Work 1:1 with a senior engineer on real-world projects.",
+        "features": [
+          "Everything in the project-based bundle",
+          "Your personal senior mentor",
+          "Regular 1:1 sessions and feedback",
+          "Reference letter based on your performance"
+        ]
+      }
+    ],
+    "selectFormat": "Apply for this format",
+    "format": "Preferred program format",
+    "fieldOptions": [
+      "Ruby on Rails / Backend",
+      "Frontend (React / Next.js)",
+      "DevOps & Cloud",
+      "AI / Machine Learning",
+      "PHP / Laravel",
+      "Go (Golang)",
+      "Python (Django / FastAPI)",
+      "Node.js / TypeScript (backend)",
+      "Java / Spring Boot",
+      "Databases (PostgreSQL, MySQL, MongoDB)",
+      "Data engineering & analytics",
+      "Mobile apps (React Native / Flutter)",
+      "QA & test automation",
+      "Cybersecurity",
+      "UI/UX design",
+      "Other"
+    ]
   }
 }

@@ -1,12 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
+import { FORMAT_VALUES, SELECT_FORMAT_EVENT } from "./FormatPicker";
 import { CAREERS_ALLOW_UPLOAD, CAREERS_FORM_ENDPOINT, CONTACT } from "@/lib/site";
 
 /* Values sent to Formspree stay in English so every application email reads the same. */
-const FIELD_VALUES = ["Ruby on Rails / Backend", "Frontend (React / Next.js)", "DevOps & Cloud", "AI / Machine Learning", "Other"];
+const FIELD_VALUES = [
+  "Ruby on Rails / Backend",
+  "Frontend (React / Next.js)",
+  "DevOps & Cloud",
+  "AI / Machine Learning",
+  "PHP / Laravel",
+  "Go (Golang)",
+  "Python (Django / FastAPI)",
+  "Node.js / TypeScript (backend)",
+  "Java / Spring Boot",
+  "Databases (PostgreSQL, MySQL, MongoDB)",
+  "Data engineering & analytics",
+  "Mobile apps (React Native / Flutter)",
+  "QA & test automation",
+  "Cybersecurity",
+  "UI/UX design",
+  "Other",
+];
 const LEVEL_VALUES = ["Student", "Recent graduate", "Career switcher", "Junior developer (0-2 years)"];
 const DURATION_VALUES = ["1 month", "3 months", "6 months", "Not sure yet"];
 const BUDGET_VALUES = ["Up to EUR 100/month", "EUR 100-250/month", "EUR 250-500/month", "EUR 500-1,000/month", "More than EUR 1,000/month", "Wants to discuss"];
@@ -23,9 +41,17 @@ export default function CareerForm() {
   const locale = useLocale();
   const [status, setStatus] = useState<Status>("idle");
   const [fileError, setFileError] = useState("");
+  const [format, setFormat] = useState("");
+  const formats = (t.raw("formats") as { title: string }[]).map((f) => f.title);
 
-  const tracks = t.raw("tracks") as { title: string }[];
-  const fieldLabels = [...tracks.map((x) => x.title), t("fieldOther")];
+  // A "Apply for this format" button on the cards pre-selects the format here.
+  useEffect(() => {
+    const onSelect = (e: Event) => setFormat((e as CustomEvent<string>).detail);
+    window.addEventListener(SELECT_FORMAT_EVENT, onSelect);
+    return () => window.removeEventListener(SELECT_FORMAT_EVENT, onSelect);
+  }, []);
+
+  const fieldLabels = t.raw("fieldOptions") as string[]; // same order as FIELD_VALUES
   const levels = t.raw("levels") as string[];
   const durations = t.raw("durations") as string[];
   const budgets = t.raw("budgets") as string[];
@@ -51,6 +77,7 @@ export default function CareerForm() {
       if (res.ok) {
         setStatus("success");
         form.reset();
+        setFormat("");
         return;
       }
       const data = (await res.json().catch(() => ({}))) as { error?: string };
@@ -107,6 +134,14 @@ export default function CareerForm() {
       <div>
         <label htmlFor="c-country" className={label}>{t("country")} *</label>
         <input id="c-country" name="country" required autoComplete="country-name" className={input} />
+      </div>
+
+      <div className="sm:col-span-2">
+        <label htmlFor="c-format" className={label}>{t("format")} *</label>
+        <select id="c-format" name="program_format" required value={format} onChange={(e) => setFormat(e.target.value)} className={input}>
+          <option value="" disabled>{t("selectPlaceholder")}</option>
+          {FORMAT_VALUES.map((v, i) => <option key={v} value={v}>{formats[i]}</option>)}
+        </select>
       </div>
 
       <div>

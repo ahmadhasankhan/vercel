@@ -399,6 +399,63 @@
     "error": "Une erreur s'est produite. Veuillez réessayer ou nous écrire à {email}.",
     "fileTooLarge": "Le fichier est trop volumineux. Veuillez téléverser un PDF de moins de 10 Mo.",
     "cvLink": "Lien vers votre CV",
-    "cvLinkHint": "Google Drive, Dropbox ou OneDrive — réglez le partage sur « Toute personne disposant du lien peut consulter »."
+    "cvLinkHint": "Google Drive, Dropbox ou OneDrive — réglez le partage sur « Toute personne disposant du lien peut consulter ».",
+    "formatsTitle": "Choisissez votre format",
+    "formatsSubtitle": "Trois façons d'apprendre. Choisissez le niveau d'accompagnement adapté à vos objectifs et à votre budget.",
+    "formats": [
+      {
+        "title": "Autoformation en ligne",
+        "tag": "Le plus flexible",
+        "text": "Apprenez à votre rythme grâce à des modules en ligne structurés pour votre parcours.",
+        "features": [
+          "Modules en ligne à votre rythme",
+          "Quiz et exercices de code",
+          "Un programme clair pour chaque parcours",
+          "Certificat de fin de programme"
+        ]
+      },
+      {
+        "title": "Formule projets",
+        "tag": "Meilleur rapport qualité-prix",
+        "text": "Des modules à votre rythme et des projets concrets, évalués par nos ingénieurs.",
+        "features": [
+          "Tout le contenu de l'autoformation en ligne",
+          "Des projets concrets avec un cahier des charges clair",
+          "Des revues de code de vos rendus",
+          "Un dépôt de projets prêt pour votre portfolio"
+        ]
+      },
+      {
+        "title": "Avec mentor",
+        "tag": "Accompagnement maximal",
+        "text": "Travaillez en individuel avec un ingénieur senior sur des projets réels.",
+        "features": [
+          "Tout le contenu de la formule projets",
+          "Votre mentor senior attitré",
+          "Des sessions 1:1 et des retours réguliers",
+          "Une lettre de recommandation selon vos résultats"
+        ]
+      }
+    ],
+    "selectFormat": "Postuler pour ce format",
+    "format": "Format de programme souhaité",
+    "fieldOptions": [
+      "Ruby on Rails / Backend",
+      "Frontend (React / Next.js)",
+      "DevOps et Cloud",
+      "IA / Machine Learning",
+      "PHP / Laravel",
+      "Go (Golang)",
+      "Python (Django / FastAPI)",
+      "Node.js / TypeScript (backend)",
+      "Java / Spring Boot",
+      "Bases de données (PostgreSQL, MySQL, MongoDB)",
+      "Data engineering et analyse de données",
+      "Applications mobiles (React Native / Flutter)",
+      "QA et automatisation des tests",
+      "Cybersécurité",
+      "Design UI/UX",
+      "Autre"
+    ]
   }
 }
