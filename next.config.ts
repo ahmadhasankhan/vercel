@@ -10,6 +10,18 @@ const withMDXConfig = withMDX({
 
 const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'mdx'],
+  // Supabase URL + publishable (anon) key are public by design. Expose them to the browser
+  // under fixed names, whichever env var naming is used in .env.local / Vercel.
+  env: {
+    PUBLIC_SUPABASE_URL:
+      process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || '',
+    PUBLIC_SUPABASE_KEY:
+      process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+      process.env.SUPABASE_PUBLISHABLE_KEY ||
+      process.env.SUPABASE_ANON_KEY ||
+      '',
+  },
   poweredByHeader: false,
   compress: true,
   images: {
