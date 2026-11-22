@@ -81,7 +81,7 @@ export const CONSENT_KEY = "asistensia_consent";
  * Formspree endpoint for internship applications (file upload needs a paid Formspree plan).
  * Tip: create a separate Formspree form for applications and paste its ID here.
  */
-export const CAREERS_FORM_ENDPOINT = "https://formspree.io/f/xovwgvnv";
+export const CAREERS_FORM_ENDPOINT = "https://formspree.io/f/mvkaweaw";
 
 /**
  * CV as a file upload (true) or as a link to Google Drive/Dropbox/OneDrive (false).

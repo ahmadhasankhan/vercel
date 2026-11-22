@@ -40,16 +40,27 @@ export default function CareerForm() {
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget; // keep a reference — currentTarget is null after await
     setStatus("sending");
     try {
       const res = await fetch(CAREERS_FORM_ENDPOINT, {
         method: "POST",
-        body: new FormData(e.currentTarget),
+        body: new FormData(form),
         headers: { Accept: "application/json" },
       });
-      if (!res.ok) throw new Error(String(res.status));
-      setStatus("success");
-      e.currentTarget?.reset();
+      if (res.ok) {
+        setStatus("success");
+        form.reset();
+        return;
+      }
+      const data = (await res.json().catch(() => ({}))) as { error?: string };
+      // Formspree form has reCAPTCHA enabled → AJAX is refused. Fall back to a normal
+      // form post: Formspree shows its reCAPTCHA check and then its own thank-you page.
+      if (/recaptcha/i.test(data.error ?? "")) {
+        form.submit();
+        return;
+      }
+      throw new Error(data.error || String(res.status));
     } catch {
       setStatus("error");
     }
