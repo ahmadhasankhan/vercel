@@ -43,3 +43,4 @@ next-env.d.ts
 *.iml
 # dev.to dry-run previews
 scripts/.devto-preview-*
+!.env.example

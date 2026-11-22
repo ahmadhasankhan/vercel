@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/posts";
+import { getAllCourses } from "@/lib/courses";
 import { LOCALES, localizedUrl } from "@/lib/site";
 
 function entry(
@@ -22,6 +23,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...entry("", { changeFrequency: "weekly", priority: 1.0 }),
     ...entry("/blog", { changeFrequency: "weekly", priority: 0.8, lastModified: latest }),
     ...entry("/careers", { changeFrequency: "monthly", priority: 0.5 }),
+    ...entry("/learn", { changeFrequency: "weekly", priority: 0.7 }),
+    ...getAllCourses().flatMap((c) => [
+      ...entry(`/learn/${c.slug}`, { changeFrequency: "weekly", priority: 0.7 }),
+      // only free, published lessons are indexable
+      ...c.lessons.filter((l) => l.free && l.available).flatMap((l) => entry(`/learn/${c.slug}/${l.slug}`, { changeFrequency: "monthly", priority: 0.6 })),
+    ]),
     ...entry("/privacy", { changeFrequency: "yearly", priority: 0.3 }),
     ...posts.flatMap((p) =>
       entry(`/blog/${p.slug}`, {

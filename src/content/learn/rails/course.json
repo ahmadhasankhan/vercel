@@ -1,0 +1,76 @@
+{
+  "slug": "rails",
+  "title": "Ruby on Rails 8: From Zero to Production",
+  "description": "A practical, self-paced written course that takes you from an empty folder to a tested, fast and deployed Rails 8 application. You build one real app step by step, using the tools Rails 8 ships with out of the box.",
+  "level": "Beginner to intermediate",
+  "outcomes": [
+    "Set up a Rails 8 development environment and understand how a Rails app is structured",
+    "Model data with Active Record: migrations, validations, associations and queries",
+    "Build complete CRUD features with RESTful routes, controllers, views and Hotwire",
+    "Add authentication, background jobs and email using the Rails 8 built-in tools",
+    "Write automated tests and find and fix common performance problems",
+    "Deploy your application to your own server with Kamal 2"
+  ],
+  "lessons": [
+    {
+      "slug": "01-your-first-rails-app",
+      "title": "Your First Rails App",
+      "description": "Install Ruby and Rails, create a new app, explore the project structure and follow a request through the MVC pattern.",
+      "free": true
+    },
+    {
+      "slug": "02-models-and-active-record",
+      "title": "Models and Active Record",
+      "description": "Create database tables with migrations, add validations and associations, and query your data from the Rails console.",
+      "free": true
+    },
+    {
+      "slug": "03-routes-controllers-views",
+      "title": "Routes, Controllers and Views",
+      "description": "Build full CRUD pages with RESTful routes, controllers, strong parameters, ERB views, layouts, partials and flash messages.",
+      "free": true
+    },
+    {
+      "slug": "04-forms-and-hotwire",
+      "title": "Forms and Hotwire",
+      "description": "Master form_with and make your app feel fast and interactive with Turbo Drive, Turbo Frames, Turbo Streams and Stimulus.",
+      "free": false
+    },
+    {
+      "slug": "05-authentication",
+      "title": "Authentication and Authorization",
+      "description": "Add sign-in with the Rails 8 authentication generator, work with sessions and the current user, and protect actions.",
+      "free": false
+    },
+    {
+      "slug": "06-background-jobs",
+      "title": "Background Jobs and Email",
+      "description": "Move slow work out of the request with Active Job and Solid Queue, and send email with Action Mailer.",
+      "free": false
+    },
+    {
+      "slug": "07-testing",
+      "title": "Testing Your Rails App",
+      "description": "Write model, controller and system tests with Minitest and fixtures so you can change code with confidence.",
+      "free": false
+    },
+    {
+      "slug": "08-building-a-json-api",
+      "title": "Building a JSON API",
+      "description": "Expose your data as a versioned JSON API with dedicated controllers, JSON rendering and token authentication basics.",
+      "free": false
+    },
+    {
+      "slug": "09-performance",
+      "title": "Performance and Caching",
+      "description": "Fix N+1 queries, add the right indexes, analyze slow queries and cache expensive work with Solid Cache.",
+      "free": false
+    },
+    {
+      "slug": "10-deploying-with-kamal",
+      "title": "Deploying to Production with Kamal",
+      "description": "Prepare your app for production and deploy it to your own server with Kamal 2.",
+      "free": false
+    }
+  ]
+}

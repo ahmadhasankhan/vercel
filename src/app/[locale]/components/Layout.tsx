@@ -35,7 +35,7 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
                 />
               </Link>
             </div>
-            <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+            <div className="hidden xl:flex items-center gap-6">
               <Link href="/#about" className="text-muted hover:text-secondary">
                 {t("aboutUs")}
               </Link>
@@ -51,6 +51,9 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
               <Link href="/#contact" className="text-muted hover:text-secondary">
                 {t("contact")}
               </Link>
+              <Link href="/learn" className="text-muted hover:text-secondary">
+                {t("learn")}
+              </Link>
               <Link href="/careers" className="text-muted hover:text-secondary">
                 {t("careers")}
               </Link>
@@ -64,7 +67,7 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
                 {t("bookCall")}
               </a>
             </div>
-            <div className="lg:hidden flex items-center gap-2">
+            <div className="xl:hidden flex items-center gap-2">
               <LanguageSwitcher compact />
               {/* Mobile menu (no JS needed) */}
               <details className="group relative order-last">
@@ -82,6 +85,7 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
                     ["/#ai", t("ai")],
                     ["/blog", t("blog")],
                     ["/#contact", t("contact")],
+                    ["/learn", t("learn")],
                     ["/careers", t("careers")],
                   ].map(([href, label]) => (
                     <Link key={href} href={href} className="block px-4 py-2.5 text-primary hover:bg-surface">
@@ -215,6 +219,11 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
                   <li>
                     <Link href="/#contact" className="text-muted hover:text-secondary">
                       {f("contact")}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/learn" className="text-muted hover:text-secondary">
+                      {t("learn")}
                     </Link>
                   </li>
                   <li>

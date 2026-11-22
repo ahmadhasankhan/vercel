@@ -1,0 +1,307 @@
+---
+title: "Models and Active Record"
+description: "Create tables with migrations, add validations and associations, and query your data from the Rails console using Active Record."
+order: 2
+duration: 40
+free: true
+---
+
+Your blog can show a page, but it cannot remember anything yet. In this lesson you give it a database. You will create **Article** and **Comment** models, change the database with migrations, protect your data with validations, connect the two models with associations, and use the Rails console to create and query records. This is the foundation every later lesson builds on.
+
+## What you'll learn
+
+- What Active Record is and which naming conventions it follows
+- How to generate a model and run a migration
+- How to experiment with your data in the Rails console
+- How to validate data before it is saved
+- How to connect models with `has_many` and `belongs_to`
+- How to write common queries and reusable scopes
+
+## What is Active Record?
+
+**Active Record** is the part of Rails that talks to your database. It is an ORM (object-relational mapper): each database **table** maps to a Ruby **class**, each **row** to an object, and each **column** to an attribute on that object.
+
+Active Record relies on conventions so you do not have to configure anything:
+
+- The model `Article` (singular, CamelCase) maps to the table `articles` (plural, snake_case).
+- Every table gets an `id` primary key automatically.
+- The columns `created_at` and `updated_at` are filled in for you.
+- A column called `article_id` is a foreign key pointing to the `articles` table.
+
+## Generating the Article model
+
+From your `blog` folder, run:
+
+```bash
+bin/rails generate model Article title:string body:text published:boolean
+```
+
+The arguments after the model name are column names and types. Common types are `string` (short text), `text` (long text), `integer`, `decimal`, `boolean`, `date`, `datetime` and `references` (a foreign key).
+
+The generator creates several files. The two most important are the model and a **migration**:
+
+```ruby title="app/models/article.rb"
+class Article < ApplicationRecord
+end
+```
+
+The model is empty, yet it already knows about every column in the `articles` table. Active Record reads the columns from the database when the app runs.
+
+## Migrations
+
+A migration is a Ruby file that describes a change to your database schema. Migrations are versioned with a timestamp in the filename, so every developer on a team and every server applies the same changes in the same order. Open the new file in `db/migrate/`:
+
+```ruby title="db/migrate/20261122101500_create_articles.rb"
+class CreateArticles < ActiveRecord::Migration[8.1]
+  def change
+    create_table :articles do |t|
+      t.string :title
+      t.text :body
+      t.boolean :published
+
+      t.timestamps
+    end
+  end
+end
+```
+
+The number in brackets matches your Rails version, so you may see `8.0` instead. `t.timestamps` adds the `created_at` and `updated_at` columns.
+
+Before running it, improve it. An article should be a draft until you publish it, so give `published` a default value and forbid `NULL`:
+
+```ruby
+t.boolean :published, default: false, null: false
+```
+
+Now apply the migration:
+
+```bash
+bin/rails db:migrate
+```
+
+Rails creates the table in your SQLite database (in `storage/development.sqlite3`) and updates `db/schema.rb`, a snapshot of your current database structure. You never edit `schema.rb` by hand; it is regenerated every time you migrate.
+
+<Callout type="tip">
+
+Made a mistake in a migration you just ran? Run `bin/rails db:rollback` to undo the last one, fix the file, and run `bin/rails db:migrate` again. Only do this for migrations that have not been shared with others yet. Once a migration is committed and run elsewhere, write a **new** migration to make further changes.
+
+</Callout>
+
+## The Rails console
+
+The Rails console is an interactive Ruby session with your whole app loaded. It is the best place to explore models. Start it with:
+
+```bash
+bin/rails console
+```
+
+Now create your first article:
+
+```ruby
+article = Article.new(title: "Hello Rails", body: "My very first post.")
+article.new_record?   # => true
+article.save          # => true
+article.id            # => 1
+article.published     # => false (the default from the migration)
+```
+
+`new` builds an object in memory and `save` writes it to the database. `create` does both in one step:
+
+```ruby
+Article.create(title: "Second post", body: "Rails is fun.", published: true)
+```
+
+Reading, updating and deleting are just as short:
+
+```ruby
+Article.count                              # => 2
+Article.first                              # the oldest article by id
+Article.find(1)                            # find by id, raises an error if missing
+Article.find_by(title: "Second post")      # first match, or nil
+
+article = Article.find(1)
+article.update(published: true)            # changes and saves in one call
+article.destroy                            # deletes the row
+```
+
+Watch the console output: Active Record prints the SQL it runs for each command. Reading that SQL is a great way to learn what your Ruby code really does.
+
+<Callout type="info">
+
+Want to experiment without keeping your changes? Start the console with `bin/rails console --sandbox`. Everything you do is rolled back when you exit. After changing model code while the console is open, type `reload!` to load the new version.
+
+</Callout>
+
+## Validations
+
+Right now you can save an article without a title, which makes no sense for a blog. **Validations** check data before it reaches the database:
+
+```ruby title="app/models/article.rb"
+class Article < ApplicationRecord
+  validates :title, presence: true, length: { maximum: 120 }
+  validates :body, presence: true
+end
+```
+
+Try it in the console (run `reload!` first if it is still open):
+
+```ruby
+article = Article.new(title: "")
+article.valid?               # => false
+article.save                 # => false, nothing is written
+article.errors.full_messages
+# => ["Title can't be blank", "Body can't be blank"]
+```
+
+`save` and `create` return `false` (or an unsaved object) when validation fails. Their "bang" versions, `save!` and `create!`, raise an exception instead. Use the bang versions in scripts and seeds where a failure should stop everything; use the normal versions in controllers, where you want to show the errors to the user. You will do exactly that in the next lesson.
+
+Other built-in validations you will use often include `uniqueness`, `numericality`, `inclusion` and `format`.
+
+## Comments and associations
+
+A blog post can have many comments, and each comment belongs to one article. Generate the Comment model with a `references` column:
+
+```bash
+bin/rails generate model Comment article:references author:string body:text
+bin/rails db:migrate
+```
+
+The `references` type creates an `article_id` column with an index and a foreign key constraint, so the database itself refuses comments that point to a missing article. The generator also adds the association to the model:
+
+```ruby title="app/models/comment.rb"
+class Comment < ApplicationRecord
+  belongs_to :article
+
+  validates :author, presence: true
+  validates :body, presence: true, length: { maximum: 1000 }
+end
+```
+
+Add the other side of the relationship to `Article`:
+
+```ruby title="app/models/article.rb"
+class Article < ApplicationRecord
+  has_many :comments, dependent: :destroy
+
+  validates :title, presence: true, length: { maximum: 120 }
+  validates :body, presence: true
+end
+```
+
+`dependent: :destroy` means that when you delete an article, its comments are deleted too. Without it, the foreign key would block the deletion.
+
+Associations give you convenient methods in both directions:
+
+```ruby
+article = Article.create!(title: "Associations", body: "Let's connect models.")
+
+comment = article.comments.create!(author: "Aisha", body: "Great explanation!")
+comment.article              # => the article
+article.comments.count       # => 1
+article.comments.first.author # => "Aisha"
+```
+
+Calling `article.comments.create!` sets `article_id` for you. Note that `belongs_to` is **required by default**: a comment without an article is invalid.
+
+<Callout type="warning">
+
+Associations must match your schema. `belongs_to :article` needs an `article_id` column on the `comments` table, and the name you use with `has_many` is plural (`:comments`) while `belongs_to` is singular (`:article`). Mixing these up is one of the most common sources of confusing errors.
+
+</Callout>
+
+## Querying your data
+
+Active Record has a chainable query interface. Here are the methods you will reach for every day:
+
+```ruby
+Article.where(published: true)                    # all published articles
+Article.where(published: false).count             # number of drafts
+Article.order(created_at: :desc)                  # newest first
+Article.where(published: true).order(created_at: :desc).limit(5)
+Article.where("title LIKE ?", "%Rails%")          # SQL fragment with a safe placeholder
+Article.pluck(:title)                             # an array of titles only
+Article.exists?(title: "Hello Rails")             # true or false
+```
+
+These methods return an `ActiveRecord::Relation`, not an array. A relation is **lazy**: no SQL runs until you actually need the records, for example when you loop over them or call `count`. That is why you can keep chaining. To see the SQL a relation would run, call `to_sql` on it:
+
+```ruby
+Article.where(published: true).order(created_at: :desc).to_sql
+```
+
+When you use the same condition in many places, give it a name with a **scope**:
+
+```ruby title="app/models/article.rb"
+class Article < ApplicationRecord
+  has_many :comments, dependent: :destroy
+
+  validates :title, presence: true, length: { maximum: 120 }
+  validates :body, presence: true
+
+  scope :published, -> { where(published: true) }
+  scope :recent, -> { order(created_at: :desc) }
+end
+```
+
+Now your queries read like plain English: `Article.published.recent.limit(5)`.
+
+Always pass user input to `where` as a hash or with `?` placeholders, never by building SQL strings with interpolation. Placeholders protect you from SQL injection.
+
+## Seed data
+
+Typing records into the console gets old quickly. Put sample data in `db/seeds.rb`:
+
+```ruby title="db/seeds.rb"
+Comment.destroy_all
+Article.destroy_all
+
+welcome = Article.create!(
+  title: "Welcome to the blog",
+  body: "This is the first published article.",
+  published: true
+)
+welcome.comments.create!(author: "Sam", body: "Looking forward to more posts.")
+
+Article.create!(
+  title: "A draft in progress",
+  body: "This article is not published yet."
+)
+```
+
+Load it with:
+
+```bash
+bin/rails db:seed
+```
+
+Because the file deletes existing records first, you can run it as often as you like to reset your development data.
+
+<Exercise title="Practice queries in the console">
+
+1. Run `bin/rails db:seed`, then open `bin/rails console`.
+2. Create two more published articles, each with at least two comments, using `article.comments.create!`.
+3. Try to create a comment with an empty author. What does `errors.full_messages` say?
+4. Write queries that return:
+   - the titles of all published articles, newest first
+   - the number of comments on the welcome article
+   - all drafts
+5. Delete one article with `destroy` and confirm with `Comment.count` that its comments were deleted too.
+
+</Exercise>
+
+## Check your understanding
+
+<Quiz question="What does running bin/rails db:migrate do?" options={["It generates a new model file in app/models", "It applies pending migrations to the database and updates db/schema.rb", "It fills the database with sample data from db/seeds.rb"]} answer={1} explanation="db:migrate runs every migration that has not been applied yet and regenerates db/schema.rb. Models are created by generators, and seed data is loaded with db:seed." />
+
+<Quiz question="An Article has_many comments with dependent: :destroy. What happens when you call destroy on an article?" options={["The article and all of its comments are deleted", "Only the article is deleted and the comments keep a missing article_id", "Nothing, because articles with comments can never be deleted"]} answer={0} explanation="dependent: :destroy tells Active Record to destroy each associated comment before deleting the article, so no orphaned comments are left behind." />
+
+## Summary
+
+- **Active Record** maps tables to classes and rows to objects, following naming conventions.
+- `bin/rails generate model` creates a model and a **migration**; `bin/rails db:migrate` applies it and updates `db/schema.rb`.
+- The **Rails console** is your playground for creating, reading, updating and deleting records.
+- **Validations** such as `presence` and `length` keep bad data out; check `errors.full_messages` when a save fails.
+- `has_many` and `belongs_to` connect models; `dependent: :destroy` cleans up related records.
+- Queries like `where`, `order` and `limit` are lazy and chainable, and **scopes** give them reusable names.
+
+In the next lesson you will put your models on the web with routes, controllers and views, so visitors can read articles and leave comments.

@@ -1,0 +1,401 @@
+---
+title: "Routes, Controllers and Views"
+description: "Build full CRUD pages for your blog with RESTful routes, controllers, strong parameters, ERB views, layouts, partials and flash messages."
+order: 3
+duration: 45
+free: true
+---
+
+You now have articles and comments in your database, but only you can see them, and only through the console. In this lesson you put them on the web. You will define RESTful routes, write a controller with the seven standard actions, accept form input safely with strong parameters, and build views with ERB, layouts and partials. At the end, visitors can create, read, update and delete articles and leave comments.
+
+## What you'll learn
+
+- How RESTful routes work and how `resources` generates them
+- How controllers and actions respond to requests
+- How strong parameters protect your app, using the modern `params.expect`
+- How to write ERB views and reuse markup with partials
+- How layouts wrap every page
+- How to show feedback with flash messages
+
+## RESTful routes and resources
+
+Rails encourages you to think of your app as a set of **resources**, such as articles, that you can create, read, update and delete (CRUD). Each operation maps to a combination of an HTTP verb and a URL. Instead of writing seven routes by hand, you declare the resource once:
+
+```ruby title="config/routes.rb"
+Rails.application.routes.draw do
+  root "articles#index"
+
+  resources :articles do
+    resources :comments, only: [:create, :destroy]
+  end
+
+  get "up" => "rails/health#show", as: :rails_health_check
+end
+```
+
+The home page now lists articles, so the welcome page from lesson 1 is no longer the root. Comments are **nested** inside articles, because a comment always belongs to an article. We only need two comment actions, so `only:` limits the generated routes.
+
+See what Rails generated with:
+
+```bash
+bin/rails routes -c articles
+```
+
+```bash
+      Prefix Verb   URI Pattern                  Controller#Action
+    articles GET    /articles(.:format)          articles#index
+             POST   /articles(.:format)          articles#create
+ new_article GET    /articles/new(.:format)      articles#new
+edit_article GET    /articles/:id/edit(.:format) articles#edit
+     article GET    /articles/:id(.:format)      articles#show
+             PATCH  /articles/:id(.:format)      articles#update
+             PUT    /articles/:id(.:format)      articles#update
+             DELETE /articles/:id(.:format)      articles#destroy
+```
+
+The **Prefix** column gives you URL helpers. Add `_path` to get a relative URL: `articles_path` is `/articles`, `new_article_path` is `/articles/new`, and `article_path(@article)` is `/articles/1`. Always use these helpers instead of typing URLs, so links keep working if you change your routes. The nested comment routes produce helpers like `article_comments_path(@article)`.
+
+## The articles controller
+
+Create the controller file by hand (or with `bin/rails generate controller Articles`, which also creates an empty views folder):
+
+```ruby title="app/controllers/articles_controller.rb"
+class ArticlesController < ApplicationController
+  before_action :set_article, only: %i[show edit update destroy]
+
+  def index
+    @articles = Article.recent
+  end
+
+  def show
+  end
+
+  def new
+    @article = Article.new
+  end
+
+  def create
+    @article = Article.new(article_params)
+
+    if @article.save
+      redirect_to @article, notice: "Article was successfully created."
+    else
+      render :new, status: :unprocessable_content
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @article.update(article_params)
+      redirect_to @article, notice: "Article was successfully updated."
+    else
+      render :edit, status: :unprocessable_content
+    end
+  end
+
+  def destroy
+    @article.destroy
+    redirect_to articles_path, notice: "Article was deleted.", status: :see_other
+  end
+
+  private
+
+  def set_article
+    @article = Article.find(params.expect(:id))
+  end
+
+  def article_params
+    params.expect(article: [:title, :body, :published])
+  end
+end
+```
+
+Let's walk through the important ideas:
+
+- **Instance variables** like `@article` are automatically available in the view.
+- **`before_action`** runs `set_article` before the listed actions, so you load the record in one place. If the id does not exist, `find` raises an error and Rails responds with a 404 page in production.
+- **Implicit rendering**: `show` and `edit` are empty, so Rails renders `show.html.erb` and `edit.html.erb`.
+- **Create and update** follow a pattern you will write hundreds of times. If saving works, **redirect** to the article. If validation fails, **render** the form again so the user can see the errors, with HTTP status 422.
+- **`redirect_to @article`** works because Rails knows how to turn an Article into `article_path(@article)`.
+- **Methods below `private`** are helpers, not actions, and cannot be reached through a URL.
+
+<Callout type="info">
+
+Older code and some Rails versions use `status: :unprocessable_entity` instead of `:unprocessable_content`. Both mean HTTP 422. Returning 422 after a failed form submission matters: Turbo, which handles form submissions in Rails 8, expects it in order to show the re-rendered form. Similarly, `status: :see_other` (303) after a delete makes the browser follow the redirect with a GET request.
+
+</Callout>
+
+## Strong parameters
+
+When a form is submitted, its data arrives in `params`. You must never pass `params` straight to `Article.new`, because a malicious user could add extra fields, for example to set columns you never meant to expose. **Strong parameters** make you list exactly which attributes are allowed.
+
+Rails 8 introduced `params.expect`, which is the modern style:
+
+```ruby
+params.expect(article: [:title, :body, :published])
+```
+
+This says: I expect an `article` hash containing only these keys. Anything else is dropped. If the `article` key is missing or has the wrong shape, Rails responds with **400 Bad Request** instead of crashing. `params.expect(:id)` works the same way for a single value.
+
+In existing apps you will often see the older equivalent, which still works:
+
+```ruby
+params.require(:article).permit(:title, :body, :published)
+```
+
+Prefer `expect` in new code; it is shorter and handles tampered input more gracefully.
+
+## Views with ERB
+
+Views live in `app/views/articles/`, one file per action. ERB has two tags you need to know: `<%= %>` runs Ruby and **outputs** the result, while `<% %>` runs Ruby **without** output, which you use for loops and conditions. Output is HTML-escaped automatically, so user content cannot inject scripts into your pages.
+
+### The index page and a partial
+
+```erb title="app/views/articles/index.html.erb"
+<% content_for :title, "Articles" %>
+
+<h1>Articles</h1>
+
+<p><%= link_to "New article", new_article_path %></p>
+
+<%= render @articles %>
+```
+
+`render @articles` is a shortcut: Rails renders the **partial** `app/views/articles/_article.html.erb` once for each article and passes it in a local variable called `article`. Partial file names start with an underscore:
+
+```erb title="app/views/articles/_article.html.erb"
+<article id="<%= dom_id(article) %>">
+  <h2><%= link_to article.title, article %></h2>
+  <p><%= truncate(article.body, length: 150) %></p>
+  <% unless article.published %>
+    <p><em>Draft</em></p>
+  <% end %>
+</article>
+```
+
+`dom_id(article)` produces an id like `article_1`, which becomes useful with Hotwire in the next lesson.
+
+### The form partial
+
+The `new` and `edit` pages need the same form, so put it in a partial:
+
+```erb title="app/views/articles/_form.html.erb"
+<%= form_with model: article do |form| %>
+  <% if article.errors.any? %>
+    <div>
+      <h2><%= pluralize(article.errors.count, "error") %> prevented this article from being saved:</h2>
+      <ul>
+        <% article.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :body %>
+    <%= form.text_area :body, rows: 10 %>
+  </div>
+
+  <div>
+    <%= form.check_box :published %>
+    <%= form.label :published %>
+  </div>
+
+  <%= form.submit %>
+<% end %>
+```
+
+`form_with model: article` is smart: for a new article it submits a POST to `/articles`, and for an existing one a PATCH to `/articles/1`. The submit button label even changes between "Create Article" and "Update Article". Field names like `article[title]` match what `article_params` expects. You will learn much more about forms in the next lesson.
+
+Now the two pages that use it:
+
+```erb title="app/views/articles/new.html.erb"
+<% content_for :title, "New article" %>
+
+<h1>New article</h1>
+
+<%= render "form", article: @article %>
+
+<p><%= link_to "Back to articles", articles_path %></p>
+```
+
+```erb title="app/views/articles/edit.html.erb"
+<% content_for :title, "Edit article" %>
+
+<h1>Edit article</h1>
+
+<%= render "form", article: @article %>
+
+<p><%= link_to "Show this article", @article %></p>
+```
+
+Passing `article: @article` explicitly, instead of using `@article` inside the partial, keeps partials reusable and easy to understand.
+
+### The show page
+
+```erb title="app/views/articles/show.html.erb"
+<% content_for :title, @article.title %>
+
+<h1><%= @article.title %></h1>
+
+<%= simple_format(@article.body) %>
+
+<p>
+  <%= link_to "Edit", edit_article_path(@article) %> |
+  <%= link_to "Back to articles", articles_path %>
+</p>
+
+<%= button_to "Delete article", @article, method: :delete,
+      form: { data: { turbo_confirm: "Are you sure?" } } %>
+
+<h2>Comments (<%= @article.comments.size %>)</h2>
+
+<%= render @article.comments %>
+
+<h3>Add a comment</h3>
+
+<%= render "comments/form", article: @article %>
+```
+
+`simple_format` turns line breaks in the body into paragraphs. Deleting uses `button_to`, which renders a small form, because a destructive action should never be a plain link that a crawler could follow. The `turbo_confirm` data attribute makes Turbo show a confirmation dialog first.
+
+<Callout type="warning">
+
+Never use the `raw` helper or call `html_safe` on content written by users. ERB escapes output for a reason: it protects your visitors from cross-site scripting (XSS). Only mark strings as safe when you created the HTML yourself.
+
+</Callout>
+
+## Comments: a nested controller
+
+Comments are created from the article page, so their controller always loads the parent article first:
+
+```ruby title="app/controllers/comments_controller.rb"
+class CommentsController < ApplicationController
+  before_action :set_article
+
+  def create
+    @comment = @article.comments.build(comment_params)
+
+    if @comment.save
+      redirect_to @article, notice: "Thanks for your comment!"
+    else
+      redirect_to @article, alert: "Your comment could not be saved. Please fill in your name and a comment."
+    end
+  end
+
+  def destroy
+    @article.comments.find(params.expect(:id)).destroy
+    redirect_to @article, notice: "Comment deleted.", status: :see_other
+  end
+
+  private
+
+  def set_article
+    @article = Article.find(params.expect(:article_id))
+  end
+
+  def comment_params
+    params.expect(comment: [:author, :body])
+  end
+end
+```
+
+Looking the comment up through `@article.comments` guarantees it really belongs to that article. Here are the two comment partials:
+
+```erb title="app/views/comments/_comment.html.erb"
+<div id="<%= dom_id(comment) %>">
+  <p><strong><%= comment.author %></strong> wrote:</p>
+  <%= simple_format(comment.body) %>
+  <%= button_to "Delete comment", [comment.article, comment], method: :delete %>
+</div>
+```
+
+```erb title="app/views/comments/_form.html.erb"
+<%= form_with model: [article, Comment.new] do |form| %>
+  <div>
+    <%= form.label :author, "Your name" %>
+    <%= form.text_field :author %>
+  </div>
+
+  <div>
+    <%= form.label :body, "Comment" %>
+    <%= form.text_area :body, rows: 3 %>
+  </div>
+
+  <%= form.submit "Post comment" %>
+<% end %>
+```
+
+Passing an array like `[article, Comment.new]` to `form_with` tells Rails to build the nested URL, `/articles/1/comments`.
+
+## Layouts and flash messages
+
+Every view is rendered inside a **layout**, by default `app/views/layouts/application.html.erb`. The layout holds the parts shared by every page: the HTML head, stylesheets, JavaScript and navigation. The `yield` call marks where the current view goes. Keep the generated `head` section as it is and update the `body`:
+
+```erb title="app/views/layouts/application.html.erb"
+<body>
+  <header>
+    <nav><%= link_to "My Blog", root_path %></nav>
+  </header>
+
+  <main>
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+
+    <%= yield %>
+  </main>
+</body>
+```
+
+The generated head already uses `content_for(:title)`, which is why each view sets its own title with `content_for :title`.
+
+The **flash** is a short-lived message that survives exactly one redirect. When the controller calls `redirect_to @article, notice: "..."`, the message is stored, the browser follows the redirect, and the next page shows it once. `notice` and `alert` are shortcuts for `flash[:notice]` and `flash[:alert]`. If you want to show a message on a page you **render** rather than redirect to, use `flash.now[:alert] = "..."` so it does not leak onto the following page.
+
+<Exercise title="Show only published articles to readers">
+
+Your index page currently lists drafts too. Improve it:
+
+1. In `ArticlesController#index`, use the `published` scope from lesson 2 so the list shows only published articles, newest first.
+2. Add a new route and action that lists drafts at `/articles/drafts`. Inside the `resources :articles` block, add:
+
+```ruby
+collection do
+  get :drafts
+end
+```
+
+3. Run `bin/rails routes -c articles` and find the new route and its helper name.
+4. Write the `drafts` action and create `app/views/articles/drafts.html.erb`, reusing the `_article` partial with `render @articles`.
+5. Add a link to the drafts page in the layout navigation.
+
+</Exercise>
+
+## Check your understanding
+
+<Quiz question="Which line is the modern Rails 8 way to permit the title and body of an article from params?" options={["params.expect(article: [:title, :body])", "params.permit_all(:article)", "params[:article].allow(:title, :body)"]} answer={0} explanation="params.expect, introduced in Rails 8, declares the expected structure and permitted keys. The older equivalent is params.require(:article).permit(:title, :body). The other two methods do not exist." />
+
+<Quiz question="When @article.save fails in the create action, why does the controller render the new template instead of redirecting?" options={["Because redirects are not allowed after a POST request", "So the form is shown again with the invalid @article and its error messages, which a redirect would lose", "Because render automatically fixes the validation errors"]} answer={1} explanation="A redirect starts a brand new request, and the in-memory @article with its errors would be lost. Rendering the form directly, with status 422, keeps the user's input and shows what went wrong." />
+
+## Summary
+
+- `resources :articles` generates the seven RESTful routes; nest resources like comments inside their parent.
+- Use `bin/rails routes` to see routes and their URL helpers, such as `article_path(@article)`.
+- Controller **actions** load data into instance variables, then render a view or redirect.
+- Redirect after a successful save; render the form with status 422 after a failed one.
+- **Strong parameters** whitelist input; `params.expect` is the modern style, `require` and `permit` the older one.
+- **Partials** (files starting with `_`) remove duplication, the **layout** wraps every page, and the **flash** shows one-time messages after a redirect.
+
+In the next lesson you will dig deeper into forms and use Hotwire to make your blog feel fast and interactive without writing much JavaScript.

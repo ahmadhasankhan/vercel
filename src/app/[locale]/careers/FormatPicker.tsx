@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 
 /** English values sent with the application (keep in sync with CareerForm). */
 export const FORMAT_VALUES = ["Online self-study", "Project-based bundle", "Mentor-based"] as const;
@@ -10,6 +11,7 @@ type Format = { title: string; tag: string; text: string; features: string[] };
 
 export default function FormatPicker() {
   const t = useTranslations("Careers");
+  const tl = useTranslations("Learn");
   const formats = t.raw("formats") as Format[];
 
   const choose = (i: number) => {
@@ -56,6 +58,11 @@ export default function FormatPicker() {
             >
               {t("selectFormat")}
             </button>
+            {i === 0 && (
+              <Link href="/learn" className="mt-3 text-center text-sm font-semibold text-secondary hover:underline">
+                {tl("startFree")} &rarr;
+              </Link>
+            )}
           </li>
         );
       })}

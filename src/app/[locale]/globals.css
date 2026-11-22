@@ -143,3 +143,21 @@ body {
   font-size: 0.875em;
 }
 .post-body :not(pre) > code[data-language] span { color: inherit !important; }
+
+/* ---------------------------------------------------------------
+ * Course lessons (Markdown typography for /learn lesson pages)
+ * ------------------------------------------------------------- */
+.lesson-body > * + * { margin-top: 1rem; }
+.lesson-body h2 { margin-top: 2.5rem; font-size: 1.6rem; line-height: 1.25; font-weight: 700; color: var(--primary); }
+.lesson-body h3 { margin-top: 2rem; font-size: 1.25rem; font-weight: 700; color: var(--primary); }
+.lesson-body p { line-height: 1.75; }
+.lesson-body ul { list-style: disc; padding-inline-start: 1.5rem; }
+.lesson-body ol { list-style: decimal; padding-inline-start: 1.5rem; }
+.lesson-body li + li { margin-top: 0.35rem; }
+.lesson-body li::marker { color: var(--secondary); }
+.lesson-body a { color: var(--secondary); text-decoration: underline; text-underline-offset: 3px; }
+.lesson-body strong { color: var(--primary); font-weight: 700; }
+.lesson-body blockquote { border-inline-start: 4px solid var(--surface-strong); padding-inline-start: 1rem; color: var(--muted); }
+.lesson-body table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.lesson-body th, .lesson-body td { border: 1px solid var(--surface-strong); padding: 0.5rem 0.75rem; text-align: start; }
+.lesson-body th { background: var(--surface); }

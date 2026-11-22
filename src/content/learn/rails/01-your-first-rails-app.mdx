@@ -1,0 +1,232 @@
+---
+title: "Your First Rails App"
+description: "Install Ruby and Rails 8, create your first app, explore the project structure and follow a request through the MVC pattern."
+order: 1
+duration: 30
+free: true
+---
+
+Welcome to the course. Over the next ten lessons you will build a real web application with Ruby on Rails 8 and take it all the way to production. In this first lesson you set up your machine, generate a new Rails app called **blog**, look around the project, and follow a single web request from the browser to your code and back. By the end you will have a running app with your own page on it.
+
+## What you'll learn
+
+- What Rails is and why it is still a great choice for building web apps
+- How to install Ruby and Rails with a version manager
+- How to create a new app with `rails new` and start it with `bin/dev`
+- What lives where in a Rails project
+- How the request/response cycle works
+- How Models, Views and Controllers (MVC) fit together
+
+## What is Rails?
+
+Ruby on Rails is a web framework written in the Ruby programming language. It gives you everything you need to build a database-backed web application: routing, a database layer, HTML templates, background jobs, email, testing tools and even a deployment tool.
+
+Two ideas shape almost everything in Rails:
+
+- **Convention over configuration.** Rails makes sensible decisions for you. If you have a model called `Article`, Rails expects a database table called `articles` and a controller called `ArticlesController`. Follow the conventions and you write far less setup code.
+- **Batteries included.** A fresh Rails 8 app already comes with a database (SQLite), an asset pipeline (Propshaft), JavaScript tooling (importmap and Hotwire), a job queue (Solid Queue), a cache (Solid Cache), WebSockets (Solid Cable) and a deployment tool (Kamal). You can build and ship a complete product without adding a single extra service.
+
+That is why companies from small startups to large platforms still choose Rails: a small team can move very fast.
+
+## Setting up your machine
+
+You need two things: **Ruby 3.3 or newer** and the **Rails gem**. (Ruby 3.4 and Ruby 4.0 work fine too.)
+
+We strongly recommend installing Ruby through a **version manager** such as mise, rbenv or asdf rather than using the Ruby that may come with your operating system. A version manager lets you install several Ruby versions side by side and switch between them per project, which you will need once you work on more than one app.
+
+For example, with mise installed, you can install and activate a recent Ruby like this:
+
+```bash
+mise use --global ruby@3.4
+ruby -v
+```
+
+The exact steps for installing the version manager itself depend on your operating system, so follow the official Rails guides or your version manager's documentation for your OS. You may also need a C compiler and a few development libraries, which the guides list.
+
+Once Ruby works, install Rails:
+
+```bash
+gem install rails
+rails -v
+```
+
+You should see a version that starts with `Rails 8.`. Any 8.x version (8.0 or 8.1) works for this course.
+
+<Callout type="tip">
+
+You do not need to install a database server. Rails 8 uses **SQLite** by default, which stores your data in a single file inside the project. It is great for development and perfectly fine for many small production apps. Later you can switch to PostgreSQL or MySQL if you need to.
+
+</Callout>
+
+## Creating the blog app
+
+Move to the folder where you keep your projects and run:
+
+```bash
+rails new blog
+```
+
+Rails creates a `blog` folder, generates a few hundred files, installs the gems listed in the `Gemfile` with Bundler, and initializes a Git repository. This can take a minute the first time.
+
+If you prefer to use Tailwind CSS for styling, you can generate the app with `rails new blog --css=tailwind` instead. This course keeps styling minimal, so the default is fine.
+
+Now start the app:
+
+```bash
+cd blog
+bin/dev
+```
+
+Open `http://localhost:3000` in your browser. You should see the Rails welcome page with the Rails logo and your Rails and Ruby versions. Congratulations, you are running a Rails app.
+
+To stop the server, press `Ctrl+C` in the terminal.
+
+<Callout type="info">
+
+`bin/dev` starts everything your app needs in development. In a default app it simply runs `bin/rails server`. If you chose Tailwind or another CSS bundler, it also starts a process that rebuilds your CSS whenever you change a file. Using `bin/dev` every time means you never have to remember which case you are in.
+
+</Callout>
+
+## A tour of the project
+
+Open the `blog` folder in your editor. Here are the parts you will use most:
+
+```bash
+blog/
+├── app/              # Your application code
+│   ├── assets/       # Stylesheets and images
+│   ├── controllers/  # Controllers handle requests
+│   ├── helpers/      # Small view helper methods
+│   ├── javascript/   # Stimulus controllers and JS entry point
+│   ├── jobs/         # Background jobs
+│   ├── mailers/      # Email classes
+│   ├── models/       # Models: your data and business logic
+│   └── views/        # HTML templates (ERB)
+├── bin/              # Scripts: rails, dev, setup, kamal...
+├── config/           # Configuration, including routes.rb and database.yml
+├── db/               # Migrations, schema and seed data
+├── log/              # Log files
+├── public/           # Static files served as-is (error pages, favicon)
+├── storage/          # SQLite databases and uploaded files in development
+├── test/             # Automated tests
+├── Dockerfile        # Used by Kamal to build your production image
+└── Gemfile           # The Ruby gems your app depends on
+```
+
+A few files deserve a special mention:
+
+- `config/routes.rb` decides which code handles which URL.
+- `config/database.yml` describes your databases for each environment (development, test, production).
+- `Gemfile` lists your dependencies. After changing it, run `bundle install`.
+- `bin/rails` is the command you use for almost everything: generators, the console, migrations and more. Always run it from the project folder.
+
+Rails runs in an **environment**. On your laptop that is `development`, which reloads your code on every request so you see changes immediately. Tests run in `test`, and your live app runs in `production`.
+
+## MVC: Models, Views and Controllers
+
+Rails organizes your code with the **Model-View-Controller** pattern:
+
+- **Models** (`app/models`) represent your data and the rules around it. An `Article` model knows how to load and save articles from the database and checks that every article has a title.
+- **Views** (`app/views`) are templates that turn data into HTML. They should contain as little logic as possible.
+- **Controllers** (`app/controllers`) sit in the middle. A controller receives a request, asks models for data, and picks a view to render the response.
+
+Keeping these responsibilities apart makes your app much easier to understand and change as it grows. You will meet each part in depth in the next two lessons.
+
+## The request/response cycle
+
+Every time you load a page, the same journey happens:
+
+1. Your **browser** sends an HTTP request, for example `GET /`.
+2. The web server (**Puma**, included with Rails) receives it and hands it to Rails.
+3. The **router** looks in `config/routes.rb` to find which controller and action should handle this URL.
+4. The **controller action** runs. It may load data through **models**.
+5. The controller renders a **view**, producing HTML.
+6. Rails sends the HTML back as the **response**, and your browser displays it.
+
+Let's make this concrete by adding your own home page. Run this generator:
+
+```bash
+bin/rails generate controller Welcome index
+```
+
+Rails creates a controller, a view, a helper, a test file and a route. Open the controller:
+
+```ruby title="app/controllers/welcome_controller.rb"
+class WelcomeController < ApplicationController
+  def index
+  end
+end
+```
+
+The `index` method is an **action**. It is empty, and that is fine: by convention, Rails renders the view with the same name, `app/views/welcome/index.html.erb`. Let's give that view some content:
+
+```erb title="app/views/welcome/index.html.erb"
+<h1>Welcome to the blog</h1>
+<p>The time on the server is <%= Time.current.strftime("%H:%M:%S") %>.</p>
+```
+
+ERB files are HTML with embedded Ruby. Code inside `<%= %>` is executed and its result is inserted into the page.
+
+The generator added `get "welcome/index"` to your routes. To make this the home page instead, edit `config/routes.rb` so it contains a root route:
+
+```ruby title="config/routes.rb"
+Rails.application.routes.draw do
+  root "welcome#index"
+
+  # Other generated routes, such as the health check, can stay below.
+  get "up" => "rails/health#show", as: :rails_health_check
+end
+```
+
+`root "welcome#index"` means: when someone visits `/`, run the `index` action of `WelcomeController`. Reload `http://localhost:3000` and you will see your page. Refresh again and the time changes, because the view is rendered fresh on every request.
+
+Now look at the terminal running `bin/dev`. Rails logs each request:
+
+```bash
+Started GET "/" for ::1 at 2026-11-22 10:15:42 +0100
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.8ms)
+Completed 200 OK in 12ms
+```
+
+You can read the whole cycle right there: the request came in, the router chose `WelcomeController#index`, the view was rendered inside the application layout, and a `200 OK` response went back. Get into the habit of watching this log. It is the first place to look when something does not work.
+
+<Callout type="warning">
+
+If you see an error page instead of your view, read it carefully. In development, Rails shows detailed error pages with the exact file, line and message. Common beginner mistakes are a typo in the route string (it must be `"controller#action"` in lowercase) or saving the view under the wrong folder name.
+
+</Callout>
+
+<Exercise title="Make the home page your own">
+
+1. Add a second action called `about` to `WelcomeController`.
+2. Create the matching view at `app/views/welcome/about.html.erb` with a short paragraph about your blog.
+3. Add a route for it in `config/routes.rb`:
+
+```ruby
+get "about" => "welcome#about"
+```
+
+4. Visit `http://localhost:3000/about` and check the log in your terminal. Which controller and action handled the request?
+5. Bonus: add a link from the home page to the about page using `<%= link_to "About", "/about" %>`.
+
+</Exercise>
+
+## Check your understanding
+
+<Quiz question="In a Rails app, which file decides which controller action handles a given URL?" options={["app/controllers/application_controller.rb", "config/routes.rb", "config/database.yml"]} answer={1} explanation="The router reads config/routes.rb to map each incoming request (HTTP verb plus path) to a controller and action." />
+
+<Quiz question="In the MVC pattern, what is the main job of a controller?" options={["Store data and enforce business rules", "Turn data into HTML", "Receive the request, work with models and choose what to render"]} answer={2} explanation="Models hold data and rules, views produce HTML, and the controller coordinates between them for each request." />
+
+## Summary
+
+- Rails is a batteries-included Ruby framework built on **convention over configuration**.
+- Install **Ruby 3.3 or newer** with a version manager, then `gem install rails`.
+- `rails new blog` creates a complete app; `bin/dev` starts it at `http://localhost:3000`.
+- Your code lives mostly in `app/`, configuration in `config/`, and database files in `db/`.
+- A request flows from the browser to the **router**, then a **controller action**, which uses **models** and renders a **view** as the response.
+- The development log shows every step of that cycle, so keep an eye on it.
+
+In the next lesson you will give the blog a memory: you will create the Article and Comment models and store real data with Active Record.
