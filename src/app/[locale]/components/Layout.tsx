@@ -35,7 +35,7 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
                 />
               </Link>
             </div>
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-6 xl:gap-8">
               <Link href="/#about" className="text-muted hover:text-secondary">
                 {t("aboutUs")}
               </Link>
@@ -51,6 +51,9 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
               <Link href="/#contact" className="text-muted hover:text-secondary">
                 {t("contact")}
               </Link>
+              <Link href="/careers" className="text-muted hover:text-secondary">
+                {t("careers")}
+              </Link>
               <LanguageSwitcher />
               <a
                 href={BOOKING_URL}
@@ -61,8 +64,32 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
                 {t("bookCall")}
               </a>
             </div>
-            <div className="md:hidden flex items-center gap-2">
+            <div className="lg:hidden flex items-center gap-2">
               <LanguageSwitcher compact />
+              {/* Mobile menu (no JS needed) */}
+              <details className="group relative order-last">
+                <summary
+                  aria-label="Menu"
+                  className="flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-lg border border-primary/15 text-primary hover:bg-surface [&::-webkit-details-marker]:hidden"
+                >
+                  <svg viewBox="0 0 24 24" className="h-5 w-5 group-open:hidden" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+                  <svg viewBox="0 0 24 24" className="hidden h-5 w-5 group-open:block" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+                </summary>
+                <nav aria-label="Mobile" className="absolute end-0 z-50 mt-2 w-56 rounded-xl bg-white py-2 shadow-xl ring-1 ring-primary/10">
+                  {[
+                    ["/#about", t("aboutUs")],
+                    ["/#services", t("services")],
+                    ["/#ai", t("ai")],
+                    ["/blog", t("blog")],
+                    ["/#contact", t("contact")],
+                    ["/careers", t("careers")],
+                  ].map(([href, label]) => (
+                    <Link key={href} href={href} className="block px-4 py-2.5 text-primary hover:bg-surface">
+                      {label}
+                    </Link>
+                  ))}
+                </nav>
+              </details>
             <a
               href={BOOKING_URL}
               target="_blank"
@@ -188,6 +215,11 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
                   <li>
                     <Link href="/#contact" className="text-muted hover:text-secondary">
                       {f("contact")}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/careers" className="text-muted hover:text-secondary">
+                      {t("careers")}
                     </Link>
                   </li>
                   <li>

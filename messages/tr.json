@@ -22,7 +22,8 @@
     "scheduleAria": "30 dakikalık ücretsiz bir toplantı planlayın (Calendly açılır)",
     "homeAria": "Asistensia – ana sayfa",
     "language": "Dil",
-    "ai": "Yapay Zekâ"
+    "ai": "Yapay Zekâ",
+    "careers": "Kariyer"
   },
   "Footer": {
     "tagline": "Ruby, PHP ve DevOps çözümleri için uzman yazılım danışmanlığı hizmetleri.",
@@ -291,5 +292,111 @@
     "button": "Ücretsiz 30 dakikalık görüşme ayarlayın",
     "email": "Veya bize e-posta gönderin",
     "note": "Ücretsiz · Yükümlülük yok"
+  },
+  "Careers": {
+    "metaTitle": "Kariyer – Staj ve Mentorluk Programı",
+    "metaDescription": "Asistensia'nın Ruby on Rails, React/Next.js, DevOps veya yapay zekâ staj ve mentorluk programına katılın. Gerçek projelerde kıdemli mühendislerden öğrenin.",
+    "eyebrow": "Asistensia'da Kariyer",
+    "title": "Staj ve Mentorluk Programı",
+    "subtitle": "Üretime hazır bir mühendise dönüşün. Gerçek projelerde çalışın, kıdemli danışmanlardan her hafta kod incelemesi alın ve işe alınmanızı sağlayacak bir portfolyo oluşturun.",
+    "applyNow": "Hemen başvurun",
+    "benefitsTitle": "Neler kazanırsınız?",
+    "benefits": [
+      {
+        "title": "Birebir kıdemli mentorluk",
+        "text": "Düzenli görüşmeler ve gelişiminiz hakkında dürüst geri bildirim sunan kıdemli bir mühendis mentorunuz olur."
+      },
+      {
+        "title": "Gerçek projeler",
+        "text": "Özellikleri üretim ekiplerinin çalıştığı gibi geliştirin: ticket'lar, pull request'ler, CI/CD ve deployment'lar."
+      },
+      {
+        "title": "Kod incelemeleri",
+        "text": "Pull request'lerinize ayrıntılı incelemeler; böylece yalnızca sözdizimini değil, en iyi uygulamaları da öğrenirsiniz."
+      },
+      {
+        "title": "Sertifika ve referans",
+        "text": "Bir tamamlama sertifikası ve performansınıza bağlı olarak bir referans mektubu ile LinkedIn tavsiyesi."
+      }
+    ],
+    "tracksTitle": "Alanınızı seçin",
+    "tracks": [
+      {
+        "title": "Ruby on Rails / Backend",
+        "text": "Ruby, Rails, PostgreSQL, API'ler, arka plan işleri ve test."
+      },
+      {
+        "title": "Frontend (React / Next.js)",
+        "text": "React, Next.js, TypeScript, erişilebilirlik ve performans."
+      },
+      {
+        "title": "DevOps ve Bulut",
+        "text": "CI/CD, Docker, Kubernetes, Terraform ve AWS/GCP/Azure."
+      },
+      {
+        "title": "Yapay Zekâ / Makine Öğrenimi",
+        "text": "LLM entegrasyonu, RAG, yapay zekâ ajanları ve değerlendirme."
+      }
+    ],
+    "stepsTitle": "Nasıl işler?",
+    "steps": [
+      {
+        "title": "Başvurun",
+        "text": "Aşağıdaki formu ilgi alanlarınız, deneyiminiz ve bütçenizle doldurun."
+      },
+      {
+        "title": "Tanışma görüşmesi",
+        "text": "Hedeflerinizi anlamak ve sizi uygun bir mentorla eşleştirmek için kısa bir görüşme planlarız."
+      },
+      {
+        "title": "Öğrenmeye başlayın",
+        "text": "Planınızı, ilk projenizi ve ekip kanallarımıza erişiminizi alın."
+      }
+    ],
+    "programNote": "Bu ücretli bir eğitim programıdır: katılımcılar mentorluk ve rehberlik için bir program ücreti öder. Bize bütçenizi söyleyin, size uygun bir plan önerelim.",
+    "formTitle": "Programa başvurun",
+    "formSubtitle": "Yaklaşık 3 dakika sürer. Her başvuruya yanıt veriyoruz.",
+    "name": "Ad Soyad",
+    "email": "E-posta",
+    "phone": "Telefon (isteğe bağlı)",
+    "country": "İkamet ettiğiniz ülke",
+    "field": "Uzmanlık veya ilgi alanı",
+    "fieldOther": "Diğer",
+    "selectPlaceholder": "Lütfen seçin",
+    "level": "Mevcut seviye",
+    "levels": [
+      "Öğrenci",
+      "Yeni mezun",
+      "Kariyer değiştiren",
+      "Junior geliştirici (0–2 yıl)"
+    ],
+    "duration": "Tercih edilen süre",
+    "durations": [
+      "1 ay",
+      "3 ay",
+      "6 ay",
+      "Henüz emin değilim"
+    ],
+    "start": "En erken başlangıç tarihi",
+    "budget": "Program için bütçeniz (aylık)",
+    "budgets": [
+      "100 €'ya kadar",
+      "100 € – 250 €",
+      "250 € – 500 €",
+      "500 € – 1.000 €",
+      "1.000 €'dan fazla",
+      "Görüşmek istiyorum"
+    ],
+    "links": "LinkedIn, GitHub veya portfolyo URL'si",
+    "cv": "CV / özgeçmiş (PDF, en fazla 10 MB)",
+    "motivation": "Neden katılmak istiyorsunuz? Neler öğrenmek istersiniz?",
+    "consent": "Başvuru verilerimin, başvurumun değerlendirilmesi ve benimle iletişime geçilmesi amacıyla Asistensia tarafından işlenmesini kabul ediyorum. Programa katılmadığım takdirde verilerim 6 ay sonra silinir.",
+    "privacyLink": "Gizlilik Politikası",
+    "submit": "Başvuruyu gönder",
+    "sending": "Gönderiliyor…",
+    "successTitle": "Teşekkürler — başvurunuz gönderildi!",
+    "successText": "Başvurunuzu inceleyip birkaç iş günü içinde size e-postayla dönüş yapacağız.",
+    "error": "Bir sorun oluştu. Lütfen tekrar deneyin veya bize {email} adresinden yazın.",
+    "fileTooLarge": "Dosya çok büyük. Lütfen 10 MB'tan küçük bir PDF yükleyin."
   }
 }

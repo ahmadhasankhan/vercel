@@ -22,7 +22,8 @@
     "scheduleAria": "Kostenlosen 30-minütigen Termin vereinbaren (öffnet Calendly)",
     "homeAria": "Asistensia – Startseite",
     "language": "Sprache",
-    "ai": "KI-Lösungen"
+    "ai": "KI-Lösungen",
+    "careers": "Karriere"
   },
   "Footer": {
     "tagline": "Software-Beratung von Experten für Ruby, PHP und DevOps.",
@@ -291,5 +292,111 @@
     "button": "Kostenloses 30-Min.-Gespräch buchen",
     "email": "Oder schreiben Sie uns",
     "note": "Kostenlos · Unverbindlich"
+  },
+  "Careers": {
+    "metaTitle": "Karriere – Praktikums- & Mentoringprogramm",
+    "metaDescription": "Das Praktikums- und Mentoringprogramm von Asistensia in Ruby on Rails, React/Next.js, DevOps oder KI. Lernen Sie von Senior Engineers an echten Projekten.",
+    "eyebrow": "Karriere bei Asistensia",
+    "title": "Praktikums- & Mentoringprogramm",
+    "subtitle": "Entwickeln Sie sich zu einem Engineer, der bereit für den Produktiveinsatz ist. Arbeiten Sie an echten Projekten, erhalten Sie wöchentliche Code-Reviews von Senior-Beratern und bauen Sie ein Portfolio auf, das Ihnen den nächsten Job sichert.",
+    "applyNow": "Jetzt bewerben",
+    "benefitsTitle": "Was Sie erwartet",
+    "benefits": [
+      {
+        "title": "1:1-Mentoring durch Senior-Experten",
+        "text": "Ein Senior Engineer als Ihr Mentor – mit regelmäßigen Check-ins und ehrlichem Feedback zu Ihren Fortschritten."
+      },
+      {
+        "title": "Echte Projekte",
+        "text": "Entwickeln Sie Features so, wie es Produktivteams tun – mit Tickets, Pull Requests, CI/CD und Deployments."
+      },
+      {
+        "title": "Code-Reviews",
+        "text": "Ausführliche Reviews Ihrer Pull Requests, damit Sie Best Practices lernen – nicht nur Syntax."
+      },
+      {
+        "title": "Zertifikat & Referenz",
+        "text": "Ein Teilnahmezertifikat und – abhängig von Ihrer Leistung – ein Empfehlungsschreiben sowie eine Empfehlung auf LinkedIn."
+      }
+    ],
+    "tracksTitle": "Wählen Sie Ihren Schwerpunkt",
+    "tracks": [
+      {
+        "title": "Ruby on Rails / Backend",
+        "text": "Ruby, Rails, PostgreSQL, APIs, Background Jobs und Testing."
+      },
+      {
+        "title": "Frontend (React / Next.js)",
+        "text": "React, Next.js, TypeScript, Barrierefreiheit und Performance."
+      },
+      {
+        "title": "DevOps & Cloud",
+        "text": "CI/CD, Docker, Kubernetes, Terraform und AWS/GCP/Azure."
+      },
+      {
+        "title": "KI / Machine Learning",
+        "text": "LLM-Integration, RAG, KI-Agenten und Evaluierung."
+      }
+    ],
+    "stepsTitle": "So funktioniert es",
+    "steps": [
+      {
+        "title": "Bewerben",
+        "text": "Füllen Sie das Formular unten mit Ihren Interessen, Ihrer Erfahrung und Ihrem Budget aus."
+      },
+      {
+        "title": "Kennenlerngespräch",
+        "text": "Wir vereinbaren ein kurzes Gespräch, um Ihre Ziele zu verstehen und Ihnen einen passenden Mentor zuzuordnen."
+      },
+      {
+        "title": "Loslegen",
+        "text": "Sie erhalten Ihren Lernplan, Ihr erstes Projekt und Zugang zu unseren Teamkanälen."
+      }
+    ],
+    "programNote": "Dies ist ein kostenpflichtiges Ausbildungsprogramm: Teilnehmende zahlen eine Programmgebühr für Mentoring und Betreuung. Nennen Sie uns Ihr Budget, und wir schlagen Ihnen ein passendes Modell vor.",
+    "formTitle": "Für das Programm bewerben",
+    "formSubtitle": "Dauert etwa 3 Minuten. Wir antworten auf jede Bewerbung.",
+    "name": "Vollständiger Name",
+    "email": "E-Mail",
+    "phone": "Telefon (optional)",
+    "country": "Wohnsitzland",
+    "field": "Fachgebiet oder Interessensgebiet",
+    "fieldOther": "Sonstiges",
+    "selectPlaceholder": "Bitte auswählen",
+    "level": "Aktueller Stand",
+    "levels": [
+      "Student/in",
+      "Absolvent/in",
+      "Quereinsteiger/in",
+      "Junior Developer (0–2 Jahre)"
+    ],
+    "duration": "Gewünschte Dauer",
+    "durations": [
+      "1 Monat",
+      "3 Monate",
+      "6 Monate",
+      "Noch unsicher"
+    ],
+    "start": "Frühestmöglicher Beginn",
+    "budget": "Ihr Budget für das Programm (pro Monat)",
+    "budgets": [
+      "Bis 100 €",
+      "100 € – 250 €",
+      "250 € – 500 €",
+      "500 € – 1.000 €",
+      "Mehr als 1.000 €",
+      "Möchte ich besprechen"
+    ],
+    "links": "LinkedIn-, GitHub- oder Portfolio-URL",
+    "cv": "Lebenslauf / CV (PDF, max. 10 MB)",
+    "motivation": "Warum möchten Sie teilnehmen? Was möchten Sie lernen?",
+    "consent": "Ich willige ein, dass Asistensia meine Bewerbungsdaten verarbeitet, um meine Bewerbung zu prüfen und mich zu kontaktieren. Meine Daten werden nach 6 Monaten gelöscht, sofern ich nicht am Programm teilnehme.",
+    "privacyLink": "Datenschutzerklärung",
+    "submit": "Bewerbung absenden",
+    "sending": "Wird gesendet…",
+    "successTitle": "Vielen Dank – Ihre Bewerbung wurde gesendet!",
+    "successText": "Wir prüfen sie und melden uns innerhalb weniger Werktage per E-Mail bei Ihnen.",
+    "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns an {email}.",
+    "fileTooLarge": "Die Datei ist zu groß. Bitte laden Sie eine PDF-Datei unter 10 MB hoch."
   }
 }

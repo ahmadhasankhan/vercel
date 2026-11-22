@@ -22,7 +22,8 @@
     "scheduleAria": "Agenda una reunión gratuita de 30 minutos (abre Calendly)",
     "homeAria": "Asistensia – inicio",
     "language": "Idioma",
-    "ai": "Soluciones IA"
+    "ai": "Soluciones IA",
+    "careers": "Prácticas"
   },
   "Footer": {
     "tagline": "Servicios expertos de consultoría de software en Ruby, PHP y DevOps.",
@@ -291,5 +292,111 @@
     "button": "Reserva una llamada gratuita de 30 min",
     "email": "O escríbenos",
     "note": "Gratis · Sin compromiso"
+  },
+  "Careers": {
+    "metaTitle": "Empleo – Programa de prácticas y mentoría",
+    "metaDescription": "Únete al programa de prácticas y mentoría de Asistensia en Ruby on Rails, React/Next.js, DevOps o IA. Aprende de ingenieros sénior en proyectos reales.",
+    "eyebrow": "Trabaja en Asistensia",
+    "title": "Programa de prácticas y mentoría",
+    "subtitle": "Conviértete en un ingeniero listo para producción. Trabaja en proyectos reales, recibe revisiones de código semanales de consultores sénior y crea un portafolio que te abra puertas.",
+    "applyNow": "Solicitar ahora",
+    "benefitsTitle": "Qué obtienes",
+    "benefits": [
+      {
+        "title": "Mentoría individual con un sénior",
+        "text": "Un ingeniero sénior como mentor, con seguimientos periódicos y feedback sincero sobre tu progreso."
+      },
+      {
+        "title": "Proyectos reales",
+        "text": "Desarrolla funcionalidades como lo hacen los equipos en producción: tickets, pull requests, CI/CD y despliegues."
+      },
+      {
+        "title": "Revisiones de código",
+        "text": "Revisiones detalladas de tus pull requests para que aprendas buenas prácticas, no solo sintaxis."
+      },
+      {
+        "title": "Certificado y referencia",
+        "text": "Un certificado de finalización y, según tu desempeño, una carta de referencia y una recomendación en LinkedIn."
+      }
+    ],
+    "tracksTitle": "Elige tu especialidad",
+    "tracks": [
+      {
+        "title": "Ruby on Rails / Backend",
+        "text": "Ruby, Rails, PostgreSQL, APIs, tareas en segundo plano y testing."
+      },
+      {
+        "title": "Frontend (React / Next.js)",
+        "text": "React, Next.js, TypeScript, accesibilidad y rendimiento."
+      },
+      {
+        "title": "DevOps y Cloud",
+        "text": "CI/CD, Docker, Kubernetes, Terraform y AWS/GCP/Azure."
+      },
+      {
+        "title": "IA / Machine Learning",
+        "text": "Integración de LLM, RAG, agentes de IA y evaluación."
+      }
+    ],
+    "stepsTitle": "Cómo funciona",
+    "steps": [
+      {
+        "title": "Solicita",
+        "text": "Rellena el formulario de abajo con tus intereses, tu experiencia y tu presupuesto."
+      },
+      {
+        "title": "Llamada inicial",
+        "text": "Programamos una breve llamada para conocer tus objetivos y asignarte un mentor adecuado."
+      },
+      {
+        "title": "Empieza a aprender",
+        "text": "Recibe tu plan, tu primer proyecto y acceso a los canales de nuestro equipo."
+      }
+    ],
+    "programNote": "Se trata de un programa de formación de pago: los participantes abonan una tarifa por la mentoría y el acompañamiento. Cuéntanos tu presupuesto y te propondremos un plan a tu medida.",
+    "formTitle": "Solicita tu plaza en el programa",
+    "formSubtitle": "Te llevará unos 3 minutos. Respondemos a todas las solicitudes.",
+    "name": "Nombre completo",
+    "email": "Correo electrónico",
+    "phone": "Teléfono (opcional)",
+    "country": "País de residencia",
+    "field": "Área de especialización o interés",
+    "fieldOther": "Otro",
+    "selectPlaceholder": "Selecciona una opción",
+    "level": "Nivel actual",
+    "levels": [
+      "Estudiante",
+      "Recién titulado/a",
+      "En cambio de carrera",
+      "Desarrollador/a junior (0–2 años)"
+    ],
+    "duration": "Duración preferida",
+    "durations": [
+      "1 mes",
+      "3 meses",
+      "6 meses",
+      "Aún no lo sé"
+    ],
+    "start": "Fecha de inicio más temprana",
+    "budget": "Tu presupuesto para el programa (al mes)",
+    "budgets": [
+      "Hasta 100 €",
+      "100 € – 250 €",
+      "250 € – 500 €",
+      "500 € – 1000 €",
+      "Más de 1000 €",
+      "Prefiero hablarlo"
+    ],
+    "links": "URL de LinkedIn, GitHub o portafolio",
+    "cv": "CV / currículum (PDF, máx. 10 MB)",
+    "motivation": "¿Por qué quieres unirte? ¿Qué te gustaría aprender?",
+    "consent": "Acepto que Asistensia trate los datos de mi solicitud para evaluarla y ponerse en contacto conmigo. Mis datos se eliminarán transcurridos 6 meses, salvo que me incorpore al programa.",
+    "privacyLink": "Política de privacidad",
+    "submit": "Enviar solicitud",
+    "sending": "Enviando…",
+    "successTitle": "¡Gracias! Tu solicitud se ha enviado.",
+    "successText": "La revisaremos y te responderemos por correo electrónico en unos pocos días hábiles.",
+    "error": "Algo ha salido mal. Inténtalo de nuevo o escríbenos a {email}.",
+    "fileTooLarge": "El archivo es demasiado grande. Sube un PDF de menos de 10 MB."
   }
 }

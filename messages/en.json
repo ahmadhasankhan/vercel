@@ -22,7 +22,8 @@
     "scheduleAria": "Schedule a free 30-minute meeting (opens Calendly)",
     "homeAria": "Asistensia – home",
     "language": "Language",
-    "ai": "AI Solutions"
+    "ai": "AI Solutions",
+    "careers": "Careers"
   },
   "Footer": {
     "tagline": "Expert software consulting services for Ruby, PHP, and DevOps solutions.",
@@ -291,5 +292,111 @@
     "button": "Book a free 30-min call",
     "email": "Or email us",
     "note": "Free · No obligation"
+  },
+  "Careers": {
+    "metaTitle": "Careers – Internship & Mentorship Program",
+    "metaDescription": "Join Asistensia's internship and mentorship program in Ruby on Rails, React/Next.js, DevOps or AI. Learn from senior engineers on real-world projects.",
+    "eyebrow": "Careers at Asistensia",
+    "title": "Internship & Mentorship Program",
+    "subtitle": "Grow into a production-ready engineer. Work on real-world projects, get weekly code reviews from senior consultants, and build a portfolio that gets you hired.",
+    "applyNow": "Apply now",
+    "benefitsTitle": "What you get",
+    "benefits": [
+      {
+        "title": "1:1 senior mentorship",
+        "text": "A senior engineer as your mentor, with regular check-ins and honest feedback on your progress."
+      },
+      {
+        "title": "Real-world projects",
+        "text": "Build features the way production teams do — tickets, pull requests, CI/CD and deployments."
+      },
+      {
+        "title": "Code reviews",
+        "text": "Detailed reviews on your pull requests so you learn best practices, not just syntax."
+      },
+      {
+        "title": "Certificate & reference",
+        "text": "A certificate of completion and, based on your performance, a reference letter and LinkedIn recommendation."
+      }
+    ],
+    "tracksTitle": "Choose your track",
+    "tracks": [
+      {
+        "title": "Ruby on Rails / Backend",
+        "text": "Ruby, Rails, PostgreSQL, APIs, background jobs and testing."
+      },
+      {
+        "title": "Frontend (React / Next.js)",
+        "text": "React, Next.js, TypeScript, accessibility and performance."
+      },
+      {
+        "title": "DevOps & Cloud",
+        "text": "CI/CD, Docker, Kubernetes, Terraform and AWS/GCP/Azure."
+      },
+      {
+        "title": "AI / Machine Learning",
+        "text": "LLM integration, RAG, AI agents and evaluation."
+      }
+    ],
+    "stepsTitle": "How it works",
+    "steps": [
+      {
+        "title": "Apply",
+        "text": "Fill in the form below with your interests, experience and budget."
+      },
+      {
+        "title": "Intro call",
+        "text": "We schedule a short call to understand your goals and match you with a mentor."
+      },
+      {
+        "title": "Start learning",
+        "text": "Get your plan, your first project and access to our team channels."
+      }
+    ],
+    "programNote": "This is a paid training program: participants pay a program fee for mentorship and guidance. Tell us your budget and we'll suggest a plan that fits.",
+    "formTitle": "Apply for the program",
+    "formSubtitle": "Takes about 3 minutes. We reply to every application.",
+    "name": "Full name",
+    "email": "Email",
+    "phone": "Phone (optional)",
+    "country": "Country of residence",
+    "field": "Field of expertise or interest",
+    "fieldOther": "Other",
+    "selectPlaceholder": "Please select",
+    "level": "Current level",
+    "levels": [
+      "Student",
+      "Recent graduate",
+      "Career switcher",
+      "Junior developer (0–2 years)"
+    ],
+    "duration": "Preferred duration",
+    "durations": [
+      "1 month",
+      "3 months",
+      "6 months",
+      "Not sure yet"
+    ],
+    "start": "Earliest start date",
+    "budget": "Your budget for the program (per month)",
+    "budgets": [
+      "Up to €100",
+      "€100 – €250",
+      "€250 – €500",
+      "€500 – €1,000",
+      "More than €1,000",
+      "I'd like to discuss"
+    ],
+    "links": "LinkedIn, GitHub or portfolio URL",
+    "cv": "CV / résumé (PDF, max 10 MB)",
+    "motivation": "Why do you want to join? What would you like to learn?",
+    "consent": "I agree that Asistensia may process my application data to evaluate my application and contact me. My data is deleted after 6 months unless I join the program.",
+    "privacyLink": "Privacy Policy",
+    "submit": "Send application",
+    "sending": "Sending…",
+    "successTitle": "Thank you — your application has been sent!",
+    "successText": "We'll review it and get back to you by email within a few working days.",
+    "error": "Something went wrong. Please try again or email us at {email}.",
+    "fileTooLarge": "The file is too large. Please upload a PDF under 10 MB."
   }
 }

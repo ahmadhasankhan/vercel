@@ -22,7 +22,8 @@
     "scheduleAria": "Fissa un incontro gratuito di 30 minuti (apre Calendly)",
     "homeAria": "Asistensia – home",
     "language": "Lingua",
-    "ai": "Soluzioni IA"
+    "ai": "Soluzioni IA",
+    "careers": "Stage"
   },
   "Footer": {
     "tagline": "Servizi di consulenza software specializzati in Ruby, PHP e DevOps.",
@@ -291,5 +292,111 @@
     "button": "Prenota una call gratuita di 30 min",
     "email": "Oppure scrivici",
     "note": "Gratis · Senza impegno"
+  },
+  "Careers": {
+    "metaTitle": "Lavora con noi – Programma di stage e mentorship",
+    "metaDescription": "Partecipa al programma di stage e mentorship di Asistensia in Ruby on Rails, React/Next.js, DevOps o IA. Impara da ingegneri senior su progetti reali.",
+    "eyebrow": "Lavora con Asistensia",
+    "title": "Programma di stage e mentorship",
+    "subtitle": "Diventa un ingegnere pronto per la produzione. Lavora su progetti reali, ricevi code review settimanali da consulenti senior e costruisci un portfolio che ti fa assumere.",
+    "applyNow": "Candidati ora",
+    "benefitsTitle": "Cosa ottieni",
+    "benefits": [
+      {
+        "title": "Mentorship 1:1 con un senior",
+        "text": "Un ingegnere senior come mentore, con check-in regolari e feedback sincero sui tuoi progressi."
+      },
+      {
+        "title": "Progetti reali",
+        "text": "Sviluppa funzionalità come fanno i team in produzione: ticket, pull request, CI/CD e deployment."
+      },
+      {
+        "title": "Code review",
+        "text": "Revisioni dettagliate delle tue pull request, per imparare le best practice e non solo la sintassi."
+      },
+      {
+        "title": "Certificato e referenze",
+        "text": "Un attestato di completamento e, in base ai tuoi risultati, una lettera di referenze e una raccomandazione su LinkedIn."
+      }
+    ],
+    "tracksTitle": "Scegli il tuo percorso",
+    "tracks": [
+      {
+        "title": "Ruby on Rails / Backend",
+        "text": "Ruby, Rails, PostgreSQL, API, job in background e testing."
+      },
+      {
+        "title": "Frontend (React / Next.js)",
+        "text": "React, Next.js, TypeScript, accessibilità e prestazioni."
+      },
+      {
+        "title": "DevOps e Cloud",
+        "text": "CI/CD, Docker, Kubernetes, Terraform e AWS/GCP/Azure."
+      },
+      {
+        "title": "IA / Machine Learning",
+        "text": "Integrazione di LLM, RAG, agenti IA e valutazione."
+      }
+    ],
+    "stepsTitle": "Come funziona",
+    "steps": [
+      {
+        "title": "Candidati",
+        "text": "Compila il modulo qui sotto indicando interessi, esperienza e budget."
+      },
+      {
+        "title": "Call conoscitiva",
+        "text": "Fissiamo una breve call per capire i tuoi obiettivi e abbinarti al mentore giusto."
+      },
+      {
+        "title": "Inizia a imparare",
+        "text": "Ricevi il tuo piano, il tuo primo progetto e l'accesso ai canali del nostro team."
+      }
+    ],
+    "programNote": "Si tratta di un programma di formazione a pagamento: i partecipanti versano una quota di partecipazione per la mentorship e l'affiancamento. Indicaci il tuo budget e ti proporremo un piano adatto a te.",
+    "formTitle": "Candidati al programma",
+    "formSubtitle": "Richiede circa 3 minuti. Rispondiamo a ogni candidatura.",
+    "name": "Nome e cognome",
+    "email": "Email",
+    "phone": "Telefono (facoltativo)",
+    "country": "Paese di residenza",
+    "field": "Area di competenza o di interesse",
+    "fieldOther": "Altro",
+    "selectPlaceholder": "Seleziona",
+    "level": "Livello attuale",
+    "levels": [
+      "Studente",
+      "Neolaureato/a",
+      "In cambio di carriera",
+      "Sviluppatore junior (0–2 anni)"
+    ],
+    "duration": "Durata preferita",
+    "durations": [
+      "1 mese",
+      "3 mesi",
+      "6 mesi",
+      "Non lo so ancora"
+    ],
+    "start": "Prima data di inizio possibile",
+    "budget": "Il tuo budget per il programma (al mese)",
+    "budgets": [
+      "Fino a 100 €",
+      "100 € – 250 €",
+      "250 € – 500 €",
+      "500 € – 1.000 €",
+      "Oltre 1.000 €",
+      "Preferisco parlarne"
+    ],
+    "links": "URL di LinkedIn, GitHub o portfolio",
+    "cv": "CV / curriculum (PDF, max 10 MB)",
+    "motivation": "Perché vuoi partecipare? Cosa ti piacerebbe imparare?",
+    "consent": "Acconsento al trattamento dei dati della mia candidatura da parte di Asistensia al fine di valutarla e contattarmi. I miei dati verranno cancellati dopo 6 mesi, salvo che io entri a far parte del programma.",
+    "privacyLink": "Informativa sulla privacy",
+    "submit": "Invia candidatura",
+    "sending": "Invio in corso…",
+    "successTitle": "Grazie, la tua candidatura è stata inviata!",
+    "successText": "La esamineremo e ti risponderemo via email entro pochi giorni lavorativi.",
+    "error": "Si è verificato un errore. Riprova oppure scrivici a {email}.",
+    "fileTooLarge": "Il file è troppo grande. Carica un PDF inferiore a 10 MB."
   }
 }

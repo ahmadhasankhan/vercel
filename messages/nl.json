@@ -22,7 +22,8 @@
     "scheduleAria": "Plan een gratis gesprek van 30 minuten (opent Calendly)",
     "homeAria": "Asistensia – home",
     "language": "Taal",
-    "ai": "AI-oplossingen"
+    "ai": "AI-oplossingen",
+    "careers": "Stage"
   },
   "Footer": {
     "tagline": "Deskundige softwareconsultancy voor Ruby-, PHP- en DevOps-oplossingen.",
@@ -291,5 +292,111 @@
     "button": "Plan een gratis gesprek van 30 min",
     "email": "Of mail ons",
     "note": "Gratis · Vrijblijvend"
+  },
+  "Careers": {
+    "metaTitle": "Werken bij – Stage- & mentorprogramma",
+    "metaDescription": "Doe mee aan het stage- en mentorprogramma van Asistensia in Ruby on Rails, React/Next.js, DevOps of AI. Leer van senior engineers aan echte projecten.",
+    "eyebrow": "Werken bij Asistensia",
+    "title": "Stage- & mentorprogramma",
+    "subtitle": "Groei uit tot een engineer die klaar is voor productie. Werk aan echte projecten, krijg wekelijks code reviews van senior consultants en bouw een portfolio waarmee je wordt aangenomen.",
+    "applyNow": "Solliciteer nu",
+    "benefitsTitle": "Wat je krijgt",
+    "benefits": [
+      {
+        "title": "1-op-1 begeleiding door een senior",
+        "text": "Een senior engineer als mentor, met regelmatige check-ins en eerlijke feedback op je voortgang."
+      },
+      {
+        "title": "Echte projecten",
+        "text": "Bouw features zoals productieteams dat doen — met tickets, pull requests, CI/CD en deployments."
+      },
+      {
+        "title": "Code reviews",
+        "text": "Uitgebreide reviews van je pull requests, zodat je best practices leert en niet alleen syntax."
+      },
+      {
+        "title": "Certificaat & referentie",
+        "text": "Een certificaat van deelname en, afhankelijk van je prestaties, een referentiebrief en een aanbeveling op LinkedIn."
+      }
+    ],
+    "tracksTitle": "Kies je richting",
+    "tracks": [
+      {
+        "title": "Ruby on Rails / Backend",
+        "text": "Ruby, Rails, PostgreSQL, API's, background jobs en testen."
+      },
+      {
+        "title": "Frontend (React / Next.js)",
+        "text": "React, Next.js, TypeScript, toegankelijkheid en performance."
+      },
+      {
+        "title": "DevOps & Cloud",
+        "text": "CI/CD, Docker, Kubernetes, Terraform en AWS/GCP/Azure."
+      },
+      {
+        "title": "AI / Machine Learning",
+        "text": "LLM-integratie, RAG, AI-agents en evaluatie."
+      }
+    ],
+    "stepsTitle": "Zo werkt het",
+    "steps": [
+      {
+        "title": "Solliciteer",
+        "text": "Vul het formulier hieronder in met je interesses, ervaring en budget."
+      },
+      {
+        "title": "Kennismakingsgesprek",
+        "text": "We plannen een kort gesprek om je doelen te begrijpen en je aan een passende mentor te koppelen."
+      },
+      {
+        "title": "Begin met leren",
+        "text": "Je krijgt je plan, je eerste project en toegang tot onze teamkanalen."
+      }
+    ],
+    "programNote": "Dit is een betaald opleidingsprogramma: deelnemers betalen een programmavergoeding voor de begeleiding en mentoring. Laat ons je budget weten, dan stellen we een plan voor dat daarbij past.",
+    "formTitle": "Meld je aan voor het programma",
+    "formSubtitle": "Duurt ongeveer 3 minuten. We reageren op elke sollicitatie.",
+    "name": "Volledige naam",
+    "email": "E-mail",
+    "phone": "Telefoon (optioneel)",
+    "country": "Woonland",
+    "field": "Vakgebied of interessegebied",
+    "fieldOther": "Anders",
+    "selectPlaceholder": "Maak een keuze",
+    "level": "Huidig niveau",
+    "levels": [
+      "Student",
+      "Pas afgestudeerd",
+      "Carrièreswitcher",
+      "Junior developer (0–2 jaar)"
+    ],
+    "duration": "Gewenste duur",
+    "durations": [
+      "1 maand",
+      "3 maanden",
+      "6 maanden",
+      "Weet ik nog niet"
+    ],
+    "start": "Vroegst mogelijke startdatum",
+    "budget": "Je budget voor het programma (per maand)",
+    "budgets": [
+      "Tot € 100",
+      "€ 100 – € 250",
+      "€ 250 – € 500",
+      "€ 500 – € 1.000",
+      "Meer dan € 1.000",
+      "Ik bespreek het liever"
+    ],
+    "links": "URL van LinkedIn, GitHub of portfolio",
+    "cv": "CV (PDF, max. 10 MB)",
+    "motivation": "Waarom wil je meedoen? Wat zou je graag willen leren?",
+    "consent": "Ik ga ermee akkoord dat Asistensia mijn sollicitatiegegevens verwerkt om mijn sollicitatie te beoordelen en contact met mij op te nemen. Mijn gegevens worden na 6 maanden verwijderd, tenzij ik aan het programma deelneem.",
+    "privacyLink": "Privacybeleid",
+    "submit": "Sollicitatie versturen",
+    "sending": "Bezig met versturen…",
+    "successTitle": "Bedankt — je sollicitatie is verstuurd!",
+    "successText": "We bekijken hem en laten binnen een paar werkdagen per e-mail van ons horen.",
+    "error": "Er is iets misgegaan. Probeer het opnieuw of mail ons via {email}.",
+    "fileTooLarge": "Het bestand is te groot. Upload een PDF van maximaal 10 MB."
   }
 }

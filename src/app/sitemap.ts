@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...entry("", { changeFrequency: "weekly", priority: 1.0 }),
     ...entry("/blog", { changeFrequency: "weekly", priority: 0.8, lastModified: latest }),
+    ...entry("/careers", { changeFrequency: "monthly", priority: 0.5 }),
     ...entry("/privacy", { changeFrequency: "yearly", priority: 0.3 }),
     ...posts.flatMap((p) =>
       entry(`/blog/${p.slug}`, {
