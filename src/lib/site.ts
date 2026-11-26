@@ -89,3 +89,10 @@ export const CAREERS_FORM_ENDPOINT = "https://formspree.io/f/mvkaweaw";
  * otherwise it answers "File Uploads Not Permitted". Flip to true after upgrading.
  */
 export const CAREERS_ALLOW_UPLOAD = false;
+
+/**
+ * Asistensia Learn (/learn self-study courses). false = hidden everywhere:
+ * no menu/footer links, not in the sitemap, and all /learn pages return 404.
+ * Flip to true to bring it back — no other changes needed.
+ */
+export const LEARN_ENABLED = false;

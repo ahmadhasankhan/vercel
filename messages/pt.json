@@ -48,7 +48,16 @@
     "legalTitle": "Informações legais",
     "privacy": "Política de Privacidade",
     "socialsTitle": "Redes sociais",
-    "rights": "© {year} Asistensia. Todos os direitos reservados."
+    "rights": "© {year} Asistensia. Todos os direitos reservados.",
+    "subscribing": "Enviando…",
+    "subscribed": "Obrigado! A sua inscrição foi registada.",
+    "subscribeError": "Ocorreu um erro. Tente novamente mais tarde.",
+    "invalidEmail": "Informe um endereço de e-mail válido.",
+    "consentNote": "Ao se inscrever, você concorda em receber a nossa newsletter. Pode cancelar a inscrição a qualquer momento.",
+    "unsubTitle": "Newsletter",
+    "unsubSuccess": "A sua inscrição foi cancelada. Você não receberá mais as nossas newsletters.",
+    "unsubInvalid": "Este link de cancelamento é inválido ou já foi utilizado.",
+    "backHome": "Voltar ao início"
   },
   "About": {
     "title": "Sobre a Asistensia",

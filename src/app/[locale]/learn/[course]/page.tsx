@@ -6,13 +6,14 @@ import AccountBar from "../../components/learn/AccountBar";
 import LessonList from "../../components/learn/LessonList";
 import { Link } from "@/i18n/routing";
 import { getCourse, getCourseSlugs } from "@/lib/courses";
-import { LOCALES, SITE_NAME, SITE_URL, alternatesFor, localizedUrl } from "@/lib/site";
+import { LEARN_ENABLED, LOCALES, SITE_NAME, SITE_URL, alternatesFor, localizedUrl } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string; course: string }> };
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
+  if (!LEARN_ENABLED) return [];
   return LOCALES.flatMap((locale) => getCourseSlugs().map((course) => ({ locale, course })));
 }
 
@@ -29,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function CoursePage({ params }: Props) {
+  if (!LEARN_ENABLED) notFound();
   const { locale, course: slug } = await params;
   setRequestLocale(locale);
   const course = getCourse(slug);

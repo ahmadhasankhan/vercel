@@ -48,7 +48,16 @@
     "legalTitle": "Yasal",
     "privacy": "Gizlilik Politikası",
     "socialsTitle": "Sosyal Medya",
-    "rights": "© {year} Asistensia. Tüm hakları saklıdır."
+    "rights": "© {year} Asistensia. Tüm hakları saklıdır.",
+    "subscribing": "Abone olunuyor…",
+    "subscribed": "Teşekkürler! Abone oldunuz.",
+    "subscribeError": "Bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+    "invalidEmail": "Lütfen geçerli bir e-posta adresi girin.",
+    "consentNote": "Abone olarak bültenimizi almayı kabul etmiş olursunuz. Aboneliğinizi istediğiniz zaman iptal edebilirsiniz.",
+    "unsubTitle": "Bülten",
+    "unsubSuccess": "Aboneliğiniz iptal edildi. Artık bültenlerimizi almayacaksınız.",
+    "unsubInvalid": "Bu abonelikten çıkma bağlantısı geçersiz veya zaten kullanılmış.",
+    "backHome": "Ana sayfaya dön"
   },
   "About": {
     "title": "Asistensia Hakkında",

@@ -9,7 +9,8 @@ import {
 import { useTranslations } from "next-intl";
 import { CookieSettingsButton } from "./CookieConsent";
 import LanguageSwitcher from "./LanguageSwitcher";
-import { BOOKING_URL, BRAND, SITE_NAME, SOCIALS } from "@/lib/site";
+import NewsletterForm from "./NewsletterForm";
+import { BOOKING_URL, BRAND, LEARN_ENABLED, SITE_NAME, SOCIALS } from "@/lib/site";
 
 export default function Layout({ children }: { children: React.ReactNode }): React.JSX.Element {
   const year = new Date().getFullYear();
@@ -51,9 +52,11 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
               <Link href="/#contact" className="text-muted hover:text-secondary">
                 {t("contact")}
               </Link>
-              <Link href="/learn" className="text-muted hover:text-secondary">
-                {t("learn")}
-              </Link>
+              {LEARN_ENABLED && (
+                <Link href="/learn" className="text-muted hover:text-secondary">
+                  {t("learn")}
+                </Link>
+              )}
               <Link href="/careers" className="text-muted hover:text-secondary">
                 {t("careers")}
               </Link>
@@ -85,7 +88,7 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
                     ["/#ai", t("ai")],
                     ["/blog", t("blog")],
                     ["/#contact", t("contact")],
-                    ["/learn", t("learn")],
+                    ...(LEARN_ENABLED ? [["/learn", t("learn")]] : []),
                     ["/careers", t("careers")],
                   ].map(([href, label]) => (
                     <Link key={href} href={href} className="block px-4 py-2.5 text-primary hover:bg-surface">
@@ -143,25 +146,7 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
 
               <p className="font-bold text-primary uppercase pt-8">{f("newsletterTitle")}</p>
               <p className="text-muted leading-relaxed pt-5 font-medium max-w-md">{f("newsletterText")}</p>
-              <form className="mt-10">
-                <label htmlFor="newsletter-email" className="sr-only">
-                  {f("emailLabel")}
-                </label>
-                <input
-                  id="newsletter-email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  placeholder={f("emailPlaceholder")}
-                  className="p-1 w-44 border-1 border-gray-200 text-primary focus:outline-none focus:ring-primary focus:border-primary shadow-sm"
-                />
-                <button
-                  type="submit"
-                  className="text-white bg-primary px-4 py-1 hover:bg-secondary"
-                >
-                  {f("subscribe")}
-                </button>
-              </form>
+              <NewsletterForm />
             </div>
             <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
               <div>
@@ -221,11 +206,13 @@ export default function Layout({ children }: { children: React.ReactNode }): Rea
                       {f("contact")}
                     </Link>
                   </li>
-                  <li>
-                    <Link href="/learn" className="text-muted hover:text-secondary">
-                      {t("learn")}
-                    </Link>
-                  </li>
+                  {LEARN_ENABLED && (
+                    <li>
+                      <Link href="/learn" className="text-muted hover:text-secondary">
+                        {t("learn")}
+                      </Link>
+                    </li>
+                  )}
                   <li>
                     <Link href="/careers" className="text-muted hover:text-secondary">
                       {t("careers")}

@@ -48,7 +48,16 @@
     "legalTitle": "Legal",
     "privacy": "Política de privacidad",
     "socialsTitle": "Redes sociales",
-    "rights": "© {year} Asistensia. Todos los derechos reservados."
+    "rights": "© {year} Asistensia. Todos los derechos reservados.",
+    "subscribing": "Suscribiendo…",
+    "subscribed": "¡Gracias! Ya estás suscrito.",
+    "subscribeError": "Algo salió mal. Inténtalo de nuevo más tarde.",
+    "invalidEmail": "Introduce una dirección de correo válida.",
+    "consentNote": "Al suscribirte, aceptas recibir nuestra newsletter. Puedes darte de baja en cualquier momento.",
+    "unsubTitle": "Newsletter",
+    "unsubSuccess": "Te has dado de baja. Ya no recibirás nuestras newsletters.",
+    "unsubInvalid": "Este enlace de baja no es válido o ya se ha utilizado.",
+    "backHome": "Volver al inicio"
   },
   "About": {
     "title": "Sobre Asistensia",

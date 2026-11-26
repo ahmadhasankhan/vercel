@@ -14,13 +14,14 @@ import AccountBar from "../../../components/learn/AccountBar";
 import { Link } from "@/i18n/routing";
 import { getCourse, getCourseSlugs, readLesson } from "@/lib/courses";
 import { getCourseAccess } from "@/lib/supabase/server";
-import { BOOKING_URL, LOCALES, SITE_NAME, alternatesFor, localizedUrl } from "@/lib/site";
+import { BOOKING_URL, LEARN_ENABLED, LOCALES, SITE_NAME, alternatesFor, localizedUrl } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string; course: string; lesson: string }> };
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
+  if (!LEARN_ENABLED) return [];
   return LOCALES.flatMap((locale) =>
     getCourseSlugs().flatMap((course) =>
       (getCourse(course)?.lessons ?? []).map((l) => ({ locale, course, lesson: l.slug }))
@@ -50,6 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function LessonPage({ params }: Props) {
+  if (!LEARN_ENABLED) notFound();
   const { locale, course: courseSlug, lesson: lessonSlug } = await params;
   setRequestLocale(locale);
   const course = getCourse(courseSlug);

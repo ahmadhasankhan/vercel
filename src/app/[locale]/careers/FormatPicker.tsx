@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
+import { LEARN_ENABLED } from "@/lib/site";
 
 /** English values sent with the application (keep in sync with CareerForm). */
 export const FORMAT_VALUES = ["Online self-study", "Project-based bundle", "Mentor-based"] as const;
@@ -58,7 +59,7 @@ export default function FormatPicker() {
             >
               {t("selectFormat")}
             </button>
-            {i === 0 && (
+            {i === 0 && LEARN_ENABLED && (
               <Link href="/learn" className="mt-3 text-center text-sm font-semibold text-secondary hover:underline">
                 {tl("startFree")} &rarr;
               </Link>

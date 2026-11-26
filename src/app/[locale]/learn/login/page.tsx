@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { LEARN_ENABLED } from "@/lib/site";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Layout from "../../components/Layout";
 import LoginForm from "./LoginForm";
@@ -12,6 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function LoginPage({ params, searchParams }: Props) {
+  if (!LEARN_ENABLED) notFound();
   const { locale } = await params;
   setRequestLocale(locale);
   const { next = "/learn", error } = await searchParams;

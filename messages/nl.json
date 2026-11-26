@@ -48,7 +48,16 @@
     "legalTitle": "Juridisch",
     "privacy": "Privacybeleid",
     "socialsTitle": "Social media",
-    "rights": "© {year} Asistensia. Alle rechten voorbehouden."
+    "rights": "© {year} Asistensia. Alle rechten voorbehouden.",
+    "subscribing": "Aanmelden…",
+    "subscribed": "Bedankt! Je bent aangemeld.",
+    "subscribeError": "Er ging iets mis. Probeer het later opnieuw.",
+    "invalidEmail": "Vul een geldig e-mailadres in.",
+    "consentNote": "Door je aan te melden ga je akkoord met het ontvangen van onze nieuwsbrief. Je kunt je op elk moment afmelden.",
+    "unsubTitle": "Nieuwsbrief",
+    "unsubSuccess": "Je bent afgemeld. Je ontvangt geen nieuwsbrieven meer van ons.",
+    "unsubInvalid": "Deze afmeldlink is ongeldig of al gebruikt.",
+    "backHome": "Terug naar home"
   },
   "About": {
     "title": "Over Asistensia",

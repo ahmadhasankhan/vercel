@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Layout from "../components/Layout";
 import AccountBar from "../components/learn/AccountBar";
 import { Link } from "@/i18n/routing";
 import { getAllCourses } from "@/lib/courses";
-import { BRAND, OG_LOCALE, SITE_NAME, alternatesFor, localizedUrl } from "@/lib/site";
+import { BRAND, LEARN_ENABLED, OG_LOCALE, SITE_NAME, alternatesFor, localizedUrl } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -28,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function LearnPage({ params }: Props) {
+  if (!LEARN_ENABLED) notFound(); // feature switched off in src/lib/site.ts
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "Learn" });
