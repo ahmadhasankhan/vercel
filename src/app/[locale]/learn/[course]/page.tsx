@@ -6,7 +6,7 @@ import AccountBar from "../../components/learn/AccountBar";
 import LessonList from "../../components/learn/LessonList";
 import { Link } from "@/i18n/routing";
 import { getCourse, getCourseSlugs } from "@/lib/courses";
-import { LEARN_ENABLED, LOCALES, SITE_NAME, SITE_URL, alternatesFor, localizedUrl } from "@/lib/site";
+import { LEARN_ENABLED, LOCALES, SITE_NAME, SITE_URL, englishOnlyAlternates, localizedUrl } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string; course: string }> };
 
@@ -24,8 +24,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: course.title,
     description: course.description,
-    alternates: alternatesFor(locale, `/learn/${slug}`),
-    openGraph: { title: course.title, description: course.description, url: localizedUrl(locale, `/learn/${slug}`), siteName: SITE_NAME, type: "website" },
+    alternates: englishOnlyAlternates(`/learn/${slug}`), // course content is English-only
+    openGraph: { title: course.title, description: course.description, url: localizedUrl("en", `/learn/${slug}`), siteName: SITE_NAME, type: "website" },
   };
 }
 
@@ -44,7 +44,7 @@ export default async function CoursePage({ params }: Props) {
     name: course.title,
     description: course.description,
     inLanguage: "en",
-    url: localizedUrl(locale, `/learn/${slug}`),
+    url: localizedUrl("en", `/learn/${slug}`),
     provider: { "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: SITE_NAME, sameAs: SITE_URL },
     hasCourseInstance: { "@type": "CourseInstance", courseMode: "online", courseWorkload: "PT6H" },
     offers: { "@type": "Offer", category: "Partially free", price: 0, priceCurrency: "EUR" },

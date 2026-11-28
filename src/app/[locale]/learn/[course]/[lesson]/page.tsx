@@ -14,7 +14,7 @@ import AccountBar from "../../../components/learn/AccountBar";
 import { Link } from "@/i18n/routing";
 import { getCourse, getCourseSlugs, readLesson } from "@/lib/courses";
 import { getCourseAccess } from "@/lib/supabase/server";
-import { BOOKING_URL, LEARN_ENABLED, LOCALES, SITE_NAME, alternatesFor, localizedUrl } from "@/lib/site";
+import { BOOKING_URL, LEARN_ENABLED, LOCALES, SITE_NAME, englishOnlyAlternates, localizedUrl } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string; course: string; lesson: string }> };
 
@@ -44,9 +44,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${info.title} – ${course.title}`,
     description: info.description,
-    alternates: alternatesFor(locale, `/learn/${c}/${l}`),
+    alternates: englishOnlyAlternates(`/learn/${c}/${l}`), // lessons are English-only
     robots: indexable ? undefined : { index: false, follow: true },
-    openGraph: { title: info.title, description: info.description, url: localizedUrl(locale, `/learn/${c}/${l}`), siteName: SITE_NAME, type: "article" },
+    openGraph: { title: info.title, description: info.description, url: localizedUrl("en", `/learn/${c}/${l}`), siteName: SITE_NAME, type: "article" },
   };
 }
 

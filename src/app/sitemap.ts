@@ -15,6 +15,14 @@ function entry(
   }));
 }
 
+/** English-only content: list just the English URL (other language copies point to it as canonical). */
+function englishEntry(
+  path: string,
+  opts: Omit<MetadataRoute.Sitemap[number], "url" | "alternates">
+): MetadataRoute.Sitemap {
+  return [{ url: localizedUrl("en", path), ...opts }];
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
   const latest = posts[0]?.updatedISO ?? posts[0]?.publishedISO;
@@ -27,15 +35,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ? [
           ...entry("/learn", { changeFrequency: "weekly", priority: 0.7 }),
         ...getAllCourses().flatMap((c) => [
-          ...entry(`/learn/${c.slug}`, { changeFrequency: "weekly", priority: 0.7 }),
+          ...englishEntry(`/learn/${c.slug}`, { changeFrequency: "weekly", priority: 0.7 }),
           // only free, published lessons are indexable
-          ...c.lessons.filter((l) => l.free && l.available).flatMap((l) => entry(`/learn/${c.slug}/${l.slug}`, { changeFrequency: "monthly", priority: 0.6 })),
+          ...c.lessons.filter((l) => l.free && l.available).flatMap((l) => englishEntry(`/learn/${c.slug}/${l.slug}`, { changeFrequency: "monthly", priority: 0.6 })),
         ]),
         ]
       : []),
-    ...entry("/privacy", { changeFrequency: "yearly", priority: 0.3 }),
+    ...englishEntry("/privacy", { changeFrequency: "yearly", priority: 0.3 }),
     ...posts.flatMap((p) =>
-      entry(`/blog/${p.slug}`, {
+      englishEntry(`/blog/${p.slug}`, {
         changeFrequency: "monthly",
         priority: 0.6,
         lastModified: p.updatedISO ?? p.publishedISO,

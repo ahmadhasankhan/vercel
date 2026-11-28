@@ -74,6 +74,16 @@ export function alternatesFor(locale: string, path = "") {
   return { canonical: localizedUrl(locale, path), languages };
 }
 
+/**
+ * For pages whose main content exists only in English (blog posts, privacy policy, course lessons):
+ * every language version points to the English page as canonical, and only English is announced
+ * via hreflang. This stops Google from flagging the 10 language copies as duplicates.
+ */
+export function englishOnlyAlternates(path = "") {
+  const en = localizedUrl(DEFAULT_LOCALE, path);
+  return { canonical: en, languages: { en, "x-default": en } };
+}
+
 /** localStorage key holding the visitor's cookie choice (shared by banner + GTM loader). */
 export const CONSENT_KEY = "asistensia_consent";
 

@@ -16,7 +16,7 @@ import {
   SITE_NAME,
   SITE_URL,
   absUrl,
-  alternatesFor,
+  englishOnlyAlternates,
   localizedUrl,
 } from "@/lib/site";
 
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return { robots: { index: false, follow: false } };
   const { meta } = post;
 
-  const url = localizedUrl(locale, `/blog/${slug}`);
+  const url = localizedUrl("en", `/blog/${slug}`); // canonical English article
   const ogImage = meta.coverImage ? absUrl(meta.coverImage) : absUrl(BRAND.ogImage);
 
   return {
@@ -45,7 +45,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: meta.description,
     keywords: meta.tags,
     authors: meta.author?.name ? [{ name: meta.author.name }] : undefined,
-    alternates: alternatesFor(locale, `/blog/${slug}`),
+    // content is English-only → all language versions point to the English article
+    alternates: englishOnlyAlternates(`/blog/${slug}`),
     openGraph: {
       type: "article",
       title: meta.title,
@@ -95,7 +96,7 @@ export default async function BlogPostPage({ params }: Props) {
   const tb = await getTranslations({ locale, namespace: "Blog" });
 
   const { content, meta } = post;
-  const url = localizedUrl(locale, `/blog/${slug}`);
+  const url = localizedUrl("en", `/blog/${slug}`); // canonical English article
   const imgAbs = meta.coverImage ? absUrl(meta.coverImage) : absUrl(BRAND.ogImage);
   const isTeam = !meta.author?.name || /team/i.test(meta.author.name);
 

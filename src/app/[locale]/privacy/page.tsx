@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
 import type { Metadata } from "next";
-import { alternatesFor } from "@/lib/site";
+import { englishOnlyAlternates } from "@/lib/site";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t("privacy"),
     description: "How Asistensia collects, uses, and protects your data.",
-    alternates: alternatesFor(locale, "/privacy"),
+    alternates: englishOnlyAlternates("/privacy"), // policy text is English-only
     robots: { index: true, follow: true },
   };
 }
